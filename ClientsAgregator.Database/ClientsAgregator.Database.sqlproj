@@ -6,7 +6,7 @@
     <Name>ClientsAgregator.Database</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
-    <ProjectGuid>{f7be5b4b-619b-4559-a71c-da7688f91319}</ProjectGuid>
+    <ProjectGuid>{dda3da8c-6bed-46b2-b224-96963a6d76a4}</ProjectGuid>
     <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
