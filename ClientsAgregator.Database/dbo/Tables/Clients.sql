@@ -3,7 +3,7 @@
     [FirstName]    VARCHAR (255) NOT NULL,
     [LastName]     VARCHAR (255) NOT NULL,
     [Phone]        VARCHAR (60)  NULL,
-    [Email]        VARCHAR (255) NULL,
+    [Email]        NVARCHAR(50) NULL,
     [BulkStatusId] INT           NOT NULL,
     [Male]         BIT           NOT NULL,
     CONSTRAINT [PK_CLIENTS] PRIMARY KEY CLUSTERED ([Id] ASC),
