@@ -1,5 +1,5 @@
 ﻿CREATE PROCEDURE AddSubgroup
 @Title VARCHAR(255)
 AS
-INSERT Clients VALUES
+INSERT [dbo].[Subgroups] VALUES
 (@Title)
