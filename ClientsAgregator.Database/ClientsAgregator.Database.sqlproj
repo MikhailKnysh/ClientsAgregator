@@ -78,5 +78,12 @@
     <Build Include="dbo\Stored Procedures\GetProducts.sql" />
     <Build Include="dbo\Stored Procedures\GetProductById.sql" />
     <Build Include="dbo\Stored Procedures\UpdateProductById.sql" />
+    <Build Include="dbo\Stored Procedures\AddProduct.sql" />
+    <Build Include="dbo\Stored Procedures\DeleteProductById.sql" />
+    <Build Include="dbo\Stored Procedures\GetClients.sql" />
+    <Build Include="dbo\Stored Procedures\GetClientsById.sql" />
+    <Build Include="dbo\Stored Procedures\AddClient.sql" />
+    <Build Include="dbo\Stored Procedures\DeleteClientById.sql" />
+    <Build Include="dbo\Stored Procedures\UpdateClientById.sql" />
   </ItemGroup>
 </Project>
