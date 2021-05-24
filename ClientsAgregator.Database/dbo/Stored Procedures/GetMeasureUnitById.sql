@@ -1,6 +1,5 @@
-﻿CREATE PROCEDURE [dbo].[GetMeasureUnitById]
-	@param1 int = 0,
-	@param2 int
+﻿CREATE PROCEDURE GetMeasureUnitById
+@Id int
 AS
-	SELECT @param1, @param2
-RETURN 0
+SELECT * FROM [dbo].[MeasureUnits]
+WHERE Id = @Id

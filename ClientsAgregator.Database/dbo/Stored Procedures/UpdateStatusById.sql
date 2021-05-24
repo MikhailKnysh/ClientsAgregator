@@ -1,6 +1,8 @@
-﻿CREATE PROCEDURE [dbo].[UpdateStatusById]
-	@param1 int = 0,
-	@param2 int
+﻿CREATE PROCEDURE UpdateStatusById
+@Id int,
+@Title varchar(255)
 AS
-	SELECT @param1, @param2
-RETURN 0
+UPDATE [dbo].[Statuses]
+SET
+Title = @Title
+WHERE Id = @Id

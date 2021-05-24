@@ -1,6 +1,5 @@
-﻿CREATE PROCEDURE [dbo].[AddMeasureUnits]
-	@param1 int = 0,
-	@param2 int
+﻿CREATE PROCEDURE AddMeasureUnit
+@Title varchar(255)
 AS
-	SELECT @param1, @param2
-RETURN 0
+INSERT [dbo].[MeasureUnits]
+VALUES (@Title)

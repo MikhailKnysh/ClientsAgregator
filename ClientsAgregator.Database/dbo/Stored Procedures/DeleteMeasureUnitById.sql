@@ -1,6 +1,5 @@
-﻿CREATE PROCEDURE [dbo].[DeleteMeasureUnitById]
-	@param1 int = 0,
-	@param2 int
+﻿CREATE PROCEDURE DeleteMeasureUnitById
+@Id int
 AS
-	SELECT @param1, @param2
-RETURN 0
+DELETE [dbo].[MeasureUnits]
+WHERE Id = @Id

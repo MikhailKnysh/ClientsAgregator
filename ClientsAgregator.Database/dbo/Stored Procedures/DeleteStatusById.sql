@@ -1,6 +1,5 @@
-﻿CREATE PROCEDURE [dbo].[DeleteStatusById]
-	@param1 int = 0,
-	@param2 int
+﻿CREATE PROCEDURE DeleteStatusById
+@Id int
 AS
-	SELECT @param1, @param2
-RETURN 0
+DELETE [dbo].[Statuses]
+WHERE Id = @Id
