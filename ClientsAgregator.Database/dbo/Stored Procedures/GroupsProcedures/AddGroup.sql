@@ -1,0 +1,5 @@
+﻿CREATE PROCEDURE AddGroup
+@Title VARCHAR(255)
+AS
+INSERT [dbo].[Groups] VALUES
+(@Title)
