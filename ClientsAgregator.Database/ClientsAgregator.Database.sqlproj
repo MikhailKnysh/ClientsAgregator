@@ -59,6 +59,7 @@
     <Folder Include="dbo\" />
     <Folder Include="dbo\Tables\" />
     <Folder Include="dbo\Stored Procedures" />
+    <Folder Include="dbo\Stored Procedures\ProductOrder" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Clients.sql" />
@@ -101,5 +102,16 @@
     <Build Include="dbo\Stored Procedures\GetOrders.sql" />
     <Build Include="dbo\Stored Procedures\GetOrdersById.sql" />
     <Build Include="dbo\Stored Procedures\UpdateOrderById.sql" />
+    <Build Include="dbo\Stored Procedures\ProductOrder\DeleteProductOrderByCompositId.sql" />
+    <Build Include="dbo\Stored Procedures\ProductOrder\DeleteProductOrderByOrderId.sql" />
+    <Build Include="dbo\Stored Procedures\ProductOrder\DeleteProductOrderByProductId.sql" />
+    <Build Include="dbo\Stored Procedures\ProductOrder\GetProductOrder.sql" />
+    <Build Include="dbo\Stored Procedures\ProductOrder\GetProductOrderByProductId.sql" />
+    <Build Include="dbo\Stored Procedures\ProductOrder\GetProductOrderByOrderId.sql" />
+    <Build Include="dbo\Stored Procedures\ProductOrder\AddProductOrder.sql" />
+    <Build Include="dbo\Stored Procedures\ProductOrder\UpdateProductOrder.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="ClientsAgregator.Database.refactorlog" />
   </ItemGroup>
 </Project>
