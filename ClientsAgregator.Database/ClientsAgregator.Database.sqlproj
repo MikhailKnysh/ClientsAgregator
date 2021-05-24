@@ -84,6 +84,11 @@
     <Build Include="dbo\Stored Procedures\AddClient.sql" />
     <Build Include="dbo\Stored Procedures\DeleteClientById.sql" />
     <Build Include="dbo\Stored Procedures\UpdateClientById.sql" />
+    <Build Include="dbo\Stored Procedures\AddOrder.sql" />
+    <Build Include="dbo\Stored Procedures\DeleteOrdersById.sql" />
+    <Build Include="dbo\Stored Procedures\GetOrders.sql" />
+    <Build Include="dbo\Stored Procedures\GetOrdersById.sql" />
+    <Build Include="dbo\Stored Procedures\UpdateOrderById.sql" />
     <Build Include="dbo\Stored Procedures\ProductOrder\DeleteProductOrderByCompositId.sql" />
     <Build Include="dbo\Stored Procedures\ProductOrder\DeleteProductOrderByOrderId.sql" />
     <Build Include="dbo\Stored Procedures\ProductOrder\DeleteProductOrderByProductId.sql" />
