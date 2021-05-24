@@ -80,6 +80,16 @@
     <Build Include="dbo\Stored Procedures\UpdateProductById.sql" />
     <Build Include="dbo\Stored Procedures\AddProduct.sql" />
     <Build Include="dbo\Stored Procedures\DeleteProductById.sql" />
+    <Build Include="dbo\Stored Procedures\AddStatus.sql" />
+    <Build Include="dbo\Stored Procedures\DeleteStatusById.sql" />
+    <Build Include="dbo\Stored Procedures\GetStatusById.sql" />
+    <Build Include="dbo\Stored Procedures\GetStatuses.sql" />
+    <Build Include="dbo\Stored Procedures\UpdateStatusById.sql" />
+    <Build Include="dbo\Stored Procedures\AddMeasureUnit.sql" />
+    <Build Include="dbo\Stored Procedures\DeleteMeasureUnitById.sql" />
+    <Build Include="dbo\Stored Procedures\GetMeasureUnitById.sql" />
+    <Build Include="dbo\Stored Procedures\GetMeasureUnit.sql" />
+    <Build Include="dbo\Stored Procedures\UpdateMeasureUnitById.sql" />
     <Build Include="dbo\Stored Procedures\GetClients.sql" />
     <Build Include="dbo\Stored Procedures\GetClientsById.sql" />
     <Build Include="dbo\Stored Procedures\AddClient.sql" />
