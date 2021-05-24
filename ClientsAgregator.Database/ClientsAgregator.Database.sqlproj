@@ -90,5 +90,15 @@
     <Build Include="dbo\Stored Procedures\GetMeasureUnitById.sql" />
     <Build Include="dbo\Stored Procedures\GetMeasureUnit.sql" />
     <Build Include="dbo\Stored Procedures\UpdateMeasureUnitById.sql" />
+    <Build Include="dbo\Stored Procedures\GetClients.sql" />
+    <Build Include="dbo\Stored Procedures\GetClientsById.sql" />
+    <Build Include="dbo\Stored Procedures\AddClient.sql" />
+    <Build Include="dbo\Stored Procedures\DeleteClientById.sql" />
+    <Build Include="dbo\Stored Procedures\UpdateClientById.sql" />
+    <Build Include="dbo\Stored Procedures\AddOrder.sql" />
+    <Build Include="dbo\Stored Procedures\DeleteOrdersById.sql" />
+    <Build Include="dbo\Stored Procedures\GetOrders.sql" />
+    <Build Include="dbo\Stored Procedures\GetOrdersById.sql" />
+    <Build Include="dbo\Stored Procedures\UpdateOrderById.sql" />
   </ItemGroup>
 </Project>
