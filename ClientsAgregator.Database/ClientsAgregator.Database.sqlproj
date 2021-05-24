@@ -86,5 +86,10 @@
     <Build Include="dbo\Stored Procedures\AddFeedbacks.sql" />
     <Build Include="dbo\Stored Procedures\DeleteFeedbacksById.sql" />
     <Build Include="dbo\Stored Procedures\GetFeedbacks.sql" />
+    <Build Include="dbo\Stored Procedures\AddOrder.sql" />
+    <Build Include="dbo\Stored Procedures\DeleteOrdersById.sql" />
+    <Build Include="dbo\Stored Procedures\GetOrders.sql" />
+    <Build Include="dbo\Stored Procedures\GetOrdersById.sql" />
+    <Build Include="dbo\Stored Procedures\UpdateOrderById.sql" />
   </ItemGroup>
 </Project>
