@@ -1,6 +1,5 @@
-﻿CREATE PROCEDURE [dbo].[GetGroupById]
-	@param1 int = 0,
-	@param2 int
+﻿CREATE PROCEDURE GetGroupById
+@Id INT
 AS
-	SELECT @param1, @param2
-RETURN 0
+SELECT * FROM [dbo].[Groups]
+WHERE Id = @Id

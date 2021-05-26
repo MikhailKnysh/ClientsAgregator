@@ -60,6 +60,9 @@
     <Folder Include="dbo\Tables\" />
     <Folder Include="dbo\Stored Procedures" />
     <Folder Include="dbo\Stored Procedures\ProductOrder" />
+    <Folder Include="dbo\Stored Procedures\BulkStatus\" />
+    <Folder Include="dbo\Stored Procedures\GroupsProcedures\" />
+    <Folder Include="dbo\Stored Procedures\SubgroupProcedures\" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Clients.sql" />
@@ -109,6 +112,28 @@
     <Build Include="dbo\Stored Procedures\ProductOrder\GetProductOrderByProductId.sql" />
     <Build Include="dbo\Stored Procedures\ProductOrder\GetProductOrderByOrderId.sql" />
     <Build Include="dbo\Stored Procedures\ProductOrder\AddProductOrder.sql" />
+    <Build Include="dbo\Stored Procedures\ProductOrder\UpdateProductOrder.sql" />
+    <Build Include="dbo\Stored Procedures\BulkStatus\AddBulkStatus.sql" />
+    <Build Include="dbo\Stored Procedures\BulkStatus\DeleteBulkStatusById.sql" />
+    <Build Include="dbo\Stored Procedures\BulkStatus\GetBulkStatus.sql" />
+    <Build Include="dbo\Stored Procedures\BulkStatus\UpdateBulkStatusById.sql" />
+    <Build Include="dbo\Stored Procedures\GroupsProcedures\DeleteGroupById.sql" />
+    <Build Include="dbo\Stored Procedures\GroupsProcedures\AddGroup.sql" />
+    <Build Include="dbo\Stored Procedures\GroupsProcedures\GetGroupById.sql" />
+    <Build Include="dbo\Stored Procedures\GroupsProcedures\GetGroups.sql" />
+    <Build Include="dbo\Stored Procedures\GroupsProcedures\UpdateGroupByID.sql" />
+    <Build Include="dbo\Stored Procedures\SubgroupProcedures\AddSubgroup.sql" />
+    <Build Include="dbo\Stored Procedures\SubgroupProcedures\DeleteSubgroupById.sql" />
+    <Build Include="dbo\Stored Procedures\SubgroupProcedures\GetSubgroupById.sql" />
+    <Build Include="dbo\Stored Procedures\SubgroupProcedures\GetSubgroups.sql" />
+    <Build Include="dbo\Stored Procedures\SubgroupProcedures\UpdateSubgroupById.sql" />
+    <Build Include="dbo\Stored Procedures\ProductOrder\AddProductOrder.sql" />
+    <Build Include="dbo\Stored Procedures\ProductOrder\DeleteProductOrderByCompositId.sql" />
+    <Build Include="dbo\Stored Procedures\ProductOrder\DeleteProductOrderByOrderId.sql" />
+    <Build Include="dbo\Stored Procedures\ProductOrder\DeleteProductOrderByProductId.sql" />
+    <Build Include="dbo\Stored Procedures\ProductOrder\GetProductOrder.sql" />
+    <Build Include="dbo\Stored Procedures\ProductOrder\GetProductOrder.sql" />
+    <Build Include="dbo\Stored Procedures\ProductOrder\GetProductOrderByProductId.sql" />
     <Build Include="dbo\Stored Procedures\ProductOrder\UpdateProductOrder.sql" />
   </ItemGroup>
   <ItemGroup>
