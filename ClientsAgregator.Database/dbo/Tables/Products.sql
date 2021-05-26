@@ -1,5 +1,6 @@
 ﻿CREATE TABLE [dbo].[Products] (
     [ID]        INT           IDENTITY (1, 1) NOT NULL,
+    [Articul]   VARCHAR (255) NULL,
     [Title]     VARCHAR (255) NOT NULL,
     [Price]     FLOAT (53)    NULL,
     [Quantity]  INT           NULL,

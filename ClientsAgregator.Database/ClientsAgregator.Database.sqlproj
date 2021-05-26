@@ -61,8 +61,9 @@
     <Folder Include="dbo\Stored Procedures" />
     <Folder Include="dbo\Stored Procedures\ProductOrder" />
     <Folder Include="dbo\Stored Procedures\BulkStatus\" />
-    <Folder Include="dbo\Stored Procedures\GroupsProcedures\" />
-    <Folder Include="dbo\Stored Procedures\SubgroupProcedures\" />
+    <Folder Include="dbo\Stored Procedures\Groups" />
+    <Folder Include="dbo\Stored Procedures\Subgroup" />
+    <Folder Include="dbo\Stored Procedures\Product" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Clients.sql" />
@@ -77,11 +78,6 @@
     <Build Include="dbo\Tables\Feedbacks.sql" />
     <Build Include="dbo\Tables\MeasureUnits.sql" />
     <Build Include="dbo\Tables\Statuses.sql" />
-    <Build Include="dbo\Stored Procedures\GetProducts.sql" />
-    <Build Include="dbo\Stored Procedures\GetProductById.sql" />
-    <Build Include="dbo\Stored Procedures\UpdateProductById.sql" />
-    <Build Include="dbo\Stored Procedures\AddProduct.sql" />
-    <Build Include="dbo\Stored Procedures\DeleteProductById.sql" />
     <Build Include="dbo\Stored Procedures\AddStatus.sql" />
     <Build Include="dbo\Stored Procedures\DeleteStatusById.sql" />
     <Build Include="dbo\Stored Procedures\GetStatusById.sql" />
@@ -92,11 +88,7 @@
     <Build Include="dbo\Stored Procedures\GetMeasureUnitById.sql" />
     <Build Include="dbo\Stored Procedures\GetMeasureUnit.sql" />
     <Build Include="dbo\Stored Procedures\UpdateMeasureUnitById.sql" />
-    <Build Include="dbo\Stored Procedures\GetClients.sql" />
     <Build Include="dbo\Stored Procedures\GetClientsById.sql" />
-    <Build Include="dbo\Stored Procedures\AddClient.sql" />
-    <Build Include="dbo\Stored Procedures\DeleteClientById.sql" />
-    <Build Include="dbo\Stored Procedures\UpdateClientById.sql" />
     <Build Include="dbo\Stored Procedures\AddFeedbacks.sql" />
     <Build Include="dbo\Stored Procedures\DeleteFeedbacksById.sql" />
     <Build Include="dbo\Stored Procedures\GetFeedbacks.sql" />
@@ -117,16 +109,16 @@
     <Build Include="dbo\Stored Procedures\BulkStatus\DeleteBulkStatusById.sql" />
     <Build Include="dbo\Stored Procedures\BulkStatus\GetBulkStatus.sql" />
     <Build Include="dbo\Stored Procedures\BulkStatus\UpdateBulkStatusById.sql" />
-    <Build Include="dbo\Stored Procedures\GroupsProcedures\DeleteGroupById.sql" />
-    <Build Include="dbo\Stored Procedures\GroupsProcedures\AddGroup.sql" />
-    <Build Include="dbo\Stored Procedures\GroupsProcedures\GetGroupById.sql" />
-    <Build Include="dbo\Stored Procedures\GroupsProcedures\GetGroups.sql" />
-    <Build Include="dbo\Stored Procedures\GroupsProcedures\UpdateGroupByID.sql" />
-    <Build Include="dbo\Stored Procedures\SubgroupProcedures\AddSubgroup.sql" />
-    <Build Include="dbo\Stored Procedures\SubgroupProcedures\DeleteSubgroupById.sql" />
-    <Build Include="dbo\Stored Procedures\SubgroupProcedures\GetSubgroupById.sql" />
-    <Build Include="dbo\Stored Procedures\SubgroupProcedures\GetSubgroups.sql" />
-    <Build Include="dbo\Stored Procedures\SubgroupProcedures\UpdateSubgroupById.sql" />
+    <Build Include="dbo\Stored Procedures\Groups\DeleteGroupById.sql" />
+    <Build Include="dbo\Stored Procedures\Groups\AddGroup.sql" />
+    <Build Include="dbo\Stored Procedures\Groups\GetGroupById.sql" />
+    <Build Include="dbo\Stored Procedures\Groups\GetGroups.sql" />
+    <Build Include="dbo\Stored Procedures\Groups\UpdateGroupByID.sql" />
+    <Build Include="dbo\Stored Procedures\Subgroup\AddSubgroup.sql" />
+    <Build Include="dbo\Stored Procedures\Subgroup\DeleteSubgroupById.sql" />
+    <Build Include="dbo\Stored Procedures\Subgroup\GetSubgroupById.sql" />
+    <Build Include="dbo\Stored Procedures\Subgroup\GetSubgroups.sql" />
+    <Build Include="dbo\Stored Procedures\Subgroup\UpdateSubgroupById.sql" />
     <Build Include="dbo\Stored Procedures\ProductOrder\AddProductOrder.sql" />
     <Build Include="dbo\Stored Procedures\ProductOrder\DeleteProductOrderByCompositId.sql" />
     <Build Include="dbo\Stored Procedures\ProductOrder\DeleteProductOrderByOrderId.sql" />
@@ -135,6 +127,11 @@
     <Build Include="dbo\Stored Procedures\ProductOrder\GetProductOrder.sql" />
     <Build Include="dbo\Stored Procedures\ProductOrder\GetProductOrderByProductId.sql" />
     <Build Include="dbo\Stored Procedures\ProductOrder\UpdateProductOrder.sql" />
+    <Build Include="dbo\Stored Procedures\Product\GetProductById.sql" />
+    <Build Include="dbo\Stored Procedures\Product\GetProducts.sql" />
+    <Build Include="dbo\Stored Procedures\Product\UpdateProductById.sql" />
+    <Build Include="dbo\Stored Procedures\Product\DeleteProductById.sql" />
+    <Build Include="dbo\Stored Procedures\Product\AddProduct.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="ClientsAgregator.Database.refactorlog" />
