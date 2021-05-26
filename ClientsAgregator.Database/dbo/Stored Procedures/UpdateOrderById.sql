@@ -11,7 +11,6 @@ SET
 ClientId = @ClientId,
 StatusesId = @StatusesId,
 SellerComment = @SellerComment,
-OrderDate = @OrderDate,
-DeliveryDate = @DekiveryDate
+OrderDate = @OrderDate
 WHERE Id = @Id
 
