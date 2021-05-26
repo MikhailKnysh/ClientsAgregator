@@ -2,9 +2,8 @@
 @ClientId INT,
 @StatusesId INT,
 @SellerComment VARCHAR(800),
-@OrderDate VARCHAR(255),
-@DekiveryDate VARCHAR(255)
+@OrderDate VARCHAR(255)
 AS
 INSERT [dbo].[Orders]
-VALUES (@ClientId, @StatusesId, @SellerComment, @OrderDate, @DekiveryDate)
+VALUES (@ClientId, @StatusesId, @SellerComment, @OrderDate)
 

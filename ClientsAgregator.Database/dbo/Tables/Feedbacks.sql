@@ -7,6 +7,6 @@
     [Rate]        INT           NULL,
     CONSTRAINT [PK_FEEDBACKS] PRIMARY KEY CLUSTERED ([Id] ASC),
     CONSTRAINT [Feedbacks_fk0] FOREIGN KEY ([ClientId]) REFERENCES [dbo].[Clients] ([Id]),
-    CONSTRAINT [Feedbacks_fk1] FOREIGN KEY ([ProductId]) REFERENCES [dbo].[Products] ([ID])
+    CONSTRAINT [Feedbacks_fk1] FOREIGN KEY ([ProductId]) REFERENCES [dbo].[Products] ([Id])
 );
 
