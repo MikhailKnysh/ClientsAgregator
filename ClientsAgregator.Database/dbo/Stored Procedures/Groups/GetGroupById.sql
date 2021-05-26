@@ -1,0 +1,5 @@
+﻿CREATE PROCEDURE GetGroupById
+@Id INT
+AS
+SELECT * FROM [dbo].[Groups]
+WHERE Id = @Id
