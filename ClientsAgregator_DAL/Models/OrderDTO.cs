@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
+﻿
 namespace ClientsAgregator_DAL.Models
 {
     public class OrderDTO
@@ -11,6 +8,6 @@ namespace ClientsAgregator_DAL.Models
         public int StatusesId { get; set; }
         public string SellerComment { get; set; }
         public string OrderDate { get; set; }
-        public bool Male { get; set; }
+        public double TotalPrice { get; set; }
     }
 }

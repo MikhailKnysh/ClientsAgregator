@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ClientsAgregator_DAL.Models
+﻿namespace ClientsAgregator_DAL.Models
 {
     public class SubgroupDTO
     {

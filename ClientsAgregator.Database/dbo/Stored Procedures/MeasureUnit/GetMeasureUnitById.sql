@@ -1,5 +1,5 @@
 ﻿CREATE PROCEDURE GetMeasureUnitById
-@Id int
+@Id INT
 AS
 SELECT * FROM [dbo].[MeasureUnits]
 WHERE Id = @Id
