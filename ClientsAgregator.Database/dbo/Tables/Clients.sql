@@ -1,7 +1,8 @@
 ﻿CREATE TABLE [dbo].[Clients] (
     [Id]           INT           IDENTITY (1, 1) NOT NULL,
-    [FirstName]    VARCHAR (255) NOT NULL,
     [LastName]     VARCHAR (255) NOT NULL,
+    [FirstName]    VARCHAR (255) NOT NULL,
+    [MiddleName]   VARCHAR (255) NOT NULL,
     [Phone]        VARCHAR (60)  NULL,
     [Email]        NVARCHAR(50) NULL,
     [BulkStatusId] INT           NOT NULL,
