@@ -64,6 +64,11 @@
     <Folder Include="dbo\Stored Procedures\Groups" />
     <Folder Include="dbo\Stored Procedures\Subgroup" />
     <Folder Include="dbo\Stored Procedures\Product" />
+    <Folder Include="dbo\Stored Procedures\Orders" />
+    <Folder Include="dbo\Stored Procedures\Feedbacks" />
+    <Folder Include="dbo\Stored Procedures\MeasureUnit" />
+    <Folder Include="dbo\Stored Procedures\Status" />
+    <Folder Include="dbo\Stored Procedures\Clients" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Clients.sql" />
@@ -78,25 +83,6 @@
     <Build Include="dbo\Tables\Feedbacks.sql" />
     <Build Include="dbo\Tables\MeasureUnits.sql" />
     <Build Include="dbo\Tables\Statuses.sql" />
-    <Build Include="dbo\Stored Procedures\AddStatus.sql" />
-    <Build Include="dbo\Stored Procedures\DeleteStatusById.sql" />
-    <Build Include="dbo\Stored Procedures\GetStatusById.sql" />
-    <Build Include="dbo\Stored Procedures\GetStatuses.sql" />
-    <Build Include="dbo\Stored Procedures\UpdateStatusById.sql" />
-    <Build Include="dbo\Stored Procedures\AddMeasureUnit.sql" />
-    <Build Include="dbo\Stored Procedures\DeleteMeasureUnitById.sql" />
-    <Build Include="dbo\Stored Procedures\GetMeasureUnitById.sql" />
-    <Build Include="dbo\Stored Procedures\GetMeasureUnit.sql" />
-    <Build Include="dbo\Stored Procedures\UpdateMeasureUnitById.sql" />
-    <Build Include="dbo\Stored Procedures\GetClientsById.sql" />
-    <Build Include="dbo\Stored Procedures\AddFeedbacks.sql" />
-    <Build Include="dbo\Stored Procedures\DeleteFeedbacksById.sql" />
-    <Build Include="dbo\Stored Procedures\GetFeedbacks.sql" />
-    <Build Include="dbo\Stored Procedures\AddOrder.sql" />
-    <Build Include="dbo\Stored Procedures\DeleteOrdersById.sql" />
-    <Build Include="dbo\Stored Procedures\GetOrders.sql" />
-    <Build Include="dbo\Stored Procedures\GetOrdersById.sql" />
-    <Build Include="dbo\Stored Procedures\UpdateOrderById.sql" />
     <Build Include="dbo\Stored Procedures\ProductOrder\DeleteProductOrderByCompositId.sql" />
     <Build Include="dbo\Stored Procedures\ProductOrder\DeleteProductOrderByOrderId.sql" />
     <Build Include="dbo\Stored Procedures\ProductOrder\DeleteProductOrderByProductId.sql" />
@@ -132,6 +118,31 @@
     <Build Include="dbo\Stored Procedures\Product\UpdateProductById.sql" />
     <Build Include="dbo\Stored Procedures\Product\DeleteProductById.sql" />
     <Build Include="dbo\Stored Procedures\Product\AddProduct.sql" />
+    <Build Include="dbo\Stored Procedures\Orders\AddOrder.sql" />
+    <Build Include="dbo\Stored Procedures\Orders\DeleteOrdersById.sql" />
+    <Build Include="dbo\Stored Procedures\Orders\GetOrders.sql" />
+    <Build Include="dbo\Stored Procedures\Orders\GetOrdersById.sql" />
+    <Build Include="dbo\Stored Procedures\Orders\UpdateOrderById.sql" />
+    <Build Include="dbo\Stored Procedures\Feedbacks\AddFeedback.sql" />
+    <Build Include="dbo\Stored Procedures\Feedbacks\DeleteFeedbackById.sql" />
+    <Build Include="dbo\Stored Procedures\Feedbacks\GetFeedbacks.sql" />
+    <Build Include="dbo\Stored Procedures\Feedbacks\UpdateFeedbackById.sql" />
+    <Build Include="dbo\Stored Procedures\Feedbacks\GetFeedbackById.sql" />
+    <Build Include="dbo\Stored Procedures\MeasureUnit\AddMeasureUnit.sql" />
+    <Build Include="dbo\Stored Procedures\MeasureUnit\DeleteMeasureUnitById.sql" />
+    <Build Include="dbo\Stored Procedures\MeasureUnit\GetMeasureUnit.sql" />
+    <Build Include="dbo\Stored Procedures\MeasureUnit\GetMeasureUnitById.sql" />
+    <Build Include="dbo\Stored Procedures\MeasureUnit\UpdateMeasureUnitById.sql" />
+    <Build Include="dbo\Stored Procedures\Status\AddStatus.sql" />
+    <Build Include="dbo\Stored Procedures\Status\GetStatusById.sql" />
+    <Build Include="dbo\Stored Procedures\Status\UpdateStatusById.sql" />
+    <Build Include="dbo\Stored Procedures\Status\GetStatuses.sql" />
+    <Build Include="dbo\Stored Procedures\Status\DeleteStatusById.sql" />
+    <Build Include="dbo\Stored Procedures\Clients\AddClient.sql" />
+    <Build Include="dbo\Stored Procedures\Clients\DeleteClientById.sql" />
+    <Build Include="dbo\Stored Procedures\Clients\GetClients.sql" />
+    <Build Include="dbo\Stored Procedures\Clients\GetClientsById.sql" />
+    <Build Include="dbo\Stored Procedures\Clients\UpdateClientById.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="ClientsAgregator.Database.refactorlog" />

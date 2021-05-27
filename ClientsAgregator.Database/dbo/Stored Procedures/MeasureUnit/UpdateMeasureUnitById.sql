@@ -1,6 +1,6 @@
 ﻿CREATE PROCEDURE UpdateMeasureUnitById
-@Id int,
-@Title varchar(255)
+@Id INT,
+@Title VARCHAR(255)
 AS
 UPDATE [dbo].[MeasureUnits]
 SET

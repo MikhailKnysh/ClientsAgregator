@@ -1,5 +1,5 @@
 ﻿CREATE PROCEDURE DeleteMeasureUnitById
-@Id int
+@Id INT
 AS
 DELETE [dbo].[MeasureUnits]
 WHERE Id = @Id
