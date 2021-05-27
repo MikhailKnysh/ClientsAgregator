@@ -6,7 +6,6 @@
 @Date VARCHAR(255),
 @Rate INT
 AS
-
 UPDATE [dbo].[Feedbacks]
 SET
 ClientId = @ClientId,
@@ -15,4 +14,3 @@ Description = @Description,
 Date = @Date,
 Rate  = @Rate 
 WHERE Id = @Id
-
