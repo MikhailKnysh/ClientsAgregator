@@ -6,7 +6,9 @@
     [Phone]        VARCHAR (60)  NULL,
     [Email]        NVARCHAR(50) NULL,
     [BulkStatusId] INT           NOT NULL,
-    [Male]         BIT           NOT NULL,
+    [Male]         BIT                   NOT NULL,
+    [СommentAboutСlient] VARCHAR(800)   NULL,
+
     CONSTRAINT [PK_CLIENTS] PRIMARY KEY CLUSTERED ([Id] ASC),
     CONSTRAINT [Clients_fk0] FOREIGN KEY ([BulkStatusId]) REFERENCES [dbo].[BulkStatus] ([Id])
 );

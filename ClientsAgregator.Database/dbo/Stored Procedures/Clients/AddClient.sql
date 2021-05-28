@@ -5,7 +5,8 @@
 @Phone VARCHAR(60),
 @Email VARCHAR(255),
 @BulkStatus INT,
-@Male BIT
+@Male BIT,
+@СommentAboutСlient VARCHAR(800)
 AS
 INSERT Clients VALUES
-(@FirstName, @MiddleName, @LastName, @Phone, @Email, @BulkStatus, @Male)
+(@FirstName, @MiddleName, @LastName, @Phone, @Email, @BulkStatus, @Male, @СommentAboutСlient)
