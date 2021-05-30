@@ -2,6 +2,7 @@
     [Id]          INT           IDENTITY (1, 1) NOT NULL,
     [ClientId]    INT           NOT NULL,
     [ProductId]   INT           NOT NULL,
+    [OrderId]   INT           NOT NULL,
     [Description] VARCHAR (800) NULL,
     [Date]        VARCHAR (255) NULL,
     [Rate]        INT           NULL,
