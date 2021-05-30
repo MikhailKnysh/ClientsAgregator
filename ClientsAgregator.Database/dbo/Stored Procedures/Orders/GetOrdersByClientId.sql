@@ -2,4 +2,4 @@
 @ClientId INT
 AS
 SELECT * FROM [dbo].[Orders]
-WHERE ClientId = @ClientId
+WHERE [dbo].[Orders].[ClientId] = @ClientId
