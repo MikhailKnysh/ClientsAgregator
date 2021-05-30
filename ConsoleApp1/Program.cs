@@ -14,7 +14,7 @@ namespace ConsoleApp1
         {
             Console.WriteLine("Hello World!");
             string connectionString = @"Data Source=DESKTOP-8AL13S1;Initial Catalog=ClientsAgregator;Integrated Security=True";
-            string query = "exec AddBulkStatus @Title";
+            string query = "AddBulkStatus @Title";
             string title = "TTT";
 
             using (IDbConnection conn = new SqlConnection(connectionString))

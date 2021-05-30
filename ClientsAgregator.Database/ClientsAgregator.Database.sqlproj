@@ -147,6 +147,9 @@
     <Build Include="dbo\Stored Procedures\Clients\GetFullNameByClientId.sql" />
     <Build Include="dbo\Stored Procedures\Clients\GetFullNameAndContactInfoByClientId.sql" />
     <Build Include="dbo\Stored Procedures\Orders\GetOrdersByClientId.sql" />
+    <Build Include="dbo\Stored Procedures\Orders\UpdateOrderReviewById.sql" />
+    <Build Include="dbo\Stored Procedures\GetOrderInfo.sql" />
+    <Build Include="dbo\Stored Procedures\GetOrdersInfo.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="ClientsAgregator.Database.refactorlog" />
