@@ -69,6 +69,7 @@
     <Folder Include="dbo\Stored Procedures\MeasureUnit" />
     <Folder Include="dbo\Stored Procedures\Status" />
     <Folder Include="dbo\Stored Procedures\Clients" />
+    <Folder Include="dbo\Stored Procedures\Product_Subgroup" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Clients.sql" />
@@ -150,6 +151,9 @@
     <Build Include="dbo\Stored Procedures\Orders\UpdateOrderReviewById.sql" />
     <Build Include="dbo\Stored Procedures\GetOrderInfo.sql" />
     <Build Include="dbo\Stored Procedures\GetOrdersInfo.sql" />
+    <Build Include="dbo\Stored Procedures\GetProductsInfo.sql" />
+    <Build Include="dbo\Stored Procedures\GetSubgroupsInfoByOrderId.sql" />
+    <Build Include="dbo\Stored Procedures\Product_Subgroup\AddProduct_Subgroup.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="ClientsAgregator.Database.refactorlog" />
