@@ -69,7 +69,6 @@
     <Folder Include="dbo\Stored Procedures\MeasureUnit" />
     <Folder Include="dbo\Stored Procedures\Status" />
     <Folder Include="dbo\Stored Procedures\Clients" />
-    <Folder Include="dbo\Stored Procedures\ClientProfile" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Clients.sql" />
@@ -144,7 +143,13 @@
     <Build Include="dbo\Stored Procedures\Clients\GetClients.sql" />
     <Build Include="dbo\Stored Procedures\Clients\GetClientsById.sql" />
     <Build Include="dbo\Stored Procedures\Clients\UpdateClientById.sql" />
-    <Build Include="dbo\Stored Procedures\ClientProfile\GetOrdersByClientId.sql" />
+    <Build Include="dbo\Stored Procedures\Product\GetProductArticulAndTitleById.sql" />
+    <Build Include="dbo\Stored Procedures\Clients\GetFullNameByClientId.sql" />
+    <Build Include="dbo\Stored Procedures\Clients\GetFullNameAndContactInfoByClientId.sql" />
+    <Build Include="dbo\Stored Procedures\Orders\GetOrdersByClientId.sql" />
+    <Build Include="dbo\Stored Procedures\Orders\UpdateOrderReviewById.sql" />
+    <Build Include="dbo\Stored Procedures\GetOrderInfo.sql" />
+    <Build Include="dbo\Stored Procedures\GetOrdersInfo.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="ClientsAgregator.Database.refactorlog" />
