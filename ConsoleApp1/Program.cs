@@ -12,15 +12,25 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            string connectionString = @"Data Source=DESKTOP-8AL13S1;Initial Catalog=ClientsAgregator;Integrated Security=True";
-            string query = "AddBulkStatus @Title";
-            string title = "TTT";
 
+
+            Console.WriteLine("Hello World!");
+            AddClient();
+
+
+        }
+
+        private static void AddClient()
+        {
+            string connectionString = @"Data Source=DESKTOP-4JVUDM5;Initial Catalog=ClientsAgr;Integrated Security=True";
+            string query = "AddClient";
+
+            ClientDTO ClientInfo = new ClientDTO { };
             using (IDbConnection conn = new SqlConnection(connectionString))
             {
-                conn.Query<BulkStatusDTO>(query, new { title }).AsList<BulkStatusDTO>();
+                conn.Execute(query, ClientInfo);
             }
+
         }
     }
 }
