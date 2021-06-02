@@ -12,6 +12,8 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
+
+
             Console.WriteLine("Hello World!");
             string connectionString = @"Data Source=DESKTOP-8AL13S1;Initial Catalog=CA;Integrated Security=True";
             string query = "GetOrdersInfo";
@@ -22,6 +24,7 @@ namespace ConsoleApp1
             {
                 orders = conn.Query<OrdersInfoDTO>(query).AsList();
             }
+
         }
     }
 }

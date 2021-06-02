@@ -6,7 +6,7 @@
     [Phone]        VARCHAR (60)  NULL,
     [Email]        NVARCHAR(50) NULL,
     [BulkStatusId] INT           NOT NULL,
-    [Male]         BIT                   NOT NULL,
+    [Male]         VARCHAR(50)                   NOT NULL,
     [СommentAboutСlient] VARCHAR(800)   NULL,
 
     CONSTRAINT [PK_CLIENTS] PRIMARY KEY CLUSTERED ([Id] ASC),

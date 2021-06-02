@@ -14,4 +14,8 @@
     <ProjectReference Include="..\ClientsAgregator\ClientsAgregator.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Queries\Products\" />
+  </ItemGroup>
+
 </Project>
