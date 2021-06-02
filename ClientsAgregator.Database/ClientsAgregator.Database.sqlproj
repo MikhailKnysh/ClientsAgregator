@@ -156,6 +156,7 @@
     <Build Include="dbo\Stored Procedures\Product_Subgroup\AddProduct_Subgroup.sql" />
     <Build Include="dbo\Stored Procedures\Clients\GetProductsBuyClientById.sql" />
     <Build Include="dbo\Stored Procedures\GetClientInfoByProduct.sql" />
+    <Build Include="dbo\Stored Procedures\Clients\GetCostProductsByClientId.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="ClientsAgregator.Database.refactorlog" />
