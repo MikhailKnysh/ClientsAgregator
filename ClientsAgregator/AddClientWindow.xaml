@@ -16,24 +16,48 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Button Content="Назад" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="94" Height="35"/>
-        <Label Content="Фамилия" Grid.Column="1" HorizontalAlignment="Left" Margin="44,113,0,0" Grid.Row="1" VerticalAlignment="Top" Width="60" Height="30"/>
-        <Label Content="Имя" Grid.Column="1" HorizontalAlignment="Left" Margin="44,162,0,0" Grid.Row="1" VerticalAlignment="Top" Width="60" Height="30"/>
-        <Label Content="Отчество" Grid.Column="1" HorizontalAlignment="Left" Margin="44,211,0,0" Grid.Row="1" VerticalAlignment="Top" Width="60" Height="30"/>
-        <Label Content="Пол" Grid.Column="1" HorizontalAlignment="Left" Margin="44,258,0,0" Grid.Row="1" VerticalAlignment="Top" Width="60" Height="30"/>
-        <Label Content="Телефон" Grid.Column="1" HorizontalAlignment="Left" Margin="330,113,0,0" Grid.Row="1" VerticalAlignment="Top" Width="60" Height="30"/>
-        <Label Content="E-mail" Grid.Column="1" HorizontalAlignment="Left" Margin="330,162,0,0" Grid.Row="1" VerticalAlignment="Top" Width="60" Height="30"/>
-        <Label Content="Статус" Grid.Column="1" HorizontalAlignment="Left" Margin="330,211,0,0" Grid.Row="1" VerticalAlignment="Top" Width="60" Height="30"/>
-        <Label Content="ДОБАВИТЬ КЛИЕНТА" Grid.Column="1" HorizontalAlignment="Center" Margin="0,30,30,0" Grid.Row="1" VerticalAlignment="Top" Height="30" Width="160"/>
-        <Button Content="Сохранить" Grid.Column="1" HorizontalAlignment="Left" Margin="44,387,0,0" Grid.Row="1" VerticalAlignment="Top" Height="37" Width="206"/>
-        <Button Content="Отменить" Grid.Column="1" HorizontalAlignment="Left" Margin="380,387,0,0" Grid.Row="1" VerticalAlignment="Top" Width="206" Height="37"/>
-        <ComboBox Grid.Column="1" HorizontalAlignment="Left" Margin="158,260,0,0" Grid.Row="1" VerticalAlignment="Top" Width="130">
-            <TextBlock>Мужчина</TextBlock>
-            <TextBlock>Женщина</TextBlock>
-        </ComboBox>
-        <ComboBox Grid.Column="1" HorizontalAlignment="Left" Margin="423,213,0,0" Grid.Row="1" VerticalAlignment="Top" Width="130">
-            <TextBlock>Оптовый</TextBlock>
-            <TextBlock>Розничный</TextBlock>
-            <TextBlock>Добавить нового</TextBlock>
-        </ComboBox>
+        <Grid Grid.Column="1" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="150"></RowDefinition>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"></ColumnDefinition>
+                <ColumnDefinition Width="150"></ColumnDefinition>
+                <ColumnDefinition Width="150"></ColumnDefinition>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label Content="Фамилия" HorizontalAlignment="Center" Margin="10,0,0,0" Grid.Row="1" VerticalAlignment="Center" Width="60" Height="30"/>
+            <Label Content="Имя" HorizontalAlignment="Center" Margin="10,0,0,0" Grid.Row="2" VerticalAlignment="Center" Width="60" Height="30"/>
+            <Label Content="Отчество" HorizontalAlignment="Center" Margin="10,0,0,0" Grid.Row="3" VerticalAlignment="Center" Width="60" Height="30"/>
+            <Label Content="Пол" HorizontalAlignment="Center" Margin="10,0,0,0" Grid.Row="4" VerticalAlignment="Center" Width="60" Height="30"/>
+            <Label Content="Телефон" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Width="60" Height="30"/>
+            <Label Content="E-mail" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Width="60" Height="30"/>
+            <Label Content="Статус" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" Width="60" Height="30"/>
+            <Label Content="ДОБАВИТЬ КЛИЕНТА" Grid.Column="1" HorizontalAlignment="Center" Margin="10,0,10,0" VerticalAlignment="Center" Height="30" Width="160" Grid.ColumnSpan="2"/>
+            <Button Content="Сохранить" HorizontalAlignment="Center" Margin="48,69,0,0" Grid.Row="6" VerticalAlignment="Top" Height="37" Width="206" Grid.ColumnSpan="2"/>
+            <Button Content="Отменить" Grid.Column="2" HorizontalAlignment="Center" Margin="45,69,0,0" Grid.Row="6" VerticalAlignment="Top" Width="206" Height="37" Grid.ColumnSpan="2"/>
+            <ComboBox Grid.Column="1" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Center" Width="130">
+                <TextBlock>Мужчина</TextBlock>
+                <TextBlock>Женщина</TextBlock>
+            </ComboBox>
+            <ComboBox Grid.Column="3" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Center" Width="130" Margin="40,0,0,0">
+                <TextBlock>Оптовый</TextBlock>
+                <TextBlock>Розничный</TextBlock>
+                <TextBlock>Добавить новый</TextBlock>
+            </ComboBox>
+            <TextBox x:Name="LastName" Grid.Column="1" HorizontalAlignment="Center" Margin="10,0,10,0" Grid.Row="1" Text="" TextWrapping="Wrap" VerticalAlignment="Center" Width="120"/>
+            <TextBox x:Name="FirstName" Grid.Column="1" HorizontalAlignment="Center" Margin="10,0,10,0" Grid.Row="2" Text="" TextWrapping="Wrap" VerticalAlignment="Center" Width="120"/>
+            <TextBox x:Name="MiddleName" Grid.Column="1" HorizontalAlignment="Center" Margin="10,0,10,0" Grid.Row="3" Text="" TextWrapping="Wrap" VerticalAlignment="Center" Width="120"/>
+            <TextBox x:Name="Phone" Grid.Column="3" HorizontalAlignment="Center" Grid.Row="1" Text="" TextWrapping="Wrap" VerticalAlignment="Center" Width="120"/>
+            <TextBox x:Name="Email" Grid.Column="3" HorizontalAlignment="Center" Grid.Row="2" Text="" TextWrapping="Wrap" VerticalAlignment="Center" Width="120"/>
+            <Label Content="Комментарий" HorizontalAlignment="Center" Margin="0,10,0,0" Grid.Row="5" VerticalAlignment="Top"/>
+            <TextBox x:Name="CommentAboutClient" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="5" Text="" TextWrapping="Wrap" VerticalAlignment="Center" Width="455" Height="130" Grid.ColumnSpan="3" Margin="15,0,0,0"/>
+        </Grid>
     </Grid>
 </Window>
