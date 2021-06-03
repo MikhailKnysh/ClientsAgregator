@@ -1,4 +1,5 @@
 ﻿using ClientsAgregator_DAL.CustomModels;
+using ClientsAgregator_DAL.Models;
 using Dapper;
 using System;
 using System.Collections.Generic;
@@ -52,6 +53,20 @@ namespace ClientsAgregator_DAL.Queries
             }
 
             return products;
+        }
+
+        public static List<StatusDTO> GetStatusTitles()
+        {
+            string query = "GetStatuses";
+
+            List<StatusDTO> statuses = new List<StatusDTO>();
+
+            using (IDbConnection conn = new SqlConnection(connectionString))
+            {
+                statuses = conn.Query<StatusDTO>(query).AsList();
+            }
+
+            return statuses;
         }
 
     }

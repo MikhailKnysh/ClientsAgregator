@@ -23,6 +23,8 @@ namespace ConsoleApp1
             List<ClientsFullNameModel> clients = controller.GetClientsFullNameModels();
 
             List<ProductTitleModel> productTitles = controller.GetProductTitlesModels();
+            
+            List<StatusModel> statusTitles = controller.GetStatusModels();
         }
     }
 }

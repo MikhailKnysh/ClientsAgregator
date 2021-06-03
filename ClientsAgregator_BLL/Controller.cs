@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using ClientsAgregator_BLL.CustomModels;
 using ClientsAgregator_DAL.CustomModels;
+using ClientsAgregator_DAL.Models;
 using ClientsAgregator_DAL.Queries;
 using System;
 using System.Collections.Generic;
@@ -43,6 +44,14 @@ namespace ClientsAgregator_BLL
             return productTitleModel;
         }
 
+        public List<StatusModel> GetStatusModels()
+        {
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<StatusDTO, StatusModel>());
+            Mapper mapper = new Mapper(config);
 
+            List<StatusModel> statusModels = mapper.Map<List<StatusModel>>(OrdersHelper.GetStatusTitles());
+
+            return statusModels;
+        }
     }
 }
