@@ -144,7 +144,7 @@
     <Build Include="dbo\Stored Procedures\Clients\GetClients.sql" />
     <Build Include="dbo\Stored Procedures\Clients\GetClientsById.sql" />
     <Build Include="dbo\Stored Procedures\Clients\UpdateClientById.sql" />
-    <Build Include="dbo\Stored Procedures\Product\GetProductArticulAndTitleById.sql" />
+    <Build Include="dbo\Stored Procedures\Product\GetProductTitles.sql" />
     <Build Include="dbo\Stored Procedures\Clients\GetClientsFullName.sql" />
     <Build Include="dbo\Stored Procedures\Clients\GetFullNameAndContactInfoByClientId.sql" />
     <Build Include="dbo\Stored Procedures\Orders\GetOrdersByClientId.sql" />

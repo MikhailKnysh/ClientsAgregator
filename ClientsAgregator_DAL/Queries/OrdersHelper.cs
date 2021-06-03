@@ -39,5 +39,20 @@ namespace ClientsAgregator_DAL.Queries
 
             return clients;
         }
+
+        public static List<ProductTitleDTO> GetProductTitles()
+        {
+            string query = "GetProductTitles";
+
+            List<ProductTitleDTO> products = new List<ProductTitleDTO>();
+
+            using (IDbConnection conn = new SqlConnection(connectionString))
+            {
+                products = conn.Query<ProductTitleDTO>(query).AsList();
+            }
+
+            return products;
+        }
+
     }
 }

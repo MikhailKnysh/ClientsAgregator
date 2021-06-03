@@ -32,5 +32,17 @@ namespace ClientsAgregator_BLL
 
             return clientModels;
         }
+
+        public List<ProductTitleModel> GetProductTitlesModels()
+        {
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<ProductTitleDTO, ProductTitleModel>());
+            Mapper mapper = new Mapper(config);
+
+            List<ProductTitleModel> productTitleModel = mapper.Map<List<ProductTitleModel>>(OrdersHelper.GetProductTitles());
+
+            return productTitleModel;
+        }
+
+
     }
 }

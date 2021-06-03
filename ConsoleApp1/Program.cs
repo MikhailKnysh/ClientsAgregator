@@ -21,6 +21,8 @@ namespace ConsoleApp1
             List<OrderModel> models = controller.GetOrderModels();
 
             List<ClientsFullNameModel> clients = controller.GetClientsFullNameModels();
+
+            List<ProductTitleModel> productTitles = controller.GetProductTitlesModels();
         }
     }
 }
