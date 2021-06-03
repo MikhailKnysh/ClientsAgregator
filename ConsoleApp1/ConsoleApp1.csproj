@@ -12,6 +12,7 @@
   <ItemGroup>
     <ProjectReference Include="..\ClientsAgregator.Database\ClientsAgregator.Database.sqlproj" />
     <ProjectReference Include="..\ClientsAgregator\ClientsAgregator.csproj" />
+    <ProjectReference Include="..\ClientsAgregator_BLL\ClientsAgregator_BLL.csproj" />
     <ProjectReference Include="..\ClientsAgregator_DAL\ClientsAgregator_DAL.csproj" />
   </ItemGroup>
 
