@@ -10,20 +10,28 @@ namespace ClientsAgregator_DAL.Queries
 {
     public static class ClientsHelper
     {
-        private const string connectionString = @"Data Source=DESKTOP-VTR9DQO;Initial Catalog=ClientsAgr;Integrated Security=True";
+        private const string connectionString = @"Data Source=DESKTOP-VTR9DQO;Initial Catalog=CA;Integrated Security=True";
 
-        public static List<AddClientDTO> AddClient()
+        public static void AddClient(AddClientDTO addClientDTO)
         {
-            string query = "AddClient";
-
-            List<AddClientDTO> newClientInfo = new List<AddClientDTO>();
+            string query = "AddClient @FirstName, @MiddleName," +
+                " @LastName, @Phone, @Email," +
+                " @BulkStatusId, @Male, @СommentAboutСlient";
 
             using (IDbConnection conn = new SqlConnection(connectionString))
             {
-                newClientInfo = conn.Query<AddClientDTO>(query).AsList();
+                conn.Query(query, new
+                {
+                    addClientDTO.FirstName,
+                    addClientDTO.MiddleName,
+                    addClientDTO.LastName,
+                    addClientDTO.Phone,
+                    addClientDTO.Email,
+                    addClientDTO.BulkStatusId,
+                    addClientDTO.Male,
+                    addClientDTO.СommentAboutСlient
+                });
             }
-
-            return newClientInfo;
         }
 
         public static List<ClientDTO> GetClients()

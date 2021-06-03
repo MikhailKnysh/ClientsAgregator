@@ -5,7 +5,7 @@
 @Phone VARCHAR(60),
 @Email VARCHAR(255),
 @BulkStatus INT,
-@Male BIT,
+@Male VARCHAR(50),
 @СommentAboutСlient VARCHAR(800)
 AS
 INSERT Clients VALUES

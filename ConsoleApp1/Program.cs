@@ -17,8 +17,20 @@ namespace ConsoleApp1
             Controller controller = new Controller();
 
             Console.WriteLine("Hello World!");
+            //AddClientModel model = new AddClientModel
+            //{
+            //    FirstName = "ivanov",
+            //    LastName = "Ivan",
+            //    MiddleName = "Ivanovich",
+            //    Phone = "0965478",
+            //    Email = "fg@com.gh",
+            //    BulkStatusId = 1,
+            //    Male = "m",
+            //    СommentAboutСlient = "dfbnjytbj"
+            // };
 
-            List<OrderModel> models = controller.GetOrderModels();
+            // controller.AddClientDTO(model);
+            List<ClientModel> models = controller.GetClientsModels();
         }
     }
 }
