@@ -69,7 +69,7 @@
     <Folder Include="dbo\Stored Procedures\MeasureUnit" />
     <Folder Include="dbo\Stored Procedures\Status" />
     <Folder Include="dbo\Stored Procedures\Clients" />
-    <Folder Include="dbo\Stored Procedures\ClientProfile" />
+    <Folder Include="dbo\Stored Procedures\Product_Subgroup" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Clients.sql" />
@@ -144,7 +144,19 @@
     <Build Include="dbo\Stored Procedures\Clients\GetClients.sql" />
     <Build Include="dbo\Stored Procedures\Clients\GetClientsById.sql" />
     <Build Include="dbo\Stored Procedures\Clients\UpdateClientById.sql" />
-    <Build Include="dbo\Stored Procedures\ClientProfile\GetOrdersByClientId.sql" />
+    <Build Include="dbo\Stored Procedures\Product\GetProductArticulAndTitleById.sql" />
+    <Build Include="dbo\Stored Procedures\Clients\GetFullNameByClientId.sql" />
+    <Build Include="dbo\Stored Procedures\Clients\GetFullNameAndContactInfoByClientId.sql" />
+    <Build Include="dbo\Stored Procedures\Orders\GetOrdersByClientId.sql" />
+    <Build Include="dbo\Stored Procedures\Orders\UpdateOrderReviewById.sql" />
+    <Build Include="dbo\Stored Procedures\GetOrderInfo.sql" />
+    <Build Include="dbo\Stored Procedures\GetOrdersInfo.sql" />
+    <Build Include="dbo\Stored Procedures\GetProductsInfo.sql" />
+    <Build Include="dbo\Stored Procedures\GetSubgroupsInfoByOrderId.sql" />
+    <Build Include="dbo\Stored Procedures\Product_Subgroup\AddProduct_Subgroup.sql" />
+    <Build Include="dbo\Stored Procedures\Clients\GetProductsBuyClientById.sql" />
+    <Build Include="dbo\Stored Procedures\GetClientInfoByProduct.sql" />
+    <Build Include="dbo\Stored Procedures\Clients\GetSpendMoneyCountByClientId.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="ClientsAgregator.Database.refactorlog" />

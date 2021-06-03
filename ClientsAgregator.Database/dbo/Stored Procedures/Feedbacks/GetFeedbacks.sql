@@ -1,3 +1,3 @@
 ﻿CREATE PROCEDURE GetFeedbacks
-	AS
+AS
 SELECT * FROM [dbo].[Feedbacks]

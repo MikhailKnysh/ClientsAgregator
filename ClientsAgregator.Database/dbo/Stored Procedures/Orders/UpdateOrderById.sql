@@ -2,7 +2,7 @@
 @Id INT,
 @ClientId INT,
 @StatusesId INT,
-@SellerComment VARCHAR(800),
+@OrderReview VARCHAR(MAX),
 @OrderDate VARCHAR(255),
 @TotalPrice FLOAT
 AS
@@ -10,7 +10,7 @@ UPDATE [dbo].[Orders]
 SET
 ClientId = @ClientId,
 StatusesId = @StatusesId,
-SellerComment = @SellerComment,
+OrderReview = @OrderReview,
 OrderDate = @OrderDate,
 TotalPrice = @TotalPrice
 WHERE Id = @Id
