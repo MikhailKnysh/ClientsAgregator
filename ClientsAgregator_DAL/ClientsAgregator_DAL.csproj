@@ -5,6 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Queries\Products\**" />
+    <EmbeddedResource Remove="Queries\Products\**" />
+    <None Remove="Queries\Products\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="10.1.1" />
     <PackageReference Include="Dapper" Version="2.0.90" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
@@ -13,10 +19,6 @@
   <ItemGroup>
     <ProjectReference Include="..\ClientsAgregator.Database\ClientsAgregator.Database.sqlproj" />
     <ProjectReference Include="..\ClientsAgregator\ClientsAgregator.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Queries\Products\" />
   </ItemGroup>
 
 </Project>
