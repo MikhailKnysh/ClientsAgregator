@@ -25,5 +25,19 @@ namespace ClientsAgregator_DAL.Queries
 
             return orders;
         }
+
+        public static List<ClientFullNameDTO> GetClientsFullNames()
+        {
+            string query = "GetClientsFullName";
+
+            List<ClientFullNameDTO> clients = new List<ClientFullNameDTO>();
+
+            using (IDbConnection conn = new SqlConnection(connectionString))
+            {
+                clients = conn.Query<ClientFullNameDTO>(query).AsList();
+            }
+
+            return clients;
+        }
     }
 }

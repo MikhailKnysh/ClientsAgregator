@@ -19,5 +19,18 @@ namespace ClientsAgregator_BLL
 
             return orderModels;
         }
+
+        public List<ClientsFullNameModel> GetClientsFullNameModels()
+        {
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<ClientFullNameDTO, ClientsFullNameModel>()
+            .ForMember(dest => dest.FullName, option => option
+            .MapFrom(source =>$"{source.LastName} {source.FirstName} {source.MiddleName}")));
+
+            Mapper mapper = new Mapper(config);
+
+            List<ClientsFullNameModel> clientModels = mapper.Map<List<ClientsFullNameModel>>(OrdersHelper.GetClientsFullNames());
+
+            return clientModels;
+        }
     }
 }

@@ -1,6 +1,6 @@
 ﻿CREATE PROCEDURE [dbo].[GetOrdersInfo]
 AS
-SELECT [dbo].[Orders].[OrderDate], [dbo].[Clients].[LastName],
+SELECT [dbo].[Orders].[Id], [dbo].[Orders].[OrderDate], [dbo].[Clients].[LastName],
 [dbo].[Clients].[FirstName], [dbo].[Clients].[MiddleName],
 [dbo].[Orders].[TotalPrice], [dbo].[Statuses].[Title],
 [dbo].[Orders].[OrderReview]

@@ -19,6 +19,8 @@ namespace ConsoleApp1
             Console.WriteLine("Hello World!");
 
             List<OrderModel> models = controller.GetOrderModels();
+
+            List<ClientsFullNameModel> clients = controller.GetClientsFullNameModels();
         }
     }
 }
