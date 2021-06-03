@@ -10,7 +10,7 @@ namespace ClientsAgregator_DAL.Models
         public string Phone { get; set; }
         public string Email { get; set; }
         public int BulkStatusId { get; set; }
-        public bool Male { get; set; }
+        public string Male { get; set; }
         public string СommentAboutСlient { get; set; }
     }
 }
