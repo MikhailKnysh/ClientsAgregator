@@ -1,4 +1,6 @@
-﻿using ClientsAgregator_DAL.CustomModels;
+﻿using ClientsAgregator_BLL;
+using ClientsAgregator_BLL.CustomModels;
+using ClientsAgregator_DAL.CustomModels;
 using ClientsAgregator_DAL.Models;
 using Dapper;
 using System;
@@ -12,16 +14,11 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
+            Controller controller = new Controller();
+
             Console.WriteLine("Hello World!");
-            string connectionString = @"Data Source=DESKTOP-8AL13S1;Initial Catalog=CLAG;Integrated Security=True";
-            string query = "GetOrdersInfo";
 
-            List<OrdersInfoDTO> orders = new List<OrdersInfoDTO>();
-
-            using (IDbConnection conn = new SqlConnection(connectionString))
-            {
-                orders = conn.Query<OrdersInfoDTO>(query).AsList();
-            }
+            List<OrderModel> models = controller.GetOrderModels();
         }
     }
 }
