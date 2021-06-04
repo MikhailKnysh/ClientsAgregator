@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Text;
+using System.Linq;
 
 namespace ClientsAgregator_DAL.Queries
 {
@@ -69,5 +70,23 @@ namespace ClientsAgregator_DAL.Queries
             return statuses;
         }
 
+        public static int AddOrder(List<ProductDTO> products, List<Product_OrderDTO> productsOrder, OrderDTO order)
+        {
+            string query = "AddOrder";// @ClientId, @StatusesId, @OrderReview, @OrderDate, @TotalPrice, output @Id
+
+            using (IDbConnection conn = new SqlConnection(connectionString))
+            {
+                var result = conn.Query<int>(query, new {
+                    order.ClientId,
+                    order.StatusesId,
+                    order.OrderReview,
+                    order.OrderDate,
+                    order.TotalPrice},
+                    commandType: CommandType.StoredProcedure
+                );
+
+                return result.Single();
+            }
+        }
     }
 }

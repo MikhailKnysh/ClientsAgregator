@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ClientsAgregator_BLL.CustomModels
+namespace ClientsAgregator_BLL.CustomModels.OrderModels
 {
-    public class OrderModel
+    public class OrdersInfoModel
     {
         public int Id { get; set; }
         public string OrderDate { get; set; }
@@ -14,6 +14,5 @@ namespace ClientsAgregator_BLL.CustomModels
         public double TotalPrice { get; set; }
         public string Title { get; set; }
         public string OrderReview { get; set; }
-
     }
 }

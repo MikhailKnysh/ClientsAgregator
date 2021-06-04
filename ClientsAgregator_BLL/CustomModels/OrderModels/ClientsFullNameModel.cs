@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ClientsAgregator_BLL.CustomModels
+namespace ClientsAgregator_BLL.CustomModels.OrderModels
 {
     public class ClientsFullNameModel
     {
