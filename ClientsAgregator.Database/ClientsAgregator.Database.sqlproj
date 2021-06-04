@@ -142,7 +142,7 @@
     <Build Include="dbo\Stored Procedures\Clients\AddClient.sql" />
     <Build Include="dbo\Stored Procedures\Clients\DeleteClientById.sql" />
     <Build Include="dbo\Stored Procedures\Clients\GetClients.sql" />
-    <Build Include="dbo\Stored Procedures\Clients\GetClientsById.sql" />
+    <Build Include="dbo\Stored Procedures\Clients\GetClientById.sql" />
     <Build Include="dbo\Stored Procedures\Clients\UpdateClientById.sql" />
     <Build Include="dbo\Stored Procedures\Product\GetProductArticulAndTitleById.sql" />
     <Build Include="dbo\Stored Procedures\Clients\GetFullNameByClientId.sql" />

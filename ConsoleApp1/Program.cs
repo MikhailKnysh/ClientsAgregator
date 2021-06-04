@@ -17,20 +17,28 @@ namespace ConsoleApp1
             Controller controller = new Controller();
 
             Console.WriteLine("Hello World!");
-            //AddClientModel model = new AddClientModel
-            //{
-            //    FirstName = "ivanov",
-            //    LastName = "Ivan",
-            //    MiddleName = "Ivanovich",
-            //    Phone = "0965478",
-            //    Email = "fg@com.gh",
-            //    BulkStatusId = 1,
-            //    Male = "m",
-            //    СommentAboutСlient = "dfbnjytbj"
-            // };
+            AddClientModel model = new AddClientModel
+            {
+                FirstName = "ivanov",
+                LastName = "Ivan",
+                MiddleName = "Ivanovich",
+                Phone = "0965478",
+                Email = "fg@com.gh",
+                BulkStatusId = 1,
+                Male = "m",
+                СommentAboutСlient = "dfbnjytbj"
+             };
 
             // controller.AddClientDTO(model);
             List<ClientModel> models = controller.GetClientsModels();
+
+
+            controller.UpdateClientDTO(model, 1);
+            // MIDDELE КАРОЧЕ ОТЧЕСТВО!НЕ РАБОТАЕТ ПО АБДЕЙТУ
+            // MIDDELE КАРОЧЕ ОТЧЕСТВО!НЕ РАБОТАЕТ ПО АБДЕЙТУ
+            // MIDDELE КАРОЧЕ ОТЧЕСТВО!НЕ РАБОТАЕТ ПО АБДЕЙТУ
+            // MIDDELE КАРОЧЕ ОТЧЕСТВО!НЕ РАБОТАЕТ ПО АБДЕЙТУ
+            // GETCLIENTBYID КАК НЕ ЛИСТОМ CLIENTDTO ВОЗВРАЩАТЬ 
         }
     }
 }

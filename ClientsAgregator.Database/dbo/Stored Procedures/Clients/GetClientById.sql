@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE GetClientsById
+﻿CREATE PROCEDURE GetClientById
 @Id INT
 AS
 SELECT C.[LastName], C.FirstName, 

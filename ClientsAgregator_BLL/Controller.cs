@@ -30,6 +30,17 @@ namespace ClientsAgregator_BLL
             ClientsHelper.AddClient(clientDTO);
         }
 
+        public void UpdateClientDTO(AddClientModel model, int Id)
+        {
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<AddClientModel, AddClientDTO>());
+            Mapper mapper = new Mapper(config);
+
+
+            AddClientDTO clientDTO = mapper.Map<AddClientModel, AddClientDTO>(model);
+
+            ClientsHelper.UpdateClientById(clientDTO, Id);
+        }
+
         public List<ClientModel> GetClientsModels()
         {
             var config = new MapperConfiguration(cfg => cfg.CreateMap<ClientDTO, ClientModel>());
@@ -39,5 +50,27 @@ namespace ClientsAgregator_BLL
 
             return clientModels;
         }
+
+        public List<ProductBuyClientModel> GetProductsBuyClientModels(int Id)
+        {
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<ProductsBuyClientDTO, ProductBuyClientModel>());
+            Mapper mapper = new Mapper(config);
+
+            List<ProductBuyClientModel> productModels = mapper.Map<List<ProductBuyClientModel>>(ClientsHelper.GetProductsBuyClient(Id));
+
+            return productModels;
+        }
+
+      /*  public ClientModel GetClientByIdModels(int Id)
+        {
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<ClientDTO,ClientModel>());
+            Mapper mapper = new Mapper(config);
+
+            ClientModel clientByIdModels = mapper.Map<ClientModel>(ClientsHelper.GetClientById(Id));
+
+            return clientByIdModels;
+        }
+*/
+
     }
 }

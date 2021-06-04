@@ -10,7 +10,7 @@ namespace ClientsAgregator_DAL.Queries
 {
     public static class ClientsHelper
     {
-        private const string connectionString = @"Data Source=DESKTOP-VTR9DQO;Initial Catalog=CA;Integrated Security=True";
+        private const string connectionString = @"Data Source=DESKTOP-4JVUDM5;Initial Catalog=Test322CA;Integrated Security=True";
 
         public static void AddClient(AddClientDTO addClientDTO)
         {
@@ -48,23 +48,23 @@ namespace ClientsAgregator_DAL.Queries
             return clientsInfo;
         }
 
-        public static List<ClientDTO> GetClientById(int id)
+      /*  public static ClientDTO GetClientById(int id)
         {
-            string query = "GetClientById";
+            string query = "GetClientById @Id";
 
-            List<ClientDTO> clientInfo = new List<ClientDTO>();
+            ClientDTO clientInfo = new ClientDTO();
 
             using (IDbConnection conn = new SqlConnection(connectionString))
             {
-                clientInfo = conn.Query<ClientDTO>(query, new { id }).AsList();
+                clientInfo = conn.Query<ClientDTO>(query, new { id });
             }
 
             return clientInfo;
-        }
+        }*/
 
         public static List<ProductsBuyClientDTO> GetProductsBuyClient(int id)
         {
-            string query = "GetProductsBuyClientById";
+            string query = "GetProductBuyClientById @Id";
 
             List<ProductsBuyClientDTO> productsBuyClient = new List<ProductsBuyClientDTO>();
 
@@ -76,18 +76,28 @@ namespace ClientsAgregator_DAL.Queries
             return productsBuyClient;
         }
 
-        public static List<ClientDTO> UpdateClientById(int id)
+        public static void UpdateClientById(AddClientDTO addClientDTO, int Id)
         {
-            string query = "UpdateClientById";
-
-            List<ClientDTO> updateClient = new List<ClientDTO>();
+            
+            string query = "UpdateClientById @Id, @FirstName, @MiddleName," +
+                 " @LastName, @Phone, @Email," +
+                 " @BulkStatusId, @Male, @СommentAboutСlient";
 
             using (IDbConnection conn = new SqlConnection(connectionString))
             {
-                updateClient = conn.Query<ClientDTO>(query, new {id}).AsList();
+                conn.Query(query,  new
+                {
+                    Id,
+                    addClientDTO.FirstName,
+                    addClientDTO.MiddleName,
+                    addClientDTO.LastName,
+                    addClientDTO.Phone,
+                    addClientDTO.Email,
+                    addClientDTO.BulkStatusId,
+                    addClientDTO.Male,
+                    addClientDTO.СommentAboutСlient
+                } );
             }
-
-            return updateClient;
         }
 
         public static string GetSpendMoneyCountByClientId(int id)
