@@ -4,27 +4,28 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
 using System.Text;
 
 namespace ClientsAgregator_DAL.Queries
 {
     public static class ClientsHelper
     {
-        private const string connectionString = @"Data Source=DESKTOP-4JVUDM5;Initial Catalog=Test322CA;Integrated Security=True";
+        private const string connectionString = @"Data Source=DESKTOP-VTR9DQO;Initial Catalog=CA;Integrated Security=True";
 
         public static void AddClient(AddClientDTO addClientDTO)
         {
-            string query = "AddClient @FirstName, @MiddleName," +
-                " @LastName, @Phone, @Email," +
+            string query = "AddClient @LastName, @FirstName," +
+                " @MiddleName,  @Phone, @Email," +
                 " @BulkStatusId, @Male, @СommentAboutСlient";
 
             using (IDbConnection conn = new SqlConnection(connectionString))
             {
                 conn.Query(query, new
                 {
+                    addClientDTO.LastName,
                     addClientDTO.FirstName,
                     addClientDTO.MiddleName,
-                    addClientDTO.LastName,
                     addClientDTO.Phone,
                     addClientDTO.Email,
                     addClientDTO.BulkStatusId,
@@ -48,7 +49,7 @@ namespace ClientsAgregator_DAL.Queries
             return clientsInfo;
         }
 
-      /*  public static ClientDTO GetClientById(int id)
+        public static ClientDTO GetClientById(int id)
         {
             string query = "GetClientById @Id";
 
@@ -56,11 +57,11 @@ namespace ClientsAgregator_DAL.Queries
 
             using (IDbConnection conn = new SqlConnection(connectionString))
             {
-                clientInfo = conn.Query<ClientDTO>(query, new { id });
+                clientInfo = conn.Query<ClientDTO>(query, new { id }).AsList<ClientDTO>().FirstOrDefault<ClientDTO>();
             }
 
             return clientInfo;
-        }*/
+        }
 
         public static List<ProductsBuyClientDTO> GetProductsBuyClient(int id)
         {
@@ -79,28 +80,28 @@ namespace ClientsAgregator_DAL.Queries
         public static void UpdateClientById(AddClientDTO addClientDTO, int Id)
         {
             
-            string query = "UpdateClientById @Id, @FirstName, @MiddleName," +
-                 " @LastName, @Phone, @Email," +
-                 " @BulkStatusId, @Male, @СommentAboutСlient";
+            string query = "UpdateClientById @Id, @LastName, @FirstName," +
+                " @MiddleName, @Phone, @Email," +
+                " @BulkStatusId, @Male, @СommentAboutСlient";
 
             using (IDbConnection conn = new SqlConnection(connectionString))
             {
                 conn.Query(query,  new
                 {
                     Id,
+                    addClientDTO.LastName,
                     addClientDTO.FirstName,
                     addClientDTO.MiddleName,
-                    addClientDTO.LastName,
                     addClientDTO.Phone,
                     addClientDTO.Email,
                     addClientDTO.BulkStatusId,
                     addClientDTO.Male,
                     addClientDTO.СommentAboutСlient
-                } );
+                });
             }
         }
 
-        public static string GetSpendMoneyCountByClientId(int id)
+        public static string GetSpendMoneyCountByClientId(int id)           //НУЖНО ЛИ ЭТО ДЕЛАТЬ В ЛОГИКЕ ИЛИ СЧИТАТЬ В SQL??? 
         {
             string query = "GetSpendMoneyCountByClientId";
 

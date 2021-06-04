@@ -1,6 +1,6 @@
 ﻿CREATE PROCEDURE [dbo].[GetClientInfoByProduct]
 AS
-SELECT [dbo].[Clients].[FirstName],[dbo].[Clients].[MiddleName],[dbo].[Clients].[LastName],
+SELECT [dbo].[Clients].[LastName], [dbo].[Clients].[FirstName],[dbo].[Clients].[MiddleName],
 [dbo].[Clients].[Phone],[dbo].[BulkStatus].[Title],
 SUM([dbo].[Product_Order].[Quantity]) SUMQuantity,
 AVG([dbo].[Feedbacks].[Rate]) AVGRate

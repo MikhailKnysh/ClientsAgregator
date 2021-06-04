@@ -61,7 +61,7 @@ namespace ClientsAgregator_BLL
             return productModels;
         }
 
-      /*  public ClientModel GetClientByIdModels(int Id)
+        public ClientModel GetClientByIdModels(int Id)
         {
             var config = new MapperConfiguration(cfg => cfg.CreateMap<ClientDTO,ClientModel>());
             Mapper mapper = new Mapper(config);
@@ -70,7 +70,6 @@ namespace ClientsAgregator_BLL
 
             return clientByIdModels;
         }
-*/
 
     }
 }

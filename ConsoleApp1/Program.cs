@@ -19,8 +19,8 @@ namespace ConsoleApp1
             Console.WriteLine("Hello World!");
             AddClientModel model = new AddClientModel
             {
-                FirstName = "ivanov",
-                LastName = "Ivan",
+                LastName = "Ivanov",
+                FirstName = "ivan",
                 MiddleName = "Ivanovich",
                 Phone = "0965478",
                 Email = "fg@com.gh",
@@ -29,15 +29,11 @@ namespace ConsoleApp1
                 СommentAboutСlient = "dfbnjytbj"
              };
 
-            // controller.AddClientDTO(model);
-            List<ClientModel> models = controller.GetClientsModels();
+            //controller.AddClientDTO(model);
+            //List<ClientModel> models = controller.GetClientsModels();
+            ClientModel model1 = controller.GetClientByIdModels(4);
 
-
-            controller.UpdateClientDTO(model, 1);
-            // MIDDELE КАРОЧЕ ОТЧЕСТВО!НЕ РАБОТАЕТ ПО АБДЕЙТУ
-            // MIDDELE КАРОЧЕ ОТЧЕСТВО!НЕ РАБОТАЕТ ПО АБДЕЙТУ
-            // MIDDELE КАРОЧЕ ОТЧЕСТВО!НЕ РАБОТАЕТ ПО АБДЕЙТУ
-            // MIDDELE КАРОЧЕ ОТЧЕСТВО!НЕ РАБОТАЕТ ПО АБДЕЙТУ
+            //controller.UpdateClientDTO(model, 3);
             // GETCLIENTBYID КАК НЕ ЛИСТОМ CLIENTDTO ВОЗВРАЩАТЬ 
         }
     }
