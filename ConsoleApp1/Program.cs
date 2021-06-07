@@ -35,22 +35,29 @@ namespace ConsoleApp1
                 TotalPrice = 127.59,
                 productsInOrder = new List<ProductInOrderModel>()
                 {
-                    new ProductInOrderModel()
-                    {
-                        Articul = "121AER",
-                        ProductId = 2,
-                        ProductTitle = "Bread",
-                        Price = 12.99,
-                        Quantity = 17,
-                        MeasureUnitId = 1,
-                        GroupTitle = "Food",
-                        SubgroupTitle = "Bakery",
-                        Rate = 4
-                    }
+                    //new ProductInOrderModel()
+                    //{
+                    //    Articul = "121AER",
+                    //    ProductId = 2,
+                    //    ProductTitle = "Bread",
+                    //    Price = 12.99,
+                    //    Quantity = 17,
+                    //    MeasureUnitId = 1,
+                    //    GroupTitle = "Food",
+                    //    SubgroupTitle = "Bakery",
+                    //    Rate = 4
+                    //}
                 }
             };
 
-            controller.AddOrder(newOrderInfoModel);
+            try
+            {
+                controller.AddOrder(newOrderInfoModel);
+            }
+            catch (ArgumentException)
+            {
+                Console.WriteLine("List is empty!");
+            }
         }
     }
 }
