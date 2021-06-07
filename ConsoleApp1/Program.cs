@@ -35,29 +35,43 @@ namespace ConsoleApp1
                 TotalPrice = 127.59,
                 productsInOrder = new List<ProductInOrderModel>()
                 {
-                    //new ProductInOrderModel()
-                    //{
-                    //    Articul = "121AER",
-                    //    ProductId = 2,
-                    //    ProductTitle = "Bread",
-                    //    Price = 12.99,
-                    //    Quantity = 17,
-                    //    MeasureUnitId = 1,
-                    //    GroupTitle = "Food",
-                    //    SubgroupTitle = "Bakery",
-                    //    Rate = 4
-                    //}
+                    new ProductInOrderModel()
+                    {
+                        Articul = "121AER",
+                        ProductId = 2,
+                        ProductTitle = "Bread",
+                        Price = 12.99,
+                        Quantity = 23,
+                        MeasureUnitId = 1,
+                        GroupTitle = "Food",
+                        SubgroupTitle = "Bakery",
+                        Rate = 4
+                    },
+                    new ProductInOrderModel()
+                    {
+                        Articul = "131OIk",
+                        ProductId = 2,
+                        ProductTitle = "Spoons",
+                        Price = 12.99,
+                        Quantity = 17,
+                        MeasureUnitId = 1,
+                        GroupTitle = "Food",
+                        SubgroupTitle = "Bakery",
+                        Rate = 4
+                    }
                 }
             };
 
-            try
-            {
-                controller.AddOrder(newOrderInfoModel);
-            }
-            catch (ArgumentException)
-            {
-                Console.WriteLine("List is empty!");
-            }
+            //try
+            //{
+            //    controller.AddOrder(newOrderInfoModel);
+            //}
+            //catch (ArgumentException)
+            //{
+            //    Console.WriteLine("List is empty!");
+            //}
+
+            controller.DeleteOrder(orderId: 12);
         }
     }
 }

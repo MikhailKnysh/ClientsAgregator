@@ -104,5 +104,18 @@ namespace ClientsAgregator_DAL.Queries
                 }
             }
         }
+
+        public static void DeleteOrder(int orderId)
+        {
+            using (IDbConnection conn = new SqlConnection(connectionString))
+            {
+                string query = "DeleteProductOrderByOrderId @OrderId";
+
+                conn.Query<int>(query, new { orderId });
+
+                query = "DeleteOrderById @OrderId";
+                conn.Query<int>(query, new { orderId });
+            }
+        }
     }
 }

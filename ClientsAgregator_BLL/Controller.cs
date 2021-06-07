@@ -91,5 +91,10 @@ namespace ClientsAgregator_BLL
                 throw new ArgumentException("Product list is empty!");
             }
         }
+
+        public void DeleteOrder(int orderId)
+        {
+            OrdersHelper.DeleteOrder(orderId);
+        }
     }
 }

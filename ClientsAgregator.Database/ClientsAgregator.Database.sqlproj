@@ -120,7 +120,7 @@
     <Build Include="dbo\Stored Procedures\Product\DeleteProductById.sql" />
     <Build Include="dbo\Stored Procedures\Product\AddProduct.sql" />
     <Build Include="dbo\Stored Procedures\Orders\AddOrder.sql" />
-    <Build Include="dbo\Stored Procedures\Orders\DeleteOrdersById.sql" />
+    <Build Include="dbo\Stored Procedures\Orders\DeleteOrderById.sql" />
     <Build Include="dbo\Stored Procedures\Orders\GetOrders.sql" />
     <Build Include="dbo\Stored Procedures\Orders\GetOrdersById.sql" />
     <Build Include="dbo\Stored Procedures\Orders\UpdateOrderById.sql" />
