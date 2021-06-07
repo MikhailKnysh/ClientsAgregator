@@ -82,7 +82,7 @@ namespace ClientsAgregator_BLL
 
             List<Product_OrderDTO> productsOrder = mapper.Map<List<Product_OrderDTO>>(productInOrderModels);
 
-            int tmp = OrdersHelper.AddOrder(products, productsOrder, order);
+            OrdersHelper.AddOrder(productsOrder, order);
         }
     }
 }

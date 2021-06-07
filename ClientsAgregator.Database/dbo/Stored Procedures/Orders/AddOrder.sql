@@ -6,5 +6,5 @@
 @TotalPrice FLOAT
 AS
 INSERT [dbo].[Orders]
-OUTPUT inserted.Id
+OUTPUT INSERTED.Id
 VALUES (@ClientId, @StatusesId, @OrderReview, @OrderDate, @TotalPrice)

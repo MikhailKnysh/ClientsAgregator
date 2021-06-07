@@ -70,22 +70,38 @@ namespace ClientsAgregator_DAL.Queries
             return statuses;
         }
 
-        public static int AddOrder(List<ProductDTO> products, List<Product_OrderDTO> productsOrder, OrderDTO order)
+        public static void AddOrder(List<Product_OrderDTO> productsOrder, OrderDTO order)
         {
-            string query = "AddOrder";// @ClientId, @StatusesId, @OrderReview, @OrderDate, @TotalPrice, output @Id
-
             using (IDbConnection conn = new SqlConnection(connectionString))
             {
-                var result = conn.Query<int>(query, new {
+                string query = "AddOrder";
+
+                var result = conn.Query<int>(query, new
+                {
                     order.ClientId,
                     order.StatusesId,
                     order.OrderReview,
                     order.OrderDate,
-                    order.TotalPrice},
+                    order.TotalPrice
+                },
                     commandType: CommandType.StoredProcedure
                 );
 
-                return result.Single();
+                int OrderId = result.Single();
+
+                query = "AddProductOrder";
+
+                foreach (Product_OrderDTO po in productsOrder)
+                {
+                    conn.Query<Product_OrderDTO>(query, new
+                    {
+                        OrderId,
+                        po.ProductId,
+                        po.Quantity
+                    },
+                        commandType: CommandType.StoredProcedure
+                    );
+                }
             }
         }
     }

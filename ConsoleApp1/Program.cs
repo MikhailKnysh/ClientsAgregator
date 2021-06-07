@@ -28,9 +28,9 @@ namespace ConsoleApp1
 
             NewOrderInfoModel newOrderInfoModel = new NewOrderInfoModel()
             {
-                ClientId = 22,
+                ClientId = 1,
                 OrderDate = "12.12.2021",
-                StatusesId = 3,
+                StatusesId = 1,
                 OrderReview = "Some review",
                 TotalPrice = 127.59,
                 productsInOrder = new List<ProductInOrderModel>()
@@ -38,7 +38,7 @@ namespace ConsoleApp1
                     new ProductInOrderModel()
                     {
                         Articul = "121AER",
-                        ProductId = 1,
+                        ProductId = 2,
                         ProductTitle = "Bread",
                         Price = 12.99,
                         Quantity = 17,
@@ -50,7 +50,6 @@ namespace ConsoleApp1
                 }
             };
 
-            /*List<Product_OrderDTO> products = */
             controller.AddOrder(newOrderInfoModel);
         }
     }
