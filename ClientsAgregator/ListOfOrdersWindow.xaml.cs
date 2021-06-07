@@ -1,6 +1,5 @@
 ﻿using ClientsAgregator_BLL;
 using ClientsAgregator_BLL.CustomModels.OrderModels;
-using ClientsAgregator_BLL.CustomModels.ProductsModel;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -15,9 +14,6 @@ using System.Windows.Shapes;
 
 namespace ClientsAgregator
 {
-    /// <summary>
-    /// Interaction logic for ListOfProductsWindow.xaml
-    /// </summary>
     public partial class ListOfProductsWindow : Window
     {
         private Controller _controller;
@@ -28,7 +24,6 @@ namespace ClientsAgregator
             InitializeComponent();
         }
 
-  
         private void deleteBtn_Click(object sender, RoutedEventArgs e)
         {
             var index = ProductsGrid.SelectedIndex;
@@ -48,9 +43,9 @@ namespace ClientsAgregator
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            AddingOfProductWindow addingOfProductWindow = new AddingOfProductWindow();
-            addingOfProductWindow.Show();
-            this.Close();
+            //AddingOfProductWindow addingOfProductWindow = new AddingOfProductWindow();
+            //addingOfProductWindow.Show();
+            //this.Close();
         }
     }
 }

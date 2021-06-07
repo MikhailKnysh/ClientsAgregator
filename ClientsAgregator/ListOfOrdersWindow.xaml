@@ -8,7 +8,7 @@
         Title="ListOfProductsWindow" Height="629" Width="1049">
     <Grid Loaded="Grid_Loaded">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="150"></ColumnDefinition>
+            <ColumnDefinition Width="150"/>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -20,13 +20,14 @@
         <DataGrid x:Name="ProductsGrid" IsReadOnly="True" AutoGenerateColumns="False" Margin="15,10,0,10" Width="838" Grid.Row="1" ColumnWidth="110" HorizontalAlignment="Left" ColumnHeaderHeight="30" Grid.Column="1">
 
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Артикул" Binding="{Binding Articul}" ></DataGridTextColumn>
-                <DataGridTextColumn Header="Название" Binding="{Binding Title}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Цена" Binding="{Binding Price}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Кол-во" Binding="{Binding Quantity}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Ед.изм." Binding="{Binding MeasureUnit}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Подгруппа" Binding="{Binding Subgroup}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Группа" Binding="{Binding Group}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Дата заказа" Binding="{Binding OrderDate}"/>
+                <DataGridTextColumn Header="Фамилия" Binding="{Binding LastName}"/>
+                <DataGridTextColumn Header="Имя" Binding="{Binding FirstName}"/>
+                <DataGridTextColumn Header="Отчество" Binding="{Binding MiddleName}"/>
+                <DataGridTextColumn Header="Сумма" Binding="{Binding TotalPrice}"/>
+                <DataGridTextColumn Header="Статус" Binding="{Binding Title}"/>
+                <DataGridTextColumn Header="Отзыв" Binding="{Binding OrderReview}"/>
                 <DataGridTemplateColumn Width="60" Header="">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
