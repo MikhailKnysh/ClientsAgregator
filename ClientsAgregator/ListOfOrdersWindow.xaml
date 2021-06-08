@@ -1,0 +1,51 @@
+﻿<Window x:Class="ClientsAgregator.ListOfProductsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ClientsAgregator"
+        mc:Ignorable="d"
+        Title="ListOfProductsWindow" Height="629" Width="1049">
+    <Grid Loaded="Grid_Loaded">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="65"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Button Content="Добавить" Margin="15,10,0,10" Grid.Column="1" Width="120px" Height="40px" HorizontalAlignment="Left" Click="Button_Click"></Button>
+        <DataGrid x:Name="ProductsGrid" IsReadOnly="True" AutoGenerateColumns="False" Margin="15,10,0,10" Width="838" Grid.Row="1" ColumnWidth="110" HorizontalAlignment="Left" ColumnHeaderHeight="30" Grid.Column="1">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Дата заказа" Binding="{Binding OrderDate}"/>
+                <DataGridTextColumn Header="Фамилия" Binding="{Binding LastName}"/>
+                <DataGridTextColumn Header="Имя" Binding="{Binding FirstName}"/>
+                <DataGridTextColumn Header="Отчество" Binding="{Binding MiddleName}"/>
+                <DataGridTextColumn Header="Сумма" Binding="{Binding TotalPrice}"/>
+                <DataGridTextColumn Header="Статус" Binding="{Binding Title}"/>
+                <DataGridTextColumn Header="Отзыв" Binding="{Binding OrderReview}"/>
+                <DataGridTemplateColumn Width="60" Header="">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition>
+                                    </ColumnDefinition>
+                                    <ColumnDefinition>
+                                    </ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Button  Name="ediBtn" Grid.Column="0" Height="20" Width="20" Background="Green" ></Button>
+                                <Button  Name="deleteBtn" Click="deleteBtn_Click" Grid.Column="1" Height="20" Width="20" Background="Red">X</Button>
+                            </Grid>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Window>

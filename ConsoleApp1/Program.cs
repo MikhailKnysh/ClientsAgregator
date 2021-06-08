@@ -1,4 +1,6 @@
-﻿using ClientsAgregator_DAL.CustomModels;
+﻿using ClientsAgregator_BLL;
+using ClientsAgregator_BLL.CustomModels.OrderModels;
+using ClientsAgregator_DAL.CustomModels;
 using ClientsAgregator_DAL.Models;
 using Dapper;
 using System;
@@ -12,16 +14,64 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
+            Controller controller = new Controller();
+
             Console.WriteLine("Hello World!");
-            string connectionString = @"Data Source=DESKTOP-8AL13S1;Initial Catalog=CLAG;Integrated Security=True";
-            string query = "GetOrdersInfo";
 
-            List<OrdersInfoDTO> orders = new List<OrdersInfoDTO>();
+            List<OrdersInfoModel> models = controller.GetOrderModels();
 
-            using (IDbConnection conn = new SqlConnection(connectionString))
+            List<ClientsFullNameModel> clients = controller.GetClientsFullNameModels();
+
+            List<ProductTitleModel> productTitles = controller.GetProductTitlesModels();
+
+            List<StatusModel> statusTitles = controller.GetStatusModels();
+
+            NewOrderInfoModel newOrderInfoModel = new NewOrderInfoModel()
             {
-                orders = conn.Query<OrdersInfoDTO>(query).AsList();
-            }
+                ClientId = 1,
+                OrderDate = "12.12.2021",
+                StatusesId = 1,
+                OrderReview = "Some review",
+                TotalPrice = 127.59,
+                productsInOrder = new List<ProductInOrderModel>()
+                {
+                    new ProductInOrderModel()
+                    {
+                        Articul = "121AER",
+                        ProductId = 2,
+                        ProductTitle = "Bread",
+                        Price = 12.99,
+                        Quantity = 23,
+                        MeasureUnitId = 1,
+                        GroupTitle = "Food",
+                        SubgroupTitle = "Bakery",
+                        Rate = 4
+                    },
+                    new ProductInOrderModel()
+                    {
+                        Articul = "131OIk",
+                        ProductId = 2,
+                        ProductTitle = "Spoons",
+                        Price = 12.99,
+                        Quantity = 17,
+                        MeasureUnitId = 1,
+                        GroupTitle = "Food",
+                        SubgroupTitle = "Bakery",
+                        Rate = 4
+                    }
+                }
+            };
+
+            //try
+            //{
+            //    controller.AddOrder(newOrderInfoModel);
+            //}
+            //catch (ArgumentException)
+            //{
+            //    Console.WriteLine("List is empty!");
+            //}
+
+            controller.DeleteOrder(orderId: 12);
         }
     }
 }
