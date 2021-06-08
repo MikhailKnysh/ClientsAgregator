@@ -12,15 +12,13 @@ namespace ClientsAgregator_DAL.Queries
 {
     public static class OrdersHelper
     {
-        private const string connectionString = @"Data Source=DESKTOP-8AL13S1;Initial Catalog=CLAG;Integrated Security=True";
-
         public static List<OrdersInfoDTO> GetOrdersInfo()
         {
-            string query = "GetOrdersInfo";
+            string query = "ClientsAgregatorDB.GetOrdersInfo";
 
             List<OrdersInfoDTO> orders = new List<OrdersInfoDTO>();
 
-            using (IDbConnection conn = new SqlConnection(connectionString))
+            using (IDbConnection conn = new SqlConnection(Options.connectionString))
             {
                 orders = conn.Query<OrdersInfoDTO>(query).AsList();
             }
@@ -30,11 +28,11 @@ namespace ClientsAgregator_DAL.Queries
 
         public static List<ClientFullNameDTO> GetClientsFullNames()
         {
-            string query = "GetClientsFullName";
+            string query = "ClientsAgregatorDB.GetClientsFullName";
 
             List<ClientFullNameDTO> clients = new List<ClientFullNameDTO>();
 
-            using (IDbConnection conn = new SqlConnection(connectionString))
+            using (IDbConnection conn = new SqlConnection(Options.connectionString))
             {
                 clients = conn.Query<ClientFullNameDTO>(query).AsList();
             }
@@ -44,11 +42,11 @@ namespace ClientsAgregator_DAL.Queries
 
         public static List<ProductTitleDTO> GetProductTitles()
         {
-            string query = "GetProductTitles";
+            string query = "ClientsAgregatorDB.GetProductTitles";
 
             List<ProductTitleDTO> products = new List<ProductTitleDTO>();
 
-            using (IDbConnection conn = new SqlConnection(connectionString))
+            using (IDbConnection conn = new SqlConnection(Options.connectionString))
             {
                 products = conn.Query<ProductTitleDTO>(query).AsList();
             }
@@ -58,11 +56,11 @@ namespace ClientsAgregator_DAL.Queries
 
         public static List<StatusDTO> GetStatusTitles()
         {
-            string query = "GetStatuses";
+            string query = "ClientsAgregatorDB.GetStatuses";
 
             List<StatusDTO> statuses = new List<StatusDTO>();
 
-            using (IDbConnection conn = new SqlConnection(connectionString))
+            using (IDbConnection conn = new SqlConnection(Options.connectionString))
             {
                 statuses = conn.Query<StatusDTO>(query).AsList();
             }
@@ -72,9 +70,9 @@ namespace ClientsAgregator_DAL.Queries
 
         public static void AddOrder(List<Product_OrderDTO> productsOrder, OrderDTO order)
         {
-            using (IDbConnection conn = new SqlConnection(connectionString))
+            using (IDbConnection conn = new SqlConnection(Options.connectionString))
             {
-                string query = "AddOrder";
+                string query = "ClientsAgregatorDB.AddOrder";
 
                 var result = conn.Query<int>(query, new
                 {
@@ -89,7 +87,7 @@ namespace ClientsAgregator_DAL.Queries
 
                 int OrderId = result.Single();
 
-                query = "AddProductOrder";
+                query = "ClientsAgregatorDB.AddProductOrder";
 
                 foreach (Product_OrderDTO po in productsOrder)
                 {
@@ -107,13 +105,13 @@ namespace ClientsAgregator_DAL.Queries
 
         public static void DeleteOrder(int orderId)
         {
-            using (IDbConnection conn = new SqlConnection(connectionString))
+            using (IDbConnection conn = new SqlConnection(Options.connectionString))
             {
-                string query = "DeleteProductOrderByOrderId @OrderId";
+                string query = "ClientsAgregatorDB.DeleteProductOrderByOrderId @OrderId";
 
                 conn.Query<int>(query, new { orderId });
 
-                query = "DeleteOrderById @OrderId";
+                query = "ClientsAgregatorDB.DeleteOrderById @OrderId";
                 conn.Query<int>(query, new { orderId });
             }
         }
