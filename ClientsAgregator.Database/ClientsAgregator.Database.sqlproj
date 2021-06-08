@@ -70,6 +70,7 @@
     <Folder Include="dbo\Stored Procedures\Status" />
     <Folder Include="dbo\Stored Procedures\Clients" />
     <Folder Include="dbo\Stored Procedures\Product_Subgroup" />
+    <Folder Include="dbo\Stored Procedures\Subgroup_Group" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Clients.sql" />
@@ -120,7 +121,7 @@
     <Build Include="dbo\Stored Procedures\Product\DeleteProductById.sql" />
     <Build Include="dbo\Stored Procedures\Product\AddProduct.sql" />
     <Build Include="dbo\Stored Procedures\Orders\AddOrder.sql" />
-    <Build Include="dbo\Stored Procedures\Orders\DeleteOrdersById.sql" />
+    <Build Include="dbo\Stored Procedures\Orders\DeleteOrderById.sql" />
     <Build Include="dbo\Stored Procedures\Orders\GetOrders.sql" />
     <Build Include="dbo\Stored Procedures\Orders\GetOrdersById.sql" />
     <Build Include="dbo\Stored Procedures\Orders\UpdateOrderById.sql" />
@@ -144,8 +145,8 @@
     <Build Include="dbo\Stored Procedures\Clients\GetClients.sql" />
     <Build Include="dbo\Stored Procedures\Clients\GetClientById.sql" />
     <Build Include="dbo\Stored Procedures\Clients\UpdateClientById.sql" />
-    <Build Include="dbo\Stored Procedures\Product\GetProductArticulAndTitleById.sql" />
-    <Build Include="dbo\Stored Procedures\Clients\GetFullNameByClientId.sql" />
+    <Build Include="dbo\Stored Procedures\Product\GetProductTitles.sql" />
+    <Build Include="dbo\Stored Procedures\Clients\GetClientsFullName.sql" />
     <Build Include="dbo\Stored Procedures\Clients\GetFullNameAndContactInfoByClientId.sql" />
     <Build Include="dbo\Stored Procedures\Orders\GetOrdersByClientId.sql" />
     <Build Include="dbo\Stored Procedures\Orders\UpdateOrderReviewById.sql" />
@@ -157,6 +158,8 @@
     <Build Include="dbo\Stored Procedures\Clients\GetProductsBuyClientById.sql" />
     <Build Include="dbo\Stored Procedures\GetClientInfoByProduct.sql" />
     <Build Include="dbo\Stored Procedures\Clients\GetSpendMoneyCountByClientId.sql" />
+    <Build Include="dbo\Stored Procedures\Subgroup_Group\AddSubgroupGroup.sql" />
+    <Build Include="dbo\Stored Procedures\Product_Subgroup\DeleteProductSubgroupByProductId.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="ClientsAgregator.Database.refactorlog" />

@@ -4,20 +4,20 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="Queries\Products\**" />
-    <EmbeddedResource Remove="Queries\Products\**" />
-    <None Remove="Queries\Products\**" />
+  <ItemGroup>
+    <Compile Remove="Queries\Products\**" />
+    <EmbeddedResource Remove="Queries\Products\**" />
+    <None Remove="Queries\Products\**" />
   </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="AutoMapper" Version="10.1.1" />
-    <PackageReference Include="Dapper" Version="2.0.90" />
-    <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="Dapper" Version="2.0.90" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\ClientsAgregator.Database\ClientsAgregator.Database.sqlproj" />
+  <ItemGroup>
+    <ProjectReference Include="..\ClientsAgregator.Database\ClientsAgregator.Database.sqlproj" />
   </ItemGroup>
 
 </Project>

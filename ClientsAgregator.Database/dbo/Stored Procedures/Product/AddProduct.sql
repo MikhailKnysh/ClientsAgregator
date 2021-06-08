@@ -6,5 +6,6 @@
 @MeasureId INT
 AS
 INSERT [dbo].[Products] 
+OUTPUT INSERTED.id 
 VALUES (@Articul, @Title, @Price, @Quantity, @MeasureId)
 

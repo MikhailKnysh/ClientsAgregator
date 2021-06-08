@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[GetSubgroupsInfoByOrderId]
+﻿CREATE PROCEDURE [dbo].[GetSubgroupsInfoByGroupId]
 @GroupID INT
 AS
 SELECT  [dbo].[Subgroups].[Id],[dbo].[Subgroups].[Title]
