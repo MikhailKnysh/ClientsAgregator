@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 
 namespace ClientsAgregator
 {
-    public partial class ListOfOrdersWindow : Window
+    public partial class ListOfOrdersWindow : Page
     {
         private Controller _controller;
         List<OrdersInfoModel> _ordersInfoModels; 

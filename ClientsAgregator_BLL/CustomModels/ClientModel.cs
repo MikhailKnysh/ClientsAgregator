@@ -12,7 +12,7 @@ namespace ClientsAgregator_BLL.CustomModels
         public string MiddleName { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
-        public string BulkStatusId { get; set; }
+        public string BulkStatusTitle { get; set; }
         public string Male { get; set; }
         public string СommentAboutСlient { get; set; }
     }

@@ -1,4 +1,4 @@
-﻿<Window x:Class="ClientsAgregator.ListOfOrdersWindow"
+﻿<Page x:Class="ClientsAgregator.ListOfOrdersWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -7,17 +7,13 @@
         mc:Ignorable="d"
         Title="ListOfProductsWindow" Height="629" Width="1049">
     <Grid Loaded="Grid_Loaded">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="150"/>
-            <ColumnDefinition></ColumnDefinition>
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="65"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
 
         <Button Content="Добавить" Margin="15,10,0,10" Grid.Column="1" Width="120px" Height="40px" HorizontalAlignment="Left" Click="Button_Click"></Button>
-        <DataGrid x:Name="ProductsGrid" IsReadOnly="True" AutoGenerateColumns="False" Margin="15,10,0,10" Width="838" Grid.Row="1" ColumnWidth="110" HorizontalAlignment="Left" ColumnHeaderHeight="30" Grid.Column="1">
+        <DataGrid x:Name="ProductsGrid" IsReadOnly="True" AutoGenerateColumns="False" Margin="15,10,0,10" Width="1000" Grid.Row="1" ColumnWidth="110" HorizontalAlignment="Left" ColumnHeaderHeight="30" Grid.Column="1">
 
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
@@ -48,4 +44,4 @@
         </DataGrid>
 
     </Grid>
-</Window>
+</Page>

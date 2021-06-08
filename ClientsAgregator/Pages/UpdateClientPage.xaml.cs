@@ -85,13 +85,13 @@ namespace ClientsAgregator
             ClientModel client = _controller.GetClientByIdModels(_idClient);
 
             TextBoxLastName.Text = client.LastName;
-        TextBoxFirstName.Text = client.FirstName;
-        TextBoxMiddleName.Text = client.MiddleName;
-        TextBoxPhone.Text = client.Phone;
-        TextBoxEmail.Text = client.Email;
-        ComboBoxBulkStatus.SelectedItem = client.BulkStatusId;
-        ComboBoxMale.Text = client.Male;
-        TextBoxCommentAboutClient.Text = client.СommentAboutСlient;
+            TextBoxFirstName.Text = client.FirstName;
+            TextBoxMiddleName.Text = client.MiddleName;
+            TextBoxPhone.Text = client.Phone;
+            TextBoxEmail.Text = client.Email;
+            ComboBoxBulkStatus.SelectedItem = client.BulkStatusTitle;
+            ComboBoxMale.Text = client.Male;
+            TextBoxCommentAboutClient.Text = client.СommentAboutСlient;
 
             List<BulkStatusModel> bulkStatusModel = _controller.GetBulkStatusesModels();
 

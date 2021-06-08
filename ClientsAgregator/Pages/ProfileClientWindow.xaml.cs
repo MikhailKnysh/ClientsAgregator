@@ -30,7 +30,7 @@ namespace ClientsAgregator
             middleNameLabel.Content = clientModel.MiddleName;
             emailLabel.Content = clientModel.Email;
             phoneLabel.Content = clientModel.Phone;
-            bulkstatusLabel.Content = clientModel.BulkStatusId;
+            bulkstatusLabel.Content = clientModel.BulkStatusTitle;
             MaleLabel.Content = clientModel.Male;
 
             productsBuyClientModel = controller.GetProductsBuyClientModels(idClient);
