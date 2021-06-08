@@ -1,20 +1,20 @@
-﻿CREATE PROCEDURE [dbo].[GetProductsInfo]
+﻿CREATE PROCEDURE [ClientsAgregatorDB].[GetProductsInfo]
 AS
 SELECT 
-[dbo].[Products].[Id],
-[dbo].[Products].[Articul], [dbo].[Products].[Title],
-[dbo].[Products].[Price], [dbo].[Products].[Quantity],
-[dbo].[MeasureUnits].[Title] AS [MeasureUnit], 
-[dbo].[Subgroups].[Title] AS [Subgroup],
-[dbo].[Groups].[Title] AS[Group]
-FROM [dbo].[Products]
-LEFT JOIN [dbo].[MeasureUnits] 
-ON [dbo].[Products].[MeasureId] = [dbo].[MeasureUnits].[Id]
-LEFT JOIN [dbo].[Product_Subgroup]
-ON [dbo].[Product_Subgroup].[ProductId] = [dbo].[Products].[Id]
-LEFT JOIN [dbo].[Subgroups]
-ON [dbo].[Product_Subgroup].[SubgroupId] = [dbo].[Subgroups].[Id]
-LEFT JOIN [dbo].[Subgroup_Group]
-ON [dbo].[Subgroups].[Id] = [dbo].[Subgroup_Group].[SubgroupId]
-LEFT JOIN [dbo].[Groups]
-ON [dbo].[Groups].[Id] = [dbo].[Subgroup_Group].[GroupId]
+[ClientsAgregatorDB].[Products].[Id],
+[ClientsAgregatorDB].[Products].[Articul], [ClientsAgregatorDB].[Products].[Title],
+[ClientsAgregatorDB].[Products].[Price], [ClientsAgregatorDB].[Products].[Quantity],
+[ClientsAgregatorDB].[MeasureUnits].[Title] AS [MeasureUnit], 
+[ClientsAgregatorDB].[Subgroups].[Title] AS [Subgroup],
+[ClientsAgregatorDB].[Groups].[Title] AS[Group]
+FROM [ClientsAgregatorDB].[Products]
+LEFT JOIN [ClientsAgregatorDB].[MeasureUnits] 
+ON [ClientsAgregatorDB].[Products].[MeasureId] = [ClientsAgregatorDB].[MeasureUnits].[Id]
+LEFT JOIN [ClientsAgregatorDB].[Product_Subgroup]
+ON [ClientsAgregatorDB].[Product_Subgroup].[ProductId] = [ClientsAgregatorDB].[Products].[Id]
+LEFT JOIN [ClientsAgregatorDB].[Subgroups]
+ON [ClientsAgregatorDB].[Product_Subgroup].[SubgroupId] = [ClientsAgregatorDB].[Subgroups].[Id]
+LEFT JOIN [ClientsAgregatorDB].[Subgroup_Group]
+ON [ClientsAgregatorDB].[Subgroups].[Id] = [ClientsAgregatorDB].[Subgroup_Group].[SubgroupId]
+LEFT JOIN [ClientsAgregatorDB].[Groups]
+ON [ClientsAgregatorDB].[Groups].[Id] = [ClientsAgregatorDB].[Subgroup_Group].[GroupId]

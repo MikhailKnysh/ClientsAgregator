@@ -1,5 +1,5 @@
-﻿CREATE PROCEDURE AddGroup
+﻿CREATE PROCEDURE [ClientsAgregatorDB].[AddGroup]
 @Title VARCHAR(255)
 AS
-INSERT [dbo].[Groups] VALUES
+INSERT [ClientsAgregatorDB].[Groups] VALUES
 (@Title)

@@ -1,3 +1,3 @@
-﻿CREATE PROCEDURE GetMeasureUnit
+﻿CREATE PROCEDURE [ClientsAgregatorDB].[GetMeasureUnit]
 AS
-SELECT * FROM [dbo].[MeasureUnits]
+SELECT * FROM [ClientsAgregatorDB].[MeasureUnits]

@@ -1,6 +1,6 @@
-﻿CREATE PROCEDURE [dbo].[AddProduct_Subgroup]
+﻿CREATE PROCEDURE [ClientsAgregatorDB].[AddProduct_Subgroup]
 @ProductID INT,
 @SubgroupID INT
 AS
-INSERT [dbo].[Product_Subgroup]
+INSERT [ClientsAgregatorDB].[Product_Subgroup]
 VALUES (@ProductID,@SubgroupID)

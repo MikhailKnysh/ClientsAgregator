@@ -1,9 +1,9 @@
-﻿CREATE PROCEDURE UpdateBulkStatus
+﻿CREATE PROCEDURE [ClientsAgregatorDB].[UpdateBulkStatus]
 @Id INT,
 @Title VARCHAR(255)
 AS
 
-UPDATE [dbo].[BulkStatus]
+UPDATE [ClientsAgregatorDB].[BulkStatus]
 SET 
 Title = @Title
 WHERE Id = @Id

@@ -1,8 +1,8 @@
-﻿CREATE PROCEDURE UpdateSubgroupById
+﻿CREATE PROCEDURE [ClientsAgregatorDB].[UpdateSubgroupById]
 @Id INT,
 @Title VARCHAR(255)
 AS
-UPDATE [dbo].[Subgroups]
+UPDATE [ClientsAgregatorDB].[Subgroups]
 SET
 Title = @Title
 WHERE Id = @Id

@@ -1,5 +1,5 @@
-﻿CREATE PROCEDURE AddBulkStatus
+﻿CREATE PROCEDURE [ClientsAgregatorDB].[AddBulkStatus]
 @Title VARCHAR(255)
 AS
-INSERT BulkStatus VALUES
+INSERT [ClientsAgregatorDB].[BulkStatus] VALUES
 (@Title) 

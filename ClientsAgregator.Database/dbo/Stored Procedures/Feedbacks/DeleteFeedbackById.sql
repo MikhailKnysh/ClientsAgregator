@@ -1,5 +1,5 @@
-﻿CREATE PROCEDURE DeleteFeedbacksById
+﻿CREATE PROCEDURE [ClientsAgregatorDB].[DeleteFeedbacksById]
 @Id INT
 AS
-DELETE [dbo].[Feedbacks]
+DELETE [ClientsAgregatorDB].[Feedbacks]
 WHERE Id = @Id

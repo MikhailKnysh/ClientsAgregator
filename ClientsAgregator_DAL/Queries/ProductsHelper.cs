@@ -12,15 +12,13 @@ namespace ClientsAgregator_DAL.Queries
 {
     public static class ProductsHelper
     {
-        private const string connectionString = @"Data Source=DESKTOP-8AL13S1;Initial Catalog=CLAG;Integrated Security=True";
-
         public static List<ProductInfoDTO> GetProductsInfo()
         {
-            string query = "GetProductsInfo";
+            string query = "ClientsAgregatorDB.GetProductsInfo";
 
             List<ProductInfoDTO> products = new List<ProductInfoDTO>();
 
-            using (IDbConnection conn = new SqlConnection(connectionString))
+            using (IDbConnection conn = new SqlConnection(Options.connectionString))
             {
                 products = conn.Query<ProductInfoDTO>(query).AsList();
             }
@@ -30,11 +28,11 @@ namespace ClientsAgregator_DAL.Queries
 
         public static List<GroupDTO> GetGroups()
         {
-            string query = "GetGroups";
+            string query = "ClientsAgregatorDB.GetGroups";
 
             List<GroupDTO> groups = new List<GroupDTO>();
 
-            using (IDbConnection conn = new SqlConnection(connectionString))
+            using (IDbConnection conn = new SqlConnection(Options.connectionString))
             {
                 groups = conn.Query<GroupDTO>(query).AsList();
             }
@@ -44,11 +42,11 @@ namespace ClientsAgregator_DAL.Queries
 
         public static List<SubgroupDTO> GetSubgroupsInfoByGroupId(int groupId)
         {
-            string query = "GetSubgroupsInfoByGroupId";
+            string query = "ClientsAgregatorDB.GetSubgroupsInfoByGroupId";
 
             List<SubgroupDTO> subgroups = new List<SubgroupDTO>();
 
-            using (IDbConnection conn = new SqlConnection(connectionString))
+            using (IDbConnection conn = new SqlConnection(Options.connectionString))
             {
                 subgroups = conn.Query<SubgroupDTO>(query, new { groupId }, commandType: CommandType.StoredProcedure).AsList();
             }
@@ -58,11 +56,11 @@ namespace ClientsAgregator_DAL.Queries
 
         public static List<MeasureUnitDTO> GetMeasureUnits()
         {
-            string query = "GetMeasureUnit";
+            string query = "ClientsAgregatorDB.GetMeasureUnit";
 
             List<MeasureUnitDTO> measureUnits = new List<MeasureUnitDTO>();
 
-            using (IDbConnection conn = new SqlConnection(connectionString))
+            using (IDbConnection conn = new SqlConnection(Options.connectionString))
             {
                 measureUnits = conn.Query<MeasureUnitDTO>(query).AsList();
             }
@@ -72,9 +70,9 @@ namespace ClientsAgregator_DAL.Queries
 
         public static int AddProduct(ProductDTO product)
         {
-            string query = "AddProduct";
+            string query = "ClientsAgregatorDB.AddProduct";
 
-            using (IDbConnection conn = new SqlConnection(connectionString))
+            using (IDbConnection conn = new SqlConnection(Options.connectionString))
             {
                 var productId = conn.Query<int>(query, new
                 {
@@ -91,9 +89,9 @@ namespace ClientsAgregator_DAL.Queries
 
         public static void AddProductSubgroup(int productId, int subgroupId)
         {
-            string query = "AddProduct_Subgroup";
+            string query = "ClientsAgregatorDB.AddProduct_Subgroup";
 
-            using (IDbConnection conn = new SqlConnection(connectionString))
+            using (IDbConnection conn = new SqlConnection(Options.connectionString))
             {
                 conn.Query<int>(query, new { productId, subgroupId }, commandType: CommandType.StoredProcedure);
             }
@@ -101,9 +99,9 @@ namespace ClientsAgregator_DAL.Queries
 
         public static void AddProductGroup(string Title)
         {
-            string query = "AddGroup";
+            string query = "ClientsAgregatorDB.AddGroup";
 
-            using (IDbConnection conn = new SqlConnection(connectionString))
+            using (IDbConnection conn = new SqlConnection(Options.connectionString))
             {
                 conn.Query<int>(query,new {Title}, commandType: CommandType.StoredProcedure);
             }
@@ -111,9 +109,9 @@ namespace ClientsAgregator_DAL.Queries
 
         public static int AddProductSubgroup(string Title)
         {
-            string query = "AddSubgroup";
+            string query = "ClientsAgregatorDB.AddSubgroup";
 
-            using (IDbConnection conn = new SqlConnection(connectionString))
+            using (IDbConnection conn = new SqlConnection(Options.connectionString))
             { 
                 var subgroupId = conn.Query<int>(query, new { Title }, commandType: CommandType.StoredProcedure);
 
@@ -123,9 +121,9 @@ namespace ClientsAgregator_DAL.Queries
 
         public static void AddSubgroupGroup(int SubgroupId, int GroupId)
         {
-            string query = "AddSubgroupGroup";
+            string query = "ClientsAgregatorDB.AddSubgroupGroup";
 
-            using (IDbConnection conn = new SqlConnection(connectionString))
+            using (IDbConnection conn = new SqlConnection(Options.connectionString))
             {
                 conn.Query<int>(query, new { SubgroupId, GroupId }, commandType: CommandType.StoredProcedure);
             }
@@ -133,9 +131,9 @@ namespace ClientsAgregator_DAL.Queries
 
         public static void DeleteProductById(int productId)
         {
-            string query = "DeleteProductById";
+            string query = "ClientsAgregatorDB.DeleteProductById";
 
-            using (IDbConnection conn = new SqlConnection(connectionString))
+            using (IDbConnection conn = new SqlConnection(Options.connectionString))
             {
                 conn.Query<int>(query, new {productId}, commandType: CommandType.StoredProcedure);
             }
@@ -143,9 +141,9 @@ namespace ClientsAgregator_DAL.Queries
 
         public static void DeleteProductSubgroupByProductId(int productId)
         {
-            string query = "DeleteProductSubgroupByProductId";
+            string query = "ClientsAgregatorDB.DeleteProductSubgroupByProductId";
 
-            using (IDbConnection conn = new SqlConnection(connectionString))
+            using (IDbConnection conn = new SqlConnection(Options.connectionString))
             {
                 conn.Query<int>(query, new { productId }, commandType: CommandType.StoredProcedure);
             }

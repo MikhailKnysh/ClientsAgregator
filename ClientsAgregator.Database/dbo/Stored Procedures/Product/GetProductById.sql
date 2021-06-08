@@ -1,6 +1,6 @@
-﻿CREATE PROCEDURE GetProductById
+﻿CREATE PROCEDURE [ClientsAgregatorDB].[GetProductById]
 @Id INT
 AS
-SELECT * FROM [dbo].[Products]
+SELECT * FROM [ClientsAgregatorDB].[Products]
 WHERE Id = @Id
 

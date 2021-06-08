@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE UpdateClientById
+﻿CREATE PROCEDURE [ClientsAgregatorDB].[UpdateClientById]
 @Id INT,
 @LastName VARCHAR(255),
 @FirstName VARCHAR(255),
@@ -9,7 +9,7 @@
 @Male VARCHAR(50),
 @СommentAboutСlient VARCHAR(800)
 AS
-UPDATE [dbo].[Clients]
+UPDATE [ClientsAgregatorDB].[Clients]
 SET
 LastName = @LastName,
 FirstName = @FirstName,

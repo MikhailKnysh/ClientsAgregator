@@ -1,6 +1,6 @@
-﻿CREATE PROCEDURE GetClients
+﻿CREATE PROCEDURE [ClientsAgregatorDB].[GetClients]
 AS
 SELECT C.Id, C.[LastName], C.FirstName, 
-C.MiddleName, C.Phone, C.Email, C.Male, [dbo].BulkStatus.Title AS BulkStatusId, C.СommentAboutСlient
-FROM [dbo].[Clients] AS C
-JOIN [dbo].BulkStatus ON [dbo].[BulkStatus].Id = C.[BulkStatusId]
+C.MiddleName, C.Phone, C.Email, C.Male, [ClientsAgregatorDB].[BulkStatus].[Title] AS BulkStatusTitle, C.СommentAboutСlient
+FROM [ClientsAgregatorDB].[Clients] AS C
+JOIN [ClientsAgregatorDB].[BulkStatus] ON [ClientsAgregatorDB].[BulkStatus].[Id] = [C].[BulkStatusId]

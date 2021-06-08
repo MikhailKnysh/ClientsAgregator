@@ -1,19 +1,19 @@
-﻿CREATE PROCEDURE [dbo].[GetOrderInfo]
+﻿CREATE PROCEDURE [ClientsAgregatorDB].[GetOrderInfo]
 AS
-SELECT [dbo].[Products].[Articul], [dbo].[Products].[Title],
-[dbo].[Products].[Price], [dbo].[Product_Order].[Quantity],
-[dbo].[MeasureUnits].[Title], [dbo].[Subgroups].[Title],
-[dbo].[Groups].[Title]
-FROM [dbo].[Products]
-INNER JOIN [dbo].[Product_Order]
-ON [dbo].[Products].[Id] = [dbo].[Product_Order].[ProductId]
-INNER JOIN [dbo].[MeasureUnits]
-ON [dbo].[Products].[MeasureId] = [dbo].[MeasureUnits].[Id]
-INNER JOIN [dbo].[Product_Subgroup]
-ON [dbo].[Product_Subgroup].[ProductId] = [dbo].[Products].[Id]
-INNER JOIN [dbo].[Subgroups]
-ON [dbo].[Product_Subgroup].[SubgroupId] = [dbo].[Subgroups].[Id]
-INNER JOIN [dbo].[Subgroup_Group]
-ON [dbo].[Subgroups].[Id] = [dbo].[Subgroup_Group].[SubgroupId]
-INNER JOIN [dbo].[Groups]
-ON [dbo].[Groups].[Id] = [dbo].[Subgroup_Group].[GroupId]
+SELECT [ClientsAgregatorDB].[Products].[Articul], [ClientsAgregatorDB].[Products].[Title],
+[ClientsAgregatorDB].[Products].[Price], [ClientsAgregatorDB].[Product_Order].[Quantity],
+[ClientsAgregatorDB].[MeasureUnits].[Title], [ClientsAgregatorDB].[Subgroups].[Title],
+[ClientsAgregatorDB].[Groups].[Title]
+FROM [ClientsAgregatorDB].[Products]
+INNER JOIN [ClientsAgregatorDB].[Product_Order]
+ON [ClientsAgregatorDB].[Products].[Id] = [ClientsAgregatorDB].[Product_Order].[ProductId]
+INNER JOIN [ClientsAgregatorDB].[MeasureUnits]
+ON [ClientsAgregatorDB].[Products].[MeasureId] = [ClientsAgregatorDB].[MeasureUnits].[Id]
+INNER JOIN [ClientsAgregatorDB].[Product_Subgroup]
+ON [ClientsAgregatorDB].[Product_Subgroup].[ProductId] = [ClientsAgregatorDB].[Products].[Id]
+INNER JOIN [ClientsAgregatorDB].[Subgroups]
+ON [ClientsAgregatorDB].[Product_Subgroup].[SubgroupId] = [ClientsAgregatorDB].[Subgroups].[Id]
+INNER JOIN [ClientsAgregatorDB].[Subgroup_Group]
+ON [ClientsAgregatorDB].[Subgroups].[Id] = [ClientsAgregatorDB].[Subgroup_Group].[SubgroupId]
+INNER JOIN [ClientsAgregatorDB].[Groups]
+ON [ClientsAgregatorDB].[Groups].[Id] = [ClientsAgregatorDB].[Subgroup_Group].[GroupId]

@@ -1,5 +1,5 @@
-﻿CREATE PROCEDURE AddStatus
+﻿CREATE PROCEDURE [ClientsAgregatorDB].[AddStatus]
 @Title varchar(255)
 AS
-INSERT [dbo].[Statuses]
+INSERT [ClientsAgregatorDB].[Statuses]
 VALUES (@Title)

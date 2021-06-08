@@ -1,5 +1,5 @@
-﻿CREATE PROCEDURE AddMeasureUnit
+﻿CREATE PROCEDURE [ClientsAgregatorDB].[AddMeasureUnit]
 @Title VARCHAR(255)
 AS
-INSERT [dbo].[MeasureUnits]
+INSERT [ClientsAgregatorDB].[MeasureUnits]
 VALUES (@Title)
