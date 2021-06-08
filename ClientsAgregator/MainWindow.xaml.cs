@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClientsAgregator.Pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,7 +27,7 @@ namespace ClientsAgregator
         public MainWindow()
         {
             InitializeComponent();
-            MainFrame.Content = MainPage;
+            MainFrame.Content = new MainPage();
         }
 
         private void Main_Click(object sender, RoutedEventArgs e)
@@ -36,17 +37,17 @@ namespace ClientsAgregator
 
         private void ListOfClientsPage_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(ListOfClientsPage);
+            MainFrame.Navigate(new ListOfClientsWindow());
         }
 
         private void ListOfProductsPage_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(ListOfProductsPage);
+            MainFrame.Navigate(new ListOfProductsPage());
         }
 
         private void ListOfOrdersPage_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(ListOfOrdersPage);
+            MainFrame.Navigate(new ListOfOrdersWindow());
         }
     }
 }
