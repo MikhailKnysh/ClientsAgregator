@@ -11,14 +11,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ClientsAgregator
+namespace ClientsAgregator.Pages
 {
     /// <summary>
-    /// Interaction logic for Page2.xaml
+    /// Interaction logic for MainPage.xaml
     /// </summary>
-    public partial class Page2 : Page
+    public partial class MainPage : Page
     {
-        public Page2()
+        public MainPage()
         {
             InitializeComponent();
         }

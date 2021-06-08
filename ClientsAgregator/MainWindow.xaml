@@ -21,10 +21,12 @@
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
-            <Button x:Name="Main" Grid.Row="1" Width="80" Height="40" Content="Main" Margin="10" Click="Main_Click"></Button>
-            <Button x:Name="Page1" Grid.Row="2" Width="80" Height="40" Content="Page1" Margin="10" Click="Page1_Click"></Button>
-            <Button x:Name="Page2" Grid.Row="3" Width="80" Height="40" Content="Page2" Margin="10" Click="Page2_Click"></Button>
+            <Button x:Name="MainPage" Grid.Row="1" Width="100" Height="30" Content="ГЛАВНАЯ" Margin="10" Click="Main_Click"></Button>
+            <Button x:Name="ListOfClientsPage" Grid.Row="2" Width="100" Height="30" Content="КЛИЕНТЫ" Margin="10" Click="ListOfClientsPage_Click"/>
+            <Button x:Name="ListOfProductsPage" Grid.Row="3" Width="100" Height="30" Content="ТОВАРЫ" Margin="10" Click="ListOfProductsPage_Click"/>
+            <Button x:Name="ListOfOrdersPage" Grid.Row="4" Width="100" Height="30" Content="ЗАКАЗЫ" Margin="10" Click="ListOfOrdersPage_Click"/>
         </Grid>
         
         

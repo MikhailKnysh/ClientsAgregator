@@ -26,7 +26,7 @@ namespace ClientsAgregator
         public MainWindow()
         {
             InitializeComponent();
-            MainFrame.Content = new Page1();
+            MainFrame.Content = MainPage;
         }
 
         private void Main_Click(object sender, RoutedEventArgs e)
@@ -34,14 +34,19 @@ namespace ClientsAgregator
             
         }
 
-        private void Page1_Click(object sender, RoutedEventArgs e)
+        private void ListOfClientsPage_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.NavigationService.Navigate(new Page1());
+            MainFrame.Navigate(ListOfClientsPage);
         }
 
-        private void Page2_Click(object sender, RoutedEventArgs e)
+        private void ListOfProductsPage_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.NavigationService.Navigate(new Page2());
+            MainFrame.Navigate(ListOfProductsPage);
+        }
+
+        private void ListOfOrdersPage_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(ListOfOrdersPage);
         }
     }
 }
