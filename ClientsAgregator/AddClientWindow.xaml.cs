@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ClientsAgregator_BLL;
+using ClientsAgregator_BLL.CustomModels;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -17,9 +19,22 @@ namespace ClientsAgregator
     /// </summary>
     public partial class AddClientWindow : Window
     {
+        private Controller _controller;
+
         public AddClientWindow()
         {
             InitializeComponent();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            _controller = new Controller();
+            List<BulkStatusModel> bulkStatusModel = _controller.GetBulkStatusesModels();
+
+            foreach (var item in bulkStatusModel)
+            {
+                ComboBoxBulkStatus.Items.Add(item.Title);
+            }
         }
     }
 }

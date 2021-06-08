@@ -115,5 +115,19 @@ namespace ClientsAgregator_DAL.Queries
 
             return totalSum;
         }
+
+        public static List<BulkStatusDTO> GetBulkStatuses()
+        {
+            string query = "GetBulkStatuses";
+
+            List<BulkStatusDTO> bulkStatusInfo = new List<BulkStatusDTO>();
+
+            using(IDbConnection conn = new SqlConnection(connectionString))
+            {
+                bulkStatusInfo = conn.Query<BulkStatusDTO>(query).AsList();
+            }
+
+            return bulkStatusInfo;
+        }
     }
 }

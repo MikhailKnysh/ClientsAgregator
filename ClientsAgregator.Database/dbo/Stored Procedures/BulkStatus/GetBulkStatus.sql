@@ -1,6 +1,4 @@
-﻿CREATE PROCEDURE GetBulkStatus
-@Id INT
+﻿CREATE PROCEDURE GetBulkStatuses
 AS
 
 SELECT * FROM [dbo].[BulkStatus]
-WHERE Id = @Id

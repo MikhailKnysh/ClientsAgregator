@@ -71,5 +71,14 @@ namespace ClientsAgregator_BLL
             return clientByIdModels;
         }
 
+        public List<BulkStatusModel> GetBulkStatusesModels()
+        {
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<BulkStatusDTO, BulkStatusModel>());
+            Mapper mapper = new Mapper(config);
+
+            List<BulkStatusModel> bulkStatusModel = mapper.Map<List<BulkStatusModel>>(ClientsHelper.GetBulkStatuses());
+
+            return bulkStatusModel;
+        }
     }
 }
