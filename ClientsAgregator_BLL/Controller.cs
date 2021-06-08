@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using ClientsAgregator_BLL.CustomModels.OrderModels;
+using ClientsAgregator_BLL.CustomModels;
+using ClientsAgregator_BLL.CustomModels.ProductsModel;
 using ClientsAgregator_DAL.CustomModels;
 using ClientsAgregator_DAL.Models;
 using ClientsAgregator_DAL.Queries;
@@ -96,5 +98,74 @@ namespace ClientsAgregator_BLL
         {
             OrdersHelper.DeleteOrder(orderId);
         }
+
+        public List<ProductInfoModel> GetProductInfoModels()
+        {
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<ProductInfoDTO, ProductInfoModel>());
+            Mapper mapper = new Mapper(config);
+
+            List<ProductInfoModel> productInfoModels = mapper.Map<List<ProductInfoModel>>(ProductsHelper.GetProductsInfo());
+
+            return productInfoModels;
+        }
+
+        public List<GroupInfoModel> GetGroups()
+        {
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<GroupDTO, GroupInfoModel>());
+            Mapper mapper = new Mapper(config);
+
+            List<GroupInfoModel> groupModels = mapper.Map<List<GroupInfoModel>>(ProductsHelper.GetGroups());
+
+            return groupModels;
+        }
+
+        public List<SubgroupInfoModel> GetSubgroupsInfoByGroupId(int groupId)
+        {
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<SubgroupDTO, SubgroupInfoModel>());
+            Mapper mapper = new Mapper(config);
+
+            List<SubgroupInfoModel> subgroupModels = mapper.Map<List<SubgroupInfoModel>>(ProductsHelper.GetSubgroupsInfoByGroupId(groupId));
+
+            return subgroupModels;
+        }
+
+        public List<MeasureUnitInfoModel> GetMeasureUnit()
+        {
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<MeasureUnitDTO, MeasureUnitInfoModel>());
+            Mapper mapper = new Mapper(config);
+
+            List<MeasureUnitInfoModel> measureModels = mapper.Map<List<MeasureUnitInfoModel>>(ProductsHelper.GetMeasureUnits());
+
+            return measureModels;
+        }
+
+        public void AddProduct(AddingProductModel addingProductModel)
+        {
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<AddingProductModel, ProductDTO>());
+            Mapper mapper = new Mapper(config);
+
+            ProductDTO product = mapper.Map<ProductDTO>(addingProductModel);
+
+            int productId = ProductsHelper.AddProduct(product);
+            ProductsHelper.AddProductSubgroup(productId, addingProductModel.SubgroupId);
+        }
+
+        public void AddGroup(string groupTitle)
+        {
+            ProductsHelper.AddProductGroup(groupTitle); 
+        }
+
+        public void AddSubgropGroup(int groupId, string subgroupTitle)
+        {
+            int subgroupId =  ProductsHelper.AddProductSubgroup(subgroupTitle);
+            ProductsHelper.AddSubgroupGroup(subgroupId, groupId);
+        }
+
+        public void DeleteProduct(int productId)
+        {
+            ProductsHelper.DeleteProductSubgroupByProductId(productId);
+            ProductsHelper.DeleteProductById(productId);
+        }
+
     }
 }

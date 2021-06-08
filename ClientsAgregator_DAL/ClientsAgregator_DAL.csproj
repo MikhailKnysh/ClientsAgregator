@@ -20,4 +20,8 @@
     <ProjectReference Include="..\ClientsAgregator.Database\ClientsAgregator.Database.sqlproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Queries\Products\" />
+  </ItemGroup>
+
 </Project>

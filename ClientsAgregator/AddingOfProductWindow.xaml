@@ -1,0 +1,63 @@
+﻿<Window x:Name="AddingProductWindow" Loaded="AddingProductWindow_Loaded" x:Class="ClientsAgregator.AddingOfProductWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ClientsAgregator"
+        mc:Ignorable="d"
+        Title="AddingOfProductWindow" Height="589" MinHeight="450" MinWidth="700" Width="949">
+    <Grid Margin="0,0,10,8">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"></ColumnDefinition>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="1" Margin="0,0,0,10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="80"></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition Height="100"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label Content="Артикул" HorizontalAlignment="Left" Margin="69,0,0,0" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Width="60" Height="30"/>
+                <Label Content="Название" HorizontalAlignment="Left" Margin="69,20,0,0" Grid.Row="1" Grid.Column="0" VerticalAlignment="Top" Width="71" Height="30"/>
+                <Label Content="Группа" HorizontalAlignment="Left" Margin="69,0,0,0" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" Width="60" Height="30"/>
+                <Label Content="Единицы измерения" HorizontalAlignment="Left" Margin="69,0,0,0" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" Width="60" Height="30"/>
+                <Label Content="Количество" HorizontalAlignment="Center" Grid.Column="2" VerticalAlignment="Center" Width="80" Height="30"/>
+                <Label Content="Цена" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" Width="60" Height="30"/>
+                <Label Content="Подгруппа"  HorizontalAlignment="Center" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" Width="80" Height="30"/>
+                <TextBox x:Name="ArticulTextBox" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="0" Text="" TextWrapping="Wrap" VerticalAlignment="Center" Width="120" Height="18"/>
+                <TextBox x:Name="QuantityTextBox" Grid.Column="3" HorizontalAlignment="Center" Grid.Row="0" Text="" TextWrapping="Wrap" VerticalAlignment="Center" Width="120" Height="18"/>
+                <TextBox x:Name="TitelTextBox" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="1" Text="" TextWrapping="Wrap" VerticalAlignment="Center" Width="120" Height="18"/>
+                <TextBox x:Name="PriceTextBox" Grid.Column="3" HorizontalAlignment="Center" Grid.Row="1" Text="" TextWrapping="Wrap" VerticalAlignment="Center" Width="120" Height="18"/>
+                <ComboBox x:Name="GroupComboBox" Grid.Column="1" HorizontalAlignment="Right" Grid.Row="2" VerticalAlignment="Center" Width="130" Height="22" SelectionChanged="GroupComboBox_SelectionChanged"></ComboBox>
+                <ComboBox x:Name="SubgroupComboBox" Grid.Column="3" HorizontalAlignment="Right" Grid.Row="2" VerticalAlignment="Center" Width="130" Height="22"></ComboBox>
+                <ComboBox x:Name="MeasureUnitComboBox" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" Width="130" Height="22"></ComboBox>
+                <Button x:Name="AddGroupButton" Content="+" HorizontalAlignment="Left" Grid.Column="1" Margin="10" Grid.Row="2" VerticalAlignment="Center" Grid.ColumnSpan="2" Width="34" Background="#FF65D805" Click="AddGroupButton_Click"/>
+                <Button x:Name="AddSubgroupButton" Content="+" HorizontalAlignment="Left" Grid.Column="3" Margin="10" Grid.Row="2" VerticalAlignment="Center" Grid.ColumnSpan="2" Width="34" Background="#FF65D805" Click="AddSubgroupButton_Click" />
+
+            </Grid>
+            <Button x:Name="CancelButton" Content="Назад" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Width="95" Height="35" Grid.Row="0" Click="CancelButton_Click"/>
+            <Label Content="ДОБАВИТЬ ТОВАР" HorizontalAlignment="Center" Margin="0,45,0,0" VerticalAlignment="Top" Height="30" Width="160" Grid.Row="1"/>
+
+            <Button x:Name="SaveProductButton" Content="Сохранить" HorizontalAlignment="Left" Margin="50,30,50,30" Grid.Row="3" VerticalAlignment="Top" Height="37" Width="206" Grid.ColumnSpan="2" Click="SaveProductButton_Click"/>
+            <Button Content="Отменить" HorizontalAlignment="Right" Margin="50,30,50,30" Grid.Row="3" VerticalAlignment="Top" Width="206" Height="37" Grid.ColumnSpan="2" Click="CancelButton_Click"/>
+
+        </Grid>
+    </Grid>
+</Window>

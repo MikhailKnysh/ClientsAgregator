@@ -70,6 +70,7 @@
     <Folder Include="dbo\Stored Procedures\Status" />
     <Folder Include="dbo\Stored Procedures\Clients" />
     <Folder Include="dbo\Stored Procedures\Product_Subgroup" />
+    <Folder Include="dbo\Stored Procedures\Subgroup_Group" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Clients.sql" />
@@ -157,6 +158,8 @@
     <Build Include="dbo\Stored Procedures\Clients\GetProductsBuyClientById.sql" />
     <Build Include="dbo\Stored Procedures\GetClientInfoByProduct.sql" />
     <Build Include="dbo\Stored Procedures\Clients\GetSpendMoneyCountByClientId.sql" />
+    <Build Include="dbo\Stored Procedures\Subgroup_Group\AddSubgroupGroup.sql" />
+    <Build Include="dbo\Stored Procedures\Product_Subgroup\DeleteProductSubgroupByProductId.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="ClientsAgregator.Database.refactorlog" />

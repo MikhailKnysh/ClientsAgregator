@@ -1,14 +1,17 @@
-﻿<Window x:Class="ClientsAgregator.ListOfOrdersWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ClientsAgregator"
-        mc:Ignorable="d"
-        Title="ListOfProductsWindow" Height="629" Width="1049">
-    <Grid Loaded="Grid_Loaded">
+﻿<Page x:Class="ClientsAgregator.ListOfProductsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ClientsAgregator"
+      mc:Ignorable="d" 
+      d:DesignHeight="595" d:DesignWidth="1000"
+      Title="ListOfProductsPage">
+
+    <Grid 
+Loaded="Grid_Loaded">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="150"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -20,14 +23,13 @@
         <DataGrid x:Name="ProductsGrid" IsReadOnly="True" AutoGenerateColumns="False" Margin="15,10,0,10" Width="838" Grid.Row="1" ColumnWidth="110" HorizontalAlignment="Left" ColumnHeaderHeight="30" Grid.Column="1">
 
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
-                <DataGridTextColumn Header="Дата заказа" Binding="{Binding OrderDate}"/>
-                <DataGridTextColumn Header="Фамилия" Binding="{Binding LastName}"/>
-                <DataGridTextColumn Header="Имя" Binding="{Binding FirstName}"/>
-                <DataGridTextColumn Header="Отчество" Binding="{Binding MiddleName}"/>
-                <DataGridTextColumn Header="Сумма" Binding="{Binding TotalPrice}"/>
-                <DataGridTextColumn Header="Статус" Binding="{Binding Title}"/>
-                <DataGridTextColumn Header="Отзыв" Binding="{Binding OrderReview}"/>
+                <DataGridTextColumn Header="Артикул" Binding="{Binding Articul}" ></DataGridTextColumn>
+                <DataGridTextColumn Header="Название" Binding="{Binding Title}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Цена" Binding="{Binding Price}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Кол-во" Binding="{Binding Quantity}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Ед.изм." Binding="{Binding MeasureUnit}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Подгруппа" Binding="{Binding Subgroup}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Группа" Binding="{Binding Group}"></DataGridTextColumn>
                 <DataGridTemplateColumn Width="60" Header="">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -38,7 +40,7 @@
                                     <ColumnDefinition>
                                     </ColumnDefinition>
                                 </Grid.ColumnDefinitions>
-                                <Button  Name="ediBtn" Grid.Column="0" Height="20" Width="20" Background="Green" ></Button>
+                                <!--<Button  Name="ediBtn" Grid.Column="0" Height="20" Width="20" Background="Green" ></Button>-->
                                 <Button  Name="deleteBtn" Click="deleteBtn_Click" Grid.Column="1" Height="20" Width="20" Background="Red">X</Button>
                             </Grid>
                         </DataTemplate>
@@ -48,4 +50,4 @@
         </DataGrid>
 
     </Grid>
-</Window>
+</Page>

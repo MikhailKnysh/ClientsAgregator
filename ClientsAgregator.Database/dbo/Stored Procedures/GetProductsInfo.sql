@@ -1,6 +1,7 @@
 ﻿CREATE PROCEDURE [dbo].[GetProductsInfo]
 AS
 SELECT 
+[dbo].[Products].[Id],
 [dbo].[Products].[Articul], [dbo].[Products].[Title],
 [dbo].[Products].[Price], [dbo].[Products].[Quantity],
 [dbo].[MeasureUnits].[Title] AS [MeasureUnit], 

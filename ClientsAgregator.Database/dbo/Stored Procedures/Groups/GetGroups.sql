@@ -1,3 +1,3 @@
-﻿CREATE PROCEDURE GetGrops
+﻿CREATE PROCEDURE GetGroups
 AS
 SELECT * FROM [dbo].[Groups]

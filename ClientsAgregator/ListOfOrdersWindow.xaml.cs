@@ -14,12 +14,12 @@ using System.Windows.Shapes;
 
 namespace ClientsAgregator
 {
-    public partial class ListOfProductsWindow : Window
+    public partial class ListOfOrdersWindow : Window
     {
         private Controller _controller;
         List<OrdersInfoModel> _ordersInfoModels; 
         
-        public ListOfProductsWindow()
+        public ListOfOrdersWindow()
         {
             InitializeComponent();
         }

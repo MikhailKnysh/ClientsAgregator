@@ -1,7 +1,9 @@
 ﻿using ClientsAgregator_BLL;
 using ClientsAgregator_BLL.CustomModels.OrderModels;
+using ClientsAgregator_BLL.CustomModels.ProductsModel;
 using ClientsAgregator_DAL.CustomModels;
 using ClientsAgregator_DAL.Models;
+using ClientsAgregator_DAL.Queries;
 using Dapper;
 using System;
 using System.Collections.Generic;
