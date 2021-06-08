@@ -1,5 +1,5 @@
 ﻿
-CREATE PROCEDURE AddFeedback
+CREATE PROCEDURE [ClientsAgregatorDB].[AddFeedback]
 @ClientId INT,
 @ProductId INT,
 @OrderId INT,
@@ -7,5 +7,5 @@ CREATE PROCEDURE AddFeedback
 @Date VARCHAR(255),
 @Rate INT
 AS
-INSERT [dbo].[Feedbacks] VALUES
+INSERT [ClientsAgregatorDB].[Feedbacks] VALUES
 (@ClientId, @ProductId, @OrderId, @Description, @Date, @Rate)

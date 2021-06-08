@@ -1,8 +1,8 @@
-﻿CREATE PROCEDURE [dbo].[GetSubgroupsInfoByGroupId]
+﻿CREATE PROCEDURE [ClientsAgregatorDB].[GetSubgroupsInfoByGroupId]
 @GroupID INT
 AS
-SELECT  [dbo].[Subgroups].[Id],[dbo].[Subgroups].[Title]
-FROM [dbo].[Subgroups]
-INNER JOIN [dbo].[Subgroup_Group] 
-ON [dbo].[Subgroup_Group].[SubgroupId] = [dbo].[Subgroups].[Id]
-WHERE [dbo].[Subgroup_Group].[GroupId] = @GroupID
+SELECT  [ClientsAgregatorDB].[Subgroups].[Id],[ClientsAgregatorDB].[Subgroups].[Title]
+FROM [ClientsAgregatorDB].[Subgroups]
+INNER JOIN [ClientsAgregatorDB].[Subgroup_Group] 
+ON [ClientsAgregatorDB].[Subgroup_Group].[SubgroupId] = [ClientsAgregatorDB].[Subgroups].[Id]
+WHERE [ClientsAgregatorDB].[Subgroup_Group].[GroupId] = @GroupID

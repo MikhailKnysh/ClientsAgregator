@@ -1,9 +1,9 @@
-﻿CREATE PROCEDURE UpdateProductOrder
+﻿CREATE PROCEDURE [ClientsAgregatorDB].[UpdateProductOrder]
 @OrderId INT,
 @ProductId INT,
 @Quantity INT
 AS
-UPDATE [dbo].[Product_Order]
+UPDATE [ClientsAgregatorDB].[Product_Order]
 SET
 OrderId = @OrderId,
 ProductId = @ProductId,

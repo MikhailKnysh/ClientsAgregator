@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE UpdateOrderById
+﻿CREATE PROCEDURE [ClientsAgregatorDB].[UpdateOrderById]
 @Id INT,
 @ClientId INT,
 @StatusesId INT,
@@ -6,7 +6,7 @@
 @OrderDate VARCHAR(255),
 @TotalPrice FLOAT
 AS
-UPDATE [dbo].[Orders]
+UPDATE [ClientsAgregatorDB].[Orders]
 SET
 ClientId = @ClientId,
 StatusesId = @StatusesId,

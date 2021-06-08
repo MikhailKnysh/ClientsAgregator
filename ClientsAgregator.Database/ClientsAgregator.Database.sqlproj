@@ -71,6 +71,8 @@
     <Folder Include="dbo\Stored Procedures\Clients" />
     <Folder Include="dbo\Stored Procedures\Product_Subgroup" />
     <Folder Include="dbo\Stored Procedures\Subgroup_Group" />
+    <Folder Include="dbo\Security" />
+    <Folder Include="dbo\Security\Schemas" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Clients.sql" />
@@ -160,6 +162,7 @@
     <Build Include="dbo\Stored Procedures\Clients\GetSpendMoneyCountByClientId.sql" />
     <Build Include="dbo\Stored Procedures\Subgroup_Group\AddSubgroupGroup.sql" />
     <Build Include="dbo\Stored Procedures\Product_Subgroup\DeleteProductSubgroupByProductId.sql" />
+    <Build Include="dbo\Security\Schemas\ClientsAgregatorDB.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="ClientsAgregator.Database.refactorlog" />

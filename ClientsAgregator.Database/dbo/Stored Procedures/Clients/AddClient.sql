@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE AddClient
+﻿CREATE PROCEDURE [ClientsAgregatorDB].[AddClient]
 @LastName VARCHAR(255),
 @FirstName VARCHAR(255),
 @MiddleName VARCHAR(255),
@@ -8,5 +8,5 @@
 @Male VARCHAR(50),
 @СommentAboutСlient VARCHAR(800)
 AS
-INSERT Clients VALUES
+INSERT [ClientsAgregatorDB].[Clients] VALUES
 (@LastName, @FirstName, @MiddleName, @Phone, @Email, @BulkStatus, @Male, @СommentAboutСlient)

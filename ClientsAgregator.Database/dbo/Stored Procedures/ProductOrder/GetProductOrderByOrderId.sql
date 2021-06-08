@@ -1,5 +1,5 @@
-﻿CREATE PROCEDURE GetProductOrderByOrderId
+﻿CREATE PROCEDURE [ClientsAgregatorDB].[GetProductOrderByOrderId]
 @OrderId INT
 AS
-SELECT * FROM [dbo].[Product_Order]
+SELECT * FROM [ClientsAgregatorDB].[Product_Order]
 WHERE OrderId = @OrderId

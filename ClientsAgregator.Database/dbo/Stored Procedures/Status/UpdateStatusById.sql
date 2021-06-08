@@ -1,8 +1,8 @@
-﻿CREATE PROCEDURE UpdateStatusById
+﻿CREATE PROCEDURE [ClientsAgregatorDB].[UpdateStatusById]
 @Id int,
 @Title varchar(255)
 AS
-UPDATE [dbo].[Statuses]
+UPDATE [ClientsAgregatorDB].[Statuses]
 SET
 Title = @Title
 WHERE Id = @Id

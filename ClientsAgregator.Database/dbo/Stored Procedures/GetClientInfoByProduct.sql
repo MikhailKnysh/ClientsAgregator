@@ -1,16 +1,16 @@
-﻿CREATE PROCEDURE [dbo].[GetClientInfoByProduct]
+﻿CREATE PROCEDURE [ClientsAgregatorDB].[GetClientInfoByProduct]
 AS
-SELECT [dbo].[Clients].[LastName], [dbo].[Clients].[FirstName],[dbo].[Clients].[MiddleName],
-[dbo].[Clients].[Phone],[dbo].[BulkStatus].[Title],
-SUM([dbo].[Product_Order].[Quantity]) SUMQuantity,
-AVG([dbo].[Feedbacks].[Rate]) AVGRate
-FROM [dbo].[Clients] 
-JOIN [dbo].[BulkStatus] ON [dbo].[BulkStatus].[Id] = [dbo].[Clients].[BulkStatusId]
-JOIN [dbo].[Orders] ON [dbo].[Orders].[ClientId] = [dbo].[Clients].[Id] 
-JOIN [dbo].[Product_Order] ON [dbo].[Product_Order].[OrderId] = [dbo].[Orders].[ClientId]
-JOIN [dbo].[Products] ON [dbo].[Product_Order].[Id] = [dbo].[Products].[Id]
-JOIN [dbo].[Feedbacks] ON [dbo].[Feedbacks].[ProductId] = [dbo].[Products].[Id]
-GROUP BY [dbo].[Clients].[FirstName],[dbo].[Clients].[MiddleName],[dbo].[Clients].[LastName],
-[dbo].[Clients].[Phone],[dbo].[BulkStatus].[Title],
-[dbo].[Product_Order].[Quantity] ,
-[dbo].[Feedbacks].[Rate]
+SELECT [ClientsAgregatorDB].[Clients].[LastName], [ClientsAgregatorDB].[Clients].[FirstName],[ClientsAgregatorDB].[Clients].[MiddleName],
+[ClientsAgregatorDB].[Clients].[Phone],[ClientsAgregatorDB].[BulkStatus].[Title],
+SUM([ClientsAgregatorDB].[Product_Order].[Quantity]) SUMQuantity,
+AVG([ClientsAgregatorDB].[Feedbacks].[Rate]) AVGRate
+FROM [ClientsAgregatorDB].[Clients] 
+JOIN [ClientsAgregatorDB].[BulkStatus] ON [ClientsAgregatorDB].[BulkStatus].[Id] = [ClientsAgregatorDB].[Clients].[BulkStatusId]
+JOIN [ClientsAgregatorDB].[Orders] ON [ClientsAgregatorDB].[Orders].[ClientId] = [ClientsAgregatorDB].[Clients].[Id] 
+JOIN [ClientsAgregatorDB].[Product_Order] ON [ClientsAgregatorDB].[Product_Order].[OrderId] = [ClientsAgregatorDB].[Orders].[ClientId]
+JOIN [ClientsAgregatorDB].[Products] ON [ClientsAgregatorDB].[Product_Order].[Id] = [ClientsAgregatorDB].[Products].[Id]
+JOIN [ClientsAgregatorDB].[Feedbacks] ON [ClientsAgregatorDB].[Feedbacks].[ProductId] = [ClientsAgregatorDB].[Products].[Id]
+GROUP BY [ClientsAgregatorDB].[Clients].[FirstName],[ClientsAgregatorDB].[Clients].[MiddleName],[ClientsAgregatorDB].[Clients].[LastName],
+[ClientsAgregatorDB].[Clients].[Phone],[ClientsAgregatorDB].[BulkStatus].[Title],
+[ClientsAgregatorDB].[Product_Order].[Quantity] ,
+[ClientsAgregatorDB].[Feedbacks].[Rate]

@@ -1,3 +1,3 @@
-﻿CREATE PROCEDURE GetFeedbacks
+﻿CREATE PROCEDURE [ClientsAgregatorDB].[GetFeedbacks]
 AS
-SELECT * FROM [dbo].[Feedbacks]
+SELECT * FROM [ClientsAgregatorDB].[Feedbacks]

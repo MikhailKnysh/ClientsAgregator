@@ -1,5 +1,5 @@
-﻿CREATE PROCEDURE DeleteMeasureUnitById
+﻿CREATE PROCEDURE [ClientsAgregatorDB].[DeleteMeasureUnitById]
 @Id INT
 AS
-DELETE [dbo].[MeasureUnits]
+DELETE [ClientsAgregatorDB].[MeasureUnits]
 WHERE Id = @Id

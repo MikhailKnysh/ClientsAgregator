@@ -1,5 +1,5 @@
-﻿CREATE PROCEDURE GetStatusById
+﻿CREATE PROCEDURE [ClientsAgregatorDB].[GetStatusById]
 @Id int
 AS
-SELECT * FROM [dbo].[Statuses]
+SELECT * FROM [ClientsAgregatorDB].[Statuses]
 WHERE Id = @Id
