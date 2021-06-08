@@ -2,27 +2,17 @@
 using ClientsAgregator_BLL.CustomModels.OrderModels;
 using ClientsAgregator_BLL.CustomModels;
 using ClientsAgregator_BLL.CustomModels.ProductsModel;
-using ClientsAgregator_DAL.CustomModels;
-using ClientsAgregator_DAL.Models;
-using ClientsAgregator_DAL.Queries;
 using System;
 using System.Collections.Generic;
-using System.Text;
+//using ClientsAgregator_BLL
+using ClientsAgregator_DAL.CustomModels;
+using ClientsAgregator_DAL.Queries;
+using ClientsAgregator_DAL.Models;
 
 namespace ClientsAgregator_BLL
 {
     public class Controller
     {
-        public List<OrdersInfoModel> GetOrderModels()
-        {
-            var config = new MapperConfiguration(cfg => cfg.CreateMap<OrdersInfoDTO, OrdersInfoModel>());
-            Mapper mapper = new Mapper(config);
-
-            List<OrdersInfoModel> orderModels = mapper.Map<List<OrdersInfoModel>>(OrdersHelper.GetOrdersInfo());
-
-            return orderModels;
-        }
-
         public List<ClientsFullNameModel> GetClientsFullNameModels()
         {
             var config = new MapperConfiguration(
@@ -167,28 +157,12 @@ namespace ClientsAgregator_BLL
             ProductsHelper.DeleteProductById(productId);
         }
 
-    }
-}
-
-﻿using AutoMapper;
-using ClientsAgregator_BLL.CustomModels;
-using ClientsAgregator_DAL.CustomModels;
-using ClientsAgregator_DAL.Queries;
-using ClientsAgregator_DAL.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ClientsAgregator_BLL
-{
-    public class Controller
-    {
-        public List<OrderModel> GetOrderModels()
+        public List<OrdersInfoModel> GetOrderModels()
         {
-            var config = new MapperConfiguration(cfg => cfg.CreateMap<OrdersInfoDTO, OrderModel>());
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<OrdersInfoDTO, OrdersInfoModel>());
             Mapper mapper = new Mapper(config);
 
-            List<OrderModel> orderModels = mapper.Map<List<OrderModel>>(OrdersHelper.GetOrdersInfo());
+            List<OrdersInfoModel> orderModels = mapper.Map<List<OrdersInfoModel>>(OrdersHelper.GetOrdersInfo());
 
             return orderModels;
         }
@@ -235,7 +209,7 @@ namespace ClientsAgregator_BLL
 
         public ClientModel GetClientByIdModels(int Id)
         {
-            var config = new MapperConfiguration(cfg => cfg.CreateMap<ClientDTO,ClientModel>());
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<ClientDTO, ClientModel>());
             Mapper mapper = new Mapper(config);
 
             ClientModel clientByIdModels = mapper.Map<ClientModel>(ClientsHelper.GetClientById(Id));
@@ -252,5 +226,6 @@ namespace ClientsAgregator_BLL
 
             return bulkStatusModel;
         }
+
     }
 }

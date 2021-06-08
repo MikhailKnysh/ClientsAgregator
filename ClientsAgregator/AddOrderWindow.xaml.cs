@@ -17,24 +17,13 @@ namespace ClientsAgregator
     /// <summary>
     /// Interaction logic for AddClientWindow.xaml
     /// </summary>
-    public partial class AddClientWindow : Window
+    public partial class AddOrderWindow : Window
     {
-        private Controller _controller;
+        //private Controller _controller;
 
-        public AddClientWindow()
+        public AddOrderWindow()
         {
             InitializeComponent();
-        }
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            _controller = new Controller();
-            List<BulkStatusModel> bulkStatusModel = _controller.GetBulkStatusesModels();
-
-            foreach (var item in bulkStatusModel)
-            {
-                ComboBoxBulkStatus.Items.Add(item.Title);
-            }
         }
     }
 }

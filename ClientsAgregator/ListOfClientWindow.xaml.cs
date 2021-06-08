@@ -33,7 +33,7 @@ namespace ClientsAgregator
                     MiddleName = "Sergeivich",
                     Phone = "38094",
                     Email = "email.com",
-                    BulkStatusId = 1,
+                    BulkStatusTitle = "1",
                     Male = "Мужик",
                     СommentAboutСlient = "Бла бла бла"
                 },
@@ -45,7 +45,7 @@ namespace ClientsAgregator
                     MiddleName = "Sergeivich1",
                     Phone = "380941",
                     Email = "email.com1",
-                    BulkStatusId = 1,
+                    BulkStatusTitle = "1",
                     Male = "Мужик1",
                     СommentAboutСlient = "Бла бла бла1"
                 },

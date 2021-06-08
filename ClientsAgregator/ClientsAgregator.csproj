@@ -24,11 +24,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ClientsAgregator_BLL\ClientsAgregator_BLL.csproj" />
+    <Folder Include="image\" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="image\" />
+  <ItemGroup>
+    <ProjectReference Include="..\ClientsAgregator_BLL\ClientsAgregator_BLL.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -16,8 +16,8 @@
     <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\ClientsAgregator.Database\ClientsAgregator.Database.sqlproj" />
+  <ItemGroup>
+    <ProjectReference Include="..\ClientsAgregator.Database\ClientsAgregator.Database.sqlproj" />
   </ItemGroup>
 
 </Project>

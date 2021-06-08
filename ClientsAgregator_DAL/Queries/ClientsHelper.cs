@@ -6,7 +6,6 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
-using System.Linq;
 
 namespace ClientsAgregator_DAL.Queries
 {
