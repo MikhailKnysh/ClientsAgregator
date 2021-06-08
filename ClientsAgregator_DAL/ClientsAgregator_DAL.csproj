@@ -18,7 +18,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ClientsAgregator.Database\ClientsAgregator.Database.sqlproj" />
-    <ProjectReference Include="..\ClientsAgregator\ClientsAgregator.csproj" />
   </ItemGroup>
 
 </Project>

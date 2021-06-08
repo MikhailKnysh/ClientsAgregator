@@ -6,12 +6,13 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
+using System.Linq;
 
 namespace ClientsAgregator_DAL.Queries
 {
     public static class ClientsHelper
     {
-        private const string connectionString = @"Data Source=DESKTOP-VTR9DQO;Initial Catalog=CA;Integrated Security=True";
+        private const string connectionString = @"Data Source=DESKTOP-4JVUDM5;Initial Catalog=Test322CA;Integrated Security=True";
 
         public static void AddClient(AddClientDTO addClientDTO)
         {

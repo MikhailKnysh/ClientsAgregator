@@ -7,9 +7,40 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="GreenPaint.png" />
+    <None Remove="iconBack.png" />
+    <None Remove="iconBack32.png" />
+    <None Remove="iconClient.png" />
+    <None Remove="iconPlus.jpg" />
+    <None Remove="iconPlus.png" />
+    <None Remove="paint.png" />
+    <None Remove="PlusBtn.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="10.1.1" />
     <PackageReference Include="Dapper" Version="2.0.90" />
     <PackageReference Include="MaterialDesignThemes" Version="4.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ClientsAgregator_BLL\ClientsAgregator_BLL.csproj" />
+    <ProjectReference Include="..\ClientsAgregator_DAL\ClientsAgregator_DAL.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="image\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="GreenPaint.png" />
+    <Resource Include="iconBack.png" />
+    <Resource Include="iconBack32.png" />
+    <Resource Include="iconClient.png" />
+    <Resource Include="iconPlus.jpg" />
+    <Resource Include="iconPlus.png" />
+    <Resource Include="paint.png" />
+    <Resource Include="PlusBtn.png" />
   </ItemGroup>
 
 </Project>

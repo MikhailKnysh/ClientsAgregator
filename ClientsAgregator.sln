@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClientsAgregator_DAL", "Cli
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{5B89A67F-DE43-47B8-B05E-E382743EDAE1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientsAgregator_BLL", "ClientsAgregator_BLL\ClientsAgregator_BLL.csproj", "{3ADAD98F-7602-4E9D-AB61-FC29F18DF3DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClientsAgregator_BLL", "ClientsAgregator_BLL\ClientsAgregator_BLL.csproj", "{3ADAD98F-7602-4E9D-AB61-FC29F18DF3DC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
