@@ -1,5 +1,5 @@
-﻿CREATE PROCEDURE DeleteOrderById
+﻿CREATE PROCEDURE [ClientsAgregatorDB].[DeleteOrderById]
 @Id INT
 AS
-DELETE [dbo].[Orders]
+DELETE [ClientsAgregatorDB].[Orders]
 WHERE Id = @Id

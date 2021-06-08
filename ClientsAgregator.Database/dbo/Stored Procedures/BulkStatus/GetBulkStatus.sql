@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE GetBulkStatuses
+﻿CREATE PROCEDURE [ClientsAgregatorDB].[GetBulkStatuses]
 AS
 
-SELECT * FROM [dbo].[BulkStatus]
+SELECT * FROM [ClientsAgregatorDB].[BulkStatus]

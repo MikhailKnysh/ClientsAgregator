@@ -12,7 +12,7 @@ namespace ClientsAgregator_DAL.Queries
 {
     public static class ProductsHelper
     {
-        private const string connectionString = @"Data Source=DESKTOP-8AL13S1;Initial Catalog=CLAG;Integrated Security=True";
+        private const string connectionString = @"Data Source=5876ROR;Initial Catalog=QQQQ;Integrated Security=True";
 
         public static List<ProductInfoDTO> GetProductsInfo()
         {

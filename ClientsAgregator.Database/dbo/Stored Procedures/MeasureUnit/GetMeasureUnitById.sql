@@ -1,5 +1,5 @@
-﻿CREATE PROCEDURE GetMeasureUnitById
+﻿CREATE PROCEDURE [ClientsAgregatorDB].[GetMeasureUnitById]
 @Id INT
 AS
-SELECT * FROM [dbo].[MeasureUnits]
+SELECT * FROM [ClientsAgregatorDB].[MeasureUnits]
 WHERE Id = @Id

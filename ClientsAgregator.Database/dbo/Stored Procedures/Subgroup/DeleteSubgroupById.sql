@@ -1,5 +1,5 @@
-﻿CREATE PROCEDURE DeleteSubgroupById
+﻿CREATE PROCEDURE [ClientsAgregatorDB].[DeleteSubgroupById]
 @Id INT
 AS
-DELETE [dbo].[Subgroups]
+DELETE [ClientsAgregatorDB].[Subgroups]
 WHERE Id = @Id

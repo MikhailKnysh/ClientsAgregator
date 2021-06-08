@@ -1,11 +1,11 @@
-﻿CREATE PROCEDURE [dbo].[GetOrdersInfo]
+﻿CREATE PROCEDURE [ClientsAgregatorDB].[GetOrdersInfo]
 AS
-SELECT [dbo].[Orders].[Id], [dbo].[Orders].[OrderDate], [dbo].[Clients].[LastName],
-[dbo].[Clients].[FirstName], [dbo].[Clients].[MiddleName],
-[dbo].[Orders].[TotalPrice], [dbo].[Statuses].[Title],
-[dbo].[Orders].[OrderReview]
-FROM [dbo].[Orders]
-INNER JOIN [dbo].[Clients]
-ON [dbo].[Orders].[ClientId] = [dbo].[Clients].[Id]
-INNER JOIN [dbo].[Statuses]
-ON [dbo].[Orders].[StatusesId] = [dbo].[Statuses].[Id]
+SELECT [ClientsAgregatorDB].[Orders].[Id], [ClientsAgregatorDB].[Orders].[OrderDate], [ClientsAgregatorDB].[Clients].[LastName],
+[ClientsAgregatorDB].[Clients].[FirstName], [ClientsAgregatorDB].[Clients].[MiddleName],
+[ClientsAgregatorDB].[Orders].[TotalPrice], [ClientsAgregatorDB].[Statuses].[Title],
+[ClientsAgregatorDB].[Orders].[OrderReview]
+FROM [ClientsAgregatorDB].[Orders]
+INNER JOIN [ClientsAgregatorDB].[Clients]
+ON [ClientsAgregatorDB].[Orders].[ClientId] = [ClientsAgregatorDB].[Clients].[Id]
+INNER JOIN [ClientsAgregatorDB].[Statuses]
+ON [ClientsAgregatorDB].[Orders].[StatusesId] = [ClientsAgregatorDB].[Statuses].[Id]

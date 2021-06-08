@@ -1,5 +1,5 @@
-﻿CREATE PROCEDURE GetOrders
+﻿CREATE PROCEDURE [ClientsAgregatorDB].[GetOrders]
 AS
-SELECT * FROM [dbo].[Orders]
+SELECT * FROM [ClientsAgregatorDB].[Orders]
 
 

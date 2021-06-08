@@ -1,5 +1,5 @@
-﻿CREATE PROCEDURE GetGroupById
+﻿CREATE PROCEDURE [ClientsAgregatorDB].[GetGroupById]
 @Id INT
 AS
-SELECT * FROM [dbo].[Groups]
+SELECT * FROM [ClientsAgregatorDB].[Groups]
 WHERE Id = @Id

@@ -1,8 +1,8 @@
-﻿CREATE PROCEDURE GetFullNameAndContactInfoByClientId
+﻿CREATE PROCEDURE [ClientsAgregatorDB].[GetFullNameAndContactInfoByClientId]
 @ClientId INT
 AS
-SELECT [dbo].[Clients].[LastName], 
-[dbo].[Clients].[FirstName], [dbo].[Clients].[MiddleName],
-[dbo].[Clients].[Email], [dbo].[Clients].[Phone]
-FROM [dbo].[Clients]
-WhERE [dbo].[Clients].[Id] = @ClientId
+SELECT [ClientsAgregatorDB].[Clients].[LastName], 
+[ClientsAgregatorDB].[Clients].[FirstName], [ClientsAgregatorDB].[Clients].[MiddleName],
+[ClientsAgregatorDB].[Clients].[Email], [ClientsAgregatorDB].[Clients].[Phone]
+FROM [ClientsAgregatorDB].[Clients]
+WhERE [ClientsAgregatorDB].[Clients].[Id] = @ClientId

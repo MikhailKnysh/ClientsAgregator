@@ -1,7 +1,7 @@
-﻿CREATE PROCEDURE [dbo].[UpdateOrderReviewById]
+﻿CREATE PROCEDURE [ClientsAgregatorDB].[UpdateOrderReviewById]
 @Id INT,
 @OrderReview VARCHAR(MAX)
 AS
-UPDATE [dbo].[Orders]
+UPDATE [ClientsAgregatorDB].[Orders]
 SET OrderReview = @OrderReview
-WHERE [dbo].[Orders].[Id] = @Id
+WHERE [ClientsAgregatorDB].[Orders].[Id] = @Id

@@ -1,3 +1,3 @@
-﻿CREATE PROCEDURE GetStatuses
+﻿CREATE PROCEDURE [ClientsAgregatorDB].[GetStatuses]
 AS
-SELECT * FROM [dbo].[Statuses]
+SELECT * FROM [ClientsAgregatorDB].[Statuses]

@@ -1,8 +1,8 @@
-﻿CREATE PROCEDURE UpdateMeasureUnitById
+﻿CREATE PROCEDURE [ClientsAgregatorDB].[UpdateMeasureUnitById]
 @Id INT,
 @Title VARCHAR(255)
 AS
-UPDATE [dbo].[MeasureUnits]
+UPDATE [ClientsAgregatorDB].[MeasureUnits]
 SET
 Title = @Title
 WHERE Id = @Id

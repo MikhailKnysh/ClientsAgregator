@@ -1,3 +1,3 @@
-﻿CREATE PROCEDURE GetSubgroups
+﻿CREATE PROCEDURE [ClientsAgregatorDB].[GetSubgroups]
 AS
-SELECT * FROM [dbo].[Subgroups]
+SELECT * FROM [ClientsAgregatorDB].[Subgroups]

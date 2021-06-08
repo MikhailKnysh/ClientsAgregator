@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE UpdateFeedbackById
+﻿CREATE PROCEDURE [ClientsAgregatorDB].[UpdateFeedbackById]
 @Id INT,
 @ClientId INT,
 @ProductId INT,
@@ -7,7 +7,7 @@
 @Date VARCHAR(255),
 @Rate INT
 AS
-UPDATE [dbo].[Feedbacks]
+UPDATE [ClientsAgregatorDB].[Feedbacks]
 SET
 ClientId = @ClientId,
 ProductId = @ProductId,

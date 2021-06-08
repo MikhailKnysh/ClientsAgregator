@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE GetProductTitles
+﻿CREATE PROCEDURE [ClientsAgregatorDB].[GetProductTitles]
 AS
-SELECT [dbo].[Products].[Id], [dbo].[Products].[Title]
-FROM [dbo].[Products]
+SELECT [ClientsAgregatorDB].[Products].[Id], [ClientsAgregatorDB].[Products].[Title]
+FROM [ClientsAgregatorDB].[Products]

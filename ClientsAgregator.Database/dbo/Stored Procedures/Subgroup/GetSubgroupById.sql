@@ -1,5 +1,5 @@
-﻿CREATE PROCEDURE GetSubgroupById
+﻿CREATE PROCEDURE [ClientsAgregatorDB].[GetSubgroupById]
 @Id INT
 AS
-SELECT * FROM [dbo].[Subgroups]
+SELECT * FROM [ClientsAgregatorDB].[Subgroups]
 WHERE Id = @Id

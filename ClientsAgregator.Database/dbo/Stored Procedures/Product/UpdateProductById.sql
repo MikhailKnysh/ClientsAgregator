@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE UpdateProductById
+﻿CREATE PROCEDURE [ClientsAgregatorDB].[UpdateProductById]
 @Id INT,
 @Articul VARCHAR(255),
 @Title VARCHAR(255),
@@ -6,7 +6,7 @@
 @Quantity INT,
 @MeasureId INT
 AS
-UPDATE [dbo].[Products] 
+UPDATE [ClientsAgregatorDB].[Products] 
 SET
 Articul = @Articul,
 Title = @Title,

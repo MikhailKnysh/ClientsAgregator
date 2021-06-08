@@ -1,5 +1,5 @@
-﻿CREATE PROCEDURE [dbo].[GetFeedbackById]
+﻿CREATE PROCEDURE [ClientsAgregatorDB].[GetFeedbackById]
 @Id INT
 AS
-SELECT * FROM [dbo].[Feedbacks]
+SELECT * FROM [ClientsAgregatorDB].[Feedbacks]
 WHERE Id = @Id
