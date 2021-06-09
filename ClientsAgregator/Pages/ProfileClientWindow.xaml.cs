@@ -26,8 +26,7 @@ namespace ClientsAgregator
             _clientModel = _controller.GetClientByIdModels(_idClient);
 
             lastNameLabel.Content = _clientModel.LastName;
-            firstNameLabel.Content = _clientModel.FirstName;
-            middleNameLabel.Content = _clientModel.MiddleName;
+            firstNameAndMiddleNameLabel.Content = _clientModel.FirstName + " " +  _clientModel.MiddleName;
             emailLabel.Content = _clientModel.Email;
             phoneLabel.Content = _clientModel.Phone;
             bulkstatusLabel.Content = _clientModel.BulkStatusTitle;
@@ -48,7 +47,7 @@ namespace ClientsAgregator
 
         private void ButtonOpenUpdateClientPage_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            NavigationService.Navigate(new UpdateClientPage());
+            NavigationService.Navigate(new UpdateClientPage(_idClient));
         }
     }
 }
