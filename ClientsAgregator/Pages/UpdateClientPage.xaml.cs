@@ -20,11 +20,11 @@ namespace ClientsAgregator
     /// </summary>
     public partial class UpdateClientPage : Page
     {
-        private Controller _controller;
+        private Controller _controller;
         private int _idClient;
         public UpdateClientPage(int idClient)
         {
-            InitializeComponent();
+            InitializeComponent();
             _idClient = idClient;
         }
 

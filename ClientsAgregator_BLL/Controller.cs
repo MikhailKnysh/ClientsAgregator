@@ -227,14 +227,14 @@ namespace ClientsAgregator_BLL
             return bulkStatusModel;
         }
 
-        //public ProductInfoModel GetProductInfoModel(int productId)
-        //{
-        //    var config = new MapperConfiguration(cfg => cfg.CreateMap<ProductInfoDTO, ProductInfoModel>());
-        //    Mapper mapper = new Mapper(config);
+        public ProductInfoModel GetProductInfoModel(int productId)
+        {
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<ProductInfoDTO, ProductInfoModel>());
+            Mapper mapper = new Mapper(config);
 
-        //    ProductInfoModel productInfoModel = mapper.Map<ProductInfoModel>(ProductsHelper.GetProductById(productId));
+            ProductInfoModel productInfoModel = mapper.Map<ProductInfoModel>(ProductsHelper.GetProductById(productId));
 
-        //    return productInfoModel;
-        //}
+            return productInfoModel;
+        }
     }
 }

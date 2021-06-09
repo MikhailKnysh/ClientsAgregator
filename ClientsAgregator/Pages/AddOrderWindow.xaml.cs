@@ -49,32 +49,32 @@ namespace ClientsAgregator
 
         private void AddProduct_Click(object sender, RoutedEventArgs e)
         {
-            //string productTitle = comboBoxProduct.SelectedItem.ToString();
+            string productTitle = comboBoxProduct.SelectedItem.ToString();
 
-            //int productId = (from p in _products
-            //                where p.Title.Equals(productTitle)
-            //                select p.Id)
-            //                .FirstOrDefault();
+            int productId = (from p in _products
+                            where p.Title.Equals(productTitle)
+                            select p.Id)
+                            .FirstOrDefault();
 
-            //ProductInfoModel productInfoModel = _controller.GetProductInfoModel(productId);
+            ProductInfoModel productInfoModel = _controller.GetProductInfoModel(productId);
 
-            //ProductInOrderModel productInOrderModel = new ProductInOrderModel()
-            //{
-            //    Articul = productInfoModel.Articul,
-            //    ProductId = productInfoModel.Id,
-            //    ProductTitle = productInfoModel.Title,
-            //    Price = productInfoModel.Price,
-            //    Quantity = Convert.ToInt32(textBoxQuaunity.Text),
-            //    MeasureUnitTitle = productInfoModel.MeasureUnit,//null
-            //    GroupTitle = productInfoModel.Group,//null
-            //    SubgroupTitle = productInfoModel.Subgroup,//null
-            //    Rate = -1
-            //};
+            ProductInOrderModel productInOrderModel = new ProductInOrderModel()
+            {
+                Articul = productInfoModel.Articul,
+                ProductId = productInfoModel.Id,
+                ProductTitle = productInfoModel.Title,
+                Price = productInfoModel.Price,
+                Quantity = Convert.ToInt32(textBoxQuaunity.Text),
+                MeasureUnitTitle = productInfoModel.MeasureUnit,//null
+                GroupTitle = productInfoModel.Group,//null
+                SubgroupTitle = productInfoModel.Subgroup,//null
+                Rate = -1
+            };
 
-            //_productInOrderModels = new List<ProductInOrderModel>();
-            //_productInOrderModels.Add(productInOrderModel);
+            _productInOrderModels = new List<ProductInOrderModel>();
+            _productInOrderModels.Add(productInOrderModel);
 
-            //gridProductsInOrder.ItemsSource = _productInOrderModels;
+            gridProductsInOrder.ItemsSource = _productInOrderModels;
         }
     }
 }
