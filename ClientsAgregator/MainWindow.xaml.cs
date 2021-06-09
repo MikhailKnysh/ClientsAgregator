@@ -37,16 +37,29 @@ namespace ClientsAgregator
 
         private void ListOfClientsPage_Click(object sender, RoutedEventArgs e)
         {
+            ListOfClientsPage.Background = Brushes.Gray;
+
+            ListOfProductsPage.Background = Brushes.LightGray;
+            ListOfOrdersPage.Background = Brushes.LightGray;
+
             MainFrame.Navigate(new ListOfClientsWindow());
         }
 
         private void ListOfProductsPage_Click(object sender, RoutedEventArgs e)
         {
+            
+            ListOfProductsPage.Background = Brushes.Gray;
+            ListOfClientsPage.Background = Brushes.LightGray;
+            ListOfOrdersPage.Background = Brushes.LightGray;
             MainFrame.Navigate(new ListOfProductsPage());
         }
 
         private void ListOfOrdersPage_Click(object sender, RoutedEventArgs e)
         {
+            ListOfOrdersPage.Background = Brushes.Gray;
+            ListOfProductsPage.Background = Brushes.LightGray;
+            ListOfClientsPage.Background = Brushes.LightGray;
+
             MainFrame.Navigate(new ListOfOrdersWindow());
         }
     }

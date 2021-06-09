@@ -21,10 +21,11 @@ namespace ClientsAgregator
     public partial class UpdateClientPage : Page
     {
         private Controller _controller;
-
-        public UpdateClientPage()
+        private int _idClient;
+        public UpdateClientPage(int idClient)
         {
             InitializeComponent();
+            _idClient = idClient;
         }
 
         private void buttonBack_Click(object sender, RoutedEventArgs e)
@@ -79,7 +80,7 @@ namespace ClientsAgregator
 
         private void UpdatePage_Loaded(object sender, RoutedEventArgs e)
         {
-            int _idClient = 4;
+           
             _controller = new Controller();
 
             ClientModel client = _controller.GetClientByIdModels(_idClient);
