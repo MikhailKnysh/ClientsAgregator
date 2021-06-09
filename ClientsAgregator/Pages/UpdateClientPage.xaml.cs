@@ -29,6 +29,7 @@ namespace ClientsAgregator
 
         private void buttonBack_Click(object sender, RoutedEventArgs e)
         {
+            NavigationService.Navigate(new ProfileClientWindow(4));
             //ListOfClientsPage listOfClientsPage = new ListOfClientsPage();
             //listOfClientsPage.Show();
             //this.Close();

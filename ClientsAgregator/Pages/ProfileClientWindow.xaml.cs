@@ -11,8 +11,6 @@ namespace ClientsAgregator
     /// </summary>
     public partial class ProfileClientWindow : Page
     {
-       
-
         Controller controller = new Controller();
         ClientModel clientModel;
         List<ProductBuyClientModel> productsBuyClientModel;
@@ -20,8 +18,6 @@ namespace ClientsAgregator
     
         public ProfileClientWindow( int IdClient)
         {
-
-            
             InitializeComponent();
             idClient = IdClient;
             clientModel = controller.GetClientByIdModels(idClient);
@@ -39,6 +35,11 @@ namespace ClientsAgregator
             {
                 clientsGrid.Items.Add(productsBuyClientModel[i]);
             }
+        }
+
+        private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new ListOfClientsWindow());
         }
     }
 }

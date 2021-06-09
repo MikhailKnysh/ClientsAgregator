@@ -32,7 +32,6 @@ namespace ClientsAgregator
 
         private void Main_Click(object sender, RoutedEventArgs e)
         {
-            
         }
 
         private void ListOfClientsPage_Click(object sender, RoutedEventArgs e)

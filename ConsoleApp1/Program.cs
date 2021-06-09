@@ -44,7 +44,7 @@ namespace ConsoleApp1
                         ProductTitle = "Bread",
                         Price = 12.99,
                         Quantity = 23,
-                        MeasureUnitId = 1,
+                        MeasureUnitTitle = 1,
                         GroupTitle = "Food",
                         SubgroupTitle = "Bakery",
                         Rate = 4
@@ -56,7 +56,7 @@ namespace ConsoleApp1
                         ProductTitle = "Spoons",
                         Price = 12.99,
                         Quantity = 17,
-                        MeasureUnitId = 1,
+                        MeasureUnitTitle = 1,
                         GroupTitle = "Food",
                         SubgroupTitle = "Bakery",
                         Rate = 4

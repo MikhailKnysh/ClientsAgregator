@@ -16,14 +16,12 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition  Height="65" >
-                
             </RowDefinition>
             <RowDefinition>
             </RowDefinition>
-
         </Grid.RowDefinitions >
         <Border BorderBrush="Black" BorderThickness="2" Grid.Column="2" Grid.Row="1"></Border>
-        <Button Margin="15,10,0,10" Grid.Column="1" Width="120px" Height="40px" HorizontalAlignment="Left">
+        <Button Margin="15,10,0,10" Grid.Column="1" Width="120px" Height="40px" HorizontalAlignment="Left" Click="Button_Click">
             <StackPanel Orientation="Horizontal">
                 <Image Width="32" Height="32" HorizontalAlignment="Left" Margin="0,0,15,0" Source="/iconBack32.png" IsEnabled="False" ></Image>
                 <TextBlock VerticalAlignment="Center" Text="назад" FontSize="20"/>
@@ -33,12 +31,12 @@
             <Image Width="32" Height="32" Source="/paint.png" IsEnabled="False" ></Image>
         </Button>
         <StackPanel Grid.Column="2" Grid.Row="2">
-            
+
             <Grid >
                 <Grid.RowDefinitions  >
                     <RowDefinition Height="164">
                     </RowDefinition>
-                    <RowDefinition   Height="300"></RowDefinition>
+                    <RowDefinition Height="300"></RowDefinition>
                 </Grid.RowDefinitions>
                 <Border BorderBrush="Black" BorderThickness="2" Grid.Column="2" Grid.Row="1"></Border>
 
