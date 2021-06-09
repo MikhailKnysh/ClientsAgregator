@@ -41,11 +41,9 @@ namespace ClientsAgregator
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void buttonAddProduct_Click(object sender, RoutedEventArgs e)
         {
-            AddingOfProductWindow addingOfProductWindow = new AddingOfProductWindow();
-            addingOfProductWindow.Show();
-           // this.Close();
+            NavigationService.Navigate(new AddingOfProductPage());
         }
     }
 }
