@@ -23,9 +23,7 @@ namespace ClientsAgregator
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
-            ListOfProductsWindow listOfProductsWindow = new ListOfProductsWindow();
-            listOfProductsWindow.Show();
-            //this.Close();
+            NavigationService.Navigate(new ListOfProductsPage());
         }
 
         private void AddingProductWindow_Loaded(object sender, RoutedEventArgs e)
