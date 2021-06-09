@@ -50,8 +50,11 @@ namespace ClientsAgregator
         {
             SubgroupComboBox.IsEnabled = true;
             SubgroupComboBox.Items.Clear();
+
             int groupID = GroupComboBox.SelectedIndex;
-            groupID++;
+            
+            ++groupID;
+
             subgroupInfoModels = _controller.GetSubgroupsInfoByGroupId(groupID);
 
             foreach (var subgroup in subgroupInfoModels)

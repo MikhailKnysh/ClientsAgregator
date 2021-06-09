@@ -6,6 +6,6 @@
 @MeasureId INT
 AS
 INSERT [ClientsAgregatorDB].[Products] 
-OUTPUT INSERTED.id 
+OUTPUT INSERTED.Id 
 VALUES (@Articul, @Title, @Price, @Quantity, @MeasureId)
 

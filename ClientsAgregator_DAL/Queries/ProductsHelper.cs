@@ -148,5 +148,22 @@ namespace ClientsAgregator_DAL.Queries
                 conn.Query<int>(query, new { productId }, commandType: CommandType.StoredProcedure);
             }
         }
+
+        public static ProductInfoDTO GetProductById(int productId)
+        {
+            using (IDbConnection conn = new SqlConnection(Options.connectionString))
+            {
+                string query = "ClientsAgregatorDB.GetProductById @ProductId";
+                ProductDTO productDTO = conn.Query<ProductDTO>(query, new { productId }).FirstOrDefault();
+
+                query = "GetMeasureUnitById @Id";
+                string measureUnitTitle = conn.Query<string>(query, new {productDTO.MeasureId}).FirstOrDefault();
+
+                query = "GetSubgroupById @Id";
+                string subgroupTitle = conn.Query<string>(query, new { productDTO. }).FirstOrDefault();
+            }
+
+            return productDTO;
+        }
     }
 }
