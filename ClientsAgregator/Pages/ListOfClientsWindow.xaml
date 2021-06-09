@@ -16,13 +16,14 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Button Margin="15,12,0,13" Grid.Column="3" Width="120px" HorizontalAlignment="Left" Background="White" >
-            <DockPanel>
-                <Image x:Name="sad" DockPanel.Dock="Left" Margin="0,0,15,0" Source="/iconClient.png" IsEnabled="False"/>
-                <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center"> Добавить</TextBlock>
-                
-            </DockPanel>
+        <Button Name="buttonOpenAddClientPage" 
+                 Grid.Column="3"
+                 Margin="15,10,0,10" 
+                 Click="buttonOpenAddClientPage_Click"
+                 Style="{StaticResource ButtonBack}" 
+                 Template="{StaticResource ButtonAddingTemplate}">
         </Button>
+
         <DataGrid x:Name="clientsGrid" IsReadOnly="True" AutoGenerateColumns="False" Margin="15,10,0,10" Width="auto" Grid.Row="1" HorizontalAlignment="Left" ColumnHeaderHeight="30" Grid.Column="3" Grid.ColumnSpan="2">
 
             <DataGrid.Columns>
@@ -43,11 +44,11 @@
                                     <ColumnDefinition>
                                     </ColumnDefinition>
                                 </Grid.ColumnDefinitions>
-                                <Button  Name="ediBtn" Grid.Column="0" Click="ediBtn_Click" Height="20" Width="20" Background="Green">
-                                    <Image Source="/iconClient.png" >
+                                <Button  Name="buttonOpenProfileClientPage" Grid.Column="0" Click="buttonOpenProfileClientPage_Click" Height="20" Width="20" Background="Green">
+                                    <Image Source="\image/iconClient.png" >
                                     </Image>
                                 </Button>
-                                <Button  Name="deleteBtn" Click="deleteBtn_Click" Grid.Column="1" Height="20" Width="20" Background="Red">X</Button>
+                                <Button  Name="buttonDeleteClient" Click="buttonDeleteClient_Click" Grid.Column="1" Height="20" Width="20" Background="Red">X</Button>
                             </Grid>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>

@@ -11,34 +11,44 @@ namespace ClientsAgregator
     /// </summary>
     public partial class ProfileClientWindow : Page
     {
-       
 
-        Controller controller = new Controller();
-        ClientModel clientModel;
-        List<ProductBuyClientModel> productsBuyClientModel;
-        public int idClient;
-    
-        public ProfileClientWindow( int IdClient)
+
+        private Controller _controller = new Controller();
+        private ClientModel _clientModel;
+        private List<ProductBuyClientModel> _productsBuyClientModel;
+        private int _idClient;
+
+        public ProfileClientWindow(int IdClient)
         {
-
-            
             InitializeComponent();
-            idClient = IdClient;
-            clientModel = controller.GetClientByIdModels(idClient);
-            lastNameLabel.Content = clientModel.LastName;
-            firstNameLabel.Content = clientModel.FirstName;
-            middleNameLabel.Content = clientModel.MiddleName;
-            emailLabel.Content = clientModel.Email;
-            phoneLabel.Content = clientModel.Phone;
-            bulkstatusLabel.Content = clientModel.BulkStatusTitle;
-            MaleLabel.Content = clientModel.Male;
+            _idClient = IdClient;
 
-            productsBuyClientModel = controller.GetProductsBuyClientModels(idClient);
+            _clientModel = _controller.GetClientByIdModels(_idClient);
 
-            for (int i = 0; i < productsBuyClientModel.Count; i++)
+            lastNameLabel.Content = _clientModel.LastName;
+            firstNameLabel.Content = _clientModel.FirstName;
+            middleNameLabel.Content = _clientModel.MiddleName;
+            emailLabel.Content = _clientModel.Email;
+            phoneLabel.Content = _clientModel.Phone;
+            bulkstatusLabel.Content = _clientModel.BulkStatusTitle;
+            MaleLabel.Content = _clientModel.Male;
+
+            _productsBuyClientModel = _controller.GetProductsBuyClientModels(_idClient);
+
+            for (int i = 0; i < _productsBuyClientModel.Count; i++)
             {
-                clientsGrid.Items.Add(productsBuyClientModel[i]);
+                clientsGrid.Items.Add(_productsBuyClientModel[i]);
             }
+        }
+
+        private void ButtonBackListOfclientsPage_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new ListOfClientsWindow());
+        }
+
+        private void ButtonOpenUpdateClientPage_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new UpdateClientPage());
         }
     }
 }

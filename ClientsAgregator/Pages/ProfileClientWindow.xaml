@@ -11,7 +11,7 @@
     <Grid Width="900">
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="150"></ColumnDefinition>
+            <ColumnDefinition Width="50"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -22,16 +22,20 @@
             </RowDefinition>
 
         </Grid.RowDefinitions >
+        
         <Border BorderBrush="Black" BorderThickness="2" Grid.Column="2" Grid.Row="1"></Border>
-        <Button Margin="15,10,0,10" Grid.Column="1" Width="120px" Height="40px" HorizontalAlignment="Left">
-            <StackPanel Orientation="Horizontal">
-                <Image Width="32" Height="32" HorizontalAlignment="Left" Margin="0,0,15,0" Source="/iconBack32.png" IsEnabled="False" ></Image>
-                <TextBlock VerticalAlignment="Center" Text="назад" FontSize="20"/>
-            </StackPanel>
+
+        <Button Name="ButtonBackListOfclientsPage"
+                Click="ButtonBackListOfclientsPage_Click"
+                Grid.Column="1"
+                Style="{StaticResource ButtonBack}"
+                Template="{StaticResource ButtonBackTemplate}">
         </Button>
-        <Button Margin="15,10,10,10" Grid.Column="1" Background="Green"  Width="40px" Height="40px" VerticalAlignment="Center" HorizontalAlignment="Right">
-            <Image Width="32" Height="32" Source="/paint.png" IsEnabled="False" ></Image>
+
+        <Button Name="ButtonOpenUpdateClientPage" Click="ButtonOpenUpdateClientPage_Click" Margin="15,10,10,10" Grid.Column="1" Background="Green"  Width="40px" Height="40px" VerticalAlignment="Center" HorizontalAlignment="Right">
+            <Image Width="32" Height="32" Source="\image/paint.png" IsEnabled="False" ></Image>
         </Button>
+
         <StackPanel Grid.Column="2" Grid.Row="2">
             
             <Grid >
@@ -40,6 +44,7 @@
                     </RowDefinition>
                     <RowDefinition   Height="300"></RowDefinition>
                 </Grid.RowDefinitions>
+                
                 <Border BorderBrush="Black" BorderThickness="2" Grid.Column="2" Grid.Row="1"></Border>
 
                 <Label Name="lastNameLabel" Margin="12,10,12,10" Grid.Row="0" FontSize="45" Content="{Binding LastName}"/>
@@ -63,7 +68,7 @@
                 <DataGrid x:Name="clientsGrid" IsReadOnly="True" 
                           AutoGenerateColumns="False" Margin="15,10,0,10"
                           Width="700" Grid.Row="1" ColumnWidth="100"  
-                          HorizontalAlignment="Center" ColumnHeaderHeight="30" 
+                          HorizontalAlignment="Left" ColumnHeaderHeight="30" 
                           Grid.Column="1">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Артикуль" Binding="{Binding Articul}" ></DataGridTextColumn>

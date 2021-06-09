@@ -54,7 +54,7 @@
                 <Button x:Name="AddSubgroupButton" Content="+" HorizontalAlignment="Left" Grid.Column="3" Margin="10" Grid.Row="2" VerticalAlignment="Center" Grid.ColumnSpan="2" Width="34" Background="#FF65D805" Click="AddSubgroupButton_Click" />
 
             </Grid>
-            <Button x:Name="CancelButton" Content="Назад" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Width="95" Height="35" Grid.Row="0" Click="CancelButton_Click"/>
+            <Button x:Name="CancelButton" Margin="10,5,0,0" VerticalAlignment="Top" Grid.Row="0" Click="CancelButton_Click" Style="{StaticResource ButtonBack}" Template="{StaticResource ButtonBackTemplate}"/>
             <Label Content="ДОБАВИТЬ ТОВАР" HorizontalAlignment="Center" Margin="0,45,0,0" VerticalAlignment="Top" Height="30" Width="160" Grid.Row="1"/>
 
             <Button x:Name="SaveProductButton" Content="Сохранить" HorizontalAlignment="Left" Margin="50,30,50,30" Grid.Row="3" VerticalAlignment="Top" Height="37" Width="206" Grid.ColumnSpan="2" Click="SaveProductButton_Click"/>

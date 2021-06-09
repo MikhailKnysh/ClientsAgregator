@@ -33,7 +33,7 @@
                 <ColumnDefinition MinWidth="150"></ColumnDefinition>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="buttonBack" Content="Назад" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Width="94" Height="35" Click="buttonBack_Click"/>
+            <Button x:Name="buttonBack" Click="buttonBack_Click" Style="{StaticResource ButtonBack}" Template="{StaticResource ButtonBackTemplate}"/>
             <Label Content="Фамилия" HorizontalAlignment="Left" Margin="69,0,0,0" Grid.Row="2" VerticalAlignment="Center" Width="60" Height="30"/>
             <Label Content="Имя" HorizontalAlignment="Left" Margin="69,20,0,0" Grid.Row="3" VerticalAlignment="Top" Width="60" Height="30"/>
             <Label Content="Отчество" HorizontalAlignment="Left" Margin="69,0,0,0" Grid.Row="4" VerticalAlignment="Center" Width="60" Height="30"/>

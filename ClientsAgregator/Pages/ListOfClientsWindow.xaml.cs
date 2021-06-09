@@ -1,4 +1,5 @@
-﻿using ClientsAgregator_BLL;
+﻿using ClientsAgregator.Pages;
+using ClientsAgregator_BLL;
 using ClientsAgregator_BLL.CustomModels;
 using System;
 using System.Collections.Generic;
@@ -13,30 +14,34 @@ namespace ClientsAgregator
     /// </summary>
     public partial class ListOfClientsWindow : Page
     {
-        Controller controller = new Controller();
+        private Controller _controller = new Controller();
+        private List<ClientModel> _clientModel;
 
-        List<ClientModel> clientModel;
         public ListOfClientsWindow()
         {
             InitializeComponent();
-            clientModel = controller.GetClientsModels();
+            _clientModel = _controller.GetClientsModels();
 
-            for (int i = 0; i < clientModel.Count; i++)
+            for (int i = 0; i < _clientModel.Count; i++)
             {
-                clientsGrid.Items.Add(clientModel[i]);
+                clientsGrid.Items.Add(_clientModel[i]);
             }
         }
 
-        private void deleteBtn_Click(object sender, RoutedEventArgs e)
+        private void buttonDeleteClient_Click(object sender, RoutedEventArgs e)
         {
             var index = clientsGrid.SelectedIndex;
             clientsGrid.Items.RemoveAt(index);
         }
 
-        private void ediBtn_Click(object sender, RoutedEventArgs e)
+        private void buttonOpenAddClientPage_Click(object sender, RoutedEventArgs e)
         {
-            ProfileClientWindow profileClientPage = new ProfileClientWindow(clientModel[clientsGrid.SelectedIndex].Id);
-            NavigationService.Navigate(profileClientPage);
+            NavigationService.Navigate(new AddClientPage());
+        }
+
+        private void buttonOpenProfileClientPage_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new ProfileClientWindow(_clientModel[clientsGrid.SelectedIndex].Id));
         }
     }
 }

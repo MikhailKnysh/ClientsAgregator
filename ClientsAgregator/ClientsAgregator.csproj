@@ -35,13 +35,10 @@
 
   <ItemGroup>
     <Resource Include="image\GreenPaint.png" />
-    <Resource Include="image\iconBack.png" />
     <Resource Include="image\iconBack32.png" />
     <Resource Include="image\iconClient.png" />
     <Resource Include="image\iconPlus.png" />
-    <Resource Include="image\iconPlus.jpg" />
     <Resource Include="image\paint.png" />
-    <Resource Include="image\PlusBtn.png" />
   </ItemGroup>
 
 </Project>
