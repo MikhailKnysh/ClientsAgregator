@@ -18,7 +18,7 @@ Loaded="Grid_Loaded">
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Button Margin="15,10,0,10" Grid.Column="1" Click="Button_Click" Style="{StaticResource ButtonBack}" Template="{StaticResource ButtonAddingTemplate}"></Button>
+        <Button Margin="15,10,0,10" Grid.Column="1" Style="{StaticResource ButtonBack}" Template="{StaticResource ButtonAddingTemplate}" Click="buttonAddProduct_Click"/>
         <DataGrid x:Name="ProductsGrid" IsReadOnly="True" AutoGenerateColumns="False" Margin="15,10,0,10" Width="838" Grid.Row="1" ColumnWidth="110" HorizontalAlignment="Left" ColumnHeaderHeight="30" Grid.Column="1">
 
             <DataGrid.Columns>

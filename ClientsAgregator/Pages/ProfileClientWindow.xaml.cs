@@ -40,14 +40,14 @@ namespace ClientsAgregator
             }
         }
 
-        private void ButtonBackListOfclientsPage_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new ListOfClientsWindow());
+        private void ButtonBackListOfclientsPage_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new ListOfClientsWindow());
         }
 
-        private void ButtonOpenUpdateClientPage_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new UpdateClientPage(_idClient));
+        private void ButtonOpenUpdateClientPage_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new UpdateClientPage(_idClient));
         }
     }
 }
