@@ -10,21 +10,21 @@ namespace ClientsAgregator
     /// Interaction logic for ProfileClientWindow.xaml
     /// </summary>
     public partial class ProfileClientWindow : Page
-    {
-
-
-        private Controller _controller = new Controller();
-        private ClientModel _clientModel;
-        private List<ProductBuyClientModel> _productsBuyClientModel;
-        private int _idClient;
-
+    {
+
+
+        private Controller _controller = new Controller();
+        private ClientModel _clientModel;
+        private List<ProductBuyClientModel> _productsBuyClientModel;
+        private int _idClient;
+
         public ProfileClientWindow(int IdClient)
         {
             InitializeComponent();
-            _idClient = IdClient;
-
-            _clientModel = _controller.GetClientByIdModels(_idClient);
-
+            _idClient = IdClient;
+
+            _clientModel = _controller.GetClientByIdModels(_idClient);
+
             lastNameLabel.Content = _clientModel.LastName;
             firstNameAndMiddleNameLabel.Content = _clientModel.FirstName + " " +  _clientModel.MiddleName;
             emailLabel.Content = _clientModel.Email;
@@ -38,16 +38,16 @@ namespace ClientsAgregator
             {
                 clientsGrid.Items.Add(_productsBuyClientModel[i]);
             }
-        }
-
-        private void ButtonBackListOfclientsPage_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new ListOfClientsWindow());
-        }
-
-        private void ButtonOpenUpdateClientPage_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new UpdateClientPage(_idClient));
-        }
+        }
+
+        private void ButtonBackListOfclientsPage_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new ListOfClientsWindow());
+        }
+
+        private void ButtonOpenUpdateClientPage_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new UpdateClientPage(_idClient));
+        }
     }
 }

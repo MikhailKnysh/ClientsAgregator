@@ -14,7 +14,6 @@
 
         <Button Margin="15,10,0,10" Grid.Column="1" Click="Button_Click" Style="{StaticResource ButtonBack}" Template="{StaticResource ButtonAddingTemplate}"></Button>
         <DataGrid x:Name="ProductsGrid" IsReadOnly="True" AutoGenerateColumns="False" Margin="15,10,0,10" Width="1000" Grid.Row="1" ColumnWidth="110" HorizontalAlignment="Left" ColumnHeaderHeight="30" Grid.Column="1">
-
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="Дата заказа" Binding="{Binding OrderDate}"/>

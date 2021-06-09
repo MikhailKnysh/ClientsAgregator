@@ -65,7 +65,7 @@ namespace ClientsAgregator_BLL
                     .CreateMap<ProductInOrderModel, ProductDTO>()
                     .ForMember(dest => dest.Id, option => option.MapFrom(source => source.ProductId))
                     .ForMember(dest => dest.Title, option => option.MapFrom(source => source.ProductTitle))
-                    .ForMember(dest => dest.MeasureId, option => option.MapFrom(source => source.MeasureUnitId))
+                    .ForMember(dest => dest.MeasureId, option => option.MapFrom(source => source.MeasureUnitTitle))
                     );
                 mapper = new Mapper(config);
 
