@@ -11,6 +11,5 @@ namespace ClientsAgregator_DAL.Models
         public int SUMQuantity { get; set; }
         public string GroupName{ get; set; }
         public string SubGroupName { get; set; }
-        public float AVGRate { get; set; }
     }
 }

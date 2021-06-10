@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:ClientsAgregator"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="700"
-      Title="ProfileClientWindow">
+      Title="ProfileClientWindow" Loaded="ProfileClient_Loaded" MinHeight="500" MinWidth="850">
     <Page.Resources>
         <Style x:Key="StyleForElements" TargetType="Label">
             <Setter Property="Margin" Value="12,0,0,0"></Setter>
@@ -55,7 +55,7 @@
             <Label Name="totalPriceLabel" HorizontalAlignment="Right"
                    BorderThickness="1" BorderBrush="Black" 
                    Grid.Row="3" Margin="0,0,10,0" Width="120"
-                   Content="11111" HorizontalContentAlignment="Right"
+                   Content="0" HorizontalContentAlignment="Right"
                    Style="{StaticResource StyleForElements}"
                    />
 
@@ -70,7 +70,7 @@
                     <DataGridTextColumn Header="Кол-во" Binding="{Binding SUMQuantity}"></DataGridTextColumn>
                     <DataGridTextColumn Header="Группа" Binding="{Binding GroupName}"></DataGridTextColumn>
                     <DataGridTextColumn Header="Подгруппа" Binding="{Binding SubGroupName}"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Оценка" Binding="{Binding AVGRate}"></DataGridTextColumn>
+                    <DataGridTextColumn x:Name="Rate" Header="Оценка" Binding="{Binding AVGRate}"></DataGridTextColumn>
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>

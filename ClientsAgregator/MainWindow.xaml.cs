@@ -22,8 +22,6 @@ namespace ClientsAgregator
     /// </summary>
     public partial class MainWindow : Window
     {
-
-        
         public MainWindow()
         {
             InitializeComponent();
@@ -32,20 +30,17 @@ namespace ClientsAgregator
 
         private void ListOfClientsPage_Click(object sender, RoutedEventArgs e)
         {
-            ListOfClientsPage.Background = Brushes.Gray;
-
+            ListOfClientsPage.Background = Brushes.Gray;
             ListOfProductsPage.Background = Brushes.LightGray;
-            ListOfOrdersPage.Background = Brushes.LightGray;
-
-            MainFrame.Navigate(new ListOfClientsWindow());
+            ListOfOrdersPage.Background = Brushes.LightGray;            MainPage.Background = Brushes.LightGray;            MainFrame.Navigate(new ListOfClientsWindow());
         }
 
         private void ListOfProductsPage_Click(object sender, RoutedEventArgs e)
         {
-            
             ListOfProductsPage.Background = Brushes.Gray;
             ListOfClientsPage.Background = Brushes.LightGray;
             ListOfOrdersPage.Background = Brushes.LightGray;
+            MainPage.Background = Brushes.LightGray;
             MainFrame.Navigate(new ListOfProductsPage());
         }
 
@@ -53,18 +48,18 @@ namespace ClientsAgregator
         {
             ListOfOrdersPage.Background = Brushes.Gray;
             ListOfProductsPage.Background = Brushes.LightGray;
-            ListOfClientsPage.Background = Brushes.LightGray;
-
+            ListOfClientsPage.Background = Brushes.LightGray;
+            MainPage.Background = Brushes.LightGray;
             MainFrame.Navigate(new ListOfOrdersWindow());
-        }
-
-        private void MainPage_Click(object sender, RoutedEventArgs e)
-        {
-            ListOfOrdersPage.Background = Brushes.Gray;
+        }
+
+        private void MainPage_Click(object sender, RoutedEventArgs e)
+        {
+            MainPage.Background = Brushes.Gray;
             ListOfProductsPage.Background = Brushes.LightGray;
-            ListOfClientsPage.Background = Brushes.LightGray;
-
-            MainFrame.Navigate(new MainPage());
-        }
+            ListOfClientsPage.Background = Brushes.LightGray;
+            ListOfOrdersPage.Background = Brushes.LightGray;
+            MainFrame.Navigate(new MainPage());
+        }
     }
 }

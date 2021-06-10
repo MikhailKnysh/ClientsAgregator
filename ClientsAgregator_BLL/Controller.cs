@@ -19,7 +19,7 @@ namespace ClientsAgregator_BLL
             cfg => cfg
             .CreateMap<ClientFullNameDTO, ClientsFullNameModel>()
             .ForMember(dest => dest.FullName, option => option
-            .MapFrom(source =>$"{source.LastName} {source.FirstName} {source.MiddleName}")
+            .MapFrom(source => $"{source.LastName} {source.FirstName} {source.MiddleName}")
             ));
 
             Mapper mapper = new Mapper(config);
@@ -142,12 +142,12 @@ namespace ClientsAgregator_BLL
 
         public void AddGroup(string groupTitle)
         {
-            ProductsHelper.AddProductGroup(groupTitle); 
+            ProductsHelper.AddProductGroup(groupTitle);
         }
 
         public void AddSubgropGroup(int groupId, string subgroupTitle)
         {
-            int subgroupId =  ProductsHelper.AddProductSubgroup(subgroupTitle);
+            int subgroupId = ProductsHelper.AddProductSubgroup(subgroupTitle);
             ProductsHelper.AddSubgroupGroup(subgroupId, groupId);
         }
 
@@ -244,8 +244,8 @@ namespace ClientsAgregator_BLL
             List<ProductsSubgropModel> productsSubgroupModels = mapper.Map<List<ProductsSubgropModel>>(MainsHalper.GetProductsSubgroup());
 
             return productsSubgroupModels;
-        }
-
+        }
+
         public List<InterestedClientInfoByProductModel> GetMainModels(int productId)
         {
             var config = new MapperConfiguration(cfg => cfg.CreateMap<InterestedClientInfoByProductDTO, InterestedClientInfoByProductModel>());
@@ -256,5 +256,21 @@ namespace ClientsAgregator_BLL
             return clientByIdModels;
         }
 
+
+        public int GetSpendMoneyCountByClientIdModels(int Id)
+        {
+            int SpendMoneyCount = ClientsHelper.GetSpendMoneyCountByClientId(Id);
+            return SpendMoneyCount;
+        }
+
+        public List<FeedbackModel> GetFeedbackModels()
+        {
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<FeedbackDTO, FeedbackModel>());
+            Mapper mapper = new Mapper(config);
+
+            List<FeedbackModel> feedback = mapper.Map<List<FeedbackModel>>(ClientsHelper.GetFeedback());
+
+            return feedback;
+        }
     }
 }

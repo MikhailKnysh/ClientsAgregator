@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ClientsAgregator"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="1200">
+        Title="MainWindow"  MinHeight="650" MinWidth="1000">
     <Grid ShowGridLines="True">
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>

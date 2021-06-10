@@ -99,18 +99,17 @@ namespace ClientsAgregator_DAL.Queries
             }
         }
 
-        public static string GetSpendMoneyCountByClientId(int id)           //НУЖНО ЛИ ЭТО ДЕЛАТЬ В ЛОГИКЕ ИЛИ СЧИТАТЬ В SQL??? 
+        public static int GetSpendMoneyCountByClientId(int id)           //НУЖНО ЛИ ЭТО ДЕЛАТЬ В ЛОГИКЕ ИЛИ СЧИТАТЬ В SQL??? 
         {
             string query = "ClientsAgregatorDB.GetSpendMoneyCountByClientId";
 
-            string totalSum;
-
             using (IDbConnection conn = new SqlConnection(Options.connectionString))
             {
-                totalSum = conn.Query<int>(query, new { id }).ToString();
+               var totalSum = conn.Query<int>(query, new { id }, commandType: CommandType.StoredProcedure);
+            
+                return totalSum.Single();
             }
 
-            return totalSum;
         }
 
         public static List<BulkStatusDTO> GetBulkStatuses()
@@ -125,6 +124,19 @@ namespace ClientsAgregator_DAL.Queries
             }
 
             return bulkStatusInfo;
+        }
+
+        public static List<FeedbackDTO> GetFeedback()
+        { 
+            string query = "ClientsAgregatorDB.GetFeedbacks";
+            List<FeedbackDTO> feedbacks = new List<FeedbackDTO>();
+
+            using (IDbConnection conn = new SqlConnection(Options.connectionString))
+            {
+                feedbacks = conn.Query<FeedbackDTO>(query).AsList();
+            }
+
+            return feedbacks;
         }
     }
 }

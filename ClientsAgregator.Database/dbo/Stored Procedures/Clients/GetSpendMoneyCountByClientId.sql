@@ -1,8 +1,7 @@
 ﻿CREATE PROCEDURE [ClientsAgregatorDB].[GetSpendMoneyCountByClientId]
-@Id INT,
-@Cost INT OUTPUT
+@Id INT
 AS
-SET @Cost = (SELECT SUM(P.Price * PO.Quantity)
+(SELECT SUM(P.Price * PO.Quantity)
 FROM [ClientsAgregatorDB].[Clients] AS C
 join [ClientsAgregatorDB].[Orders] AS O ON C.Id = O.ClientId
 join [ClientsAgregatorDB].[Product_Order] AS PO ON O.Id = PO.OrderId
