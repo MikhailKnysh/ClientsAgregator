@@ -164,6 +164,7 @@
     <Build Include="dbo\Stored Procedures\Product_Subgroup\DeleteProductSubgroupByProductId.sql" />
     <Build Include="dbo\Security\Schemas\ClientsAgregatorDB.sql" />
     <Build Include="dbo\Stored Procedures\GetProductsInfoById.sql" />
+    <Build Include="dbo\Stored Procedures\GetProductSubgroup.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="ClientsAgregator.Database.refactorlog" />

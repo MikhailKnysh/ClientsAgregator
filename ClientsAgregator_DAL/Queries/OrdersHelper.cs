@@ -40,15 +40,15 @@ namespace ClientsAgregator_DAL.Queries
             return clients;
         }
 
-        public static List<ProductTitleDTO> GetProductTitles()
+        public static List<ProductSubgroupDTO> GetProductTitles()
         {
             string query = "ClientsAgregatorDB.GetProductTitles";
 
-            List<ProductTitleDTO> products = new List<ProductTitleDTO>();
+            List<ProductSubgroupDTO> products = new List<ProductSubgroupDTO>();
 
             using (IDbConnection conn = new SqlConnection(Options.connectionString))
             {
-                products = conn.Query<ProductTitleDTO>(query).AsList();
+                products = conn.Query<ProductSubgroupDTO>(query).AsList();
             }
 
             return products;

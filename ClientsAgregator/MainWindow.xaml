@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ClientsAgregator"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" MinWidth="1000">
+        Title="MainWindow" Height="600" Width="1200">
     <Grid ShowGridLines="True">
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
@@ -23,7 +23,7 @@
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
-            <Button x:Name="MainPage" Grid.Row="1" Width="100" Height="30" Content="ГЛАВНАЯ" Margin="10" Click="Main_Click"></Button>
+            <Button x:Name="MainPage" Grid.Row="1" Width="100" Height="30" Content="ГЛАВНАЯ" Margin="10" Click="MainPage_Click"/>
             <Button x:Name="ListOfClientsPage" Grid.Row="2" Width="100" Height="30" Content="КЛИЕНТЫ" Margin="10" Click="ListOfClientsPage_Click"/>
             <Button x:Name="ListOfProductsPage" Grid.Row="3" Width="100" Height="30" Content="ТОВАРЫ" Margin="10" Click="ListOfProductsPage_Click"/>
             <Button x:Name="ListOfOrdersPage" Grid.Row="4" Width="100" Height="30" Content="ЗАКАЗЫ" Margin="10" Click="ListOfOrdersPage_Click"/>

@@ -47,7 +47,6 @@ namespace ClientsAgregator
             {
                 ProductsGrid.Items.Add(item);
             }
-            //ProductsGrid.ItemsSource = _productInfoModels;  
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

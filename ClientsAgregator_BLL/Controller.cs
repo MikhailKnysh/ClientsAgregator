@@ -31,7 +31,7 @@ namespace ClientsAgregator_BLL
 
         public List<ProductTitleModel> GetProductTitlesModels()
         {
-            var config = new MapperConfiguration(cfg => cfg.CreateMap<ProductTitleDTO, ProductTitleModel>());
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<ProductSubgroupDTO, ProductTitleModel>());
             Mapper mapper = new Mapper(config);
 
             List<ProductTitleModel> productTitleModel = mapper.Map<List<ProductTitleModel>>(OrdersHelper.GetProductTitles());
@@ -236,5 +236,25 @@ namespace ClientsAgregator_BLL
 
             return productInfoModel;
         }
+        public List<ProductsSubgropModel> GetProductsSubgroupModels()
+        {
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<ProductSubgroupDTO, ProductsSubgropModel>());
+            Mapper mapper = new Mapper(config);
+
+            List<ProductsSubgropModel> productsSubgroupModels = mapper.Map<List<ProductsSubgropModel>>(MainsHalper.GetProductsSubgroup());
+
+            return productsSubgroupModels;
+        }
+
+        public MainModel GetMainModels()
+        {
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<ClientByProductsDTO, MainModel>());
+            Mapper mapper = new Mapper(config);
+
+            MainModel clientByIdModels = mapper.Map<MainModel>(MainsHalper.GetClientInfoByProduct());
+
+            return clientByIdModels;
+        }
+
     }
 }

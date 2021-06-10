@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ClientsAgregator_BLL;
+using ClientsAgregator_BLL.CustomModels.ProductsModel;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -18,9 +20,22 @@ namespace ClientsAgregator.Pages
     /// </summary>
     public partial class MainPage : Page
     {
+        private Controller _controller;
+        List<ProductsSubgropModel> productsSubgropModels ;
+
         public MainPage()
         {
             InitializeComponent();
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            _controller = new Controller();
+            productsSubgropModels = _controller.GetProductsSubgroupModels();
+            foreach (var productsSubgrop in productsSubgropModels)
+            {
+               ProductsSubgroupComboBox.Items.Add(productsSubgrop.ProductTitle);
+            }
         }
     }
 }
