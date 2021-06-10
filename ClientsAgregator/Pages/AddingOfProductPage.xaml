@@ -46,7 +46,7 @@
                 <TextBox x:Name="QuantityTextBox" Grid.Column="3" HorizontalAlignment="Center" Grid.Row="0" Text="" TextWrapping="Wrap" VerticalAlignment="Center" Width="120" Height="18"/>
                 <TextBox x:Name="TitelTextBox" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="1" Text="" TextWrapping="Wrap" VerticalAlignment="Center" Width="120" Height="18"/>
                 <TextBox x:Name="PriceTextBox" Grid.Column="3" HorizontalAlignment="Center" Grid.Row="1" Text="" TextWrapping="Wrap" VerticalAlignment="Center" Width="120" Height="18"/>
-                <ComboBox x:Name="GroupComboBox" Grid.Column="1" HorizontalAlignment="Right" Grid.Row="2" VerticalAlignment="Center" Width="130" Height="22" SelectionChanged="GroupComboBox_SelectionChanged"></ComboBox>
+                <ComboBox x:Name="GroupComboBox" Grid.Column="1" HorizontalAlignment="Right" Grid.Row="2" VerticalAlignment="Center" Width="130" Height="22" SelectionChanged="GroupComboBox_SelectionChanged" IsTextSearchEnabled="False" IsEditable="True" TextBoxBase.TextChanged="GroupComboBox_TextChanged"></ComboBox>
                 <ComboBox x:Name="SubgroupComboBox" Grid.Column="3" HorizontalAlignment="Right" Grid.Row="2" VerticalAlignment="Center" Width="130" Height="22"></ComboBox>
                 <ComboBox x:Name="MeasureUnitComboBox" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" Width="130" Height="22"></ComboBox>
                 <Button x:Name="AddGroupButton" Content="+" HorizontalAlignment="Left" Grid.Column="1" Margin="10" Grid.Row="2" VerticalAlignment="Center" Grid.ColumnSpan="2" Width="34" Background="#FF65D805" Click="AddGroupButton_Click"/>

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 using ClientsAgregator_BLL;
 using ClientsAgregator_BLL.CustomModels.ProductsModel;
 
@@ -89,6 +90,16 @@ namespace ClientsAgregator
         {
             AddingSubgroup subgroup = new AddingSubgroup();
             subgroup.ShowDialog();
+        }
+
+        private void GroupComboBox_TextChanged(object sender, RoutedEventArgs e)
+        {
+            GroupComboBox.IsDropDownOpen = true;
+            var tb = (TextBox)e.OriginalSource;
+            tb.Select(tb.SelectionStart + tb.SelectionLength, 0);
+            CollectionView cv = (CollectionView)CollectionViewSource.GetDefaultView(GroupComboBox.Items);
+            cv.Filter = s =>
+                ((string)s).IndexOf(GroupComboBox.Text, StringComparison.CurrentCultureIgnoreCase) >= 0;
         }
     }
 }

@@ -7,7 +7,14 @@
         mc:Ignorable="d"
         Title="AgreeWindow" Height="140" Width="150"  WindowStyle="None" WindowStartupLocation="CenterOwner" ResizeMode="NoResize">
     <Grid>
-        <Label Content="Вы уверены !" HorizontalAlignment="Center" Margin="10,0,10,10" VerticalAlignment="Center"/>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black" Offset="1"/>
+                <GradientStop Color="#FFF9F0F0" Offset="0.373"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Label Content="Вы уверены ?
+" HorizontalAlignment="Center" Margin="10,0,10,10" VerticalAlignment="Center"/>
         <Button x:Name="CancelButton" IsCancel="True" Content="Нет" HorizontalAlignment="Right" Margin="0,0,20,20" VerticalAlignment="Bottom" Width="40"/>
         <Button x:Name="AcceptButton" IsDefault="True" Content="Да" HorizontalAlignment="Left" Margin="20,0,0,20" VerticalAlignment="Bottom" Width="40" Click="AcceptButton_Click"/>
 
