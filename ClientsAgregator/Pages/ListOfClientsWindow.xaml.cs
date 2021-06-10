@@ -1,4 +1,5 @@
-﻿using ClientsAgregator_BLL;
+﻿using ClientsAgregator.Pages;
+using ClientsAgregator_BLL;
 using ClientsAgregator_BLL.CustomModels;
 using System;
 using System.Collections.Generic;
@@ -37,6 +38,11 @@ namespace ClientsAgregator
         {
             ProfileClientWindow profileClientPage = new ProfileClientWindow(clientModel[clientsGrid.SelectedIndex].Id);
             NavigationService.Navigate(profileClientPage);
+        }
+
+        private void AddingClientButton_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AddClientPage());
         }
     }
 }
