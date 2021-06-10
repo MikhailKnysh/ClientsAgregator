@@ -31,20 +31,8 @@ namespace ClientsAgregator.Pages
 
         private void buttonBack_Click(object sender, RoutedEventArgs e)
         {
-            //ListOfClientsPage listOfClientsPage = new ListOfClientsPage();
-            //listOfClientsPage.Show();
-            //this.Close();
+            NavigationService.Navigate(new ListOfClientsWindow());
         }
-
-        private void buttonCancel_Click(object sender, RoutedEventArgs e)
-        {
-            //ListOfClientsPage listOfClientsPage = new ListOfClientsPage();
-            //listOfClientsPage.Show();
-            //this.Close();
-        }
-
-
-
         private void buttonSave_Click(object sender, RoutedEventArgs e)
         {
             AddClientModel addClientModel = new AddClientModel()

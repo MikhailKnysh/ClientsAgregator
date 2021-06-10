@@ -11,6 +11,6 @@ namespace ClientsAgregator_BLL.CustomModels.OrderModels
         public int StatusesId { get; set; }
         public string OrderReview { get; set; }
         public double TotalPrice { get; set; }
-        public List<ProductInOrderModel> productsInOrder { get; set; }
+        public List<ProductInOrderModel> ProductsInOrder { get; set; }
     }
 }

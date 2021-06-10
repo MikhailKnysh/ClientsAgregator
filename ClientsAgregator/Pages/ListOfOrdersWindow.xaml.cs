@@ -1,16 +1,9 @@
-﻿using ClientsAgregator_BLL;
+﻿using ClientsAgregator.Pages;
+using ClientsAgregator_BLL;
 using ClientsAgregator_BLL.CustomModels.OrderModels;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace ClientsAgregator
 {
@@ -24,10 +17,20 @@ namespace ClientsAgregator
             InitializeComponent();
         }
 
-        private void deleteBtn_Click(object sender, RoutedEventArgs e)
+        private void buttonRemove_Click(object sender, RoutedEventArgs e)
         {
-            var index = ProductsGrid.SelectedIndex;
-            ProductsGrid.Items.RemoveAt(index);
+            AgreeWindow agree = new AgreeWindow();
+
+            if (agree.ShowDialog() == true)
+            {
+                int index = gridOrders.SelectedIndex;
+                gridOrders.Items.RemoveAt(index);
+
+                int orderId = _ordersInfoModels[index].Id;
+
+                _ordersInfoModels.RemoveAt(index);
+                _controller.DeleteOrder(orderId);
+            }
         }
 
         private void Grid_Loaded(object sender, RoutedEventArgs e)
@@ -36,16 +39,13 @@ namespace ClientsAgregator
             _ordersInfoModels = _controller.GetOrderModels();
             foreach (var item in _ordersInfoModels)
             {
-                ProductsGrid.Items.Add(item);
+                gridOrders.Items.Add(item);
             }
-            //ProductsGrid.ItemsSource = _productInfoModels;  
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void buttonAddOrder_Click(object sender, RoutedEventArgs e)
         {
-            //AddingOfProductWindow addingOfProductWindow = new AddingOfProductWindow();
-            //addingOfProductWindow.Show();
-            //this.Close();
+            NavigationService.Navigate(new AddOrderPage());
         }
     }
 }

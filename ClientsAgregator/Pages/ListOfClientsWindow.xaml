@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ClientsAgregator"
       mc:Ignorable="d"
-      Title="ListOfClientsWindow" Height="508" Width="850">
+      Title="ListOfClientsWindow" MinHeight="500" MinWidth="850">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -24,7 +24,7 @@
                  Template="{StaticResource ButtonAddingTemplate}">
         </Button>
 
-        <DataGrid x:Name="clientsGrid" IsReadOnly="True" AutoGenerateColumns="False" Margin="15,10,0,10" Width="auto" Grid.Row="1" HorizontalAlignment="Left" ColumnHeaderHeight="30" Grid.Column="3" Grid.ColumnSpan="2">
+        <DataGrid x:Name="clientsGrid" IsReadOnly="True" AutoGenerateColumns="False" Margin="10,10,10,10" Grid.Row="1" HorizontalAlignment="Stretch" ColumnHeaderHeight="30" Grid.Column="0" ColumnWidth="*">
 
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Фамилия" Binding="{Binding LastName}" ></DataGridTextColumn>

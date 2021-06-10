@@ -103,7 +103,7 @@ namespace ClientsAgregator_DAL.Queries
 
             using (IDbConnection conn = new SqlConnection(Options.connectionString))
             {
-                conn.Query<int>(query,new {Title}, commandType: CommandType.StoredProcedure);
+                conn.Query<int>(query, new { Title }, commandType: CommandType.StoredProcedure);
             }
         }
 
@@ -112,7 +112,7 @@ namespace ClientsAgregator_DAL.Queries
             string query = "ClientsAgregatorDB.AddSubgroup";
 
             using (IDbConnection conn = new SqlConnection(Options.connectionString))
-            { 
+            {
                 var subgroupId = conn.Query<int>(query, new { Title }, commandType: CommandType.StoredProcedure);
 
                 return subgroupId.Single();
@@ -135,7 +135,7 @@ namespace ClientsAgregator_DAL.Queries
 
             using (IDbConnection conn = new SqlConnection(Options.connectionString))
             {
-                conn.Query<int>(query, new {productId}, commandType: CommandType.StoredProcedure);
+                conn.Query<int>(query, new { productId }, commandType: CommandType.StoredProcedure);
             }
         }
 
@@ -147,6 +147,19 @@ namespace ClientsAgregator_DAL.Queries
             {
                 conn.Query<int>(query, new { productId }, commandType: CommandType.StoredProcedure);
             }
+        }
+
+        public static ProductInfoDTO GetProductInfoById(int productId)
+        {
+            ProductInfoDTO productInfoDTO;
+            string query = "ClientsAgregatorDB.GetProductsInfoById @ProductId";
+
+            using (IDbConnection conn = new SqlConnection(Options.connectionString))
+            {
+                productInfoDTO = conn.Query<ProductInfoDTO>(query, new { productId }).FirstOrDefault();
+            }
+
+            return productInfoDTO;
         }
     }
 }

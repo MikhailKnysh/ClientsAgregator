@@ -51,14 +51,14 @@ namespace ClientsAgregator_BLL
 
         public void AddOrder(NewOrderInfoModel newOrderInfoModel)
         {
-            if (newOrderInfoModel.productsInOrder.Count > 0)
+            if (newOrderInfoModel.ProductsInOrder.Count > 0)
             {
                 var config = new MapperConfiguration(cfg => cfg.CreateMap<NewOrderInfoModel, OrderDTO>());
                 Mapper mapper = new Mapper(config);
 
                 OrderDTO order = mapper.Map<OrderDTO>(newOrderInfoModel);
 
-                List<ProductInOrderModel> productInOrderModels = newOrderInfoModel.productsInOrder;
+                List<ProductInOrderModel> productInOrderModels = newOrderInfoModel.ProductsInOrder;
 
                 config = new MapperConfiguration(
                     cfg => cfg
@@ -227,5 +227,14 @@ namespace ClientsAgregator_BLL
             return bulkStatusModel;
         }
 
+        public ProductInfoModel GetProductInfoModel(int productId)
+        {
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<ProductInfoDTO, ProductInfoModel>());
+            Mapper mapper = new Mapper(config);
+
+            ProductInfoModel productInfoModel = mapper.Map<ProductInfoModel>(ProductsHelper.GetProductInfoById(productId));
+
+            return productInfoModel;
+        }
     }
 }

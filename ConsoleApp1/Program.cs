@@ -28,41 +28,41 @@ namespace ConsoleApp1
 
             List<StatusModel> statusTitles = controller.GetStatusModels();
 
-            NewOrderInfoModel newOrderInfoModel = new NewOrderInfoModel()
-            {
-                ClientId = 1,
-                OrderDate = "12.12.2021",
-                StatusesId = 1,
-                OrderReview = "Some review",
-                TotalPrice = 127.59,
-                productsInOrder = new List<ProductInOrderModel>()
-                {
-                    new ProductInOrderModel()
-                    {
-                        Articul = "121AER",
-                        ProductId = 2,
-                        ProductTitle = "Bread",
-                        Price = 12.99,
-                        Quantity = 23,
-                        MeasureUnitId = 1,
-                        GroupTitle = "Food",
-                        SubgroupTitle = "Bakery",
-                        Rate = 4
-                    },
-                    new ProductInOrderModel()
-                    {
-                        Articul = "131OIk",
-                        ProductId = 2,
-                        ProductTitle = "Spoons",
-                        Price = 12.99,
-                        Quantity = 17,
-                        MeasureUnitId = 1,
-                        GroupTitle = "Food",
-                        SubgroupTitle = "Bakery",
-                        Rate = 4
-                    }
-                }
-            };
+            //NewOrderInfoModel newOrderInfoModel = new NewOrderInfoModel()
+            //{
+            //    ClientId = 1,
+            //    OrderDate = "12.12.2021",
+            //    StatusesId = 1,
+            //    OrderReview = "Some review",
+            //    TotalPrice = 127.59,
+            //    productsInOrder = new List<ProductInOrderModel>()
+            //    {
+            //        new ProductInOrderModel()
+            //        {
+            //            Articul = "121AER",
+            //            ProductId = 2,
+            //            ProductTitle = "Bread",
+            //            Price = 12.99,
+            //            Quantity = 23,
+            //            MeasureUnitTitle = 1,
+            //            GroupTitle = "Food",
+            //            SubgroupTitle = "Bakery",
+            //            Rate = 4
+            //        },
+            //        new ProductInOrderModel()
+            //        {
+            //            Articul = "131OIk",
+            //            ProductId = 2,
+            //            ProductTitle = "Spoons",
+            //            Price = 12.99,
+            //            Quantity = 17,
+            //            MeasureUnitTitle = 1,
+            //            GroupTitle = "Food",
+            //            SubgroupTitle = "Bakery",
+            //            Rate = 4
+            //        }
+            //    }
+            //};
 
             //try
             //{

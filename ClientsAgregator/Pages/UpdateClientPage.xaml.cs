@@ -20,26 +20,22 @@ namespace ClientsAgregator
     /// </summary>
     public partial class UpdateClientPage : Page
     {
-        private Controller _controller;
+        private Controller _controller;
         private int _idClient;
         public UpdateClientPage(int idClient)
         {
-            InitializeComponent();
+            InitializeComponent();
             _idClient = idClient;
         }
 
         private void buttonBack_Click(object sender, RoutedEventArgs e)
         {
-            //ListOfClientsPage listOfClientsPage = new ListOfClientsPage();
-            //listOfClientsPage.Show();
-            //this.Close();
+            NavigationService.Navigate(new ProfileClientWindow(_idClient));
         }
 
         private void buttonCancel_Click(object sender, RoutedEventArgs e)
         {
-            //ListOfClientsPage listOfClientsPage = new ListOfClientsPage();
-            //listOfClientsPage.Show();
-            //this.Close();
+
         }
 
         //private void buttonSave_Click(object sender, RoutedEventArgs e, int idClient)
