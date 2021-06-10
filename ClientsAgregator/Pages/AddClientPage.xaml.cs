@@ -35,36 +35,69 @@ namespace ClientsAgregator.Pages
         }
         private void buttonSave_Click(object sender, RoutedEventArgs e)
         {
-            AddClientModel addClientModel = new AddClientModel()
+            string lastName = TextBoxLastName.Text.Trim();
+            string firstName = TextBoxFirstName.Text.Trim();
+            string middleName = TextBoxMiddleName.Text.Trim();
+
+            string email = TextBoxEmail.Text.Trim();
+            string phone = TextBoxPhone.Text.Trim();
+
+            bool isValidEmail = ValidationData.IsValidEmail(email);
+            bool isValidPhone = ValidationData.IsValidPhone(phone);
+            bool isValidString = ValidationData.IsValidStringLenght(lastName, 255);
+
+            if(isValidString == false)
             {
-                LastName = TextBoxLastName.Text,
-                FirstName = TextBoxFirstName.Text,
-                MiddleName = TextBoxMiddleName.Text,
-                Phone = TextBoxPhone.Text,
-                Email = TextBoxEmail.Text,
-                BulkStatusId = ComboBoxBulkStatus.SelectedIndex,
-                Male = ComboBoxMale.Text,
-                СommentAboutСlient = TextBoxCommentAboutClient.Text
-            };
+                TextBoxLastName.ToolTip = "Это поле введено некорректно";
+                TextBoxLastName.Background = Brushes.Tomato;
+            }
+            else if (isValidPhone == false)
+            {
+                TextBoxPhone.Background = Brushes.Tomato;
+            }
+            else if (isValidEmail == false)
+            {
+                TextBoxPhone.Background = Brushes.Transparent;
+                TextBoxEmail.Background = Brushes.Tomato;
+            }
+            else
+            {
+                TextBoxLastName.Background = Brushes.Transparent;
+                TextBoxEmail.Background = Brushes.Transparent;
 
-            _controller.AddClientDTO(addClientModel);
+                AddClientModel addClientModel = new AddClientModel()
+                {
+                    LastName = lastName,
+                    FirstName = firstName,
+                    MiddleName = middleName,
+                    Phone = phone,
+                    Email = email,
+                    BulkStatusId = ComboBoxBulkStatus.SelectedIndex,
+                    Male = ComboBoxMale.Text,
+                    СommentAboutСlient = TextBoxCommentAboutClient.Text
+                };
 
-            //foreach (UIElement element in AddClientRoot.Children)
-            //{
-            //    if (element.GetType() == typeof(TextBox) || element.GetType() == typeof(CheckBox))
-            //    {
-            //        element.Text = string.Empty;
-            //    }
-            //}
+                _controller.AddClientDTO(addClientModel);
 
-            TextBoxLastName.Clear();
-            TextBoxFirstName.Clear();
-            TextBoxMiddleName.Clear();
-            TextBoxPhone.Clear();
-            TextBoxEmail.Clear();
-            TextBoxCommentAboutClient.Clear();
-            ComboBoxBulkStatus.Text = "";
-            ComboBoxMale.Text = "";
+                MessageBox.Show("Клиент добавлен");
+
+                //foreach (UIElement element in AddClientRoot.Children)
+                //{
+                //    if (element.GetType() == typeof(TextBox) || element.GetType() == typeof(CheckBox))
+                //    {
+                //        element.Text = string.Empty;
+                //    }
+                //}
+
+                TextBoxLastName.Clear();
+                TextBoxFirstName.Clear();
+                TextBoxMiddleName.Clear();
+                TextBoxPhone.Clear();
+                TextBoxEmail.Clear();
+                TextBoxCommentAboutClient.Clear();
+                ComboBoxBulkStatus.Text = "";
+                ComboBoxMale.Text = "";
+            }
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
