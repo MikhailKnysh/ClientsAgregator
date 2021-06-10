@@ -51,21 +51,21 @@ namespace ClientsAgregator_BLL
 
         public void AddOrder(NewOrderInfoModel newOrderInfoModel)
         {
-            if (newOrderInfoModel.productsInOrder.Count > 0)
+            if (newOrderInfoModel.ProductsInOrder.Count > 0)
             {
                 var config = new MapperConfiguration(cfg => cfg.CreateMap<NewOrderInfoModel, OrderDTO>());
                 Mapper mapper = new Mapper(config);
 
                 OrderDTO order = mapper.Map<OrderDTO>(newOrderInfoModel);
 
-                List<ProductInOrderModel> productInOrderModels = newOrderInfoModel.productsInOrder;
+                List<ProductInOrderModel> productInOrderModels = newOrderInfoModel.ProductsInOrder;
 
                 config = new MapperConfiguration(
                     cfg => cfg
                     .CreateMap<ProductInOrderModel, ProductDTO>()
                     .ForMember(dest => dest.Id, option => option.MapFrom(source => source.ProductId))
                     .ForMember(dest => dest.Title, option => option.MapFrom(source => source.ProductTitle))
-                    .ForMember(dest => dest.MeasureId, option => option.MapFrom(source => source.MeasureUnitTitle))
+                    .ForMember(dest => dest.MeasureId, option => option.MapFrom(source => source.MeasureUnitId))
                     );
                 mapper = new Mapper(config);
 
@@ -227,14 +227,14 @@ namespace ClientsAgregator_BLL
             return bulkStatusModel;
         }
 
-        //public ProductInfoModel GetProductInfoModel(int productId)
-        //{
-        //    var config = new MapperConfiguration(cfg => cfg.CreateMap<ProductInfoDTO, ProductInfoModel>());
-        //    Mapper mapper = new Mapper(config);
+        public ProductInfoModel GetProductInfoModel(int productId)
+        {
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<ProductInfoDTO, ProductInfoModel>());
+            Mapper mapper = new Mapper(config);
 
-        //    ProductInfoModel productInfoModel = mapper.Map<ProductInfoModel>(ProductsHelper.GetProductById(productId));
+            ProductInfoModel productInfoModel = mapper.Map<ProductInfoModel>(ProductsHelper.GetProductInfoById(productId));
 
-        //    return productInfoModel;
-        //}
+            return productInfoModel;
+        }
     }
 }

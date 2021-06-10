@@ -103,7 +103,7 @@ namespace ClientsAgregator_DAL.Queries
 
             using (IDbConnection conn = new SqlConnection(Options.connectionString))
             {
-                conn.Query<int>(query,new {Title}, commandType: CommandType.StoredProcedure);
+                conn.Query<int>(query, new { Title }, commandType: CommandType.StoredProcedure);
             }
         }
 
@@ -112,7 +112,7 @@ namespace ClientsAgregator_DAL.Queries
             string query = "ClientsAgregatorDB.AddSubgroup";
 
             using (IDbConnection conn = new SqlConnection(Options.connectionString))
-            { 
+            {
                 var subgroupId = conn.Query<int>(query, new { Title }, commandType: CommandType.StoredProcedure);
 
                 return subgroupId.Single();
@@ -135,7 +135,7 @@ namespace ClientsAgregator_DAL.Queries
 
             using (IDbConnection conn = new SqlConnection(Options.connectionString))
             {
-                conn.Query<int>(query, new {productId}, commandType: CommandType.StoredProcedure);
+                conn.Query<int>(query, new { productId }, commandType: CommandType.StoredProcedure);
             }
         }
 
@@ -149,21 +149,17 @@ namespace ClientsAgregator_DAL.Queries
             }
         }
 
-    //    public static ProductInfoDTO GetProductById(int productId)
-    //    {
-    //        using (IDbConnection conn = new SqlConnection(Options.connectionString))
-    //        {
-    //            string query = "ClientsAgregatorDB.GetProductById @ProductId";
-    //            ProductDTO productDTO = conn.Query<ProductDTO>(query, new { productId }).FirstOrDefault();
+        public static ProductInfoDTO GetProductInfoById(int productId)
+        {
+            ProductInfoDTO productInfoDTO;
+            string query = "ClientsAgregatorDB.GetProductsInfoById @ProductId";
 
-    //            query = "GetMeasureUnitById @Id";
-    //            string measureUnitTitle = conn.Query<string>(query, new {productDTO.MeasureId}).FirstOrDefault();
+            using (IDbConnection conn = new SqlConnection(Options.connectionString))
+            {
+                productInfoDTO = conn.Query<ProductInfoDTO>(query, new { productId }).FirstOrDefault();
+            }
 
-    //            query = "GetSubgroupById @Id";
-    //            string subgroupTitle = conn.Query<string>(query, new { productDTO. }).FirstOrDefault();
-    //        }
-
-    //        return productDTO;
-    //    }
+            return productInfoDTO;
+        }
     }
 }

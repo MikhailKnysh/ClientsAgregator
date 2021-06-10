@@ -11,6 +11,7 @@ namespace ClientsAgregator_BLL.CustomModels.ProductsModel
         public string Title { get; set; }
         public double Price { get; set; }
         public int Quantity { get; set; }
+        public int MeasureUnitId { get; set; }
         public string MeasureUnit { get; set; }
         public string Subgroup { get; set; }
         public string Group { get; set; }

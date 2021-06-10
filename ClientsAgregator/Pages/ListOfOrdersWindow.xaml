@@ -12,8 +12,8 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Button Margin="15,10,0,10" Grid.Column="1" Click="Button_Click" Style="{StaticResource ButtonBack}" Template="{StaticResource ButtonAddingTemplate}"></Button>
-        <DataGrid x:Name="ProductsGrid" IsReadOnly="True" AutoGenerateColumns="False" Margin="15,10,0,10" Width="1000" Grid.Row="1" ColumnWidth="110" HorizontalAlignment="Left" ColumnHeaderHeight="30" Grid.Column="1">
+        <Button x:Name="buttonAddOrder" Margin="15,10,0,10" Grid.Column="1" Click="buttonAddOrder_Click" Style="{StaticResource ButtonBack}" Template="{StaticResource ButtonAddingTemplate}"/>
+        <DataGrid x:Name="gridOrders" IsReadOnly="True" AutoGenerateColumns="False" Margin="15,10,0,10" Width="1000" Grid.Row="1" ColumnWidth="110" HorizontalAlignment="Left" ColumnHeaderHeight="30" Grid.Column="1">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="Дата заказа" Binding="{Binding OrderDate}"/>
@@ -33,8 +33,8 @@
                                     <ColumnDefinition>
                                     </ColumnDefinition>
                                 </Grid.ColumnDefinitions>
-                                <Button  Name="ediBtn" Grid.Column="0" Height="20" Width="20" Background="Green" ></Button>
-                                <Button  Name="deleteBtn" Click="deleteBtn_Click" Grid.Column="1" Height="20" Width="20" Background="Red">X</Button>
+                                <Button  Name="buttonEdit" Grid.Column="0" Height="20" Width="20" IsEnabled="False" Background="Green"/>
+                                <Button  Name="buttonRemove" Content="X" Click="buttonRemove_Click" Grid.Column="1" Height="20" Width="20" Background="Red"/>
                             </Grid>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
