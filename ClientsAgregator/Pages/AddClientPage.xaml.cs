@@ -33,15 +33,19 @@ namespace ClientsAgregator.Pages
 
             bool isValidEmail = ValidationData.IsValidEmail(email);
             bool isValidPhone = ValidationData.IsValidPhone(phone);
-            bool isValidString = ValidationData.IsValidStringLenght(lastName, validCharQuantity: 255);
+            bool isValidStringlastName = ValidationData.IsValidStringLenght(lastName, validCharQuantity: 255);
+            bool isValidStringfirstName = ValidationData.IsValidStringLenght(lastName, validCharQuantity: 255);
+            bool isValidStringmiddleName = ValidationData.IsValidStringLenght(lastName, validCharQuantity: 255);
 
-            if(isValidString == false)
+
+            if (isValidStringlastName == false)
             {
                 TextBoxLastName.ToolTip = "Это поле введено некорректно";
                 TextBoxLastName.Background = Brushes.Tomato;
             }
             else if (isValidPhone == false)
             {
+                TextBoxPhone.ToolTip = "Это поле введено некорректно";
                 TextBoxPhone.Background = Brushes.Tomato;
             }
             else if (isValidEmail == false)

@@ -202,7 +202,6 @@ namespace ClientsAgregator_BLL
             var config = new MapperConfiguration(cfg => cfg.CreateMap<AddClientModel, AddClientDTO>());
             Mapper mapper = new Mapper(config);
 
-
             AddClientDTO clientDTO = mapper.Map<AddClientModel, AddClientDTO>(model);
 
             _clientsHelper.UpdateClientById(clientDTO, Id);
@@ -257,6 +256,7 @@ namespace ClientsAgregator_BLL
 
             return productInfoModel;
         }
+
         public List<ProductsSubgropModel> GetProductsSubgroupModels()
         {
             var config = new MapperConfiguration(cfg => cfg.CreateMap<ProductSubgroupDTO, ProductsSubgropModel>());
@@ -287,6 +287,9 @@ namespace ClientsAgregator_BLL
             return clientByIdModels;
         }
 
+        public int GetSpendMoneyCountByClientIdModels(int Id)
+        {
+            int SpendMoneyCount = ClientsHelper.GetSpendMoneyCountByClientId(Id);
 
         public int GetSpendMoneyCountByClientIdModels(int Id)
         {
