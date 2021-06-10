@@ -43,7 +43,7 @@ namespace ClientsAgregator
             _products = _controller.GetProductTitlesModels();
             foreach (var product in _products)
             {
-                comboBoxProduct.Items.Add(product.Title);
+                comboBoxProduct.Items.Add(product.ProductTitle);
             }
         }
 
@@ -52,8 +52,8 @@ namespace ClientsAgregator
             string productTitle = comboBoxProduct.SelectedItem.ToString();
 
             int productId = (from p in _products
-                             where p.Title.Equals(productTitle)
-                             select p.Id)
+                             where p.ProductTitle.Equals(productTitle)
+                             select p.ProductId)
                             .FirstOrDefault();
 
             ProductInfoModel productInfoModel = _controller.GetProductInfoModel(productId);

@@ -24,7 +24,7 @@ namespace ClientsAgregator.Pages
     {
         private List<ClientsFullNameModel> _clients;
         private List<StatusModel> _statuses;
-        private List<ProductTitleModel> _products;
+        private List<ProductsSubgropModel> _products;
         private List<ProductInOrderModel> _productInOrderModels;
         private ProductInfoModel productInfoModel;
         private double totalPrice;
@@ -53,10 +53,10 @@ namespace ClientsAgregator.Pages
                 comboBoxStatus.Items.Add(status.Title);
             }
 
-            _products = _controller.GetProductTitlesModels();
+            _products = _controller.GetProductsSubgroupModels();
             foreach (var product in _products)
             {
-                comboBoxProduct.Items.Add(product.Title);
+                comboBoxProduct.Items.Add(product.ProductTitle);
             }
         }
 
@@ -94,8 +94,8 @@ namespace ClientsAgregator.Pages
             string productTitle = comboBoxProduct.SelectedItem.ToString();
 
             int productId = (from p in _products
-                             where p.Title.Equals(productTitle)
-                             select p.Id)
+                             where p.ProductTitle.Equals(productTitle)
+                             select p.ProductId)
                             .FirstOrDefault();
 
             productInfoModel = _controller.GetProductInfoModel(productId);

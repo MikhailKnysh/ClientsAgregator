@@ -6,7 +6,7 @@ namespace ClientsAgregator_BLL.CustomModels.OrderModels
 {
     public class ProductTitleModel
     {
-        public int Id { get; set; }
-        public string Title { get; set; }
+        public int ProductId { get; set; }
+        public string ProductTitle { get; set; }
     }
 }
