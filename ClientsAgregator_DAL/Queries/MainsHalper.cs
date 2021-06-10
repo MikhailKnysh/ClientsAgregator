@@ -24,18 +24,18 @@ namespace ClientsAgregator_DAL.Queries
             return productSubgroups;
         }
 
-        public static List<ClientByProductsDTO> GetClientInfoByProduct()
+        public static List<InterestedClientInfoByProductDTO> GetInterestedClientInfoByProduct(int productId)
         {
             string query = "ClientsAgregatorDB.GetClientInfoByProduct";
 
-            List<ClientByProductsDTO> clientByProducts = new List<ClientByProductsDTO>();
+            List<InterestedClientInfoByProductDTO> interestedClientByProducts = new List<InterestedClientInfoByProductDTO>();
 
             using (IDbConnection conn = new SqlConnection(Options.connectionString))
             {
-                clientByProducts = conn.Query<ClientByProductsDTO>(query).AsList();
+                interestedClientByProducts = conn.Query<InterestedClientInfoByProductDTO>(query, new { productId },commandType:CommandType.StoredProcedure).AsList();
             }
 
-            return clientByProducts;
+            return interestedClientByProducts;
         }
 
     }

@@ -22,6 +22,7 @@ namespace ClientsAgregator.Pages
     {
         private Controller _controller;
         List<ProductsSubgropModel> productsSubgropModels ;
+        List<InterestedClientInfoByProductModel> interestedClientInfoByProductModels;
 
         public MainPage()
         {
@@ -30,11 +31,28 @@ namespace ClientsAgregator.Pages
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            interestedClientInfoByProductModels = new List<InterestedClientInfoByProductModel>();
             _controller = new Controller();
             productsSubgropModels = _controller.GetProductsSubgroupModels();
             foreach (var productsSubgrop in productsSubgropModels)
             {
                ProductsSubgroupComboBox.Items.Add(productsSubgrop.ProductTitle);
+            }
+        }
+
+        private void ProductsSubgroupComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+                    
+        }
+
+        private void CreateButton_Click(object sender, RoutedEventArgs e)
+        {
+            InterestedClientByProductGrid.Items.Clear();
+            int productId = productsSubgropModels[ProductsSubgroupComboBox.SelectedIndex].ProductId;
+            interestedClientInfoByProductModels = _controller.GetMainModels(productId);
+            foreach (var intrClient in interestedClientInfoByProductModels)
+            {
+                InterestedClientByProductGrid.Items.Add(intrClient);
             }
         }
     }

@@ -1,16 +1,17 @@
 ﻿CREATE PROCEDURE [ClientsAgregatorDB].[GetClientInfoByProduct]
+@ProductId INT
 AS
-SELECT [ClientsAgregatorDB].[Clients].[LastName], [ClientsAgregatorDB].[Clients].[FirstName],[ClientsAgregatorDB].[Clients].[MiddleName],
-[ClientsAgregatorDB].[Clients].[Phone],[ClientsAgregatorDB].[BulkStatus].[Title],
-SUM([ClientsAgregatorDB].[Product_Order].[Quantity]) SUMQuantity,
-AVG([ClientsAgregatorDB].[Feedbacks].[Rate]) AVGRate
-FROM [ClientsAgregatorDB].[Clients] 
+SELECT [ClientsAgregatorDB].[Clients].[ID],[ClientsAgregatorDB].[Clients].[LastName], [ClientsAgregatorDB].[Clients].[FirstName],[ClientsAgregatorDB].[Clients].[MiddleName],
+[ClientsAgregatorDB].[Clients].[Phone],[ClientsAgregatorDB].[BulkStatus].[Title] AS BulkStatusTitle,
+[ClientsAgregatorDB].[Product_Order].[ProductId],
+SUM (DISTINCT [ClientsAgregatorDB].[Product_Order].[Quantity])  AS SumQuantity,
+AVG ([ClientsAgregatorDB].[Feedbacks].[Rate]) AS AVGRate
+FROM [ClientsAgregatorDB].[Clients]
 JOIN [ClientsAgregatorDB].[BulkStatus] ON [ClientsAgregatorDB].[BulkStatus].[Id] = [ClientsAgregatorDB].[Clients].[BulkStatusId]
-JOIN [ClientsAgregatorDB].[Orders] ON [ClientsAgregatorDB].[Orders].[ClientId] = [ClientsAgregatorDB].[Clients].[Id] 
-JOIN [ClientsAgregatorDB].[Product_Order] ON [ClientsAgregatorDB].[Product_Order].[OrderId] = [ClientsAgregatorDB].[Orders].[ClientId]
-JOIN [ClientsAgregatorDB].[Products] ON [ClientsAgregatorDB].[Product_Order].[Id] = [ClientsAgregatorDB].[Products].[Id]
-JOIN [ClientsAgregatorDB].[Feedbacks] ON [ClientsAgregatorDB].[Feedbacks].[ProductId] = [ClientsAgregatorDB].[Products].[Id]
-GROUP BY [ClientsAgregatorDB].[Clients].[FirstName],[ClientsAgregatorDB].[Clients].[MiddleName],[ClientsAgregatorDB].[Clients].[LastName],
+JOIN [ClientsAgregatorDB].[Orders] ON [ClientsAgregatorDB].[Clients].[Id] = [ClientsAgregatorDB].[Orders].[ClientId]
+JOIN [ClientsAgregatorDB].[Product_Order] ON [ClientsAgregatorDB].[Orders].[Id] = [ClientsAgregatorDB].[Product_Order].[OrderId]
+JOIN [ClientsAgregatorDB].[Feedbacks] ON [ClientsAgregatorDB].[Clients].[Id] = [ClientsAgregatorDB].[Feedbacks].[ClientId]
+WHERE [ClientsAgregatorDB].[Product_Order].[ProductId] = @ProductID
+GROUP BY [ClientsAgregatorDB].[Clients].[ID],[ClientsAgregatorDB].[Clients].[LastName], [ClientsAgregatorDB].[Clients].[FirstName],[ClientsAgregatorDB].[Clients].[MiddleName],
 [ClientsAgregatorDB].[Clients].[Phone],[ClientsAgregatorDB].[BulkStatus].[Title],
-[ClientsAgregatorDB].[Product_Order].[Quantity] ,
-[ClientsAgregatorDB].[Feedbacks].[Rate]
+[ClientsAgregatorDB].[Product_Order].[ProductId]
