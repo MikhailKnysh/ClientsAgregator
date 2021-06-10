@@ -92,9 +92,12 @@ namespace ClientsAgregator_BLL
             }
         }
 
-        public static bool IsValidStringLenght(string str, int validCountChar)
+        public static bool IsValidStringLenght(string str, int validCharQuantity)
         {
-            if(str.Length <= validCountChar || str.Length > 1 || !(string.IsNullOrEmpty(str)))
+            int minLength = 1;
+
+            if(str.Length <= validCharQuantity && str.Length > minLength
+                && !(string.IsNullOrEmpty(str)) && !(string.IsNullOrWhiteSpace(str)))
             {
                 return true;
             }

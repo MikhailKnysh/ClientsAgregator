@@ -33,7 +33,7 @@ namespace ClientsAgregator.Pages
 
             bool isValidEmail = ValidationData.IsValidEmail(email);
             bool isValidPhone = ValidationData.IsValidPhone(phone);
-            bool isValidString = ValidationData.IsValidStringLenght(lastName, 255);
+            bool isValidString = ValidationData.IsValidStringLenght(lastName, validCharQuantity: 255);
 
             if(isValidString == false)
             {
@@ -70,21 +70,14 @@ namespace ClientsAgregator.Pages
 
                 MessageBox.Show("Клиент добавлен");
 
-                //foreach (UIElement element in AddClientRoot.Children)
-                //{
-                //    if (element.GetType() == typeof(TextBox) || element.GetType() == typeof(CheckBox))
-                //    {
-                //        element.Text = string.Empty;
-                //    }
-                //}
                 TextBoxLastName.Clear();
                 TextBoxFirstName.Clear();
                 TextBoxMiddleName.Clear();
                 TextBoxPhone.Clear();
                 TextBoxEmail.Clear();
                 TextBoxCommentAboutClient.Clear();
-                ComboBoxBulkStatus.Text = "";
-                ComboBoxMale.Text = "";
+                ComboBoxBulkStatus.Text = string.Empty;
+                ComboBoxMale.Text = string.Empty;
             }
         }
 
