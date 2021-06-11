@@ -283,7 +283,7 @@ namespace ClientsAgregator_BLL
             var config = new MapperConfiguration(cfg => cfg.CreateMap<FeedbackDTO, FeedbackModel>());
             Mapper mapper = new Mapper(config);
 
-            List<FeedbackModel> feedback = mapper.Map<List<FeedbackModel>>(_clientsHelper.GetFeedback());
+            List<FeedbackModel> feedback = mapper.Map<List<FeedbackModel>>(_clientsHelper.GetFeedbackClientById(id));
 
             return feedback;
         }
@@ -291,8 +291,9 @@ namespace ClientsAgregator_BLL
         public List<FeedbackModel> GetFeedbackModels()
         {
             var config = new MapperConfiguration(cfg => cfg.CreateMap<FeedbackDTO, FeedbackModel>());
-            Mapper mapper = new Mapper(config);
-            List<FeedbackModel> feedback = mapper.Map<List<FeedbackModel>>(clientsHelper.GetFeedbacks());
+            Mapper mapper = new Mapper(config);
+
+            List<FeedbackModel> feedback = mapper.Map<List<FeedbackModel>>(_clientsHelper.GetFeedbacks());
 
             return feedback;
         }
