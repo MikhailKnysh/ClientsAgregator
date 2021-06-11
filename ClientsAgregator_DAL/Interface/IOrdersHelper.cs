@@ -12,5 +12,6 @@ namespace ClientsAgregator_DAL.Interface
         public List<StatusDTO> GetStatusTitles();
         public void AddOrder(List<Product_OrderDTO> productsOrder, OrderDTO order);
         public void DeleteOrder(int orderId);
+        public OrderDTO GetOrdersInfoById(int orderId);
     }
 }

@@ -3,6 +3,7 @@ using ClientsAgregator_BLL.CustomModels.OrderModels;
 using ClientsAgregator_BLL.CustomModels.ProductsModel;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
@@ -16,6 +17,7 @@ namespace ClientsAgregator.Pages
         private ProductInfoModel _productInfoModel;
         private Controller _controller;
         private OrdersInfoModel _ordersInfoModel;
+        private OrderModel _orderModel;
 
         private List<ClientsFullNameModel> _clients;
         private List<StatusModel> _statuses;
@@ -51,8 +53,13 @@ namespace ClientsAgregator.Pages
                 comboBoxStatus.Items.Add(status.Title);
             }
 
-            //string status = $"{_ordersInfoModel.LastName} {_ordersInfoModel.FirstName} {_ordersInfoModel.MiddleName}";
-            comboBoxClient.SelectedItem = fullName;
+            _orderModel = _controller.GetOrdersInfoById(_ordersInfoModel.Id);
+            StatusModel statusModel = (from s in _statuses
+                                       where s.Id == _orderModel.StatusesId
+                                       select s).FirstOrDefault();
+
+            //StatusModel statusModel = _statuses.FirstOrDefault(s => s.Id == _orderModel.StatusesId);
+            comboBoxStatus.SelectedItem = statusModel.Title;
 
             _products = _controller.GetProductsSubgroupModels();
             foreach (var product in _products)

@@ -4,22 +4,12 @@ using ClientsAgregator_BLL.CustomModels.ProductsModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace ClientsAgregator.Pages
 {
-    /// <summary>
-    /// Interaction logic for AddOrderPage.xaml
-    /// </summary>
     public partial class AddOrderPage : Page
     {
         private List<ClientsFullNameModel> _clients;

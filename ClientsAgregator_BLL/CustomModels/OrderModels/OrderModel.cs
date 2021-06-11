@@ -12,6 +12,5 @@ namespace ClientsAgregator_BLL.CustomModels.OrderModels
         public string OrderReview { get; set; }
         public string OrderDate { get; set; }
         public double TotalPrice { get; set; }
-
     }
 }

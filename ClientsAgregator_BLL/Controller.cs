@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using ClientsAgregator_BLL.CustomModels.OrderModels;
 using ClientsAgregator_BLL.CustomModels;
+using ClientsAgregator_BLL.CustomModels.OrderModels;
 using ClientsAgregator_BLL.CustomModels.ProductsModel;
 using System;
 using System.Collections.Generic;
@@ -296,6 +296,16 @@ namespace ClientsAgregator_BLL
             List<FeedbackModel> feedback = mapper.Map<List<FeedbackModel>>(_clientsHelper.GetFeedbacks());
 
             return feedback;
+        }
+
+        public OrderModel GetOrdersInfoById(int orderId)
+        {
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<OrderDTO, OrderModel>());
+            Mapper mapper = new Mapper(config);
+
+            OrderModel orderModel = mapper.Map<OrderModel>(_ordersHelper.GetOrdersInfoById(orderId));
+
+            return orderModel;
         }
     }
 }
