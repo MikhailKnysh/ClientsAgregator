@@ -12,6 +12,7 @@ namespace ClientsAgregator_DAL.Interface
         public void UpdateClientById(AddClientDTO addClientDTO, int Id);
         public int GetSpendMoneyCountByClientId(int id);
         public List<BulkStatusDTO> GetBulkStatuses();
-        public List<FeedbackDTO> GetFeedback();
+        public List<FeedbackDTO> GetFeedbacks();
+        public List<FeedbackDTO> GetFeedbackClientById(int id);
     }
 }
