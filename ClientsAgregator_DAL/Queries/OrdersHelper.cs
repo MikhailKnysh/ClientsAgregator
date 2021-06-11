@@ -1,16 +1,15 @@
 ﻿using ClientsAgregator_DAL.CustomModels;
+using ClientsAgregator_DAL.Interface;
 using ClientsAgregator_DAL.Models;
 using Dapper;
-using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Text;
 using System.Linq;
 
 namespace ClientsAgregator_DAL.Queries
 {
-    public class OrdersHelper
+    public class OrdersHelper : IOrdersHelper
     {
         public List<OrdersInfoDTO> GetOrdersInfo()
         {

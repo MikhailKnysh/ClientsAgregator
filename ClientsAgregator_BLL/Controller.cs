@@ -7,22 +7,26 @@ using System.Collections.Generic;
 using ClientsAgregator_DAL.CustomModels;
 using ClientsAgregator_DAL.Queries;
 using ClientsAgregator_DAL.Models;
+using ClientsAgregator_DAL.Interface;
 
 namespace ClientsAgregator_BLL
 {
     public class Controller
     {
-        private ClientsHelper clientsHelper;
-        private ProductsHelper productsHelper;
-        private OrdersHelper ordersHelper;
-        private MainsHalper mainsHalper;
+        IClientsHelper _clientsHelper;
+        IProductsHelper _productsHelper;
+        IOrdersHelper _ordersHelper;
+        IMainsHelper _mainsHelper;
 
-        public Controller()
+        public Controller(IClientsHelper clientsHelper = null,
+            IProductsHelper productsHelper = null,
+            IOrdersHelper ordersHelper = null,
+            IMainsHelper mainsHelper = null)
         {
-            clientsHelper = new ClientsHelper();
-            productsHelper = new ProductsHelper();
-            ordersHelper = new OrdersHelper();
-            mainsHalper = new MainsHalper();
+            _clientsHelper = new ClientsHelper() ?? clientsHelper;
+            _productsHelper = new ProductsHelper() ?? productsHelper;
+            _ordersHelper = new OrdersHelper() ?? ordersHelper;
+            _mainsHelper = new MainsHelper() ?? mainsHelper;
         }
 
         public List<ClientsFullNameModel> GetClientsFullNameModels()
@@ -36,7 +40,7 @@ namespace ClientsAgregator_BLL
 
             Mapper mapper = new Mapper(config);
 
-            List<ClientsFullNameModel> clientModels = mapper.Map<List<ClientsFullNameModel>>(ordersHelper.GetClientsFullNames());
+            List<ClientsFullNameModel> clientModels = mapper.Map<List<ClientsFullNameModel>>(_ordersHelper.GetClientsFullNames());
 
             return clientModels;
         }
@@ -46,7 +50,7 @@ namespace ClientsAgregator_BLL
             var config = new MapperConfiguration(cfg => cfg.CreateMap<ProductSubgroupDTO, ProductTitleModel>());
             Mapper mapper = new Mapper(config);
 
-            List<ProductTitleModel> productTitleModel = mapper.Map<List<ProductTitleModel>>(ordersHelper.GetProductTitles());
+            List<ProductTitleModel> productTitleModel = mapper.Map<List<ProductTitleModel>>(_ordersHelper.GetProductTitles());
 
             return productTitleModel;
         }
@@ -56,7 +60,7 @@ namespace ClientsAgregator_BLL
             var config = new MapperConfiguration(cfg => cfg.CreateMap<StatusDTO, StatusModel>());
             Mapper mapper = new Mapper(config);
 
-            List<StatusModel> statusModels = mapper.Map<List<StatusModel>>(ordersHelper.GetStatusTitles());
+            List<StatusModel> statusModels = mapper.Map<List<StatusModel>>(_ordersHelper.GetStatusTitles());
 
             return statusModels;
         }
@@ -88,7 +92,7 @@ namespace ClientsAgregator_BLL
 
                 List<Product_OrderDTO> productsOrder = mapper.Map<List<Product_OrderDTO>>(productInOrderModels);
 
-                ordersHelper.AddOrder(productsOrder, order);
+                _ordersHelper.AddOrder(productsOrder, order);
             }
             else
             {
@@ -98,7 +102,7 @@ namespace ClientsAgregator_BLL
 
         public void DeleteOrder(int orderId)
         {
-            ordersHelper.DeleteOrder(orderId);
+            _ordersHelper.DeleteOrder(orderId);
         }
 
         public List<ProductInfoModel> GetProductInfoModels()
@@ -106,7 +110,7 @@ namespace ClientsAgregator_BLL
             var config = new MapperConfiguration(cfg => cfg.CreateMap<ProductInfoDTO, ProductInfoModel>());
             Mapper mapper = new Mapper(config);
 
-            List<ProductInfoModel> productInfoModels = mapper.Map<List<ProductInfoModel>>(productsHelper.GetProductsInfo());
+            List<ProductInfoModel> productInfoModels = mapper.Map<List<ProductInfoModel>>(_productsHelper.GetProductsInfo());
 
             return productInfoModels;
         }
@@ -116,7 +120,7 @@ namespace ClientsAgregator_BLL
             var config = new MapperConfiguration(cfg => cfg.CreateMap<GroupDTO, GroupInfoModel>());
             Mapper mapper = new Mapper(config);
 
-            List<GroupInfoModel> groupModels = mapper.Map<List<GroupInfoModel>>(productsHelper.GetGroups());
+            List<GroupInfoModel> groupModels = mapper.Map<List<GroupInfoModel>>(_productsHelper.GetGroups());
 
             return groupModels;
         }
@@ -126,7 +130,7 @@ namespace ClientsAgregator_BLL
             var config = new MapperConfiguration(cfg => cfg.CreateMap<SubgroupDTO, SubgroupInfoModel>());
             Mapper mapper = new Mapper(config);
 
-            List<SubgroupInfoModel> subgroupModels = mapper.Map<List<SubgroupInfoModel>>(productsHelper.GetSubgroupsInfoByGroupId(groupId));
+            List<SubgroupInfoModel> subgroupModels = mapper.Map<List<SubgroupInfoModel>>(_productsHelper.GetSubgroupsInfoByGroupId(groupId));
 
             return subgroupModels;
         }
@@ -136,7 +140,7 @@ namespace ClientsAgregator_BLL
             var config = new MapperConfiguration(cfg => cfg.CreateMap<MeasureUnitDTO, MeasureUnitInfoModel>());
             Mapper mapper = new Mapper(config);
 
-            List<MeasureUnitInfoModel> measureModels = mapper.Map<List<MeasureUnitInfoModel>>(productsHelper.GetMeasureUnits());
+            List<MeasureUnitInfoModel> measureModels = mapper.Map<List<MeasureUnitInfoModel>>(_productsHelper.GetMeasureUnits());
 
             return measureModels;
         }
@@ -148,13 +152,13 @@ namespace ClientsAgregator_BLL
 
             ProductDTO product = mapper.Map<ProductDTO>(addingProductModel);
 
-            int productId = productsHelper.AddProduct(product);
-            productsHelper.AddProductSubgroup(productId, addingProductModel.SubgroupId);
+            int productId = _productsHelper.AddProduct(product);
+            _productsHelper.AddProductSubgroup(productId, addingProductModel.SubgroupId);
         }
 
         public void AddGroup(string groupTitle)
         {
-            productsHelper.AddProductGroup(groupTitle);
+            _productsHelper.AddProductGroup(groupTitle);
         }
 
         public void AddMeasureUnuit(string measureUnitTitle)
@@ -164,14 +168,14 @@ namespace ClientsAgregator_BLL
 
         public void AddSubgropGroup(int groupId, string subgroupTitle)
         {
-            int subgroupId = productsHelper.AddProductSubgroup(subgroupTitle);
-            productsHelper.AddSubgroupGroup(subgroupId, groupId);
+            int subgroupId = _productsHelper.AddProductSubgroup(subgroupTitle);
+            _productsHelper.AddSubgroupGroup(subgroupId, groupId);
         }
 
         public void DeleteProduct(int productId)
         {
-            productsHelper.DeleteProductSubgroupByProductId(productId);
-            productsHelper.DeleteProductById(productId);
+            _productsHelper.DeleteProductSubgroupByProductId(productId);
+            _productsHelper.DeleteProductById(productId);
         }
 
         public List<OrdersInfoModel> GetOrderModels()
@@ -179,7 +183,7 @@ namespace ClientsAgregator_BLL
             var config = new MapperConfiguration(cfg => cfg.CreateMap<OrdersInfoDTO, OrdersInfoModel>());
             Mapper mapper = new Mapper(config);
 
-            List<OrdersInfoModel> orderModels = mapper.Map<List<OrdersInfoModel>>(ordersHelper.GetOrdersInfo());
+            List<OrdersInfoModel> orderModels = mapper.Map<List<OrdersInfoModel>>(_ordersHelper.GetOrdersInfo());
 
             return orderModels;
         }
@@ -190,7 +194,7 @@ namespace ClientsAgregator_BLL
             Mapper mapper = new Mapper(config);
 
             AddClientDTO clientDTO = mapper.Map<AddClientModel, AddClientDTO>(model);
-            clientsHelper.AddClient(clientDTO);
+            _clientsHelper.AddClient(clientDTO);
         }
 
         public void UpdateClientDTO(AddClientModel model, int Id)
@@ -201,7 +205,7 @@ namespace ClientsAgregator_BLL
 
             AddClientDTO clientDTO = mapper.Map<AddClientModel, AddClientDTO>(model);
 
-            clientsHelper.UpdateClientById(clientDTO, Id);
+            _clientsHelper.UpdateClientById(clientDTO, Id);
         }
 
         public List<ClientModel> GetClientsModels()
@@ -209,7 +213,7 @@ namespace ClientsAgregator_BLL
             var config = new MapperConfiguration(cfg => cfg.CreateMap<ClientDTO, ClientModel>());
             Mapper mapper = new Mapper(config);
 
-            List<ClientModel> clientModels = mapper.Map<List<ClientModel>>(clientsHelper.GetClients());
+            List<ClientModel> clientModels = mapper.Map<List<ClientModel>>(_clientsHelper.GetClients());
 
             return clientModels;
         }
@@ -219,7 +223,7 @@ namespace ClientsAgregator_BLL
             var config = new MapperConfiguration(cfg => cfg.CreateMap<ProductsBuyClientDTO, ProductBuyClientModel>());
             Mapper mapper = new Mapper(config);
 
-            List<ProductBuyClientModel> productModels = mapper.Map<List<ProductBuyClientModel>>(clientsHelper.GetProductsBuyClient(Id));
+            List<ProductBuyClientModel> productModels = mapper.Map<List<ProductBuyClientModel>>(_clientsHelper.GetProductsBuyClient(Id));
 
             return productModels;
         }
@@ -229,7 +233,7 @@ namespace ClientsAgregator_BLL
             var config = new MapperConfiguration(cfg => cfg.CreateMap<ClientDTO, ClientModel>());
             Mapper mapper = new Mapper(config);
 
-            ClientModel clientByIdModels = mapper.Map<ClientModel>(clientsHelper.GetClientById(Id));
+            ClientModel clientByIdModels = mapper.Map<ClientModel>(_clientsHelper.GetClientById(Id));
 
             return clientByIdModels;
         }
@@ -239,7 +243,7 @@ namespace ClientsAgregator_BLL
             var config = new MapperConfiguration(cfg => cfg.CreateMap<BulkStatusDTO, BulkStatusModel>());
             Mapper mapper = new Mapper(config);
 
-            List<BulkStatusModel> bulkStatusModel = mapper.Map<List<BulkStatusModel>>(clientsHelper.GetBulkStatuses());
+            List<BulkStatusModel> bulkStatusModel = mapper.Map<List<BulkStatusModel>>(_clientsHelper.GetBulkStatuses());
 
             return bulkStatusModel;
         }
@@ -249,7 +253,7 @@ namespace ClientsAgregator_BLL
             var config = new MapperConfiguration(cfg => cfg.CreateMap<ProductInfoDTO, ProductInfoModel>());
             Mapper mapper = new Mapper(config);
 
-            ProductInfoModel productInfoModel = mapper.Map<ProductInfoModel>(productsHelper.GetProductInfoById(productId));
+            ProductInfoModel productInfoModel = mapper.Map<ProductInfoModel>(_productsHelper.GetProductInfoById(productId));
 
             return productInfoModel;
         }
@@ -258,7 +262,7 @@ namespace ClientsAgregator_BLL
             var config = new MapperConfiguration(cfg => cfg.CreateMap<ProductSubgroupDTO, ProductsSubgropModel>());
             Mapper mapper = new Mapper(config);
 
-            List<ProductsSubgropModel> productsSubgroupModels = mapper.Map<List<ProductsSubgropModel>>(mainsHalper.GetProductsSubgroup());
+            List<ProductsSubgropModel> productsSubgroupModels = mapper.Map<List<ProductsSubgropModel>>(_mainsHelper.GetProductsSubgroup());
 
             return productsSubgroupModels;
         }
@@ -268,7 +272,7 @@ namespace ClientsAgregator_BLL
             var config = new MapperConfiguration(cfg => cfg.CreateMap<InterestedClientInfoByProductDTO, InterestedClientInfoByProductModel>());
             Mapper mapper = new Mapper(config);
 
-            List<InterestedClientInfoByProductModel> clientByIdModels = mapper.Map<List<InterestedClientInfoByProductModel>>(mainsHalper.GetInterestedClientInfoByProduct(productId));
+            List<InterestedClientInfoByProductModel> clientByIdModels = mapper.Map<List<InterestedClientInfoByProductModel>>(_mainsHelper.GetInterestedClientInfoByProduct(productId));
 
             return clientByIdModels;
         }
@@ -286,8 +290,18 @@ namespace ClientsAgregator_BLL
 
         public int GetSpendMoneyCountByClientIdModels(int Id)
         {
-            int SpendMoneyCount = clientsHelper.GetSpendMoneyCountByClientId(Id);
+            int SpendMoneyCount = _clientsHelper.GetSpendMoneyCountByClientId(Id);
             return SpendMoneyCount;
+        }
+
+        public List<FeedbackModel> GetFeedbackClientByIdModels(int id)
+        {
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<FeedbackDTO, FeedbackModel>());
+            Mapper mapper = new Mapper(config);
+
+            List<FeedbackModel> feedback = mapper.Map<List<FeedbackModel>>(_clientsHelper.GetFeedbackClientById(id));
+
+            return feedback;
         }
 
         public List<FeedbackModel> GetFeedbackModels()
@@ -295,7 +309,7 @@ namespace ClientsAgregator_BLL
             var config = new MapperConfiguration(cfg => cfg.CreateMap<FeedbackDTO, FeedbackModel>());
             Mapper mapper = new Mapper(config);
 
-            List<FeedbackModel> feedback = mapper.Map<List<FeedbackModel>>(clientsHelper.GetFeedback());
+            List<FeedbackModel> feedback = mapper.Map<List<FeedbackModel>>(_clientsHelper.GetFeedbacks());
 
             return feedback;
         }

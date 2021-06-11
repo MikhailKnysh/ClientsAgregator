@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ClientsAgregator"
         mc:Ignorable="d"
-        Title="ListOfProductsWindow" Height="629" Width="1049">
+        Title="Список заказов" MinHeight="500" MinWidth="850">
     <Grid Loaded="Grid_Loaded">
         <Grid.RowDefinitions>
             <RowDefinition Height="65"></RowDefinition>
@@ -13,7 +13,7 @@
         </Grid.RowDefinitions>
 
         <Button x:Name="buttonAddOrder" Margin="15,10,0,10" Grid.Column="1" Click="buttonAddOrder_Click" Style="{StaticResource ButtonBack}" Template="{StaticResource ButtonAddingTemplate}"/>
-        <DataGrid x:Name="gridOrders" IsReadOnly="True" AutoGenerateColumns="False" Margin="15,10,0,10" Width="1000" Grid.Row="1" ColumnWidth="110" HorizontalAlignment="Left" ColumnHeaderHeight="30" Grid.Column="1">
+        <DataGrid x:Name="gridOrders" IsReadOnly="True" AutoGenerateColumns="False" Margin="15,10,0,10" MinWidth="700" Grid.Row="1" ColumnWidth="*" HorizontalAlignment="Stretch" ColumnHeaderHeight="30" Grid.Column="1">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="Дата заказа" Binding="{Binding OrderDate}"/>

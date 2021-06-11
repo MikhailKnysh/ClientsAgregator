@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ClientsAgregator"
       mc:Ignorable="d"
-      Title="ListOfClientsWindow" MinHeight="500" MinWidth="850">
+      Title="Список клиентов" MinHeight="500" MinWidth="850">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -29,7 +29,7 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Фамилия" Binding="{Binding LastName}" ></DataGridTextColumn>
                 <DataGridTextColumn Header="Имя" Binding="{Binding FirstName}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Отчесвто" Binding="{Binding MiddleName}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Отчество" Binding="{Binding MiddleName}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Телефон" Binding="{Binding Phone}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Почта" Binding="{Binding Email}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Статус" Binding="{Binding BulkStatusTitle}"></DataGridTextColumn>

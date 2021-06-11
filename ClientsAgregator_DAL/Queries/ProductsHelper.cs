@@ -1,4 +1,5 @@
 ﻿using ClientsAgregator_DAL.CustomModels;
+using ClientsAgregator_DAL.Interface;
 using ClientsAgregator_DAL.Models;
 using Dapper;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Linq;
 
 namespace ClientsAgregator_DAL.Queries
 {
-    public class ProductsHelper
+    public class ProductsHelper : IProductsHelper
     {
         public List<ProductInfoDTO> GetProductsInfo()
         {

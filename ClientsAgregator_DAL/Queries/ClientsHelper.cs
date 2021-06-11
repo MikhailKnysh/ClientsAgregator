@@ -1,4 +1,5 @@
-﻿using ClientsAgregator_DAL.Models;
+﻿using ClientsAgregator_DAL.Interface;
+using ClientsAgregator_DAL.Models;
 using Dapper;
 using System.Collections.Generic;
 using System.Data;
@@ -7,7 +8,7 @@ using System.Linq;
 
 namespace ClientsAgregator_DAL.Queries
 {
-    public class ClientsHelper
+    public class ClientsHelper : IClientsHelper
     {
         public void AddClient(AddClientDTO addClientDTO)
         {
@@ -123,7 +124,7 @@ namespace ClientsAgregator_DAL.Queries
             return bulkStatusInfo;
         }
 
-        public List<FeedbackDTO> GetFeedback()
+        public  List<FeedbackDTO> GetFeedbacks()
         { 
             string query = "ClientsAgregatorDB.GetFeedbacks";
             List<FeedbackDTO> feedbacks = new List<FeedbackDTO>();
@@ -131,6 +132,18 @@ namespace ClientsAgregator_DAL.Queries
             using (IDbConnection conn = new SqlConnection(Options.connectionString))
             {
                 feedbacks = conn.Query<FeedbackDTO>(query).AsList();
+            }
+
+            return feedbacks;
+        }
+        public List<FeedbackDTO> GetFeedbackClientById(int id)
+        {
+            string query = "ClientsAgregatorDB.GetFeedbacks";
+            List<FeedbackDTO> feedbacks = new List<FeedbackDTO>();
+
+            using (IDbConnection conn = new SqlConnection(Options.connectionString))
+            {
+                feedbacks = conn.Query<FeedbackDTO>(query, new { id}, commandType: CommandType.StoredProcedure).AsList();
             }
 
             return feedbacks;

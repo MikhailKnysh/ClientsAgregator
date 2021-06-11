@@ -6,10 +6,11 @@ namespace ClientsAgregator_DAL.Models
 {
     public class ProductsBuyClientDTO
     {
+        public int ProductId { get; set; }
         public string Articul { get; set; }
         public string Title { get; set; }
         public int SUMQuantity { get; set; }
-        public string GroupName{ get; set; }
+        public string GroupName { get; set; }
         public string SubGroupName { get; set; }
     }
 }
