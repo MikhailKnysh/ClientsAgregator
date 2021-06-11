@@ -89,8 +89,6 @@ namespace ClientsAgregator.Pages
 
                 _controller.AddClientDTO(addClientModel);
 
-                MessageBox.Show("Клиент добавлен");
-
                 foreach (UIElement element in AddClientGrid.Children)
                 {
                     if (element is TextBox)
@@ -107,6 +105,8 @@ namespace ClientsAgregator.Pages
                         comboBox.Text = string.Empty;
                     }
                 }
+
+                MessageBox.Show("Клиент добавлен");
             }
         }
 
