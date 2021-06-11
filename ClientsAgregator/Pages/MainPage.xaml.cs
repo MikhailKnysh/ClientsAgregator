@@ -32,6 +32,7 @@ namespace ClientsAgregator.Pages
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            CreateButton.IsEnabled = false;
             interestedClientInfoBySubgroupModels = new List<InterestedClientInfoByProductModel>();
             interestedClientInfoByProductModels = new List<InterestedClientInfoByProductModel>();
             _controller = new Controller();
@@ -45,6 +46,7 @@ namespace ClientsAgregator.Pages
 
         private void ProductsSubgroupComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            CreateButton.IsEnabled = true;
             SubgroupLabel.Content = $"Подгруппа: {productsSubgropModels[ProductsSubgroupComboBox.SelectedIndex].SubgroupTitle}";
         }
 
