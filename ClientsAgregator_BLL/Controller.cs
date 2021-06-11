@@ -163,7 +163,7 @@ namespace ClientsAgregator_BLL
 
         public void AddMeasureUnuit(string measureUnitTitle)
         {
-            productsHelper.AddMeasureUnits(measureUnitTitle);
+            _productsHelper.AddMeasureUnits(measureUnitTitle);
         }
 
         public void AddSubgropGroup(int groupId, string subgroupTitle)
@@ -282,7 +282,7 @@ namespace ClientsAgregator_BLL
             var config = new MapperConfiguration(cfg => cfg.CreateMap<InterestedClientInfoByProductDTO, InterestedClientInfoByProductModel>());
             Mapper mapper = new Mapper(config);
 
-            List<InterestedClientInfoByProductModel> clientByIdModels = mapper.Map<List<InterestedClientInfoByProductModel>>(mainsHalper.GetInterestedClientInfoBySubgroup(subgroupId));
+            List<InterestedClientInfoByProductModel> clientByIdModels = mapper.Map<List<InterestedClientInfoByProductModel>>(_mainsHelper.GetInterestedClientInfoBySubgroup(subgroupId));
 
             return clientByIdModels;
         }

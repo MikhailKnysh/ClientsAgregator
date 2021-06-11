@@ -10,6 +10,7 @@ namespace ClientsAgregator_DAL.Interface
         public List<GroupDTO> GetGroups();
         public List<SubgroupDTO> GetSubgroupsInfoByGroupId(int groupId);
         public List<MeasureUnitDTO> GetMeasureUnits();
+        public void AddMeasureUnits(string Title);
         public int AddProduct(ProductDTO product);
         public void AddProductSubgroup(int productId, int subgroupId);
         public void AddProductGroup(string Title);
