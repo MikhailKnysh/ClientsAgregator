@@ -16,6 +16,19 @@ namespace ClientsAgregator
         private void AcceptButton_Click(object sender, RoutedEventArgs e)
         {
             Controller controller = new Controller();
+
+            string group = GroupTextBox.Text.Trim();
+
+            if (ValidationData.IsValidStringLenght(group, validCharQuantity: 255))
+            {
+                controller.AddGroup(GroupTextBox.Text);
+                this.DialogResult = false;
+            }
+            else
+            {
+                GroupTextBox.Background = Brushes.Tomato;
+                GroupTextBox.ToolTip = "Это поле введено некорректно";
+            }
             controller.AddGroup(GroupTextBox.Text);
             this.DialogResult = false;
         }

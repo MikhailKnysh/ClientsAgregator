@@ -29,9 +29,18 @@ namespace ClientsAgregator
 
         private void AcceptButton_Click(object sender, RoutedEventArgs e)
         {
-            _controller.AddSubgropGroup(groupModels[GroupComboBox.SelectedIndex].Id, SubgroupTextBox.Text);
+            string subGroup = SubgroupTextBox.Text.Trim();
 
-            this.DialogResult = false;
+            if (ValidationData.IsValidStringLenght(subGroup, validCharQuantity: 255))
+            {
+                _controller.AddSubgropGroup(groupModels[GroupComboBox.SelectedIndex].Id, subGroup);
+                this.DialogResult = false;
+            }
+            else
+            {
+                SubgroupTextBox.Background = Brushes.Tomato;
+                SubgroupTextBox.ToolTip = "Это поле введено некорректно";
+            }
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)

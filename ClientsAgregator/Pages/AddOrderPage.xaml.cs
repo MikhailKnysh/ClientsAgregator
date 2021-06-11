@@ -62,26 +62,44 @@ namespace ClientsAgregator.Pages
 
         private void AddProduct_Click(object sender, RoutedEventArgs e)
         {
-            ProductInOrderModel productInOrderModel = new ProductInOrderModel()
+            string date = textBoxDate.Text;
+            string quantity = textBoxQuaunity.Text;
+
+            bool isAdding = true;
+
+            //if()
+            //{
+
+            //}
+
+            //if ()
+            //{
+
+            //}
+
+            if (isAdding)
             {
-                Articul = productInfoModel.Articul,
-                ProductId = productInfoModel.Id,
-                ProductTitle = productInfoModel.Title,
-                Price = productInfoModel.Price,
-                Quantity = Convert.ToInt32(textBoxQuaunity.Text),
-                MeasureUnitId = productInfoModel.MeasureUnitId,
-                MeasureUnitTitle = productInfoModel.MeasureUnit,
-                GroupTitle = productInfoModel.Group,
-                SubgroupTitle = productInfoModel.Subgroup,
-                Rate = -1
-            };
+                ProductInOrderModel productInOrderModel = new ProductInOrderModel()
+                {
+                    Articul = productInfoModel.Articul,
+                    ProductId = productInfoModel.Id,
+                    ProductTitle = productInfoModel.Title,
+                    Price = productInfoModel.Price,
+                    Quantity = Convert.ToInt32(quantity),
+                    MeasureUnitId = productInfoModel.MeasureUnitId,
+                    MeasureUnitTitle = productInfoModel.MeasureUnit,
+                    GroupTitle = productInfoModel.Group,
+                    SubgroupTitle = productInfoModel.Subgroup,
+                    Rate = -1
+                };
 
-            _productInOrderModels.Add(productInOrderModel);
+                _productInOrderModels.Add(productInOrderModel);
 
-            totalPrice += productInOrderModel.Price * productInOrderModel.Quantity;
-            textBoxTotalPrice.Text = totalPrice.ToString();
+                totalPrice += productInOrderModel.Price * productInOrderModel.Quantity;
+                textBoxTotalPrice.Text = totalPrice.ToString();
 
-            gridProductsInOrder.Items.Add(productInOrderModel);
+                gridProductsInOrder.Items.Add(productInOrderModel);
+            }
         }
 
         private void buttonBack_Click(object sender, RoutedEventArgs e)
@@ -124,8 +142,8 @@ namespace ClientsAgregator.Pages
             string clientFullName = comboBoxClient.SelectedItem.ToString();
 
             int clientId = (from c in _clients
-                             where c.FullName.Equals(clientFullName)
-                             select c.Id)
+                            where c.FullName.Equals(clientFullName)
+                            select c.Id)
                             .FirstOrDefault();
 
             string statusTitle = comboBoxStatus.SelectedItem.ToString();

@@ -289,11 +289,7 @@ namespace ClientsAgregator_BLL
 
         public int GetSpendMoneyCountByClientIdModels(int Id)
         {
-            int SpendMoneyCount = ClientsHelper.GetSpendMoneyCountByClientId(Id);
-
-        public int GetSpendMoneyCountByClientIdModels(int Id)
-        {
-            int SpendMoneyCount = _clientsHelper.GetSpendMoneyCountByClientId(Id);
+            int SpendMoneyCount = clientsHelper.GetSpendMoneyCountByClientId(Id);
             return SpendMoneyCount;
         }
 

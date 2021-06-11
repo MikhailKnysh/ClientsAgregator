@@ -33,47 +33,51 @@ namespace ClientsAgregator.Pages
             string email = TextBoxEmail.Text.Trim();
             string phone = TextBoxPhone.Text.Trim();
 
-            bool isValidEmail = ValidationData.IsValidEmail(email);
-            bool isValidPhone = ValidationData.IsValidPhone(phone);
-            bool isValidStringLastName = ValidationData.IsValidStringLenght(lastName, validCharQuantity: 255);
-            bool isValidStringFirstName = ValidationData.IsValidStringLenght(firstName, validCharQuantity: 255);
-            bool isValidStringMiddleName = ValidationData.IsValidStringLenght(middleName, validCharQuantity: 255);
-            bool isValidStringcomment = ValidationData.IsValidStringLenght(commentAboutСlient, validCharQuantity: 800);
-            bool isValidStringEmail = ValidationData.IsValidStringLenght(commentAboutСlient, validCharQuantity: 50);
-            bool isValidStringPhone = ValidationData.IsValidStringLenght(commentAboutСlient, validCharQuantity: 60);
+            bool isAdding = true;
 
-            if (isValidStringLastName == false)
+            if (!(ValidationData.IsValidStringLenght(lastName, validCharQuantity: 255)))
             {
                 TextBoxLastName.ToolTip = "Это поле введено некорректно";
                 TextBoxLastName.Background = Brushes.Tomato;
+                isAdding = false;
             }
-            else if (isValidStringFirstName == false)
+
+            if (!(ValidationData.IsValidStringLenght(firstName, validCharQuantity: 255)))
             {
                 TextBoxFirstName.ToolTip = "Это поле введено некорректно";
                 TextBoxFirstName.Background = Brushes.Tomato;
+                isAdding = false;
             }
-            else if (isValidStringMiddleName == false)
+
+            if (!(ValidationData.IsValidStringLenght(middleName, validCharQuantity: 255)))
             {
                 TextBoxMiddleName.ToolTip = "Это поле введено некорректно";
                 TextBoxMiddleName.Background = Brushes.Tomato;
+                isAdding = false;
             }
-            else if (isValidStringcomment == false)
+
+            if (!(ValidationData.IsValidStringLenght(commentAboutСlient, validCharQuantity: 800)))
             {
                 TextBoxCommentAboutClient.ToolTip = "Это поле введено некорректно";
                 TextBoxCommentAboutClient.Background = Brushes.Tomato;
+                isAdding = false;
             }
-            else if (isValidPhone == false || isValidStringPhone == false)
+
+            if (!(ValidationData.IsValidPhone(phone)) || !(ValidationData.IsValidStringLenght(commentAboutСlient, validCharQuantity: 60)))
             {
                 TextBoxPhone.ToolTip = "Это поле введено некорректно";
                 TextBoxPhone.Background = Brushes.Tomato;
+                isAdding = false;
             }
-            else if (isValidEmail == false || isValidStringEmail == false)
+
+            if (!(ValidationData.IsValidEmail(email)) || !(ValidationData.IsValidStringLenght(commentAboutСlient, validCharQuantity: 50)))
             {
                 TextBoxEmail.ToolTip = "Это поле введено некорректно";
-                TextBoxPhone.Background = Brushes.Transparent;
                 TextBoxEmail.Background = Brushes.Tomato;
+                isAdding = false;
             }
-            else
+
+            if (isAdding)
             {
                 AddClientModel addClientModel = new AddClientModel()
                 {
@@ -101,12 +105,11 @@ namespace ClientsAgregator.Pages
                     if (element is ComboBox)
                     {
                         ComboBox comboBox = (ComboBox)element;
-                        comboBox.Background = Brushes.Transparent;
                         comboBox.Text = string.Empty;
                     }
                 }
 
-                MessageBox.Show("Клиент добавлен");
+                MessageBox.Show("Клиент успешно добавлен");
             }
         }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+using System.Windows.Media;
 using ClientsAgregator_BLL;
 using ClientsAgregator_BLL.CustomModels.ProductsModel;
 
@@ -54,7 +55,7 @@ namespace ClientsAgregator
             SubgroupComboBox.Items.Clear();
 
             int groupID = GroupComboBox.SelectedIndex;
-            
+
             ++groupID;
 
             subgroupInfoModels = _controller.GetSubgroupsInfoByGroupId(groupID);
@@ -69,19 +70,82 @@ namespace ClientsAgregator
         {
             MeasureUnitInfoModel measureUnitModel = measureUnitInfoModels[MeasureUnitComboBox.SelectedIndex];
             SubgroupInfoModel subgroupModel = subgroupInfoModels[SubgroupComboBox.SelectedIndex];
+            string articul = ArticulTextBox.Text;
+            string title = TitelTextBox.Text;
+            string quantity = QuantityTextBox.Text;
+            string price = PriceTextBox.Text;
 
-            AddingProductModel addingProductModel = new AddingProductModel()
+            bool isAdding = true;
+
+            foreach (UIElement item in AddProductGrid.Children)
             {
-                Articul = ArticulTextBox.Text,
-                Title = TitelTextBox.Text,
-                Quantity = Convert.ToInt32(QuantityTextBox.Text),
-                Price = Convert.ToDouble(PriceTextBox.Text),
-                MeasureId = measureUnitModel.Id,
-                SubgroupId = subgroupModel.Id
-            };
+                if (item is TextBox)
+                {
+                    TextBox textBox = (TextBox)item;
+                    textBox.Background = Brushes.Transparent;
+                }
+            }
 
-            _controller.AddProduct(addingProductModel);
-            NavigationService.Navigate(new ListOfProductsPage());
+            if(!(ValidationData.IsValidStringLenght(articul, 255)))
+            {
+                ArticulTextBox.ToolTip = "Это поле введено некорректно";
+                ArticulTextBox.Background = Brushes.Tomato;
+                isAdding = false;
+            }
+
+            if (!(ValidationData.IsValidStringLenght(title, 255)))
+            {
+                TitelTextBox.ToolTip = "Это поле введено некорректно";
+                TitelTextBox.Background = Brushes.Tomato;
+                isAdding = false;
+            }
+
+            if (!(ValidationData.IsNumber(quantity)))
+            {
+                QuantityTextBox.ToolTip = "Это поле введено некорректно";
+                QuantityTextBox.Background = Brushes.Tomato;
+                isAdding = false;
+            }
+
+            if (!(ValidationData.IsNumber(price)))
+            {
+                PriceTextBox.ToolTip = "Это поле введено некорректно";
+                PriceTextBox.Background = Brushes.Tomato;
+                isAdding = false;
+            }
+
+            if (isAdding)
+            {
+                AddingProductModel addingProductModel = new AddingProductModel()
+                {
+                    Articul = articul,
+                    Title = title,
+                    Quantity = Convert.ToInt32(quantity),
+                    Price = Convert.ToDouble(price),
+                    MeasureId = measureUnitModel.Id,
+                    SubgroupId = subgroupModel.Id
+                };
+
+                _controller.AddProduct(addingProductModel);
+
+                foreach (UIElement element in AddProductGrid.Children)
+                {
+                    if (element is TextBox)
+                    {
+                        TextBox textBox = (TextBox)element;
+                        textBox.Background = Brushes.Transparent;
+                        textBox.Clear();
+                    }
+
+                    if (element is ComboBox)
+                    {
+                        ComboBox comboBox = (ComboBox)element;
+                        comboBox.Text = string.Empty;
+                    }
+                }
+
+                MessageBox.Show("Товар успешно добавлен");
+            }
         }
 
         private void AddGroupButton_Click(object sender, RoutedEventArgs e)
