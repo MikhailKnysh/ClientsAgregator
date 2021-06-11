@@ -34,13 +34,13 @@ namespace ClientsAgregator.Pages
         public AddOrderPage()
         {
             InitializeComponent();
-            _controller = new Controller();
-            _productInOrderModels = new List<ProductInOrderModel>();
         }
-
 
         private void AddOrderPage_Loaded(object sender, RoutedEventArgs e)
         {
+            _controller = new Controller();
+            _productInOrderModels = new List<ProductInOrderModel>();
+
             _clients = _controller.GetClientsFullNameModels();
             foreach (var client in _clients)
             {
