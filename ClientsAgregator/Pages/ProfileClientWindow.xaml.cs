@@ -10,12 +10,17 @@ namespace ClientsAgregator
     /// Interaction logic for ProfileClientWindow.xaml
     /// </summary>
     public partial class ProfileClientWindow : Page
-    {        private Controller _controller = new Controller();
-        private ClientModel _clientModel;
+    {
+        private Controller _controller = new Controller();
+
+        private ClientModel _clientModel;
+
         private List<ProductBuyClientModel> _productsBuyClientModel;
 
-        private List<FeedbackModel> _feedback;
-        private int _idClient;
+        //private List<FeedbackModel> _feedback;
+
+        private int _idClient;
+
         public ProfileClientWindow(int IdClient)
         {
             InitializeComponent();
