@@ -5,7 +5,6 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ClientsAgregator.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
         Title="AddOrderPage" Height="700" Width="1000" MinWidth="670">
     <Grid>
         <Grid Grid.Column="1">

@@ -5,10 +5,10 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ClientsAgregator"
       mc:Ignorable="d" 
-      d:DesignHeight="800" d:DesignWidth="900"
-      Title="UpdateClientPage" Loaded="UpdatePage_Loaded"  MinHeight="500" MinWidth="850">
+      Title="UpdateClientPage" Loaded="UpdatePage_Loaded"  Background="LightGray"  MinHeight="535" MinWidth="1000">
+   
     <Page.Resources>
-        
+
         <Style x:Key="StyleForLabelLeft" TargetType="Label">
             <Setter Property="Margin" Value="50,0,0,0"></Setter>
             <Setter Property="Width" Value="auto"></Setter>
@@ -17,7 +17,7 @@
             <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
             <Setter Property="FontSize" Value="18"></Setter>
         </Style>
-        
+
         <Style x:Key="StyleForLabelCenter" TargetType="Label">
             <Setter Property="Margin" Value="12,0,0,0"></Setter>
             <Setter Property="Width" Value="auto"></Setter>
@@ -26,7 +26,7 @@
             <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
             <Setter Property="FontSize" Value="18"></Setter>
         </Style>
-        
+
         <Style x:Key="StyleForTextBox" TargetType="TextBox" >
             <Setter Property="Width" Value="130"></Setter>
             <Setter Property="Margin" Value="0,0,60,0"></Setter>
@@ -36,20 +36,21 @@
             <Setter Property="TextWrapping" Value="Wrap"></Setter>
             <Setter Property="MaxHeight" Value="30"></Setter>
             <Setter Property="Text" Value=""></Setter>
-            
+
         </Style>
     </Page.Resources>
-    <Grid x:Name="UpdateClientRoot" Background="White">
+
+    <Grid x:Name="UpdateClientRoot" Background="White" HorizontalAlignment="Center" VerticalAlignment="Center" >
         <Grid.RowDefinitions>
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Grid Grid.Column="1" HorizontalAlignment="Stretch">
+        <Grid >
             <Grid.RowDefinitions>
-                <RowDefinition MinHeight="50"></RowDefinition>
-                <RowDefinition MinHeight="60"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition MinHeight="90"></RowDefinition>
                 <RowDefinition MinHeight="60"></RowDefinition>
                 <RowDefinition MinHeight="60"></RowDefinition>
                 <RowDefinition MinHeight="60"></RowDefinition>
@@ -58,12 +59,13 @@
                 <RowDefinition MinHeight="40"></RowDefinition>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="180"></ColumnDefinition>
-                <ColumnDefinition MinWidth="130"></ColumnDefinition>
-                <ColumnDefinition MaxWidth="100"></ColumnDefinition>
+                <ColumnDefinition Width="200"></ColumnDefinition>
+                <ColumnDefinition Width="200"></ColumnDefinition>
+                <ColumnDefinition Width="200"></ColumnDefinition>
+                <ColumnDefinition Width="200"></ColumnDefinition>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="buttonBack" Click="buttonBack_Click" Style="{StaticResource ButtonBack}" Template="{StaticResource ButtonBackTemplate}"/>
+            <Button x:Name="buttonBack" Click="buttonBack_Click" Margin="50,0,0,0" VerticalAlignment="Center" Style="{StaticResource ButtonBack}" Template="{StaticResource ButtonBackTemplate}"/>
             <Label Content="Фамилия" Grid.Row="2" Style="{StaticResource StyleForLabelLeft}" />
             <Label Content="Имя" Grid.Row="3" Style="{StaticResource StyleForLabelLeft}"/>
             <Label Content="Отчество" Grid.Row="4" Style="{StaticResource StyleForLabelLeft}" />
@@ -71,9 +73,9 @@
             <Label Content="Телефон" Grid.Column="2" Grid.Row="2" Style="{StaticResource StyleForLabelCenter}"/>
             <Label Content="E-mail" Grid.Column="2" Grid.Row="3" Style="{StaticResource StyleForLabelCenter}"/>
             <Label Content="Статус" Grid.Column="2" Grid.Row="4" Style="{StaticResource StyleForLabelCenter}"/>
-            <Label Content="ПРАВИТЬ ПРОФИЛЬ КЛИЕНТА" Grid.Column="0" HorizontalAlignment="Center"   VerticalAlignment="Top" Height="auto" Width="auto" FontSize="25" FontWeight="Bold" Grid.ColumnSpan="4" Grid.Row="1"/>
-            <Button x:Name="buttonSave" Content="Сохранить" HorizontalAlignment="Center" Margin="48,15,0,0" Grid.Row="7" VerticalAlignment="Top" Height="37" Width="206" Grid.ColumnSpan="2" Click="buttonSaveUptPage_Click"/>
-            <Button x:Name="buttonCancel" Content="Отменить" Grid.Column="2" HorizontalAlignment="Center" Margin="45,15,0,0" Grid.Row="7" VerticalAlignment="Top" Width="206" Height="37" Grid.ColumnSpan="2" Click="buttonCancel_Click"/>
+            <Label Content="ПРАВИТЬ ПРОФИЛЬ КЛИЕНТА" HorizontalAlignment="Center"   VerticalAlignment="Top" Height="auto" Width="auto" FontSize="25" FontWeight="Bold" Grid.ColumnSpan="4" Grid.Row="1"/>
+            <Button x:Name="buttonSave" Content="Сохранить" HorizontalAlignment="Center" Margin="48,0,0,15" Grid.Row="7" VerticalAlignment="Center" Height="37" Width="206" Grid.ColumnSpan="2" Click="buttonSaveUptPage_Click"/>
+            <Button x:Name="buttonCancel" Content="Отменить" Grid.Column="2" HorizontalAlignment="Center" Margin="45,0,0,15" Grid.Row="7"  VerticalAlignment="Center" Width="206" Height="37" Grid.ColumnSpan="2" Click="buttonCancel_Click"/>
 
             <ComboBox x:Name="ComboBoxMale" Grid.Column="1" Grid.Row="5" Width="130" Margin="0,0,60,0" VerticalAlignment="Center" MaxHeight="30" FontSize="15">
                 <TextBlock>Мужчина</TextBlock>
@@ -90,7 +92,7 @@
                      HorizontalAlignment="center"  Text="" 
                      TextWrapping="Wrap" VerticalAlignment="Top" 
                      Width="500" Height="100" 
-                     Grid.ColumnSpan="4" Margin="0,10,0,0" 
+                     Grid.ColumnSpan="4" Margin="80,10,0,0" 
                      RenderTransformOrigin="0.504,0.49"/>
         </Grid>
     </Grid>
