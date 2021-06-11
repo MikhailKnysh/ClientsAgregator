@@ -17,12 +17,7 @@ namespace ClientsAgregator
         {
             Controller controller = new Controller();
             controller.AddGroup(GroupTextBox.Text);
-            this.DialogResult = false;
-        }
-
-        private void CancelButton_Click(object sender, RoutedEventArgs e)
-        {
-            this.DialogResult = false;
+            this.DialogResult = true;
         }
     }
 }

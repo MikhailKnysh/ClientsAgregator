@@ -157,6 +157,11 @@ namespace ClientsAgregator_BLL
             productsHelper.AddProductGroup(groupTitle);
         }
 
+        public void AddMeasureUnuit(string measureUnitTitle)
+        {
+            productsHelper.AddMeasureUnits(measureUnitTitle);
+        }
+
         public void AddSubgropGroup(int groupId, string subgroupTitle)
         {
             int subgroupId = productsHelper.AddProductSubgroup(subgroupTitle);

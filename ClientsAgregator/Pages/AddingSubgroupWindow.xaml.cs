@@ -31,12 +31,7 @@ namespace ClientsAgregator
         {
             _controller.AddSubgropGroup(groupModels[GroupComboBox.SelectedIndex].Id, SubgroupTextBox.Text);
 
-            this.DialogResult = false;
-        }
-
-        private void CancelButton_Click(object sender, RoutedEventArgs e)
-        {
-            this.DialogResult = false;
+            this.DialogResult = true;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
