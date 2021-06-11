@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:ClientsAgregator"
       mc:Ignorable="d" 
       Title="ProfileClientWindow" Loaded="ProfileClient_Loaded" Background="LightGray"  MinHeight="535" MinWidth="1000">
-   
+
     <Page.Resources>
         <Style x:Key="StyleForElements" TargetType="Label">
             <Setter Property="Margin" Value="12,0,0,0"></Setter>
@@ -17,37 +17,38 @@
             <Setter Property="FontSize" Value="25"></Setter>
         </Style>
     </Page.Resources>
-    
-    <Grid  Height="535" Width="1000" Background="White">
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions  >
-            <RowDefinition Height="50">
+    <Grid Height="580" Width="1000" Background="White">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100">
             </RowDefinition>
-            <RowDefinition Height="80"></RowDefinition>
+            <RowDefinition Height="60"></RowDefinition>
             <RowDefinition Height="50"></RowDefinition>
-            <RowDefinition Height="70" ></RowDefinition> 
+            <RowDefinition Height="70" ></RowDefinition>
             <RowDefinition Height="300"></RowDefinition>
         </Grid.RowDefinitions>
 
         <Button Name="ButtonBackListOfclientsPage"
                 Click="ButtonBackListOfclientsPage_Click"
-                Grid.Row="0"  VerticalAlignment="Bottom"
-                Style="{StaticResource ButtonBack}"
+                Grid.Row="0"  VerticalAlignment="Center"
+                Style="{StaticResource ButtonBack}" Margin="10,0,0,30"
                 Template="{StaticResource ButtonBackTemplate}">
         </Button>
 
-        <Button Name="ButtonOpenUpdateClientPage" Click="ButtonOpenUpdateClientPage_Click"  Margin="0,0,100,0" Grid.Row="0" Background="Green"  Width="30px" Height="30px"  VerticalAlignment="Bottom" HorizontalAlignment="Right">
+        <Button Name="ButtonOpenUpdateClientPage" Click="ButtonOpenUpdateClientPage_Click"  Margin="0,0,100,30" Grid.Row="0" Background="Green"  Width="30px" Height="30px"  VerticalAlignment="Center" HorizontalAlignment="Right">
             <Image Width="auto" Height="auto" Source="\image/paint.png" IsEnabled="False" ></Image>
         </Button>
 
+        <Label Content=" ПРОФИЛЬ КЛИЕНТА" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="auto" Width="auto" FontSize="25" FontWeight="Bold" Grid.ColumnSpan="4" Grid.Row="0"/>
+        <Line Stroke="Black" StrokeThickness="2" X1="0" Y1="0" X2="1000" Y2="0" VerticalAlignment="Center" Margin="0,30,0,0"  Grid.Row="0"></Line>
+
         <Label Name="lastNameLabel" Grid.Row="1" Height="80" FontSize="45" Style="{StaticResource StyleForElements}" />
-        <Label Name="firstNameAndMiddleNameLabel" Grid.Row="2" Style="{StaticResource StyleForElements}"/>
         <Label Name="emailLabel" Grid.Row="1" Margin="320,0,0,0" Style="{StaticResource StyleForElements}"/>
-        <Label Name="phoneLabel"  Grid.Row="2 " Margin="320,0,0,0" Style="{StaticResource StyleForElements}"/>
         <Label Name="bulkstatusLabel"  Grid.Row="1 " HorizontalAlignment="Right" Margin="0,0,100,0" Style="{StaticResource StyleForElements}"/>
+
+        <Label Name="firstNameAndMiddleNameLabel" Grid.Row="2" Style="{StaticResource StyleForElements}"/>
+        <Label Name="phoneLabel"  Grid.Row="2 " Margin="320,0,0,0" Style="{StaticResource StyleForElements}"/>
         <Label Name="MaleLabel"  Grid.Row="2 "  HorizontalAlignment="Right" Margin="0,0,100,0" Style="{StaticResource StyleForElements}"/>
         <Label Name="totalPriceTextLabel"   Grid.Row="3 " Margin="320,0,0,0" Content="Общая сумма заказов" Style="{StaticResource StyleForElements}"/>
 
@@ -58,10 +59,11 @@
                    Style="{StaticResource StyleForElements}"
                    />
 
-        <DataGrid x:Name="clientsGrid" IsReadOnly="True" 
-                          AutoGenerateColumns="False" Margin="10,20,10,0" Grid.Row="4"
-                          ColumnHeaderHeight="30" 
-                          Grid.Column="1" ColumnWidth="*">
+        <DataGrid   x:Name="clientsGrid" IsReadOnly="True" 
+                    AutoGenerateColumns="False" 
+                    Margin="12,0,8,50" Grid.Row="4"
+                    ColumnHeaderHeight="30" ColumnWidth="*" 
+                    Height="250" VerticalAlignment="Bottom">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Артикуль" MaxWidth="80" Binding="{Binding Articul}" ></DataGridTextColumn>
                 <DataGridTextColumn Header="Название" Binding="{Binding Title}" ></DataGridTextColumn>
@@ -72,5 +74,4 @@
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
-
 </Page>

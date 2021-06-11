@@ -12,10 +12,10 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Button x:Name="buttonAddOrder" Margin="15,10,0,10" Grid.Column="1" Click="buttonAddOrder_Click" Style="{StaticResource ButtonBack}" Template="{StaticResource ButtonAddingTemplate}"/>
+        <Button x:Name="buttonAddOrder"  Grid.Column="1" Click="buttonAddOrder_Click" Style="{StaticResource ButtonBack}" Template="{StaticResource ButtonAddingTemplate}"/>
         <DataGrid x:Name="gridOrders" IsReadOnly="True" AutoGenerateColumns="False" Margin="15,10,0,10" MinWidth="700" Grid.Row="1" ColumnWidth="*" HorizontalAlignment="Stretch" ColumnHeaderHeight="30" Grid.Column="1">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Id" MaxWidth="40" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="Дата заказа" Binding="{Binding OrderDate}"/>
                 <DataGridTextColumn Header="Фамилия" Binding="{Binding LastName}"/>
                 <DataGridTextColumn Header="Имя" Binding="{Binding FirstName}"/>
