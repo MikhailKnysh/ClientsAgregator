@@ -1,18 +1,16 @@
 ﻿using ClientsAgregator_DAL.CustomModels;
 using ClientsAgregator_DAL.Models;
 using Dapper;
-using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Text;
 using System.Linq;
 
 namespace ClientsAgregator_DAL.Queries
 {
-    public static class ProductsHelper
+    public class ProductsHelper
     {
-        public static List<ProductInfoDTO> GetProductsInfo()
+        public List<ProductInfoDTO> GetProductsInfo()
         {
             string query = "ClientsAgregatorDB.GetProductsInfo";
 
@@ -26,7 +24,7 @@ namespace ClientsAgregator_DAL.Queries
             return products;
         }
 
-        public static List<GroupDTO> GetGroups()
+        public List<GroupDTO> GetGroups()
         {
             string query = "ClientsAgregatorDB.GetGroups";
 
@@ -40,7 +38,7 @@ namespace ClientsAgregator_DAL.Queries
             return groups;
         }
 
-        public static List<SubgroupDTO> GetSubgroupsInfoByGroupId(int groupId)
+        public List<SubgroupDTO> GetSubgroupsInfoByGroupId(int groupId)
         {
             string query = "ClientsAgregatorDB.GetSubgroupsInfoByGroupId";
 
@@ -54,7 +52,7 @@ namespace ClientsAgregator_DAL.Queries
             return subgroups;
         }
 
-        public static List<MeasureUnitDTO> GetMeasureUnits()
+        public List<MeasureUnitDTO> GetMeasureUnits()
         {
             string query = "ClientsAgregatorDB.GetMeasureUnit";
 
@@ -68,7 +66,7 @@ namespace ClientsAgregator_DAL.Queries
             return measureUnits;
         }
 
-        public static int AddProduct(ProductDTO product)
+        public int AddProduct(ProductDTO product)
         {
             string query = "ClientsAgregatorDB.AddProduct";
 
@@ -87,7 +85,7 @@ namespace ClientsAgregator_DAL.Queries
             }
         }
 
-        public static void AddProductSubgroup(int productId, int subgroupId)
+        public void AddProductSubgroup(int productId, int subgroupId)
         {
             string query = "ClientsAgregatorDB.AddProduct_Subgroup";
 
@@ -97,7 +95,7 @@ namespace ClientsAgregator_DAL.Queries
             }
         }
 
-        public static void AddProductGroup(string Title)
+        public void AddProductGroup(string Title)
         {
             string query = "ClientsAgregatorDB.AddGroup";
 
@@ -107,7 +105,7 @@ namespace ClientsAgregator_DAL.Queries
             }
         }
 
-        public static int AddProductSubgroup(string Title)
+        public int AddProductSubgroup(string Title)
         {
             string query = "ClientsAgregatorDB.AddSubgroup";
 
@@ -119,7 +117,7 @@ namespace ClientsAgregator_DAL.Queries
             }
         }
 
-        public static void AddSubgroupGroup(int SubgroupId, int GroupId)
+        public void AddSubgroupGroup(int SubgroupId, int GroupId)
         {
             string query = "ClientsAgregatorDB.AddSubgroupGroup";
 
@@ -129,7 +127,7 @@ namespace ClientsAgregator_DAL.Queries
             }
         }
 
-        public static void DeleteProductById(int productId)
+        public void DeleteProductById(int productId)
         {
             string query = "ClientsAgregatorDB.DeleteProductById";
 
@@ -139,7 +137,7 @@ namespace ClientsAgregator_DAL.Queries
             }
         }
 
-        public static void DeleteProductSubgroupByProductId(int productId)
+        public void DeleteProductSubgroupByProductId(int productId)
         {
             string query = "ClientsAgregatorDB.DeleteProductSubgroupByProductId";
 
@@ -149,7 +147,7 @@ namespace ClientsAgregator_DAL.Queries
             }
         }
 
-        public static ProductInfoDTO GetProductInfoById(int productId)
+        public ProductInfoDTO GetProductInfoById(int productId)
         {
             ProductInfoDTO productInfoDTO;
             string query = "ClientsAgregatorDB.GetProductsInfoById @ProductId";

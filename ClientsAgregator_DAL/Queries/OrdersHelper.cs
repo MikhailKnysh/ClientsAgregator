@@ -10,9 +10,9 @@ using System.Linq;
 
 namespace ClientsAgregator_DAL.Queries
 {
-    public static class OrdersHelper
+    public class OrdersHelper
     {
-        public static List<OrdersInfoDTO> GetOrdersInfo()
+        public List<OrdersInfoDTO> GetOrdersInfo()
         {
             string query = "ClientsAgregatorDB.GetOrdersInfo";
 
@@ -26,7 +26,7 @@ namespace ClientsAgregator_DAL.Queries
             return orders;
         }
 
-        public static List<ClientFullNameDTO> GetClientsFullNames()
+        public List<ClientFullNameDTO> GetClientsFullNames()
         {
             string query = "ClientsAgregatorDB.GetClientsFullName";
 
@@ -40,7 +40,7 @@ namespace ClientsAgregator_DAL.Queries
             return clients;
         }
 
-        public static List<ProductSubgroupDTO> GetProductTitles()
+        public List<ProductSubgroupDTO> GetProductTitles()
         {
             string query = "ClientsAgregatorDB.GetProductTitles";
 
@@ -54,7 +54,7 @@ namespace ClientsAgregator_DAL.Queries
             return products;
         }
 
-        public static List<StatusDTO> GetStatusTitles()
+        public List<StatusDTO> GetStatusTitles()
         {
             string query = "ClientsAgregatorDB.GetStatuses";
 
@@ -68,7 +68,7 @@ namespace ClientsAgregator_DAL.Queries
             return statuses;
         }
 
-        public static void AddOrder(List<Product_OrderDTO> productsOrder, OrderDTO order)
+        public void AddOrder(List<Product_OrderDTO> productsOrder, OrderDTO order)
         {
             using (IDbConnection conn = new SqlConnection(Options.connectionString))
             {
@@ -103,7 +103,7 @@ namespace ClientsAgregator_DAL.Queries
             }
         }
 
-        public static void DeleteOrder(int orderId)
+        public void DeleteOrder(int orderId)
         {
             using (IDbConnection conn = new SqlConnection(Options.connectionString))
             {

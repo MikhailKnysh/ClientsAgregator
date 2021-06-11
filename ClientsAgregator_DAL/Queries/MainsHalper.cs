@@ -1,16 +1,14 @@
 ﻿using ClientsAgregator_DAL.CustomModels;
 using Dapper;
-using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Text;
 
 namespace ClientsAgregator_DAL.Queries
 {
-    public static class MainsHalper
+    public class MainsHalper
     {
-        public static List<ProductSubgroupDTO> GetProductsSubgroup()
+        public List<ProductSubgroupDTO> GetProductsSubgroup()
         {
             string query = "ClientsAgregatorDB.GetProductSubgroup";
 
@@ -24,7 +22,7 @@ namespace ClientsAgregator_DAL.Queries
             return productSubgroups;
         }
 
-        public static List<InterestedClientInfoByProductDTO> GetInterestedClientInfoByProduct(int productId)
+        public List<InterestedClientInfoByProductDTO> GetInterestedClientInfoByProduct(int productId)
         {
             string query = "ClientsAgregatorDB.GetClientInfoByProduct";
 
@@ -37,6 +35,5 @@ namespace ClientsAgregator_DAL.Queries
 
             return interestedClientByProducts;
         }
-
     }
 }

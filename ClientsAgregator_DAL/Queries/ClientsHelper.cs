@@ -1,17 +1,15 @@
 ﻿using ClientsAgregator_DAL.Models;
 using Dapper;
-using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
 
 namespace ClientsAgregator_DAL.Queries
 {
-    public static class ClientsHelper
+    public class ClientsHelper
     {
-        public static void AddClient(AddClientDTO addClientDTO)
+        public void AddClient(AddClientDTO addClientDTO)
         {
             string query = "ClientsAgregatorDB.AddClient @LastName, @FirstName," +
                 " @MiddleName,  @Phone, @Email," +
@@ -33,7 +31,7 @@ namespace ClientsAgregator_DAL.Queries
             }
         }
 
-        public static List<ClientDTO> GetClients()
+        public List<ClientDTO> GetClients()
         {
             string query = "ClientsAgregatorDB.GetClients";
 
@@ -47,7 +45,7 @@ namespace ClientsAgregator_DAL.Queries
             return clientsInfo;
         }
 
-        public static ClientDTO GetClientById(int id)
+        public ClientDTO GetClientById(int id)
         {
             string query = "ClientsAgregatorDB.GetClientById @Id";
 
@@ -61,7 +59,7 @@ namespace ClientsAgregator_DAL.Queries
             return clientInfo;
         }
 
-        public static List<ProductsBuyClientDTO> GetProductsBuyClient(int id)
+        public List<ProductsBuyClientDTO> GetProductsBuyClient(int id)
         {
             string query = "ClientsAgregatorDB.GetProductBuyClientById @Id";
 
@@ -75,9 +73,8 @@ namespace ClientsAgregator_DAL.Queries
             return productsBuyClient;
         }
 
-        public static void UpdateClientById(AddClientDTO addClientDTO, int Id)
+        public void UpdateClientById(AddClientDTO addClientDTO, int Id)
         {
-            
             string query = "ClientsAgregatorDB.UpdateClientById @Id, @LastName, @FirstName," +
                 " @MiddleName, @Phone, @Email," +
                 " @BulkStatusId, @Male, @СommentAboutСlient";
@@ -99,7 +96,7 @@ namespace ClientsAgregator_DAL.Queries
             }
         }
 
-        public static int GetSpendMoneyCountByClientId(int id)           //НУЖНО ЛИ ЭТО ДЕЛАТЬ В ЛОГИКЕ ИЛИ СЧИТАТЬ В SQL??? 
+        public int GetSpendMoneyCountByClientId(int id)
         {
             string query = "ClientsAgregatorDB.GetSpendMoneyCountByClientId";
 
@@ -112,7 +109,7 @@ namespace ClientsAgregator_DAL.Queries
 
         }
 
-        public static List<BulkStatusDTO> GetBulkStatuses()
+        public List<BulkStatusDTO> GetBulkStatuses()
         {
             string query = "ClientsAgregatorDB.GetBulkStatuses";
 
@@ -126,7 +123,7 @@ namespace ClientsAgregator_DAL.Queries
             return bulkStatusInfo;
         }
 
-        public static List<FeedbackDTO> GetFeedback()
+        public List<FeedbackDTO> GetFeedback()
         { 
             string query = "ClientsAgregatorDB.GetFeedbacks";
             List<FeedbackDTO> feedbacks = new List<FeedbackDTO>();

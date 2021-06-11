@@ -1,25 +1,13 @@
-using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 using ClientsAgregator_BLL;
 using ClientsAgregator_BLL.CustomModels;
 
-
-
 namespace ClientsAgregator.Pages
 {
-    /// <summary>
-    /// Interaction logic for AddClientPage.xaml
-    /// </summary>
     public partial class AddClientPage : Page
     {
         private Controller _controller;
@@ -33,6 +21,7 @@ namespace ClientsAgregator.Pages
         {
             NavigationService.Navigate(new ListOfClientsWindow());
         }
+
         private void buttonSave_Click(object sender, RoutedEventArgs e)
         {
             string lastName = TextBoxLastName.Text.Trim();
