@@ -35,6 +35,7 @@ namespace ClientsAgregator
             phoneLabel.Content = _clientModel.Phone;
             bulkstatusLabel.Content = _clientModel.BulkStatusTitle;
             MaleLabel.Content = _clientModel.Male;
+            TextBoxCommentAboutClient.Text = _clientModel.СommentAboutСlient; 
 
             _productsBuyClientModels = _productsBuyClientAndFeedback.GetProductBuyClientAndFeedback(_idClient);
 
