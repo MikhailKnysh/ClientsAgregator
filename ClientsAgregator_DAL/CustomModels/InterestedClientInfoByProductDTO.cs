@@ -13,7 +13,8 @@ namespace ClientsAgregator_DAL.CustomModels
         public string Phone { get; set; }
         public string BulkStatusTitle { get; set; }
         public int ProductId { get; set; }
+        public string ProductTitle { get; set; }
         public int SumQuantity { get; set; }
         public int AVGRate { get; set; }
-    }
+         }
 }

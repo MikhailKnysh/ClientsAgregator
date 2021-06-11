@@ -45,7 +45,7 @@
                                                 <ColumnDefinition>
                                                 </ColumnDefinition>
                                             </Grid.ColumnDefinitions>
-                                            <Button  Name="ediBtn" Grid.Column="0" Height="20" Width="20" Background="Blue" ></Button>
+                                            <!--<Button  Name="DescriptionByProductButton" Grid.Column="0" Height="20" Width="20" Background="Blue" Click="DescriptionByProductButton_Click" ></Button>-->
                                         </Grid>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
@@ -63,10 +63,10 @@
                             <DataGridTextColumn Header="Имя" Binding="{Binding FirstName}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Отчесвто" Binding="{Binding MiddleName}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Телефон" Binding="{Binding Phone}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Покупок" Binding="{Binding Email}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Статус" Binding="{Binding BulkStatusId}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Оценка" Binding="{Binding Male}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Отзывы" Binding="{Binding Male}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Товар" Binding="{Binding ProductTitle}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Покупок" Binding="{Binding SumQuantity}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Статус" Binding="{Binding BulkStatusTitle}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Оценка" Binding="{Binding AVGRate}"></DataGridTextColumn>
                             <DataGridTemplateColumn Width="60" Header="">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
@@ -77,7 +77,7 @@
                                                 <ColumnDefinition>
                                                 </ColumnDefinition>
                                             </Grid.ColumnDefinitions>
-                                            <Button  Name="ediBtn" Grid.Column="0" Height="20" Width="20" Background="Blue" ></Button>
+                                            <!--<Button  Name="DescriptionBySubgroupButton"  Grid.Column="0" Height="20" Width="20" Background="Blue" Click="DescriptionBySubgroupButton_Click" ></Button>-->
                                         </Grid>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>

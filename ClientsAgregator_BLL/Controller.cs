@@ -258,12 +258,22 @@ namespace ClientsAgregator_BLL
             return productsSubgroupModels;
         }
 
-        public List<InterestedClientInfoByProductModel> GetMainModels(int productId)
+        public List<InterestedClientInfoByProductModel> GetInterestedClientInfoByProduct(int productId)
         {
             var config = new MapperConfiguration(cfg => cfg.CreateMap<InterestedClientInfoByProductDTO, InterestedClientInfoByProductModel>());
             Mapper mapper = new Mapper(config);
 
             List<InterestedClientInfoByProductModel> clientByIdModels = mapper.Map<List<InterestedClientInfoByProductModel>>(mainsHalper.GetInterestedClientInfoByProduct(productId));
+
+            return clientByIdModels;
+        }
+
+        public List<InterestedClientInfoByProductModel> GetInterestedClientInfoBySubgroup(int subgroupId)
+        {
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<InterestedClientInfoByProductDTO, InterestedClientInfoByProductModel>());
+            Mapper mapper = new Mapper(config);
+
+            List<InterestedClientInfoByProductModel> clientByIdModels = mapper.Map<List<InterestedClientInfoByProductModel>>(mainsHalper.GetInterestedClientInfoBySubgroup(subgroupId));
 
             return clientByIdModels;
         }

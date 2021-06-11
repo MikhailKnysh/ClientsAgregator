@@ -35,5 +35,19 @@ namespace ClientsAgregator_DAL.Queries
 
             return interestedClientByProducts;
         }
+
+        public List<InterestedClientInfoByProductDTO> GetInterestedClientInfoBySubgroup(int subgroupId)
+        {
+            string query = "ClientsAgregatorDB.GetClientInfoBySubgroup";
+
+            List<InterestedClientInfoByProductDTO> interestedClientInfoBySubgroup = new List<InterestedClientInfoByProductDTO>();
+
+            using (IDbConnection connection = new SqlConnection(Options.connectionString))
+            {
+                interestedClientInfoBySubgroup = connection.Query<InterestedClientInfoByProductDTO>(query, new { subgroupId },commandType:CommandType.StoredProcedure).AsList();
+            }
+
+            return interestedClientInfoBySubgroup;
+        }
     }
 }
