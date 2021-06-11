@@ -5,21 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ClientsAgregator"
         mc:Ignorable="d"
-        Title="AddigGroup" Height="200" Width="400
-        ">
-    <Grid Margin="10">
+        Title="Добавить новую группу" Height="200" Width="400
+        " WindowStyle="SingleBorderWindow">
+    <Window.Effect>
+        <DropShadowEffect/>
+    </Window.Effect>
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="277*"/>
+            <ColumnDefinition Width="123*"/>
         </Grid.ColumnDefinitions>
-        <Label Content="Введите новую группу" Grid.Row="0" HorizontalAlignment="Center" Margin="10" VerticalAlignment="Center"/>
-        <TextBox x:Name="GroupTextBox" Grid.Row="1"  Margin="10" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center" Width="200"/>
+        <Label Content="Введите новую группу" HorizontalAlignment="Left" Margin="133,0,0,0" VerticalAlignment="Center"/>
+        <TextBox x:Name="GroupTextBox" Grid.Row="1"  Margin="100,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Left" Width="200" Grid.ColumnSpan="2"/>
         <Button x:Name="AcceptButton" Content="OK" HorizontalAlignment="Left" Grid.Row="2" Margin="10,0,0,0" VerticalAlignment="Center" Width="100" Click="AcceptButton_Click"/>
-        <Button x:Name="CancelButton" Content="Cancel" HorizontalAlignment="Left" Grid.Row="2" Margin="270,0,0,0" VerticalAlignment="Center" Width="100" Click="CancelButton_Click"/>
+        <Button x:Name="CancelButton" Content="Cancel" HorizontalAlignment="Left" Grid.Row="2" Margin="270,0,0,0" VerticalAlignment="Center" Width="100" Click="CancelButton_Click" Grid.ColumnSpan="2"/>
 
     </Grid>
 </Window>
