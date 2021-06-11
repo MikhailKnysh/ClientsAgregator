@@ -97,7 +97,17 @@ namespace ClientsAgregator_BLL
             int minLength = 1;
 
             if(str.Length <= validCharQuantity && str.Length > minLength
-                && !(string.IsNullOrEmpty(str)) && !(string.IsNullOrWhiteSpace(str)))
+                     && !(string.IsNullOrWhiteSpace(str)))
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        public static bool IsStringNotNull(string str)
+        {
+            if(!(string.IsNullOrEmpty(str)))
             {
                 return true;
             }

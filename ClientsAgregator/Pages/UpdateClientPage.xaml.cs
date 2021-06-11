@@ -49,7 +49,6 @@ namespace ClientsAgregator
 
         private void buttonSaveUptPage_Click(object sender, RoutedEventArgs e)
         {
-            var index = ComboBoxBulkStatus.SelectedIndex;
 
             string lastName = TextBoxLastName.Text.Trim();
             string firstName = TextBoxFirstName.Text.Trim();
@@ -57,24 +56,38 @@ namespace ClientsAgregator
             string phone = TextBoxPhone.Text.Trim();
             string email = TextBoxEmail.Text.Trim();
             string commentAboutСlient = TextBoxCommentAboutClient.Text.Trim();
+            string male = ComboBoxMale.Text.Trim();
+            string bulkStatus = ComboBoxBulkStatus.Text.Trim();
 
             bool isAdding = true;
 
-            if (!(ValidationData.IsValidStringLenght(lastName, validCharQuantity: 255)))
+            foreach (UIElement item in UpdateClientGrid.Children)
+            {
+                if (item is TextBox)
+                {
+                    TextBox textBox = (TextBox)item;
+                    textBox.Background = Brushes.Transparent;
+                }
+            }
+
+            if (!(ValidationData.IsValidStringLenght(lastName, validCharQuantity: 255))
+                || !(ValidationData.IsStringNotNull(lastName)))
             {
                 TextBoxLastName.ToolTip = "Это поле введено некорректно";
                 TextBoxLastName.Background = Brushes.Tomato;
                 isAdding = false;
             }
 
-            if (!(ValidationData.IsValidStringLenght(firstName, validCharQuantity: 255)))
+            if (!(ValidationData.IsValidStringLenght(firstName, validCharQuantity: 255))
+                || !(ValidationData.IsStringNotNull(firstName)))
             {
                 TextBoxFirstName.ToolTip = "Это поле введено некорректно";
                 TextBoxFirstName.Background = Brushes.Tomato;
                 isAdding = false;
             }
 
-            if (!(ValidationData.IsValidStringLenght(middleName, validCharQuantity: 255)))
+            if (!(ValidationData.IsValidStringLenght(middleName, validCharQuantity: 255))
+                || !(ValidationData.IsStringNotNull(middleName)))
             {
                 TextBoxMiddleName.ToolTip = "Это поле введено некорректно";
                 TextBoxMiddleName.Background = Brushes.Tomato;
@@ -102,8 +115,26 @@ namespace ClientsAgregator
                 isAdding = false;
             }
 
+            if (!(ValidationData.IsStringNotNull(male))
+                || !(ValidationData.IsStringNotNull(male)))
+            {
+                ComboBoxMale.ToolTip = "Это поле введено некорректно";
+                ComboBoxMale.Background = Brushes.Tomato;
+                isAdding = false;
+            }
+
+            if (!(ValidationData.IsStringNotNull(bulkStatus))
+                || !(ValidationData.IsStringNotNull(bulkStatus)))
+            {
+                ComboBoxBulkStatus.ToolTip = "Это поле введено некорректно";
+                ComboBoxBulkStatus.Background = Brushes.Tomato;
+                isAdding = false;
+            }
+
             if (isAdding)
             {
+                var index = ComboBoxBulkStatus.SelectedIndex;
+
                 AddClientModel clientModel = new AddClientModel()
                 {
                     LastName = lastName,

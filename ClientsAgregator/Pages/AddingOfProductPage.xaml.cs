@@ -68,8 +68,6 @@ namespace ClientsAgregator
 
         private void SaveProductButton_Click(object sender, RoutedEventArgs e)
         {
-            MeasureUnitInfoModel measureUnitModel = measureUnitInfoModels[MeasureUnitComboBox.SelectedIndex];
-            SubgroupInfoModel subgroupModel = subgroupInfoModels[SubgroupComboBox.SelectedIndex];
             string articul = ArticulTextBox.Text;
             string title = TitelTextBox.Text;
             string quantity = QuantityTextBox.Text;
@@ -86,36 +84,56 @@ namespace ClientsAgregator
                 }
             }
 
-            if(!(ValidationData.IsValidStringLenght(articul, 255)))
+            if (!(ValidationData.IsValidStringLenght(articul, 255)))
             {
                 ArticulTextBox.ToolTip = "Это поле введено некорректно";
                 ArticulTextBox.Background = Brushes.Tomato;
                 isAdding = false;
             }
 
-            if (!(ValidationData.IsValidStringLenght(title, 255)))
+            if (!(ValidationData.IsValidStringLenght(title, 255))                    //добавить проверку на уникальность!!!
+                || !(ValidationData.IsStringNotNull(title)))
             {
                 TitelTextBox.ToolTip = "Это поле введено некорректно";
                 TitelTextBox.Background = Brushes.Tomato;
                 isAdding = false;
             }
 
-            if (!(ValidationData.IsNumber(quantity)))
+            if (!(ValidationData.IsNumber(quantity))
+                || !(ValidationData.IsStringNotNull(quantity)))
             {
                 QuantityTextBox.ToolTip = "Это поле введено некорректно";
                 QuantityTextBox.Background = Brushes.Tomato;
                 isAdding = false;
             }
 
-            if (!(ValidationData.IsNumber(price)))
+            if (!(ValidationData.IsNumber(price))
+                || !(ValidationData.IsStringNotNull(price)))
             {
                 PriceTextBox.ToolTip = "Это поле введено некорректно";
                 PriceTextBox.Background = Brushes.Tomato;
                 isAdding = false;
             }
 
+            if (!(ValidationData.IsStringNotNull(SubgroupComboBox.Text.Trim())))
+            {
+                SubgroupComboBox.ToolTip = "Это поле введено некорректно";
+                SubgroupComboBox.Background = Brushes.Tomato;
+                isAdding = false;
+            }
+
+            if (!(ValidationData.IsStringNotNull(MeasureUnitComboBox.Text.Trim())))
+            {
+                MeasureUnitComboBox.ToolTip = "Это поле введено некорректно";
+                MeasureUnitComboBox.Background = Brushes.Tomato;
+                isAdding = false;
+            }
+
+
             if (isAdding)
             {
+                MeasureUnitInfoModel measureUnitModel = measureUnitInfoModels[MeasureUnitComboBox.SelectedIndex];
+                SubgroupInfoModel subgroupModel = subgroupInfoModels[SubgroupComboBox.SelectedIndex];
                 AddingProductModel addingProductModel = new AddingProductModel()
                 {
                     Articul = articul,

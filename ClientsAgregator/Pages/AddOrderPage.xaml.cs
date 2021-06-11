@@ -62,20 +62,38 @@ namespace ClientsAgregator.Pages
 
         private void AddProduct_Click(object sender, RoutedEventArgs e)
         {
-            string date = textBoxDate.Text;
-            string quantity = textBoxQuaunity.Text;
+            string quantity = textBoxQuaunity.Text.Trim();
 
             bool isAdding = true;
 
-            //if()
-            //{
+            if (!(ValidationData.IsNumber(quantity) 
+                || !(ValidationData.IsValidStringLenght(quantity, validCharQuantity: 53))))
+            {
+                textBoxQuaunity.ToolTip = "Это поле введено некорректно";
+                textBoxQuaunity.Background = Brushes.Tomato;
+                isAdding = false;
+            }
 
-            //}
+            if(!(ValidationData.IsStringNotNull(comboBoxClient.Text)))
+            {
+                comboBoxClient.ToolTip = "Это поле введено некорректно";
+                comboBoxClient.Background = Brushes.Tomato;
+                isAdding = false;
+            }
 
-            //if ()
-            //{
+            if (!(ValidationData.IsStringNotNull(comboBoxProduct.Text)))
+            {
+                comboBoxProduct.ToolTip = "Это поле введено некорректно";
+                comboBoxProduct.Background = Brushes.Tomato;
+                isAdding = false;
+            }
 
-            //}
+            if (!(ValidationData.IsStringNotNull(comboBoxStatus.Text)))
+            {
+                comboBoxStatus.ToolTip = "Это поле введено некорректно";
+                comboBoxStatus.Background = Brushes.Tomato;
+                isAdding = false;
+            }
 
             if (isAdding)
             {
