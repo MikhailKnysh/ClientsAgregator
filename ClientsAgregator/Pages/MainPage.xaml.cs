@@ -45,7 +45,7 @@ namespace ClientsAgregator.Pages
 
         private void ProductsSubgroupComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            SubgroupLabel.Content = $"Подгруппа: {productsSubgropModels[ProductsSubgroupComboBox.SelectedIndex].SubgroupTitle}";
         }
 
         private void CreateButton_Click(object sender, RoutedEventArgs e)
@@ -56,6 +56,7 @@ namespace ClientsAgregator.Pages
             int productId = productsSubgropModels[ProductsSubgroupComboBox.SelectedIndex].ProductId;
             interestedClientInfoBySubgroupModels = _controller.GetInterestedClientInfoBySubgroup(subgroupId);
             interestedClientInfoByProductModels = _controller.GetInterestedClientInfoByProduct(productId);
+
             foreach (var intrClient in interestedClientInfoByProductModels)
             {
                 InterestedClientByProductGrid.Items.Add(intrClient);
