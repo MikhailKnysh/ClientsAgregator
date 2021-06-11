@@ -5,8 +5,8 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ClientsAgregator"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="700"
-      Title="ProfileClientWindow" Loaded="ProfileClient_Loaded" MinHeight="500" MinWidth="850">
+      Title="ProfileClientWindow" Loaded="ProfileClient_Loaded" Background="LightGray"  MinHeight="535" MinWidth="1000">
+   
     <Page.Resources>
         <Style x:Key="StyleForElements" TargetType="Label">
             <Setter Property="Margin" Value="12,0,0,0"></Setter>
@@ -14,64 +14,63 @@
             <Setter Property="Height" Value="50"></Setter>
             <Setter Property="HorizontalAlignment" Value="Left"></Setter>
             <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
-            <Setter Property="FontSize" Value="20"></Setter>
+            <Setter Property="FontSize" Value="25"></Setter>
         </Style>
     </Page.Resources>
-    <Grid>
+    
+    <Grid  Height="535" Width="1000" Background="White">
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions  >
+            <RowDefinition Height="50">
+            </RowDefinition>
+            <RowDefinition Height="80"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="70" ></RowDefinition> 
+            <RowDefinition Height="300"></RowDefinition>
+        </Grid.RowDefinitions>
 
-        <Grid Grid.Column="0" >
-            <Grid.RowDefinitions  >
-                <RowDefinition Height="50">
-                </RowDefinition>
-                <RowDefinition Height="50"></RowDefinition>
-                <RowDefinition Height="50"></RowDefinition>
-                <RowDefinition Height="50"></RowDefinition>
-                <RowDefinition Height="300"></RowDefinition>
-            </Grid.RowDefinitions>
-            
-            <Button Name="ButtonBackListOfclientsPage"
+        <Button Name="ButtonBackListOfclientsPage"
                 Click="ButtonBackListOfclientsPage_Click"
-                Grid.Row="0"
+                Grid.Row="0"  VerticalAlignment="Bottom"
                 Style="{StaticResource ButtonBack}"
                 Template="{StaticResource ButtonBackTemplate}">
-            </Button>
+        </Button>
 
-            <Button Name="ButtonOpenUpdateClientPage" Click="ButtonOpenUpdateClientPage_Click" Margin="0,0,10,0" Grid.Row="0" Background="Green"  Width="30px" Height="30px"  VerticalAlignment="Top" HorizontalAlignment="Right">
-                <Image Width="auto" Height="auto" Source="\image/paint.png" IsEnabled="False" ></Image>
-            </Button>
+        <Button Name="ButtonOpenUpdateClientPage" Click="ButtonOpenUpdateClientPage_Click"  Margin="0,0,100,0" Grid.Row="0" Background="Green"  Width="30px" Height="30px"  VerticalAlignment="Bottom" HorizontalAlignment="Right">
+            <Image Width="auto" Height="auto" Source="\image/paint.png" IsEnabled="False" ></Image>
+        </Button>
 
-            <Label Name="lastNameLabel" Grid.Row="1" FontSize="30" Style="{StaticResource StyleForElements}" />
-            <Label Name="firstNameAndMiddleNameLabel" Grid.Row="2" Style="{StaticResource StyleForElements}"/>
-            <Label Name="emailLabel" Grid.Row="1" Margin="320,0,0,0" Style="{StaticResource StyleForElements}"/>
-            <Label Name="phoneLabel"  Grid.Row="2 " Margin="320,0,0,0" Style="{StaticResource StyleForElements}"/>
-            <Label Name="bulkstatusLabel"  Grid.Row="1 " HorizontalAlignment="Right" Margin="0,0,0,0" Style="{StaticResource StyleForElements}"/>
-            <Label Name="MaleLabel"  Grid.Row="2 "  HorizontalAlignment="Right" Margin="0,0,10,0" Style="{StaticResource StyleForElements}"/>
-            <Label Name="totalPriceTextLabel"   Grid.Row="3 " Margin="320,0,0,0" Content="Общая сумма заказов" Style="{StaticResource StyleForElements}"/>
+        <Label Name="lastNameLabel" Grid.Row="1" Height="80" FontSize="45" Style="{StaticResource StyleForElements}" />
+        <Label Name="firstNameAndMiddleNameLabel" Grid.Row="2" Style="{StaticResource StyleForElements}"/>
+        <Label Name="emailLabel" Grid.Row="1" Margin="320,0,0,0" Style="{StaticResource StyleForElements}"/>
+        <Label Name="phoneLabel"  Grid.Row="2 " Margin="320,0,0,0" Style="{StaticResource StyleForElements}"/>
+        <Label Name="bulkstatusLabel"  Grid.Row="1 " HorizontalAlignment="Right" Margin="0,0,100,0" Style="{StaticResource StyleForElements}"/>
+        <Label Name="MaleLabel"  Grid.Row="2 "  HorizontalAlignment="Right" Margin="0,0,100,0" Style="{StaticResource StyleForElements}"/>
+        <Label Name="totalPriceTextLabel"   Grid.Row="3 " Margin="320,0,0,0" Content="Общая сумма заказов" Style="{StaticResource StyleForElements}"/>
 
-            <Label Name="totalPriceLabel" HorizontalAlignment="Right"
+        <Label Name="totalPriceLabel" HorizontalAlignment="Right"
                    BorderThickness="1" BorderBrush="Black" 
-                   Grid.Row="3" Margin="0,0,10,0" Width="120"
+                   Grid.Row="3" Margin="0,0,100,0" Width="120"
                    Content="0" HorizontalContentAlignment="Right"
                    Style="{StaticResource StyleForElements}"
                    />
 
-            <DataGrid x:Name="clientsGrid" IsReadOnly="True" 
-                          AutoGenerateColumns="False" Margin="10,5,0,0" Grid.Row="4"   HorizontalAlignment="Stretch"
+        <DataGrid x:Name="clientsGrid" IsReadOnly="True" 
+                          AutoGenerateColumns="False" Margin="10,20,10,0" Grid.Row="4"
                           ColumnHeaderHeight="30" 
                           Grid.Column="1" ColumnWidth="*">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="Артикуль" Binding="{Binding Articul}" ></DataGridTextColumn>
-                    <DataGridTextColumn Header="Название" Binding="{Binding Title}" ></DataGridTextColumn>
-                    <DataGridTextColumn Header="Кол-во" Binding="{Binding SUMQuantity}"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Группа" Binding="{Binding GroupName}"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Подгруппа" Binding="{Binding SubGroupName}"></DataGridTextColumn>
-                    <DataGridTextColumn x:Name="Rate" Header="Оценка" Binding="{Binding AVGRate}"></DataGridTextColumn>
-                </DataGrid.Columns>
-            </DataGrid>
-        </Grid>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Артикуль" MaxWidth="80" Binding="{Binding Articul}" ></DataGridTextColumn>
+                <DataGridTextColumn Header="Название" Binding="{Binding Title}" ></DataGridTextColumn>
+                <DataGridTextColumn Header="Кол-во" MaxWidth="80" Binding="{Binding SUMQuantity}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Группа" Binding="{Binding GroupName}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Подгруппа" Binding="{Binding SubGroupName}"></DataGridTextColumn>
+                <DataGridTextColumn x:Name="Rate" Header="Оценка" MaxWidth="80" Binding="{Binding AVGRate}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
+
 </Page>

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ClientsAgregator"
         mc:Ignorable="d"
-        Title="AddOrderWindow" Height="700" Width="1000" MinWidth="670" Loaded="AddOrderWindow_Loaded">
+        Title="AddOrderWindow"  MinHeight="535" MinWidth="1000" Loaded="AddOrderWindow_Loaded">
     <Grid>
         <Grid Grid.Column="1">
             <Button Content="Назад" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Width="94" Height="35" Click="buttonBack_Click"/>
