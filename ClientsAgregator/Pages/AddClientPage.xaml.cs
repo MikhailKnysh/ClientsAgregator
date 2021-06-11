@@ -77,7 +77,6 @@ namespace ClientsAgregator.Pages
                 //        element.Text = string.Empty;
                 //    }
                 //}
-
                 TextBoxLastName.Clear();
                 TextBoxFirstName.Clear();
                 TextBoxMiddleName.Clear();

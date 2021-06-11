@@ -123,7 +123,7 @@ namespace ClientsAgregator_DAL.Queries
             return bulkStatusInfo;
         }
 
-        public List<FeedbackDTO> GetFeedback()
+        public  List<FeedbackDTO> GetFeedbacks()
         { 
             string query = "ClientsAgregatorDB.GetFeedbacks";
             List<FeedbackDTO> feedbacks = new List<FeedbackDTO>();
@@ -131,6 +131,18 @@ namespace ClientsAgregator_DAL.Queries
             using (IDbConnection conn = new SqlConnection(Options.connectionString))
             {
                 feedbacks = conn.Query<FeedbackDTO>(query).AsList();
+            }
+
+            return feedbacks;
+        }
+        public List<FeedbackDTO> GetFeedbackClientById(int id)
+        {
+            string query = "ClientsAgregatorDB.GetFeedbacks";
+            List<FeedbackDTO> feedbacks = new List<FeedbackDTO>();
+
+            using (IDbConnection conn = new SqlConnection(Options.connectionString))
+            {
+                feedbacks = conn.Query<FeedbackDTO>(query, new { id}, commandType: CommandType.StoredProcedure).AsList();
             }
 
             return feedbacks;

@@ -16,7 +16,7 @@
             <ColumnDefinition Width="150"></ColumnDefinition>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Grid Grid.Column="1">
+        <Grid x:Name="AddClientRoot1" Grid.Column="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"></RowDefinition>
                 <RowDefinition Height="80"></RowDefinition>

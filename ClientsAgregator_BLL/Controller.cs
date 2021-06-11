@@ -268,19 +268,27 @@ namespace ClientsAgregator_BLL
             return clientByIdModels;
         }
 
-
         public int GetSpendMoneyCountByClientIdModels(int Id)
         {
-            int SpendMoneyCount = clientsHelper.GetSpendMoneyCountByClientId(Id);
+            int SpendMoneyCount = clientsHelper.GetSpendMoneyCountByClientId(Id);
             return SpendMoneyCount;
+        }
+
+        public List<FeedbackModel> GetFeedbackClientByIdModels(int id)
+        {
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<FeedbackDTO, FeedbackModel>());
+            Mapper mapper = new Mapper(config);
+
+            List<FeedbackModel> feedback = mapper.Map<List<FeedbackModel>>(clientsHelper.GetFeedbackClientById(id));
+
+            return feedback;
         }
 
         public List<FeedbackModel> GetFeedbackModels()
         {
             var config = new MapperConfiguration(cfg => cfg.CreateMap<FeedbackDTO, FeedbackModel>());
-            Mapper mapper = new Mapper(config);
-
-            List<FeedbackModel> feedback = mapper.Map<List<FeedbackModel>>(clientsHelper.GetFeedback());
+            Mapper mapper = new Mapper(config);
+            List<FeedbackModel> feedback = mapper.Map<List<FeedbackModel>>(clientsHelper.GetFeedbacks());
 
             return feedback;
         }
