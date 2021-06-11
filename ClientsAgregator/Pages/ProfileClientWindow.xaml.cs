@@ -10,17 +10,10 @@ namespace ClientsAgregator
     /// Interaction logic for ProfileClientWindow.xaml
     /// </summary>
     public partial class ProfileClientWindow : Page
-    {
-        private Controller _controller = new Controller();
-
-        private ClientModel _clientModel;
-
-        private List<ProductBuyClientModel> _productsBuyClientModel;
-
-        //private List<FeedbackModel> _feedback;
-
-        private int _idClient;
-
+    {        private Controller _controller = new Controller();        private ProductsBuyClientAndFeedback _productsBuyClientAndFeedback = new ProductsBuyClientAndFeedback();
+        private ClientModel _clientModel;
+        private List<ProductBuyClientModel> _productsBuyClientModels;
+        private int _idClient;
         public ProfileClientWindow(int IdClient)
         {
             InitializeComponent();
@@ -39,14 +32,12 @@ namespace ClientsAgregator
             MaleLabel.Content = _clientModel.Male;
             totalPriceLabel.Content = _controller.GetSpendMoneyCountByClientIdModels(_idClient);
 
-            _productsBuyClientModel = _controller.GetProductsBuyClientModels(_idClient);
+            _productsBuyClientModels = _productsBuyClientAndFeedback.GetProductBuyClientAndFeedback(_idClient);
 
-            for (int i = 0; i < _productsBuyClientModel.Count; i++)
+            for (int i = 0; i < _productsBuyClientModels.Count; i++)
             {
-                clientsGrid.Items.Add(_productsBuyClientModel[i]);
-                
+                clientsGrid.Items.Add(_productsBuyClientModels[i]);
             }
-
         }
 
         private void ButtonBackListOfclientsPage_Click(object sender, System.Windows.RoutedEventArgs e)

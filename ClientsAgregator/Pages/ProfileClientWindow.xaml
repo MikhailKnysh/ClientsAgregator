@@ -17,7 +17,7 @@
             <Setter Property="FontSize" Value="20"></Setter>
         </Style>
     </Page.Resources>
-    <Grid Width="700">
+    <Grid>
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -60,10 +60,9 @@
                    />
 
             <DataGrid x:Name="clientsGrid" IsReadOnly="True" 
-                          AutoGenerateColumns="False" Margin="10,5,0,0"
-                          Width="700" Grid.Row="4" ColumnWidth="100"  
-                          HorizontalAlignment="Left" ColumnHeaderHeight="30" 
-                          Grid.Column="1">
+                          AutoGenerateColumns="False" Margin="10,5,0,0" Grid.Row="4"   HorizontalAlignment="Stretch"
+                          ColumnHeaderHeight="30" 
+                          Grid.Column="1" ColumnWidth="*">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Артикуль" Binding="{Binding Articul}" ></DataGridTextColumn>
                     <DataGridTextColumn Header="Название" Binding="{Binding Title}" ></DataGridTextColumn>
