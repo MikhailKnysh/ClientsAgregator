@@ -3,43 +3,38 @@ using ClientsAgregator_BLL.CustomModels.OrderModels;
 using ClientsAgregator_BLL.CustomModels.ProductsModel;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace ClientsAgregator.Pages
 {
-    /// <summary>
-    /// Interaction logic for AddOrderPage.xaml
-    /// </summary>
-    public partial class AddOrderPage : Page
+    public partial class UpdateOrderPage : Page
     {
+        private double totalPrice;
+
+        private ProductInfoModel _productInfoModel;
+        private Controller _controller;
+        private OrdersInfoModel _ordersInfoModel;
+
         private List<ClientsFullNameModel> _clients;
         private List<StatusModel> _statuses;
         private List<ProductsSubgropModel> _products;
         private List<ProductInOrderModel> _productInOrderModels;
-        private ProductInfoModel productInfoModel;
-        private double totalPrice;
 
-        private Controller _controller;
-
-        public AddOrderPage()
+        public UpdateOrderPage(OrdersInfoModel ordersInfoModel)
         {
             InitializeComponent();
+
+            _ordersInfoModel = ordersInfoModel;
         }
 
-        private void AddOrderPage_Loaded(object sender, RoutedEventArgs e)
+        private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             _controller = new Controller();
             _productInOrderModels = new List<ProductInOrderModel>();
+
+            labelPageTitle.Content += _ordersInfoModel.Id.ToString();
 
             _clients = _controller.GetClientsFullNameModels();
             foreach (var client in _clients)
@@ -47,32 +42,44 @@ namespace ClientsAgregator.Pages
                 comboBoxClient.Items.Add(client.FullName);
             }
 
+            string fullName = $"{_ordersInfoModel.LastName} {_ordersInfoModel.FirstName} {_ordersInfoModel.MiddleName}";
+            comboBoxClient.SelectedItem = fullName;
+
             _statuses = _controller.GetStatusModels();
             foreach (var status in _statuses)
             {
                 comboBoxStatus.Items.Add(status.Title);
             }
 
+            //string status = $"{_ordersInfoModel.LastName} {_ordersInfoModel.FirstName} {_ordersInfoModel.MiddleName}";
+            comboBoxClient.SelectedItem = fullName;
+
             _products = _controller.GetProductsSubgroupModels();
             foreach (var product in _products)
             {
                 comboBoxProduct.Items.Add(product.ProductTitle);
             }
+
+        }
+
+        private void buttonBack_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new ListOfOrdersWindow());
         }
 
         private void AddProduct_Click(object sender, RoutedEventArgs e)
         {
             ProductInOrderModel productInOrderModel = new ProductInOrderModel()
             {
-                Articul = productInfoModel.Articul,
-                ProductId = productInfoModel.Id,
-                ProductTitle = productInfoModel.Title,
-                Price = productInfoModel.Price,
+                Articul = _productInfoModel.Articul,
+                ProductId = _productInfoModel.Id,
+                ProductTitle = _productInfoModel.Title,
+                Price = _productInfoModel.Price,
                 Quantity = Convert.ToInt32(textBoxQuaunity.Text),
-                MeasureUnitId = productInfoModel.MeasureUnitId,
-                MeasureUnitTitle = productInfoModel.MeasureUnit,
-                GroupTitle = productInfoModel.Group,
-                SubgroupTitle = productInfoModel.Subgroup,
+                MeasureUnitId = _productInfoModel.MeasureUnitId,
+                MeasureUnitTitle = _productInfoModel.MeasureUnit,
+                GroupTitle = _productInfoModel.Group,
+                SubgroupTitle = _productInfoModel.Subgroup,
                 Rate = -1
             };
 
@@ -84,23 +91,9 @@ namespace ClientsAgregator.Pages
             gridProductsInOrder.Items.Add(productInOrderModel);
         }
 
-        private void buttonBack_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new ListOfOrdersWindow());
-        }
-
         private void comboBoxProduct_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string productTitle = comboBoxProduct.SelectedItem.ToString();
 
-            int productId = (from p in _products
-                             where p.ProductTitle.Equals(productTitle)
-                             select p.ProductId)
-                            .FirstOrDefault();
-
-            productInfoModel = _controller.GetProductInfoModel(productId);
-
-            labelMeasureUnit.Content = productInfoModel.MeasureUnit;
         }
 
         private void buttonRemove_Click(object sender, RoutedEventArgs e)
@@ -121,33 +114,7 @@ namespace ClientsAgregator.Pages
 
         private void buttonSave_Click(object sender, RoutedEventArgs e)
         {
-            string clientFullName = comboBoxClient.SelectedItem.ToString();
 
-            int clientId = (from c in _clients
-                             where c.FullName.Equals(clientFullName)
-                             select c.Id)
-                            .FirstOrDefault();
-
-            string statusTitle = comboBoxStatus.SelectedItem.ToString();
-
-            int statusId = (from c in _statuses
-                            where c.Title.Equals(statusTitle)
-                            select c.Id)
-                            .FirstOrDefault();
-
-            NewOrderInfoModel newOrderInfoModel = new NewOrderInfoModel()
-            {
-                ClientId = clientId,
-                OrderDate = textBoxDate.Text,
-                StatusesId = statusId,
-                OrderReview = string.Empty,
-                TotalPrice = totalPrice,
-                ProductsInOrder = _productInOrderModels
-            };
-
-            _controller.AddOrder(newOrderInfoModel);
-
-            NavigationService.Navigate(new ListOfOrdersWindow());
         }
     }
 }

@@ -47,5 +47,11 @@ namespace ClientsAgregator
         {
             NavigationService.Navigate(new AddOrderPage());
         }
+
+        private void buttonEdit_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new UpdateOrderPage(
+                _ordersInfoModels[gridOrders.SelectedIndex]));
+        }
     }
 }
