@@ -114,5 +114,18 @@ namespace ClientsAgregator_DAL.Queries
                 conn.Query<int>(query, new { orderId });
             }
         }
+
+        public OrderDTO GetOrdersInfoById(int orderId)
+        {
+            string query = "ClientsAgregatorDB.GetOrdersInfoById @OrderId";
+            OrderDTO orderDTO;
+
+            using (IDbConnection conn = new SqlConnection(Options.connectionString))
+            {
+                orderDTO = conn.Query<OrderDTO>(query, new { orderId }).FirstOrDefault();
+            }
+
+            return orderDTO;
+        }
     }
 }
