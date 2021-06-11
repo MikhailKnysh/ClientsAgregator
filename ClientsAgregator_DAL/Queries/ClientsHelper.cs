@@ -1,4 +1,5 @@
-﻿using ClientsAgregator_DAL.Models;
+﻿using ClientsAgregator_DAL.Interface;
+using ClientsAgregator_DAL.Models;
 using Dapper;
 using System.Collections.Generic;
 using System.Data;
@@ -7,7 +8,7 @@ using System.Linq;
 
 namespace ClientsAgregator_DAL.Queries
 {
-    public class ClientsHelper
+    public class ClientsHelper : IClientsHelper
     {
         public void AddClient(AddClientDTO addClientDTO)
         {
