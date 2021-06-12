@@ -29,6 +29,9 @@ namespace ClientsAgregator
 
         private void AddingProductWindow_Loaded(object sender, RoutedEventArgs e)
         {
+            GroupComboBox.Items.Clear();
+            SubgroupComboBox.Items.Clear();
+            MeasureUnitComboBox.Items.Clear();
             SubgroupComboBox.IsEnabled = false;
             _controller = new Controller();
             List<GroupInfoModel> groupModels = _controller.GetGroups();
@@ -78,18 +81,25 @@ namespace ClientsAgregator
             };
 
             _controller.AddProduct(addingProductModel);
+            NavigationService.Navigate(new ListOfProductsPage());
         }
 
         private void AddGroupButton_Click(object sender, RoutedEventArgs e)
         {
             AddigGroup group = new AddigGroup();
-            group.ShowDialog();
+            if (group.ShowDialog() == true)
+            {
+                AddingProductWindow_Loaded(sender, e);
+            }
         }
 
         private void AddSubgroupButton_Click(object sender, RoutedEventArgs e)
         {
             AddingSubgroup subgroup = new AddingSubgroup();
-            subgroup.ShowDialog();
+            if (subgroup.ShowDialog() == true)
+            {
+                AddingProductWindow_Loaded(sender, e);
+            }
         }
 
         private void GroupComboBox_TextChanged(object sender, RoutedEventArgs e)
@@ -100,6 +110,16 @@ namespace ClientsAgregator
             CollectionView cv = (CollectionView)CollectionViewSource.GetDefaultView(GroupComboBox.Items);
             cv.Filter = s =>
                 ((string)s).IndexOf(GroupComboBox.Text, StringComparison.CurrentCultureIgnoreCase) >= 0;
+        }
+
+        private void AddMeasureUnitButton_Click(object sender, RoutedEventArgs e)
+        {
+            MeasureUnitWindow measureUnitWindow = new MeasureUnitWindow();
+
+            if (measureUnitWindow.ShowDialog() == true)
+            {
+                AddingProductWindow_Loaded(sender, e); 
+            }
         }
     }
 }

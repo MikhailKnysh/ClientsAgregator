@@ -14,7 +14,7 @@
             <ColumnDefinition Width="150"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Frame x:Name="MainFrame" Grid.Column="1" NavigationUIVisibility="Hidden"></Frame>
+        <Frame x:Name="MainFrame" Grid.Column="1" HorizontalAlignment="Stretch" NavigationUIVisibility="Hidden"></Frame>
         <Grid x:Name="Menu" Grid.Column="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="3*"></RowDefinition>

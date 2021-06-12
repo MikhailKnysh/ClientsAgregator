@@ -160,5 +160,15 @@ namespace ClientsAgregator_DAL.Queries
 
             return productInfoDTO;
         }
+
+        public void AddMeasureUnits(string Title)
+        {
+            string query = "ClientsAgregatorDB.AddMeasureUnit";
+
+            using (IDbConnection conn = new SqlConnection(Options.connectionString))
+            {
+                conn.Query<int>(query, new { Title }, commandType: CommandType.StoredProcedure);
+            }
+        }
     }
 }

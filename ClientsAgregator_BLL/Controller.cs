@@ -161,6 +161,11 @@ namespace ClientsAgregator_BLL
             _productsHelper.AddProductGroup(groupTitle);
         }
 
+        public void AddMeasureUnuit(string measureUnitTitle)
+        {
+            _productsHelper.AddMeasureUnits(measureUnitTitle);
+        }
+
         public void AddSubgropGroup(int groupId, string subgroupTitle)
         {
             int subgroupId = _productsHelper.AddProductSubgroup(subgroupTitle);
@@ -262,7 +267,7 @@ namespace ClientsAgregator_BLL
             return productsSubgroupModels;
         }
 
-        public List<InterestedClientInfoByProductModel> GetMainModels(int productId)
+        public List<InterestedClientInfoByProductModel> GetInterestedClientInfoByProduct(int productId)
         {
             var config = new MapperConfiguration(cfg => cfg.CreateMap<InterestedClientInfoByProductDTO, InterestedClientInfoByProductModel>());
             Mapper mapper = new Mapper(config);
@@ -271,6 +276,17 @@ namespace ClientsAgregator_BLL
 
             return clientByIdModels;
         }
+
+        public List<InterestedClientInfoByProductModel> GetInterestedClientInfoBySubgroup(int subgroupId)
+        {
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<InterestedClientInfoByProductDTO, InterestedClientInfoByProductModel>());
+            Mapper mapper = new Mapper(config);
+
+            List<InterestedClientInfoByProductModel> clientByIdModels = mapper.Map<List<InterestedClientInfoByProductModel>>(_mainsHelper.GetInterestedClientInfoBySubgroup(subgroupId));
+
+            return clientByIdModels;
+        }
+
 
         public int GetSpendMoneyCountByClientIdModels(int Id)
         {

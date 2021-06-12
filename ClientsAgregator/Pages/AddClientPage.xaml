@@ -5,48 +5,88 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ClientsAgregator.Pages"
       mc:Ignorable="d" 
-      Title="AddClientPage" MinHeight="500" MinWidth="700" Loaded="Page_Loaded">
+      Title="AddClientPage"  Background="LightGray" MinHeight="535" MinWidth="1000" Loaded="Page_Loaded">
 
-    <Grid x:Name="AddClientRoot" Background="White">
+    <Page.Resources>
+
+        <Style x:Key="StyleForLabelLeft" TargetType="Label">
+            <Setter Property="Margin" Value="50,0,0,0"></Setter>
+            <Setter Property="Width" Value="auto"></Setter>
+            <Setter Property="Height" Value="60"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+            <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+            <Setter Property="FontSize" Value="18"></Setter>
+        </Style>
+
+        <Style x:Key="StyleForLabelCenter" TargetType="Label">
+            <Setter Property="Margin" Value="12,0,0,0"></Setter>
+            <Setter Property="Width" Value="auto"></Setter>
+            <Setter Property="Height" Value="60"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+            <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+            <Setter Property="FontSize" Value="18"></Setter>
+        </Style>
+
+        <Style x:Key="StyleForTextBox" TargetType="TextBox" >
+            <Setter Property="Width" Value="130"></Setter>
+            <Setter Property="Margin" Value="0,0,60,0"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+            <Setter Property="FontSize" Value="15"></Setter>
+            <Setter Property="TextWrapping" Value="Wrap"></Setter>
+            <Setter Property="MaxHeight" Value="30"></Setter>
+            <Setter Property="Text" Value=""></Setter>
+
+        </Style>
+    </Page.Resources>
+
+    <Grid x:Name="AddClientRoot" Background="White" HorizontalAlignment="Center" VerticalAlignment="Center">
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition MinHeight="120"></RowDefinition>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition MinHeight="90"></RowDefinition>
+            <RowDefinition MinHeight="60"></RowDefinition>
+            <RowDefinition MinHeight="60"></RowDefinition>
+            <RowDefinition MinHeight="60"></RowDefinition>
+            <RowDefinition MinHeight="60"></RowDefinition>
+            <RowDefinition MinHeight="130"></RowDefinition>
+            <RowDefinition MinHeight="40"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition MaxWidth="150"></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition MaxWidth="150"></ColumnDefinition>
+            <ColumnDefinition Width="250"></ColumnDefinition>
+            <ColumnDefinition Width="250"></ColumnDefinition>
+            <ColumnDefinition Width="250"></ColumnDefinition>
+            <ColumnDefinition Width="250"></ColumnDefinition>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="buttonBack" Margin="10,5,0,0" VerticalAlignment="Top" Click="buttonBack_Click" Style="{StaticResource ButtonBack}" Template="{StaticResource ButtonBackTemplate}"/>
+        <Button x:Name="buttonBack" Margin="50,0,0,0" VerticalAlignment="Center" Click="buttonBack_Click" Style="{StaticResource ButtonBack}" Template="{StaticResource ButtonBackTemplate}"/>
+        <Line Stroke="Black" StrokeThickness="2" X1="0" Y1="0" X2="1000" Y2="0"  Grid.ColumnSpan="4" VerticalAlignment="Center" Margin="0,50,0,0"  Grid.Row="0"></Line>
 
-        <Label Content="Фамилия" HorizontalAlignment="Center" Margin="69,0,0,0" Grid.Row="2" VerticalAlignment="Center" Width="60" Height="30"/>
-        <Label Content="Имя" HorizontalAlignment="Center" Margin="69,20,0,0" Grid.Row="3" VerticalAlignment="Top" Width="60" Height="30"/>
-        <Label Content="Отчество" HorizontalAlignment="Center" Margin="69,0,0,0" Grid.Row="4" VerticalAlignment="Center" Width="60" Height="30"/>
-        <Label Content="Пол" HorizontalAlignment="Center" Margin="69,0,0,0" Grid.Row="5" VerticalAlignment="Center" Width="60" Height="30"/>
-        <Label Content="Телефон" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Width="60" Height="30"/>
-        <Label Content="E-mail" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" Width="60" Height="30"/>
-        <Label Content="Статус" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Center" Width="60" Height="30"/>
-        <Label Content="ДОБАВИТЬ КЛИЕНТА" Grid.Column="0" HorizontalAlignment="Center" Margin="65,32,0,0" VerticalAlignment="Top" Height="30" Width="160" Grid.ColumnSpan="4" Grid.Row="1"/>
-        <Button x:Name="buttonSave" Content="Сохранить" HorizontalAlignment="Center" Margin="10" Grid.Row="7" VerticalAlignment="Center" Height="30" Width="150" Grid.ColumnSpan="2" Click="buttonSave_Click"/>
-        <Button x:Name="buttonCancel" Content="Отменить" Grid.Column="2" HorizontalAlignment="Center" Margin="10" Grid.Row="7" VerticalAlignment="Center" Width="150" Height="30" Grid.ColumnSpan="2" Click="buttonBack_Click"/>
-        <ComboBox x:Name="ComboBoxMale" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="5" VerticalAlignment="Center" Width="130">
+        <Label Content="Фамилия" Grid.Row="2" Style="{StaticResource StyleForLabelLeft}"/>
+        <Label Content="Имя" Grid.Row="3" Style="{StaticResource StyleForLabelLeft}"/>
+        <Label Content="Отчество" Grid.Row="4" Style="{StaticResource StyleForLabelLeft}"/>
+        <Label Content="Пол" Grid.Row="5" Style="{StaticResource StyleForLabelLeft}"/>
+        <Label Content="Телефон" Grid.Column="2" Grid.Row="2" Style="{StaticResource StyleForLabelCenter}"/>
+        <Label Content="E-mail" Grid.Column="2" Grid.Row="3" Style="{StaticResource StyleForLabelCenter}"/>
+        <Label Content="Статус"  Grid.Column="2" Grid.Row="4" Style="{StaticResource StyleForLabelCenter}"/>
+        <Label Content="ДОБАВИТЬ КЛИЕНТА" Grid.Column="0" HorizontalAlignment="Center"   VerticalAlignment="Top" Height="auto" Width="auto" FontSize="25" FontWeight="Bold" Grid.ColumnSpan="4" Grid.Row="1"/>
+        <Button x:Name="buttonSave" Content="Сохранить"  HorizontalAlignment="Center" Margin="48,0,0,15" Grid.Row="7" VerticalAlignment="Center" Height="37" Width="206" Grid.ColumnSpan="2" Click="buttonSave_Click"/>
+        <Button x:Name="buttonCancel" Content="Отменить" Grid.Column="2" HorizontalAlignment="Center" Margin="45,0,0,15" Grid.Row="7"  VerticalAlignment="Center" Width="206" Height="37" Grid.ColumnSpan="2" Click="buttonBack_Click"/>
+        <ComboBox x:Name="ComboBoxMale" Grid.Column="1" Grid.Row="5"  Width="130" Margin="0,0,60,0" VerticalAlignment="Center" MaxHeight="30" FontSize="15">
             <TextBlock>Мужчина</TextBlock>
             <TextBlock>Женщина</TextBlock>
         </ComboBox>
-        <ComboBox x:Name="ComboBoxBulkStatus" Grid.Column="3" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Center" Width="130" Margin="10"></ComboBox>
-        <TextBox x:Name="TextBoxLastName" Grid.Column="1" HorizontalAlignment="Center" Margin="10" Grid.Row="2" Text="" TextWrapping="Wrap" VerticalAlignment="Center" Width="120"/>
-        <TextBox x:Name="TextBoxFirstName" Grid.Column="1" HorizontalAlignment="Center" Margin="10" Grid.Row="3" Text="" TextWrapping="Wrap" VerticalAlignment="Center" Width="120"/>
-        <TextBox x:Name="TextBoxMiddleName" Grid.Column="1" HorizontalAlignment="Center" Margin="10" Grid.Row="4" Text="" TextWrapping="Wrap" VerticalAlignment="Center" Width="120"/>
-        <TextBox x:Name="TextBoxPhone" Grid.Column="3" HorizontalAlignment="Center" Grid.Row="2" Text="" TextWrapping="Wrap" VerticalAlignment="Center" Width="120"/>
-        <TextBox x:Name="TextBoxEmail" Grid.Column="3" HorizontalAlignment="Center" Grid.Row="3" Text="" TextWrapping="Wrap" VerticalAlignment="Center" Width="120"/>
-        <Label Content="Комментарий" HorizontalAlignment="Center" Margin="10" Grid.Row="6" VerticalAlignment="Top"/>
-        <TextBox x:Name="TextBoxCommentAboutClient" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="6" Text="" TextWrapping="Wrap" VerticalAlignment="Stretch" Grid.ColumnSpan="3" Margin="10"/>
+        <ComboBox x:Name="ComboBoxBulkStatus"  Grid.Column="3"  Grid.Row="4"  Width="130" Margin="0,0,60,0" VerticalAlignment="Center" MaxHeight="30" FontSize="15"></ComboBox>
+        <TextBox x:Name="TextBoxLastName"  Grid.Column="1" Grid.Row="2" Style="{StaticResource StyleForTextBox}"/>
+        <TextBox x:Name="TextBoxFirstName" Grid.Column="1" Grid.Row="3" Style="{StaticResource StyleForTextBox}"/>
+        <TextBox x:Name="TextBoxMiddleName" Grid.Column="1" Grid.Row="4" Style="{StaticResource StyleForTextBox}"/>
+        <TextBox x:Name="TextBoxPhone" Grid.Column="3" Grid.Row="2" Style="{StaticResource StyleForTextBox}"/>
+        <TextBox x:Name="TextBoxEmail" Grid.Column="3" Grid.Row="3" Style="{StaticResource StyleForTextBox}"/>
+        <Label Content="Комментарий" HorizontalAlignment="Left" Margin="50,0,0,0" FontSize="18" Grid.Row="6" VerticalAlignment="Top" />
+        <TextBox x:Name="TextBoxCommentAboutClient"  Grid.Row="6"
+                     HorizontalAlignment="center"  Text="" 
+                     TextWrapping="Wrap" VerticalAlignment="Top" 
+                     Width="500" Height="100" 
+                     Grid.ColumnSpan="4" Margin="80,10,0,0" 
+                     RenderTransformOrigin="0.504,0.49"/>
     </Grid>
 </Page>

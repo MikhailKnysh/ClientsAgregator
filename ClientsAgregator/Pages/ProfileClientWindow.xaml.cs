@@ -10,10 +10,15 @@ namespace ClientsAgregator
     /// Interaction logic for ProfileClientWindow.xaml
     /// </summary>
     public partial class ProfileClientWindow : Page
-    {        private Controller _controller = new Controller();        private ProductsBuyClientAndFeedback _productsBuyClientAndFeedback = new ProductsBuyClientAndFeedback();
-        private ClientModel _clientModel;
+    {
+        private Controller _controller = new Controller();
+        private ProductsBuyClientAndFeedback _productsBuyClientAndFeedback = new ProductsBuyClientAndFeedback();
+
+        private ClientModel _clientModel;
+
         private List<ProductBuyClientModel> _productsBuyClientModels;
-        private int _idClient;
+        private int _idClient;
+
         public ProfileClientWindow(int IdClient)
         {
             InitializeComponent();
@@ -30,9 +35,19 @@ namespace ClientsAgregator
             phoneLabel.Content = _clientModel.Phone;
             bulkstatusLabel.Content = _clientModel.BulkStatusTitle;
             MaleLabel.Content = _clientModel.Male;
-            totalPriceLabel.Content = _controller.GetSpendMoneyCountByClientIdModels(_idClient);
+            TextBoxCommentAboutClient.Text = _clientModel.СommentAboutСlient; 
 
             _productsBuyClientModels = _productsBuyClientAndFeedback.GetProductBuyClientAndFeedback(_idClient);
+
+            if (_productsBuyClientModels.Count != 0)
+            {
+                totalPriceLabel.Content = _controller.GetSpendMoneyCountByClientIdModels(_idClient);
+
+            }
+            else
+            {
+                totalPriceLabel.Content = "0";
+            }
 
             for (int i = 0; i < _productsBuyClientModels.Count; i++)
             {
