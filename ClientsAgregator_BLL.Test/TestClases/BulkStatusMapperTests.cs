@@ -24,7 +24,7 @@ namespace ClientsAgregator_BLL.Test.TestClases
         [TestCaseSource(typeof(GetModelsBulkStatusFromDTOSource))]
         public void GetModelsFromDTO_WhenValidTestPassed_ShouldReturnListBulkStatusModels(List<BulkStatusDTO> actualBulkStatusesDTO, List<BulkStatusModel> expected)
         {
-            _mock.Setup(ClientsHelper => ClientsHelper.GetBulkStatuses()).Returns(actualBulkStatusesDTO);
+            _mock.Setup(сlientsHelper => сlientsHelper.GetBulkStatuses()).Returns(actualBulkStatusesDTO);
             List<BulkStatusModel> actual = _controller.GetBulkStatusesModels();
 
             Assert.AreEqual(expected, actual);

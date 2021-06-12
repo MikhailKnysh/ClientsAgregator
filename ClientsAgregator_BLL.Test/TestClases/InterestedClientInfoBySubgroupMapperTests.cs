@@ -8,7 +8,7 @@ using NUnit.Framework;
 
 namespace ClientsAgregator_BLL.Test.TestClases
 {
-    class GetInterestedClientInfoBySubgroupTests
+    class InterestedClientInfoBySubgroupMapperTests
     {
         private Controller _controller;
         private Mock<IMainsHelper> _mock;
