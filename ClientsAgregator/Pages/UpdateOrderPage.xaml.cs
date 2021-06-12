@@ -34,7 +34,7 @@ namespace ClientsAgregator.Pages
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             _controller = new Controller();
-            _productInOrderModels = new List<ProductInOrderModel>();
+            _productInOrderModels = _controller.GetProductsInOrderByOrderId(_ordersInfoModel.Id);
 
             labelPageTitle.Content += _ordersInfoModel.Id.ToString();
 
@@ -47,6 +47,8 @@ namespace ClientsAgregator.Pages
             string fullName = $"{_ordersInfoModel.LastName} {_ordersInfoModel.FirstName} {_ordersInfoModel.MiddleName}";
             comboBoxClient.SelectedItem = fullName;
 
+            textBoxDate.Text = _ordersInfoModel.OrderDate;
+
             _statuses = _controller.GetStatusModels();
             foreach (var status in _statuses)
             {
@@ -58,7 +60,6 @@ namespace ClientsAgregator.Pages
                                        where s.Id == _orderModel.StatusesId
                                        select s).FirstOrDefault();
 
-            //StatusModel statusModel = _statuses.FirstOrDefault(s => s.Id == _orderModel.StatusesId);
             comboBoxStatus.SelectedItem = statusModel.Title;
 
             _products = _controller.GetProductsSubgroupModels();
@@ -67,6 +68,10 @@ namespace ClientsAgregator.Pages
                 comboBoxProduct.Items.Add(product.ProductTitle);
             }
 
+            gridProductsInOrder.ItemsSource = _productInOrderModels;
+
+            textBoxOrderRevie.Text = _ordersInfoModel.OrderReview;
+            textBoxTotalPrice.Text = _ordersInfoModel.TotalPrice.ToString();
         }
 
         private void buttonBack_Click(object sender, RoutedEventArgs e)
@@ -87,7 +92,7 @@ namespace ClientsAgregator.Pages
                 MeasureUnitTitle = _productInfoModel.MeasureUnit,
                 GroupTitle = _productInfoModel.Group,
                 SubgroupTitle = _productInfoModel.Subgroup,
-                Rate = -1
+                Rate = Convert.ToInt32(comboBoxRate.Text)
             };
 
             _productInOrderModels.Add(productInOrderModel);
@@ -96,11 +101,23 @@ namespace ClientsAgregator.Pages
             textBoxTotalPrice.Text = totalPrice.ToString();
 
             gridProductsInOrder.Items.Add(productInOrderModel);
+
+            //ContentPresenter contentPresenter = e.Cok
+            //TODO Load rate into comboBoxRateInGrid
         }
 
         private void comboBoxProduct_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            string productTitle = comboBoxProduct.SelectedItem.ToString();
 
+            int productId = (from p in _products
+                             where p.ProductTitle.Equals(productTitle)
+                             select p.ProductId)
+                            .FirstOrDefault();
+
+            _productInfoModel = _controller.GetProductInfoModel(productId);
+
+            labelMeasureUnit.Content = _productInfoModel.MeasureUnit;
         }
 
         private void buttonRemove_Click(object sender, RoutedEventArgs e)

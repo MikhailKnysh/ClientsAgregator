@@ -167,6 +167,7 @@
     <Build Include="dbo\Stored Procedures\GetProductSubgroup.sql" />
     <Build Include="dbo\Stored Procedures\GetClientInfoBySubgroup.sql" />
     <Build Include="dbo\Stored Procedures\GetOrdersInfoById.sql" />
+    <Build Include="dbo\Stored Procedures\GetProductsInorderByOrderId.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="ClientsAgregator.Database.refactorlog" />

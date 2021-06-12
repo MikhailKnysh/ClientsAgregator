@@ -277,7 +277,8 @@ namespace ClientsAgregator_BLL
                 );
             Mapper mapper = new Mapper(config);
 
-            List<InterestedClientInfoByProductModel> clientByIdModels = mapper.Map<List<InterestedClientInfoByProductModel>>(_mainsHelper.GetInterestedClientInfoByProduct(productId));
+            List<InterestedClientInfoByProductModel> clientByIdModels 
+                = mapper.Map<List<InterestedClientInfoByProductModel>>(_mainsHelper.GetInterestedClientInfoByProduct(productId));
 
             return clientByIdModels;
         }
@@ -320,6 +321,16 @@ namespace ClientsAgregator_BLL
             OrderModel orderModel = mapper.Map<OrderModel>(_ordersHelper.GetOrdersInfoById(orderId));
 
             return orderModel;
+        }
+
+        public List<ProductInOrderModel> GetProductsInOrderByOrderId(int orderId)
+        {
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<ProductInOrderDTO, ProductInOrderModel>());
+            Mapper mapper = new Mapper(config);
+
+            List<ProductInOrderModel> productsInOrder = mapper.Map<List<ProductInOrderModel>>(_ordersHelper.GetProductsInOrderByOrderId(orderId));
+
+            return productsInOrder;
         }
     }
 }
