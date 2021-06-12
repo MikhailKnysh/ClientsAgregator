@@ -74,6 +74,9 @@ namespace ClientsAgregator
             string price = PriceTextBox.Text;
 
             bool isAdding = true;
+            bool isTitleNotUnique = false;
+
+            List<ProductsSubgropModel> _products = _controller.GetProductsSubgroupModels();
 
             foreach (UIElement item in AddProductGrid.Children)
             {
@@ -84,6 +87,17 @@ namespace ClientsAgregator
                 }
             }
 
+            foreach (var product in _products)
+            {
+                isTitleNotUnique =  product.ProductTitle.Contains(title);
+                
+                if(isTitleNotUnique)
+                {
+
+                    break;
+                }
+            }
+
             if (!(ValidationData.IsValidStringLenght(articul, 255)))
             {
                 ArticulTextBox.ToolTip = "Это поле введено некорректно";
@@ -91,10 +105,11 @@ namespace ClientsAgregator
                 isAdding = false;
             }
 
-            if (!(ValidationData.IsValidStringLenght(title, 255))                    //добавить проверку на уникальность!!!
-                || !(ValidationData.IsStringNotNull(title)))
+            if (!(ValidationData.IsValidStringLenght(title, 255))
+                || !(ValidationData.IsStringNotNull(title))
+                || (isTitleNotUnique))
             {
-                TitelTextBox.ToolTip = "Это поле введено некорректно";
+                TitelTextBox.ToolTip = "Это поле введено некорректно или название продукта не уникально";
                 TitelTextBox.Background = Brushes.Tomato;
                 isAdding = false;
             }
@@ -119,6 +134,13 @@ namespace ClientsAgregator
             {
                 SubgroupComboBox.ToolTip = "Это поле введено некорректно";
                 SubgroupComboBox.Background = Brushes.Tomato;
+                isAdding = false;
+            }
+
+            if (!(ValidationData.IsStringNotNull(GroupComboBox.Text.Trim())))
+            {
+                GroupComboBox.ToolTip = "Это поле введено некорректно";
+                GroupComboBox.Background = Brushes.Tomato;
                 isAdding = false;
             }
 

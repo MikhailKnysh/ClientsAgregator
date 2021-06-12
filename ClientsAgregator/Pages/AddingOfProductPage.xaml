@@ -38,7 +38,7 @@
         </Style>
     </Page.Resources>
     
-    <Grid Background="White" VerticalAlignment="Center" HorizontalAlignment="Center"  MinWidth="800">
+    <Grid x:Name="AddProductGrid" Background="White" VerticalAlignment="Center" HorizontalAlignment="Center"  MinWidth="800">
         <Grid.RowDefinitions>
             <RowDefinition Height="60"></RowDefinition>
             <RowDefinition MinHeight="60"></RowDefinition>

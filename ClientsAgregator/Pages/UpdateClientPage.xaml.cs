@@ -61,7 +61,7 @@ namespace ClientsAgregator
 
             bool isAdding = true;
 
-            foreach (UIElement item in UpdateClientGrid.Children)
+            foreach (UIElement item in UpdateClientRoot.Children)
             {
                 if (item is TextBox)
                 {
@@ -103,7 +103,7 @@ namespace ClientsAgregator
 
             if (!(ValidationData.IsValidPhone(phone)) || !(ValidationData.IsValidStringLenght(commentAboutСlient, validCharQuantity: 60)))
             {
-                TextBoxPhone.ToolTip = "Это поле введено некорректно";
+                TextBoxPhone.ToolTip = "Это поле введено некорректно. Обязательно введите первым символ + и потом цифры номера";
                 TextBoxPhone.Background = Brushes.Tomato;
                 isAdding = false;
             }

@@ -74,21 +74,21 @@ namespace ClientsAgregator.Pages
                 isAdding = false;
             }
 
-            if(!(ValidationData.IsStringNotNull(comboBoxClient.Text)))
+            if(!(ValidationData.IsStringNotNull(comboBoxClient.Text.Trim())))
             {
                 comboBoxClient.ToolTip = "Это поле введено некорректно";
                 comboBoxClient.Background = Brushes.Tomato;
                 isAdding = false;
             }
 
-            if (!(ValidationData.IsStringNotNull(comboBoxProduct.Text)))
+            if (!(ValidationData.IsStringNotNull(comboBoxProduct.Text.Trim())))
             {
                 comboBoxProduct.ToolTip = "Это поле введено некорректно";
                 comboBoxProduct.Background = Brushes.Tomato;
                 isAdding = false;
             }
 
-            if (!(ValidationData.IsStringNotNull(comboBoxStatus.Text)))
+            if (!(ValidationData.IsStringNotNull(comboBoxStatus.Text.Trim())))
             {
                 comboBoxStatus.ToolTip = "Это поле введено некорректно";
                 comboBoxStatus.Background = Brushes.Tomato;

@@ -25,9 +25,19 @@ namespace ClientsAgregator
 
         private void AcceptButton_Click(object sender, RoutedEventArgs e)
         {
-            Controller controller = new Controller();
-            controller.AddMeasureUnuit(MeasureUnitTextBox.Text);
-            this.DialogResult = true;
+            string measureUnit = MeasureUnitTextBox.Text.Trim();
+
+            if (ValidationData.IsValidStringLenght(measureUnit, 255) && ValidationData.IsStringNotNull(measureUnit))
+            {
+                Controller controller = new Controller();
+                controller.AddMeasureUnuit(measureUnit);
+                this.DialogResult = true;
+            }
+            else
+            {
+                MeasureUnitTextBox.Background = Brushes.Tomato;
+                MeasureUnitTextBox.ToolTip = "Это поле введено некорректно";
+            }
         }
     }
 }

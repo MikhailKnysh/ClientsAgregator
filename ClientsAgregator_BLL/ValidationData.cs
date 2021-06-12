@@ -83,7 +83,7 @@ namespace ClientsAgregator_BLL
             try
             {
                 return Regex.IsMatch(phone,
-                    @"^\+[0-9]{11}$",
+                    @"^\+[0-9]{11,16}$",
                     RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(250));
             }
             catch (RegexMatchTimeoutException)
@@ -94,7 +94,7 @@ namespace ClientsAgregator_BLL
 
         public static bool IsValidStringLenght(string str, int validCharQuantity)
         {
-            int minLength = 1;
+            int minLength = 0;
 
             if(str.Length <= validCharQuantity && str.Length > minLength
                      && !(string.IsNullOrWhiteSpace(str)))

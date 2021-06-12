@@ -52,21 +52,24 @@ namespace ClientsAgregator.Pages
 
         private void CreateButton_Click(object sender, RoutedEventArgs e)
         {
-            InterestedClientBySubgroupGrid.Items.Clear();
-            InterestedClientByProductGrid.Items.Clear();
-            int subgroupId = productsSubgropModels[ProductsSubgroupComboBox.SelectedIndex].SubgroupId;
-            int productId = productsSubgropModels[ProductsSubgroupComboBox.SelectedIndex].ProductId;
-            interestedClientInfoBySubgroupModels = _controller.GetInterestedClientInfoBySubgroup(subgroupId);
-            interestedClientInfoByProductModels = _controller.GetInterestedClientInfoByProduct(productId);
-
-            foreach (var intrClient in interestedClientInfoByProductModels)
+            if (ValidationData.IsStringNotNull(ProductsSubgroupComboBox.Text.Trim()))           //нужна ли проверка, если кнопка и так не активна пока что-то не выберешь?
             {
-                InterestedClientByProductGrid.Items.Add(intrClient);
-            }
+                InterestedClientBySubgroupGrid.Items.Clear();
+                InterestedClientByProductGrid.Items.Clear();
+                int subgroupId = productsSubgropModels[ProductsSubgroupComboBox.SelectedIndex].SubgroupId;
+                int productId = productsSubgropModels[ProductsSubgroupComboBox.SelectedIndex].ProductId;
+                interestedClientInfoBySubgroupModels = _controller.GetInterestedClientInfoBySubgroup(subgroupId);
+                interestedClientInfoByProductModels = _controller.GetInterestedClientInfoByProduct(productId);
 
-            foreach (var intrClient in interestedClientInfoBySubgroupModels)
-            {
-                InterestedClientBySubgroupGrid.Items.Add(intrClient);
+                foreach (var intrClient in interestedClientInfoByProductModels)
+                {
+                    InterestedClientByProductGrid.Items.Add(intrClient);
+                }
+
+                foreach (var intrClient in interestedClientInfoBySubgroupModels)
+                {
+                    InterestedClientBySubgroupGrid.Items.Add(intrClient);
+                }
             }
         }
 
