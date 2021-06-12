@@ -7,7 +7,7 @@ using System.Text;
 
 namespace ClientsAgregator_BLL.Test.Sources.ClientsSources
 {
-    class GetModelsClientsByIdFromDTO : IEnumerable
+    class GetModelsClientsByIdFromDTOSourse : IEnumerable
     {
         public IEnumerator GetEnumerator()
         {
