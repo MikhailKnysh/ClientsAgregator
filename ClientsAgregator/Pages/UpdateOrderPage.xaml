@@ -68,18 +68,16 @@
                     <DataGridTextColumn Header="Ед. измерения" Binding="{Binding MeasureUnitTitle}"/>
                     <DataGridTextColumn Header="Группа" Binding="{Binding GroupTitle}"/>
                     <DataGridTextColumn Header="Подгруппа" Binding="{Binding SubgroupTitle}"/>
-                    <DataGridTemplateColumn x:Name="RateColumn" Width="60" Header="Оценка">
+                    <DataGridTemplateColumn Header="Оценка" Width="60">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Grid>
-                                    <ComboBox x:Name="comboBoxRateInGrid" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="14">
-                                        <ComboBoxItem>1</ComboBoxItem>
-                                        <ComboBoxItem>2</ComboBoxItem>
-                                        <ComboBoxItem>3</ComboBoxItem>
-                                        <ComboBoxItem>4</ComboBoxItem>
-                                        <ComboBoxItem>5</ComboBoxItem>
-                                    </ComboBox>
-                                </Grid>
+                                <ComboBox x:Name="comboBoxRateInGrid" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="14" SelectionChanged="comboBoxRateInGrid_SelectionChanged">
+                                    <ComboBoxItem>1</ComboBoxItem>
+                                    <ComboBoxItem>2</ComboBoxItem>
+                                    <ComboBoxItem>3</ComboBoxItem>
+                                    <ComboBoxItem>4</ComboBoxItem>
+                                    <ComboBoxItem>5</ComboBoxItem>
+                                </ComboBox>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
