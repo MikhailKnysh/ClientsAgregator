@@ -16,5 +16,20 @@ namespace ClientsAgregator_BLL.CustomModels.ProductsModel
         public string ProductTitle { get; set; }
         public int SumQuantity { get; set; }
         public int AVGRate { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            return obj is InterestedClientInfoByProductModel model &&
+                   ClientId == model.ClientId &&
+                   LastName == model.LastName &&
+                   FirstName == model.FirstName &&
+                   MiddleName == model.MiddleName &&
+                   Phone == model.Phone &&
+                   BulkStatusTitle == model.BulkStatusTitle &&
+                   ProductId == model.ProductId &&
+                   ProductTitle == model.ProductTitle &&
+                   SumQuantity == model.SumQuantity &&
+                   AVGRate == model.AVGRate;
+        }
     }
 }

@@ -16,5 +16,18 @@ namespace ClientsAgregator_BLL.CustomModels
         public int BulkStatusId { get; set; }
         public string Male { get; set; }
         public string СommentAboutСlient { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            return obj is AddClientModel model &&
+                   LastName == model.LastName &&
+                   FirstName == model.FirstName &&
+                   MiddleName == model.MiddleName &&
+                   Phone == model.Phone &&
+                   Email == model.Email &&
+                   BulkStatusId == model.BulkStatusId &&
+                   Male == model.Male &&
+                   СommentAboutСlient == model.СommentAboutСlient;
+        }
     }
 }

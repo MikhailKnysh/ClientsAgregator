@@ -9,6 +9,18 @@
         public string GroupName { get; set; }
         public string SubGroupName { get; set; }
         public string AVGRate { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            return obj is ProductBuyClientModel model &&
+                   ProductId == model.ProductId &&
+                   Articul == model.Articul &&
+                   Title == model.Title &&
+                   SUMQuantity == model.SUMQuantity &&
+                   GroupName == model.GroupName &&
+                   SubGroupName == model.SubGroupName &&
+                   AVGRate == model.AVGRate;
+        }
     }
 }
 

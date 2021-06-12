@@ -18,15 +18,17 @@ namespace ClientsAgregator_BLL
         IOrdersHelper _ordersHelper;
         IMainsHelper _mainsHelper;
 
-        public Controller(IClientsHelper clientsHelper = null,
+        public Controller(
+            IClientsHelper clientsHelper = null,
             IProductsHelper productsHelper = null,
             IOrdersHelper ordersHelper = null,
             IMainsHelper mainsHelper = null)
         {
-            _clientsHelper = new ClientsHelper() ?? clientsHelper;
-            _productsHelper = new ProductsHelper() ?? productsHelper;
-            _ordersHelper = new OrdersHelper() ?? ordersHelper;
-            _mainsHelper = new MainsHelper() ?? mainsHelper;
+
+            _clientsHelper = clientsHelper ?? new ClientsHelper();
+            _productsHelper = productsHelper ?? new ProductsHelper();
+            _ordersHelper = ordersHelper ?? new OrdersHelper();
+            _mainsHelper = mainsHelper ?? new MainsHelper();
         }
 
         public List<ClientsFullNameModel> GetClientsFullNameModels()
@@ -286,7 +288,6 @@ namespace ClientsAgregator_BLL
 
             return clientByIdModels;
         }
-
 
         public int GetSpendMoneyCountByClientIdModels(int Id)
         {

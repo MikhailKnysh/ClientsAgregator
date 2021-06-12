@@ -14,5 +14,6 @@ namespace ClientsAgregator_DAL.Models
         public int BulkStatusId { get; set; }
         public string Male { get; set; }
         public string СommentAboutСlient { get; set; }
+
     }
 }
