@@ -127,5 +127,19 @@ namespace ClientsAgregator_DAL.Queries
 
             return orderDTO;
         }
+
+        public List<ProductInOrderDTO> GetProductsInOrderByOrderId(int orderId)
+        {
+            string query = "ClientsAgregatorDB.GetProductsInOrderByOrderId @OrderId";
+
+            List<ProductInOrderDTO> productsInOrder;
+
+            using (IDbConnection conn = new SqlConnection(Options.connectionString))
+            {
+                productsInOrder = conn.Query<ProductInOrderDTO>(query, new { orderId }).AsList();
+            }
+
+            return productsInOrder;
+        }
     }
 }
