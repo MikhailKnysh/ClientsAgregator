@@ -21,7 +21,7 @@ namespace ClientsAgregator_BLL.Test.TestClases
             _controller = new Controller(_mock.Object, null, null, null);
         }
 
-        [TestCaseSource(typeof(GetModelsClientsByIdFromDTO))]
+        [TestCaseSource(typeof(GetModelsClientsByIdFromDTOSourse))]
         public void GetClientByIdModelsTests_WhenValidTestPassed_ShouldResultClientById(
             ClientDTO actualClientById, ClientModel expected)
         {
