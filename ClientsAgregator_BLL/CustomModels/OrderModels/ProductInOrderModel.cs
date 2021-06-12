@@ -12,5 +12,20 @@
         public string GroupTitle { get; set; }
         public string SubgroupTitle { get; set; }
         public int Rate { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            return obj is ProductInOrderModel model &&
+                   Articul == model.Articul &&
+                   ProductId == model.ProductId &&
+                   ProductTitle == model.ProductTitle &&
+                   Price == model.Price &&
+                   Quantity == model.Quantity &&
+                   MeasureUnitId == model.MeasureUnitId &&
+                   MeasureUnitTitle == model.MeasureUnitTitle &&
+                   GroupTitle == model.GroupTitle &&
+                   SubgroupTitle == model.SubgroupTitle &&
+                   Rate == model.Rate;
+        }
     }
 }

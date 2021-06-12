@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace ClientsAgregator_BLL.CustomModels.OrderModels
 {
@@ -12,5 +10,16 @@ namespace ClientsAgregator_BLL.CustomModels.OrderModels
         public string OrderReview { get; set; }
         public double TotalPrice { get; set; }
         public List<ProductInOrderModel> ProductsInOrder { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            return obj is NewOrderInfoModel model &&
+                   ClientId == model.ClientId &&
+                   OrderDate == model.OrderDate &&
+                   StatusesId == model.StatusesId &&
+                   OrderReview == model.OrderReview &&
+                   TotalPrice == model.TotalPrice &&
+                   EqualityComparer<List<ProductInOrderModel>>.Default.Equals(ProductsInOrder, model.ProductsInOrder);
+        }
     }
 }

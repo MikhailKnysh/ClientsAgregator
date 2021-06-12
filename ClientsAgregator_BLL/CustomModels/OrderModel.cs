@@ -15,5 +15,17 @@ namespace ClientsAgregator_BLL.CustomModels
         public string Title { get; set; }
         public string OrderReview { get; set; }
 
+        public override bool Equals(object obj)
+        {
+            return obj is OrderModel model &&
+                   Id == model.Id &&
+                   OrderDate == model.OrderDate &&
+                   LastName == model.LastName &&
+                   FirstName == model.FirstName &&
+                   MiddleName == model.MiddleName &&
+                   TotalPrice == model.TotalPrice &&
+                   Title == model.Title &&
+                   OrderReview == model.OrderReview;
+        }
     }
 }

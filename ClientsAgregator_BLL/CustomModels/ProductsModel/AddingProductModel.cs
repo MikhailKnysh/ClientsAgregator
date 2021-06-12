@@ -12,5 +12,16 @@ namespace ClientsAgregator_BLL.CustomModels.ProductsModel
         public int Quantity { get; set; }
         public int MeasureId { get; set; }
         public int SubgroupId { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            return obj is AddingProductModel model &&
+                   Articul == model.Articul &&
+                   Title == model.Title &&
+                   Price == model.Price &&
+                   Quantity == model.Quantity &&
+                   MeasureId == model.MeasureId &&
+                   SubgroupId == model.SubgroupId;
+        }
     }
 }

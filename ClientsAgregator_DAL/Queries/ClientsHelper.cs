@@ -136,17 +136,17 @@ namespace ClientsAgregator_DAL.Queries
 
             return feedbacks;
         }
-        public List<FeedbackDTO> GetFeedbackClientById(int id)
+        public FeedbackDTO GetFeedbackClientById(int id)
         {
             string query = "ClientsAgregatorDB.GetFeedbacks";
-            List<FeedbackDTO> feedbacks = new List<FeedbackDTO>();
+            FeedbackDTO feedback = new FeedbackDTO();
 
             using (IDbConnection conn = new SqlConnection(Options.connectionString))
             {
-                feedbacks = conn.Query<FeedbackDTO>(query, new { id}, commandType: CommandType.StoredProcedure).AsList();
+                feedback = conn.Query<FeedbackDTO>(query, new { id}, commandType: CommandType.StoredProcedure).FirstOrDefault();
             }
 
-            return feedbacks;
+            return feedback;
         }
     }
 }

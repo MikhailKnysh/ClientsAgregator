@@ -19,5 +19,6 @@ namespace ClientsAgregator_DAL.Interface
         public void DeleteProductById(int productId);
         public void DeleteProductSubgroupByProductId(int productId);
         public ProductInfoDTO GetProductInfoById(int productId);
+        
     }
 }

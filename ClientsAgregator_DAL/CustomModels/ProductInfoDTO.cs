@@ -14,5 +14,19 @@ namespace ClientsAgregator_DAL.CustomModels
         public string MeasureUnit { get; set; }
         public string Subgroup { get; set; }
         public string Group { get; set; }
+        public override bool Equals(object obj)
+        {
+            return obj is ProductInfoDTO model &&
+                   Id == model.Id &&
+                   Articul == model.Articul &&
+                   Title == model.Title &&
+                   Price == model.Price &&
+                   Quantity == model.Quantity &&
+                   MeasureUnit == model.MeasureUnit &&
+                   Subgroup == model.Subgroup &&
+                   Group == model.Group;
+        }
     }
+
+
 }
