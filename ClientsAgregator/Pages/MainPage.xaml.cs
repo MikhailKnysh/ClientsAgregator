@@ -69,5 +69,18 @@ namespace ClientsAgregator.Pages
                 InterestedClientBySubgroupGrid.Items.Add(intrClient);
             }
         }
+
+        private void ClientByProductButton_Click(object sender, RoutedEventArgs e)
+        {
+            int intrestedClientIndex = InterestedClientByProductGrid.SelectedIndex;
+            int intrestedClientId = interestedClientInfoByProductModels[intrestedClientIndex].ClientId;
+            NavigationService.Navigate(new ProfileClientWindow(intrestedClientId));
+        }
+        private void ClientBySubgroupButton_Click(object sender, RoutedEventArgs e)
+        {
+            int intrestedClientIndex = InterestedClientBySubgroupGrid.SelectedIndex;
+            int intrestedClientId = interestedClientInfoBySubgroupModels[intrestedClientIndex].ClientId;
+            NavigationService.Navigate(new ProfileClientWindow(intrestedClientId));
+        }
     }
 }

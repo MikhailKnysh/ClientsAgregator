@@ -48,7 +48,7 @@
                                                 <ColumnDefinition>
                                                 </ColumnDefinition>
                                             </Grid.ColumnDefinitions>
-                                            <!--<Button  Name="DescriptionByProductButton" Grid.Column="0" Height="20" Width="20" Background="Blue" Click="DescriptionByProductButton_Click" ></Button>-->
+                                            <Button  x:Name="ClientButton" Grid.Column="0" Height="20" Width="20" Background="Green" Click="ClientByProductButton_Click" />
                                         </Grid>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
@@ -80,7 +80,7 @@
                                                 <ColumnDefinition>
                                                 </ColumnDefinition>
                                             </Grid.ColumnDefinitions>
-                                            <!--<Button  Name="DescriptionBySubgroupButton"  Grid.Column="0" Height="20" Width="20" Background="Blue" Click="DescriptionBySubgroupButton_Click" ></Button>-->
+                                            <Button  Name="ClienBySubgroupButton"  Grid.Column="0" Height="20" Width="20" Background="Blue" Click="ClientBySubgroupButton_Click" ></Button>
                                         </Grid>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>

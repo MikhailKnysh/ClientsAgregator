@@ -1,7 +1,7 @@
 ﻿CREATE PROCEDURE [ClientsAgregatorDB].[GetClientInfoByProduct]
 @ProductId INT
 AS
-SELECT [ClientsAgregatorDB].[Clients].[Id],[ClientsAgregatorDB].[Clients].[LastName], [ClientsAgregatorDB].[Clients].[FirstName],[ClientsAgregatorDB].[Clients].[MiddleName],
+SELECT [ClientsAgregatorDB].[Clients].[Id] AS [ClientId],[ClientsAgregatorDB].[Clients].[LastName], [ClientsAgregatorDB].[Clients].[FirstName],[ClientsAgregatorDB].[Clients].[MiddleName],
 [ClientsAgregatorDB].[Clients].[Phone],[ClientsAgregatorDB].[BulkStatus].[Title] AS BulkStatusTitle,
 [ClientsAgregatorDB].[Product_Order].[ProductId],
 SUM (DISTINCT [ClientsAgregatorDB].[Product_Order].[Quantity])  AS SumQuantity,
