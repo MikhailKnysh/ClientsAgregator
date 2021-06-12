@@ -68,6 +68,11 @@ namespace ClientsAgregator.Pages
                 comboBoxProduct.Items.Add(product.ProductTitle);
             }
 
+            //foreach (UIElement item in gridProductsInOrder.ch)
+            //{
+
+            //}
+
             gridProductsInOrder.ItemsSource = _productInOrderModels;
 
             textBoxOrderRevie.Text = _ordersInfoModel.OrderReview;
