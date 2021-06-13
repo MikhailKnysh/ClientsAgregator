@@ -128,7 +128,7 @@
     <Build Include="dbo\Stored Procedures\Orders\GetOrdersById.sql" />
     <Build Include="dbo\Stored Procedures\Orders\UpdateOrderById.sql" />
     <Build Include="dbo\Stored Procedures\Feedbacks\AddFeedback.sql" />
-    <Build Include="dbo\Stored Procedures\Feedbacks\DeleteFeedbackById.sql" />
+    <Build Include="dbo\Stored Procedures\Feedbacks\DeleteFeedbacksById.sql" />
     <Build Include="dbo\Stored Procedures\Feedbacks\GetFeedbacks.sql" />
     <Build Include="dbo\Stored Procedures\Feedbacks\UpdateFeedbackById.sql" />
     <Build Include="dbo\Stored Procedures\Feedbacks\GetFeedbackById.sql" />
@@ -167,6 +167,7 @@
     <Build Include="dbo\Stored Procedures\GetProductSubgroup.sql" />
     <Build Include="dbo\Stored Procedures\GetOrdersInfoById.sql" />
     <Build Include="dbo\Stored Procedures\GetProductsInorderByOrderId.sql" />
+    <Build Include="dbo\Stored Procedures\Feedbacks\DeleteFeedbacksByOrderId.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="ClientsAgregator.Database.refactorlog" />

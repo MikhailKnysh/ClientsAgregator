@@ -17,8 +17,9 @@ LEFT JOIN [ClientsAgregatorDB].[Subgroup_Group]
 ON [ClientsAgregatorDB].[Subgroups].[Id] = [ClientsAgregatorDB].[Subgroup_Group].[SubgroupId]
 LEFT JOIN [ClientsAgregatorDB].[Groups]
 ON [ClientsAgregatorDB].[Groups].[Id] = [ClientsAgregatorDB].[Subgroup_Group].[GroupId]
-JOIN [ClientsAgregatorDB].[Product_Order]
+LEFT JOIN [ClientsAgregatorDB].[Product_Order]
 ON [ClientsAgregatorDB].[Products].[Id] = [ClientsAgregatorDB].[Product_Order].[ProductId]
-JOIN [ClientsAgregatorDB].[Feedbacks]
-ON [ClientsAgregatorDB].[Products].[Id] = [ClientsAgregatorDB].[Feedbacks].[ProductId]
-WHERE [ClientsAgregatorDB].[Product_Order].[OrderId] = @OrderId AND [ClientsAgregatorDB].[Feedbacks].[OrderId] = @OrderId
+LEFT JOIN [ClientsAgregatorDB].[Feedbacks]
+ON [ClientsAgregatorDB].[Product_Order].[OrderId] = [ClientsAgregatorDB].[Feedbacks].[OrderId]
+WHERE [ClientsAgregatorDB].[Product_Order].[OrderId] = @OrderId
+--AND [ClientsAgregatorDB].[Feedbacks].[OrderId] = @OrderId

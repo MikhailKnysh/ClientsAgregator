@@ -34,7 +34,13 @@
             <Label x:Name="labelClient" Content="Клиент" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14"/>
             <ComboBox x:Name="comboBoxClient" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" IsTextSearchEnabled="True" IsEditable="True" FontSize="14"/>
             <Label x:Name="labelDate" Content="Дата" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14"/>
-            <TextBox x:Name="textBoxDate" Grid.Row="2" Grid.Column="3" VerticalAlignment="Center" FontSize="14"/>
+            <DatePicker Name="datePicker" Grid.Row="2" Grid.Column="3" VerticalAlignment="Center" IsDropDownOpen="False" FirstDayOfWeek="Monday" SelectedDateFormat="Short">
+                <DatePicker.Resources>
+                    <Style TargetType="DatePickerTextBox">
+                        <Setter Property="IsReadOnly" Value="True"/>
+                    </Style>
+                </DatePicker.Resources>
+            </DatePicker>
             <Label x:Name="labelStatus" Content="Статус" Grid.Row="2" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14"/>
             <ComboBox x:Name="comboBoxStatus" Grid.Row="2" Grid.Column="5" IsTextSearchEnabled="True" IsEditable="True" VerticalAlignment="Center" Margin="0,0,10,0" FontSize="14"/>
             <Label x:Name="labelProduct" Content="Товар" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14"/>
@@ -90,7 +96,7 @@
                                         <ColumnDefinition/>
                                         <ColumnDefinition/>
                                     </Grid.ColumnDefinitions>
-                                    <Button x:Name="buttonEdit" Grid.Column="0" Height="20" Width="20" Background="Green" IsEnabled="False"/>
+                                    <Button x:Name="buttonEditReview" Grid.Column="0" Height="20" Width="20" Background="Green" IsEnabled="True" Click="buttonEditReview_Click"/>
                                     <Button x:Name="buttonRemove" Content="X" Grid.Column="1" Click="buttonRemove_Click" Height="20" Width="20" Background="Red"/>
                                 </Grid>
                             </DataTemplate>

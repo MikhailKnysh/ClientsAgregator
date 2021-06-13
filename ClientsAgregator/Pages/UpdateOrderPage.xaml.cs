@@ -1,4 +1,5 @@
 ﻿using ClientsAgregator_BLL;
+using ClientsAgregator_BLL.CustomModels;
 using ClientsAgregator_BLL.CustomModels.OrderModels;
 using ClientsAgregator_BLL.CustomModels.ProductsModel;
 using System;
@@ -23,6 +24,7 @@ namespace ClientsAgregator.Pages
         private List<StatusModel> _statuses;
         private List<ProductsSubgropModel> _products;
         private List<ProductInOrderModel> _productInOrderModels;
+        private List<FeedbackModel> _feedbackModels;
 
         public UpdateOrderPage(OrdersInfoModel ordersInfoModel)
         {
@@ -35,6 +37,11 @@ namespace ClientsAgregator.Pages
         {
             _controller = new Controller();
             _productInOrderModels = _controller.GetProductsInOrderByOrderId(_ordersInfoModel.Id);
+            _feedbackModels = new List<FeedbackModel>();
+            foreach (ProductInOrderModel p in _productInOrderModels)
+            {
+                _feedbackModels.Add(new FeedbackModel() { ProductId = p.ProductId, OrderId = _ordersInfoModel.Id });
+            }
 
             labelPageTitle.Content += _ordersInfoModel.Id.ToString();
 
@@ -47,7 +54,7 @@ namespace ClientsAgregator.Pages
             string fullName = $"{_ordersInfoModel.LastName} {_ordersInfoModel.FirstName} {_ordersInfoModel.MiddleName}";
             comboBoxClient.SelectedItem = fullName;
 
-            textBoxDate.Text = _ordersInfoModel.OrderDate;
+            datePicker.Text = _ordersInfoModel.OrderDate;
 
             _statuses = _controller.GetStatusModels();
             foreach (var status in _statuses)
@@ -94,6 +101,12 @@ namespace ClientsAgregator.Pages
                 SubgroupTitle = _productInfoModel.Subgroup,
                 Rate = Convert.ToInt32(comboBoxRate.Text)
             };
+            FeedbackModel newfeedbackModel = new FeedbackModel()
+            {
+                ProductId = _productInfoModel.Id,
+                Description = string.Empty,
+                Rate = -1
+            };
 
             _productInOrderModels.Add(productInOrderModel);
 
@@ -108,6 +121,7 @@ namespace ClientsAgregator.Pages
         {
             string result = ((sender as ComboBox).SelectedItem as ComboBoxItem).Content as string;
             _productInOrderModels[gridProductsInOrder.SelectedIndex].Rate = Convert.ToInt32(result);
+            _feedbackModels[gridProductsInOrder.SelectedIndex].Rate = Convert.ToInt32(result);
             gridProductsInOrder.Items.Refresh();
 
         }
@@ -161,14 +175,25 @@ namespace ClientsAgregator.Pages
             NewOrderInfoModel updatedOrderInfoModel = new NewOrderInfoModel()
             {
                 ClientId = clientId,
-                OrderDate = textBoxDate.Text,
+                OrderDate = datePicker.Text,
                 StatusesId = statusId,
                 OrderReview = textBoxOrderReview.Text,
                 TotalPrice = totalPrice,
                 ProductsInOrder = _productInOrderModels
             };
 
-            _controller.UpdateOrder(updatedOrderInfoModel, _ordersInfoModel.Id);
+            foreach (FeedbackModel f in _feedbackModels)
+            {
+                f.ClientId = clientId;
+                f.Date = datePicker.Text;
+            }
+
+            _controller.UpdateOrder(updatedOrderInfoModel, _ordersInfoModel.Id, _feedbackModels);
+        }
+
+        private void buttonEditReview_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

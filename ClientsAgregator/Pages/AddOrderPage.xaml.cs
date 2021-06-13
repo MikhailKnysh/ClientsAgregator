@@ -1,4 +1,5 @@
 ﻿using ClientsAgregator_BLL;
+using ClientsAgregator_BLL.CustomModels;
 using ClientsAgregator_BLL.CustomModels.OrderModels;
 using ClientsAgregator_BLL.CustomModels.ProductsModel;
 using System;
@@ -16,6 +17,8 @@ namespace ClientsAgregator.Pages
         private List<StatusModel> _statuses;
         private List<ProductsSubgropModel> _products;
         private List<ProductInOrderModel> _productInOrderModels;
+        private List<MeasureUnitInfoModel> _measureUnitInfoModels;
+        private List<FeedbackModel> _feedbackModels;
         private ProductInfoModel productInfoModel;
         private double totalPrice;
 
@@ -30,6 +33,7 @@ namespace ClientsAgregator.Pages
         {
             _controller = new Controller();
             _productInOrderModels = new List<ProductInOrderModel>();
+            _feedbackModels = new List<FeedbackModel>();
 
             _clients = _controller.GetClientsFullNameModels();
             foreach (var client in _clients)
@@ -48,10 +52,19 @@ namespace ClientsAgregator.Pages
             {
                 comboBoxProduct.Items.Add(product.ProductTitle);
             }
+
+            _measureUnitInfoModels = _controller.GetMeasureUnit();
         }
 
         private void AddProduct_Click(object sender, RoutedEventArgs e)
         {
+            string measureUnitTitle = productInfoModel.MeasureUnit;
+
+            int measureUnitId = (from m in _measureUnitInfoModels
+                                 where m.Title.Equals(measureUnitTitle)
+                                 select m.Id)
+                            .FirstOrDefault();
+
             ProductInOrderModel productInOrderModel = new ProductInOrderModel()
             {
                 Articul = productInfoModel.Articul,
@@ -59,14 +72,21 @@ namespace ClientsAgregator.Pages
                 ProductTitle = productInfoModel.Title,
                 Price = productInfoModel.Price,
                 Quantity = Convert.ToInt32(textBoxQuaunity.Text),
-                MeasureUnitId = productInfoModel.MeasureUnitId,
+                MeasureUnitId = measureUnitId,
                 MeasureUnitTitle = productInfoModel.MeasureUnit,
                 GroupTitle = productInfoModel.Group,
                 SubgroupTitle = productInfoModel.Subgroup,
                 Rate = -1
             };
+            FeedbackModel newfeedbackModel = new FeedbackModel()
+            {
+                ProductId = productInfoModel.Id,
+                Description = string.Empty,
+                Rate = -1
+            };
 
             _productInOrderModels.Add(productInOrderModel);
+            _feedbackModels.Add(newfeedbackModel);
 
             totalPrice += productInOrderModel.Price * productInOrderModel.Quantity;
             textBoxTotalPrice.Text = totalPrice.ToString();
@@ -135,7 +155,12 @@ namespace ClientsAgregator.Pages
                 ProductsInOrder = _productInOrderModels
             };
 
-            _controller.AddOrder(newOrderInfoModel);
+            foreach (FeedbackModel f in _feedbackModels)
+            {
+                f.ClientId = clientId;
+                f.Date = textBoxDate.Text;
+            }
+            _controller.AddOrder(newOrderInfoModel, _feedbackModels);
 
             NavigationService.Navigate(new ListOfOrdersWindow());
         }
