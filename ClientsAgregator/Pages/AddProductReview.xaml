@@ -14,7 +14,7 @@
         </Grid.RowDefinitions>
         <Label Content="Введите отзыв о товаре" Grid.Row="0" HorizontalAlignment="Center" Margin="10" VerticalAlignment="Center"/>
         <TextBox x:Name="textBoxProductReview" Grid.Row="1" Margin="10" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" FontSize="14"/>
-        <Button x:Name="buttonAccept" Content="OK" HorizontalAlignment="Left" Grid.Row="3" Margin="10,0,0,0" VerticalAlignment="Center" Width="100" Click="buttonAccept_Click"/>
-        <Button x:Name="buttonCancel" Content="Cancel" HorizontalAlignment="Left" Grid.Row="3" Margin="270,0,0,0" VerticalAlignment="Center" Width="100" Click="buttonCancel_Click"/>
+        <Button x:Name="buttonAccept" Content="Сохранить" HorizontalAlignment="Left" Grid.Row="3" Margin="10,0,0,0" VerticalAlignment="Center" Width="100" Click="buttonAccept_Click"/>
+        <Button x:Name="buttonCancel" Content="Отменить" HorizontalAlignment="Left" Grid.Row="3" Margin="270,0,0,0" VerticalAlignment="Center" Width="100" Click="buttonCancel_Click"/>
     </Grid>
 </Window>
