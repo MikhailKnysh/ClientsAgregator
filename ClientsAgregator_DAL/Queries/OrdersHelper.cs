@@ -148,7 +148,7 @@ namespace ClientsAgregator_DAL.Queries
 
                 foreach (FeedbackDTO f in feedbackDTOs)
                 {
-                    conn.Query<Product_OrderDTO>(query, new
+                    conn.Query<FeedbackDTO>(query, new
                     {
                         f.ClientId,
                         f.ProductId,
@@ -276,7 +276,7 @@ namespace ClientsAgregator_DAL.Queries
 
             List<FeedbackDTO> feedbackDTOs;
             
-            query = "ClientsAgregatorDB.DeleteFeedbacksByOrderId @OrderId";
+            query = "ClientsAgregatorDB.GetFeedbacksByOrderId @OrderId";
 
             using (IDbConnection conn = new SqlConnection(Options.connectionString))
             {

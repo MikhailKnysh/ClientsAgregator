@@ -40,7 +40,7 @@ namespace ClientsAgregator.Pages
             _feedbackModels = new List<FeedbackModel>();
             foreach (ProductInOrderModel p in _productInOrderModels)
             {
-                _feedbackModels.Add(new FeedbackModel() { ProductId = p.ProductId, OrderId = _ordersInfoModel.Id });
+                _feedbackModels.Add(new FeedbackModel() { ProductId = p.ProductId, OrderId = _ordersInfoModel.Id, Rate = p.Rate, Description = p.ProductReview});
             }
 
             labelPageTitle.Content += _ordersInfoModel.Id.ToString();
@@ -78,7 +78,8 @@ namespace ClientsAgregator.Pages
             gridProductsInOrder.ItemsSource = _productInOrderModels;
 
             textBoxOrderReview.Text = _ordersInfoModel.OrderReview;
-            textBoxTotalPrice.Text = _ordersInfoModel.TotalPrice.ToString();
+            totalPrice = _ordersInfoModel.TotalPrice;
+            textBoxTotalPrice.Text = totalPrice.ToString();
         }
 
         private void buttonBack_Click(object sender, RoutedEventArgs e)
@@ -122,6 +123,7 @@ namespace ClientsAgregator.Pages
             string result = ((sender as ComboBox).SelectedItem as ComboBoxItem).Content as string;
             _productInOrderModels[gridProductsInOrder.SelectedIndex].Rate = Convert.ToInt32(result);
             _feedbackModels[gridProductsInOrder.SelectedIndex].Rate = Convert.ToInt32(result);
+            
             gridProductsInOrder.Items.Refresh();
 
         }
@@ -158,7 +160,7 @@ namespace ClientsAgregator.Pages
 
         private void buttonAddReview_Click(object sender, RoutedEventArgs e)
         {
-            AddProductReview addProductReview = new AddProductReview();
+            AddProductReview addProductReview = new AddProductReview(_feedbackModels[gridProductsInOrder.SelectedIndex].Description);
             addProductReview.ShowDialog();
 
             _feedbackModels[gridProductsInOrder.SelectedIndex].Description = addProductReview.ProductReview;
