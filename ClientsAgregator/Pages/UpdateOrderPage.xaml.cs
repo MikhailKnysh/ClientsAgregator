@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using System.Windows.Navigation;
 
 namespace ClientsAgregator.Pages
@@ -88,33 +89,82 @@ namespace ClientsAgregator.Pages
 
         private void AddProduct_Click(object sender, RoutedEventArgs e)
         {
-            ProductInOrderModel productInOrderModel = new ProductInOrderModel()
+            string quantity = textBoxQuaunity.Text.Trim();
+            string rate = comboBoxRate.Text.Trim();
+
+            bool isAdding = true;
+
+            if(rate is null)
             {
-                Articul = _productInfoModel.Articul,
-                ProductId = _productInfoModel.Id,
-                ProductTitle = _productInfoModel.Title,
-                Price = _productInfoModel.Price,
-                Quantity = Convert.ToInt32(textBoxQuaunity.Text),
-                MeasureUnitId = _productInfoModel.MeasureUnitId,
-                MeasureUnitTitle = _productInfoModel.MeasureUnit,
-                GroupTitle = _productInfoModel.Group,
-                SubgroupTitle = _productInfoModel.Subgroup,
-                Rate = Convert.ToInt32(comboBoxRate.Text)
-            };
-            FeedbackModel newfeedbackModel = new FeedbackModel()
+                rate = "-1";
+            }
+
+            if (!(ValidationData.IsNumber(quantity)
+               || !(ValidationData.IsValidStringLenght(quantity, validCharQuantity: 53))))
             {
-                ProductId = _productInfoModel.Id,
-                Description = string.Empty,
-                Rate = -1
-            };
+                textBoxQuaunity.ToolTip = "Это поле введено некорректно";
+                textBoxQuaunity.Background = Brushes.Tomato;
+                isAdding = false;
+            }
 
-            _productInOrderModels.Add(productInOrderModel);
+            if (!(ValidationData.IsStringNotNull(comboBoxClient.Text.Trim())))
+            {
+                comboBoxClient.ToolTip = "Это поле введено некорректно";
+                comboBoxClient.Background = Brushes.Tomato;
+                isAdding = false;
+            }
 
-            totalPrice += productInOrderModel.Price * productInOrderModel.Quantity;
-            textBoxTotalPrice.Text = totalPrice.ToString();
+            if (!(ValidationData.IsStringNotNull(comboBoxProduct.Text.Trim())))
+            {
+                comboBoxProduct.ToolTip = "Это поле введено некорректно";
+                comboBoxProduct.Background = Brushes.Tomato;
+                isAdding = false;
+            }
 
-            gridProductsInOrder.ItemsSource = _productInOrderModels;
-            gridProductsInOrder.Items.Refresh();
+            if (!(ValidationData.IsStringNotNull(comboBoxStatus.Text.Trim())))
+            {
+                comboBoxStatus.ToolTip = "Это поле введено некорректно";
+                comboBoxStatus.Background = Brushes.Tomato;
+                isAdding = false;
+            }
+
+            if(ValidationData.IsValidStringLenght(textBoxOrderReview.Text.Trim(), 800))
+            {
+                textBoxOrderReview.ToolTip = "Это поле введено некорректно";
+                textBoxOrderReview.Background = Brushes.Tomato;
+                isAdding = false;
+            }
+
+            if (isAdding)
+            {
+                ProductInOrderModel productInOrderModel = new ProductInOrderModel()
+                {
+                    Articul = _productInfoModel.Articul,
+                    ProductId = _productInfoModel.Id,
+                    ProductTitle = _productInfoModel.Title,
+                    Price = _productInfoModel.Price,
+                    Quantity = Convert.ToInt32(textBoxQuaunity.Text),
+                    MeasureUnitId = _productInfoModel.MeasureUnitId,
+                    MeasureUnitTitle = _productInfoModel.MeasureUnit,
+                    GroupTitle = _productInfoModel.Group,
+                    SubgroupTitle = _productInfoModel.Subgroup,
+                    Rate = Convert.ToInt32(rate)
+                };
+                FeedbackModel newfeedbackModel = new FeedbackModel()
+                {
+                    ProductId = _productInfoModel.Id,
+                    Description = string.Empty,
+                    Rate = -1
+                };
+
+                _productInOrderModels.Add(productInOrderModel);
+
+                totalPrice += productInOrderModel.Price * productInOrderModel.Quantity;
+                textBoxTotalPrice.Text = totalPrice.ToString();
+
+                gridProductsInOrder.ItemsSource = _productInOrderModels;
+                gridProductsInOrder.Items.Refresh();
+            }
         }
 
         private void comboBoxRateInGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -170,10 +220,10 @@ namespace ClientsAgregator.Pages
         private void buttonSave_Click(object sender, RoutedEventArgs e)
         {
             string clientFullName = comboBoxClient.SelectedItem.ToString();
-            
+
             int clientId = (from c in _clients
-                        where c.FullName.Equals(clientFullName)
-                        select c.Id)
+                            where c.FullName.Equals(clientFullName)
+                            select c.Id)
                             .FirstOrDefault();
 
             string statusTitle = comboBoxStatus.SelectedItem.ToString();
@@ -200,7 +250,7 @@ namespace ClientsAgregator.Pages
             }
 
             _controller.UpdateOrder(updatedOrderInfoModel, _ordersInfoModel.Id, _feedbackModels);
-            
+
             NavigationService.Navigate(new ListOfOrdersWindow());
         }
     }
