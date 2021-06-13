@@ -14,11 +14,13 @@ namespace ClientsAgregator
 {
     public partial class AddProductReview : Window
     {
-        public string ProductReview { get; set; }
+        public string ProductReview { get; private set; }
 
-        public AddProductReview()
+        public AddProductReview(string productReview)
         {
             InitializeComponent();
+            ProductReview = productReview;
+            textBoxProductReview.Text = ProductReview;
         }
 
         private void buttonAccept_Click(object sender, RoutedEventArgs e)
