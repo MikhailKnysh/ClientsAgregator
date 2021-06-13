@@ -30,8 +30,12 @@ namespace ClientsAgregator
 
         private void buttonDeleteClient_Click(object sender, RoutedEventArgs e)
         {
-            var index = clientsGrid.SelectedIndex;
-            clientsGrid.Items.RemoveAt(index);
+            AgreeWindow agree = new AgreeWindow();
+            if (agree.ShowDialog() == true)
+            {
+                var index = clientsGrid.SelectedIndex;
+                clientsGrid.Items.RemoveAt(index);
+            }
         }
 
         private void buttonOpenAddClientPage_Click(object sender, RoutedEventArgs e)
