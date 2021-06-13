@@ -270,7 +270,11 @@ namespace ClientsAgregator_BLL
 
         public List<InterestedClientInfoByProductModel> GetInterestedClientInfoByProduct(int productId)
         {
-            var config = new MapperConfiguration(cfg => cfg.CreateMap<InterestedClientInfoByProductDTO, InterestedClientInfoByProductModel>());
+            var config = new MapperConfiguration(
+                cfg => cfg
+                .CreateMap<InterestedClientInfoByProductDTO, InterestedClientInfoByProductModel>()
+                .ForMember(dest => dest.AVGRate, option => option.MapFrom(source => (source.AVGRate < 1) ? ("Нет оценки"):(source.AVGRate.ToString())))
+                );
             Mapper mapper = new Mapper(config);
 
             List<InterestedClientInfoByProductModel> clientByIdModels = mapper.Map<List<InterestedClientInfoByProductModel>>(_mainsHelper.GetInterestedClientInfoByProduct(productId));
@@ -280,7 +284,11 @@ namespace ClientsAgregator_BLL
 
         public List<InterestedClientInfoByProductModel> GetInterestedClientInfoBySubgroup(int subgroupId)
         {
-            var config = new MapperConfiguration(cfg => cfg.CreateMap<InterestedClientInfoByProductDTO, InterestedClientInfoByProductModel>());
+            var config = new MapperConfiguration(
+                cfg => cfg
+                .CreateMap<InterestedClientInfoByProductDTO, InterestedClientInfoByProductModel>()
+                .ForMember(dest => dest.AVGRate, option => option.MapFrom(source => (source.AVGRate < 1) ? ("Нет оценки") : (source.AVGRate.ToString())))
+                );
             Mapper mapper = new Mapper(config);
 
             List<InterestedClientInfoByProductModel> clientByIdModels = mapper.Map<List<InterestedClientInfoByProductModel>>(_mainsHelper.GetInterestedClientInfoBySubgroup(subgroupId));
