@@ -33,16 +33,16 @@ namespace ClientsAgregator_BLL.Test.TestClases
             Assert.AreEqual(expected, actual);
         }
 
-        [TestCaseSource(typeof(GetDTOsFromNewOrderInfoModel))]
-        public void GetDTOsFromNewOrderInfoModel_WhenValidTestPassed_ShouldReturnDTOs(NewOrderInfoModel newOrderInfo,
-            OrderDTO expectedOrder, List<Product_OrderDTO> expectedProductsOrder)
-        {
-            _mock.Setup(orderHelper => orderHelper.AddOrder(expectedProductsOrder,expectedOrder)).Verifiable();
+        //[TestCaseSource(typeof(GetDTOsFromNewOrderInfoModel))]
+        //public void GetDTOsFromNewOrderInfoModel_WhenValidTestPassed_ShouldReturnDTOs(NewOrderInfoModel newOrderInfo,
+        //    OrderDTO expectedOrder, List<Product_OrderDTO> expectedProductsOrder)
+        //{
+        //    _mock.Setup(orderHelper => orderHelper.AddOrder(expectedProductsOrder,expectedOrder)).Verifiable();
 
-            _controller.AddOrder(newOrderInfo);
+        //    _controller.AddOrder(newOrderInfo);
 
-            _mock.Verify();
-        }
+        //    _mock.Verify();
+        //}
 
         [TestCase(1,1)]
         public void DeleteOrder_WhenValidTestPassed_ShouldDeleteOrder(int id, int expectedId)

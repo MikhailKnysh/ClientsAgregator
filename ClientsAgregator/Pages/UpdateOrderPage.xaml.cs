@@ -198,9 +198,7 @@ namespace ClientsAgregator.Pages
         }
         private void EventSetter_OnHandler(object sender, MouseEventArgs e)
         {
-            DataGridCell dgc = sender as DataGridCell;
 
-            dgc.ToolTip = _feedbackModels[gridProductsInOrder.SelectedIndex].Description;
         }
     }
 }

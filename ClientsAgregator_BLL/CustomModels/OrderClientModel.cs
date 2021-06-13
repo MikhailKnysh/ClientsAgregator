@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClientsAgregator_BLL.CustomModels.OrderModels;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -17,7 +18,7 @@ namespace ClientsAgregator_BLL.CustomModels
 
         public override bool Equals(object obj)
         {
-            return obj is OrderModel model &&
+            return obj is OrderClientModel model &&
                    Id == model.Id &&
                    OrderDate == model.OrderDate &&
                    LastName == model.LastName &&

@@ -385,7 +385,7 @@ namespace ClientsAgregator_BLL
             var config = new MapperConfiguration(cfg => cfg.CreateMap<ProductInOrderDTO, ProductInOrderModel>());
             Mapper mapper = new Mapper(config);
 
-            List<ProductInOrderModel> productsInOrder = mapper.Map<List<ProductInOrderModel>>(_ordersHelper.GetProductsInOrderByOrderId(orderId));
+            List<ProductInOrderModel> productsInOrder = mapper.Map<List<ProductInOrderModel>>(_ordersHelper.GetProductsInOrderByOrderIdNew(orderId));
 
             return productsInOrder;
         }

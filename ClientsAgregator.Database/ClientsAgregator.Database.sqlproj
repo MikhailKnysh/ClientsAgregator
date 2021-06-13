@@ -169,6 +169,7 @@
     <Build Include="dbo\Stored Procedures\GetOrdersInfoById.sql" />
     <Build Include="dbo\Stored Procedures\GetProductsInorderByOrderId.sql" />
     <Build Include="dbo\Stored Procedures\Feedbacks\DeleteFeedbacksByOrderId.sql" />
+    <Build Include="dbo\Stored Procedures\Feedbacks\GetFeedbacksByOrderId.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="ClientsAgregator.Database.refactorlog" />

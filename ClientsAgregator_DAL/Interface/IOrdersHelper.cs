@@ -16,5 +16,6 @@ namespace ClientsAgregator_DAL.Interface
         public List<ProductInOrderDTO> GetProductsInOrderByOrderId(int orderId);
         public void UpdateOrder(List<Product_OrderDTO> productsOrder, OrderDTO order, List<FeedbackDTO> feedbackDTOs);
         public void AddFeedbacks(List<FeedbackDTO> feedbackDTOs);
+        public List<ProductInOrderDTO> GetProductsInOrderByOrderIdNew(int orderId);
     }
 }

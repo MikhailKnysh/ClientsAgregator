@@ -203,6 +203,101 @@ namespace ClientsAgregator_DAL.Queries
             return productsInOrder;
         }
 
+        public List<ProductInOrderDTO> GetProductsInOrderByOrderIdNew (int orderId)
+        {
+            List<ProductInOrderDTO> productsInOrder = new List<ProductInOrderDTO>();
+
+            string query = "ClientsAgregatorDB.GetProductOrderByOrderId @OrderId";
+
+            List<Product_OrderDTO> product_OrderDTOs;
+
+            using (IDbConnection conn = new SqlConnection(Options.connectionString))
+            {
+                product_OrderDTOs = conn.Query<Product_OrderDTO>(query, new { orderId }).AsList();
+            }
+
+            query = "ClientsAgregatorDB.GetProductsInfoById @Id";
+
+            List<ProductInfoDTO> productInfoDTOs = new List<ProductInfoDTO>();
+
+            foreach (Product_OrderDTO po in product_OrderDTOs)
+            {
+                using (IDbConnection conn = new SqlConnection(Options.connectionString))
+                {
+                    int productId = po.ProductId;
+                    ProductInfoDTO newProductInfoDTO = conn.Query<ProductInfoDTO>(query, new { Id = productId }).FirstOrDefault();
+                    productInfoDTOs.Add(newProductInfoDTO);
+                }
+            }
+
+            foreach(ProductInfoDTO pi in productInfoDTOs)
+            {
+                productsInOrder.Add(new ProductInOrderDTO()
+                {
+                    Articul = pi.Articul,
+                    ProductId = pi.Id,
+                    ProductTitle = pi.Title,
+                    Price = pi.Price,
+                    MeasureUnitTitle = pi.MeasureUnit,
+                    SubgroupTitle = pi.Subgroup,
+                    GroupTitle = pi.Group
+                });
+            }
+            foreach(ProductInOrderDTO pio in productsInOrder)
+            {
+                foreach (Product_OrderDTO po in product_OrderDTOs)
+                {
+                    if (pio.ProductId == po.ProductId)
+                    {
+                        pio.Quantity = po.Quantity;
+                    }
+                }
+            }
+
+            List<MeasureUnitDTO> measureUnitDTOs;
+            
+            query = "ClientsAgregatorDB.GetMeasureUnit";
+
+            using (IDbConnection conn = new SqlConnection(Options.connectionString))
+            {
+                measureUnitDTOs = conn.Query<MeasureUnitDTO>(query).AsList();
+            }
+
+            foreach (ProductInOrderDTO pio in productsInOrder)
+            {
+                foreach (MeasureUnitDTO mu in measureUnitDTOs)
+                {
+                    if (pio.MeasureUnitTitle == mu.Title)
+                    {
+                        pio.MeasureUnitId = mu.Id;
+                    }
+                }
+            }
+
+            List<FeedbackDTO> feedbackDTOs;
+            
+            query = "ClientsAgregatorDB.DeleteFeedbacksByOrderId @OrderId";
+
+            using (IDbConnection conn = new SqlConnection(Options.connectionString))
+            {
+                feedbackDTOs = conn.Query<FeedbackDTO>(query, new { orderId }).AsList();
+            }
+
+            foreach (ProductInOrderDTO pio in productsInOrder)
+            {
+                foreach (FeedbackDTO f in feedbackDTOs)
+                {
+                    if (pio.ProductId == f.ProductId)
+                    {
+                        pio.Rate = f.Rate;
+                        pio.OrderReview = f.Description;
+                    }
+                }
+            }
+
+            return productsInOrder;
+        }
+
         public void AddFeedbacks(List<FeedbackDTO> feedbackDTOs)
         {
             string query = "ClientsAgregatorDB.AddFeedback";

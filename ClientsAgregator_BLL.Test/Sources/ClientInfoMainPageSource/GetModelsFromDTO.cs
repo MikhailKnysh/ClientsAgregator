@@ -57,7 +57,7 @@ namespace ClientsAgregator_BLL.Test.Sources.GetInterestedClientInfoBySubgroupSou
                         ProductId = 1,
                         ProductTitle = "Курица",
                         SumQuantity = 10,
-                        AVGRate = 5,
+                        AVGRate = "5",
                     },
                     new InterestedClientInfoByProductModel()
                     {
@@ -70,7 +70,7 @@ namespace ClientsAgregator_BLL.Test.Sources.GetInterestedClientInfoBySubgroupSou
                         ProductId = 12,
                         ProductTitle = "Курица2",
                         SumQuantity = 102,
-                        AVGRate = 52,
+                        AVGRate = "52",
                     }
                 }
             };
