@@ -22,4 +22,3 @@ ON [ClientsAgregatorDB].[Products].[Id] = [ClientsAgregatorDB].[Product_Order].[
 LEFT JOIN [ClientsAgregatorDB].[Feedbacks]
 ON [ClientsAgregatorDB].[Product_Order].[OrderId] = [ClientsAgregatorDB].[Feedbacks].[OrderId]
 WHERE [ClientsAgregatorDB].[Product_Order].[OrderId] = @OrderId
---AND [ClientsAgregatorDB].[Feedbacks].[OrderId] = @OrderId
