@@ -14,7 +14,7 @@ namespace ClientsAgregator
 {
     public partial class AddProductReview : Window
     {
-        public string ProductReview { get; private set; }
+        public string ProductReview { get; set; }
 
         public AddProductReview()
         {

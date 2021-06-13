@@ -165,7 +165,6 @@ namespace ClientsAgregator.Pages
             _productInOrderModels[gridProductsInOrder.SelectedIndex].ProductReview = addProductReview.ProductReview;
             gridProductsInOrder.ItemsSource = _productInOrderModels;
             gridProductsInOrder.Items.Refresh();
-
         }
 
         private void buttonSave_Click(object sender, RoutedEventArgs e)
@@ -203,11 +202,6 @@ namespace ClientsAgregator.Pages
             _controller.UpdateOrder(updatedOrderInfoModel, _ordersInfoModel.Id, _feedbackModels);
             
             NavigationService.Navigate(new ListOfOrdersWindow());
-        }
-
-        private void gridProductsInOrder_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
-        {
-            //gridProductsInOrder[gridProductsInOrder.SelectedIndex]
         }
     }
 }

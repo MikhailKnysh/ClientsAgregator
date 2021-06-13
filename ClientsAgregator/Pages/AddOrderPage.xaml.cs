@@ -184,7 +184,7 @@ namespace ClientsAgregator.Pages
             NewOrderInfoModel newOrderInfoModel = new NewOrderInfoModel()
             {
                 ClientId = clientId,
-                OrderDate = textBoxDate.Text,
+                OrderDate = datePicker.Text,
                 StatusesId = statusId,
                 OrderReview = string.Empty,
                 TotalPrice = totalPrice,
@@ -194,7 +194,7 @@ namespace ClientsAgregator.Pages
             foreach (FeedbackModel f in _feedbackModels)
             {
                 f.ClientId = clientId;
-                f.Date = textBoxDate.Text;
+                f.Date = datePicker.Text;
             }
             _controller.AddOrder(newOrderInfoModel, _feedbackModels);
 
