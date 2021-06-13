@@ -15,6 +15,6 @@ namespace ClientsAgregator_DAL.CustomModels
         public int ProductId { get; set; }
         public string ProductTitle { get; set; }
         public int SumQuantity { get; set; }
-        public int AVGRate { get; set; }
+        public double AVGRate { get; set; }
          }
 }
