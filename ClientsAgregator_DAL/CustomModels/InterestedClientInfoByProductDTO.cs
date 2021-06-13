@@ -16,5 +16,21 @@ namespace ClientsAgregator_DAL.CustomModels
         public string ProductTitle { get; set; }
         public int SumQuantity { get; set; }
         public int AVGRate { get; set; }
-         }
+
+        protected bool Equals(InterestedClientInfoByProductDTO other)
+        {
+            return ClientId == other.ClientId && LastName == other.LastName && FirstName == other.FirstName &&
+                   MiddleName == other.MiddleName && Phone == other.Phone && BulkStatusTitle == other.BulkStatusTitle &&
+                   ProductId == other.ProductId && ProductTitle == other.ProductTitle &&
+                   SumQuantity == other.SumQuantity && AVGRate == other.AVGRate;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != this.GetType()) return false;
+            return Equals((InterestedClientInfoByProductDTO) obj);
+        }
+    }
 }

@@ -94,7 +94,7 @@ namespace ClientsAgregator_BLL
 
                 List<Product_OrderDTO> productsOrder = mapper.Map<List<Product_OrderDTO>>(productInOrderModels);
 
-                _ordersHelper.AddOrder(productsOrder, order);
+                  _ordersHelper.AddOrder(productsOrder, order);
             }
             else
             {
@@ -293,17 +293,7 @@ namespace ClientsAgregator_BLL
             int SpendMoneyCount = _clientsHelper.GetSpendMoneyCountByClientId(Id);
             return SpendMoneyCount;
         }
-
-        public List<FeedbackModel> GetFeedbackClientByIdModels(int id)
-        {
-            var config = new MapperConfiguration(cfg => cfg.CreateMap<FeedbackDTO, FeedbackModel>());
-            Mapper mapper = new Mapper(config);
-
-            List<FeedbackModel> feedback = mapper.Map<List<FeedbackModel>>(_clientsHelper.GetFeedbackClientById(id));
-
-            return feedback;
-        }
-
+        
         public List<FeedbackModel> GetFeedbackModels()
         {
             var config = new MapperConfiguration(cfg => cfg.CreateMap<FeedbackDTO, FeedbackModel>());

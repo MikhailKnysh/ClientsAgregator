@@ -14,7 +14,7 @@ namespace ClientsAgregator_BLL.CustomModels
         public string Email { get; set; }
         public int BulkStatusId { get; set; }
         public string Male { get; set; }
-        public string СommentAboutСlient { get; set; }
+        public string CommentAboutClient { get; set; }
 
         public override bool Equals(object obj)
         {
@@ -26,7 +26,7 @@ namespace ClientsAgregator_BLL.CustomModels
                    Email == model.Email &&
                    BulkStatusId == model.BulkStatusId &&
                    Male == model.Male &&
-                   СommentAboutСlient == model.СommentAboutСlient;
+                   CommentAboutClient == model.CommentAboutClient;
         }
     }
 }

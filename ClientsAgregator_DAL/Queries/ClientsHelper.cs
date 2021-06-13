@@ -27,7 +27,7 @@ namespace ClientsAgregator_DAL.Queries
                     addClientDTO.Email,
                     addClientDTO.BulkStatusId,
                     addClientDTO.Male,
-                    addClientDTO.СommentAboutСlient
+                    addClientDTO.CommentAboutClient
                 });
             }
         }
@@ -92,7 +92,7 @@ namespace ClientsAgregator_DAL.Queries
                     addClientDTO.Email,
                     addClientDTO.BulkStatusId,
                     addClientDTO.Male,
-                    addClientDTO.СommentAboutСlient
+                    addClientDTO.CommentAboutClient
                 });
             }
         }

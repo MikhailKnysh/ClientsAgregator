@@ -5,6 +5,7 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using ClientsAgregator_DAL.Interface;
 using Moq;
+using ClientsAgregator_BLL.Test.Sources.FeedbackSource;
 
 namespace ClientsAgregator_BLL.Test.TestClases
 {

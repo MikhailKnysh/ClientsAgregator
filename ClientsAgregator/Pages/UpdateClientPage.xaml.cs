@@ -63,12 +63,15 @@ namespace ClientsAgregator
 
             foreach (UIElement item in UpdateClientRoot.Children)
             {
-                if (item is TextBox)
-                {
-                    TextBox textBox = (TextBox)item;
-                    textBox.Background = Brushes.Transparent;
-                }
-            }
+                LastName = TextBoxLastName.Text,
+                FirstName = TextBoxFirstName.Text,
+                MiddleName = TextBoxMiddleName.Text,
+                Phone = TextBoxPhone.Text,
+                Email = TextBoxEmail.Text,
+                BulkStatusId = _bulkStatusModel[index].Id,
+                Male = ComboBoxMale.Text,
+                СommentAboutСlient = TextBoxCommentAboutClient.Text
+            };
 
             if (!(ValidationData.IsValidStringLenght(lastName, validCharQuantity: 255))
                 || !(ValidationData.IsStringNotNull(lastName)))

@@ -13,7 +13,18 @@ namespace ClientsAgregator_DAL.Models
         public string Email { get; set; }
         public int BulkStatusId { get; set; }
         public string Male { get; set; }
-        public string СommentAboutСlient { get; set; }
-
+        public string CommentAboutClient { get; set; }
+        public override bool Equals(object obj)
+        {
+            return obj is AddClientDTO model &&
+                   LastName == model.LastName &&
+                   FirstName == model.FirstName &&
+                   MiddleName == model.MiddleName &&
+                   Phone == model.Phone &&
+                   Email == model.Email &&
+                   BulkStatusId == model.BulkStatusId &&
+                   Male == model.Male &&
+                   CommentAboutClient == model.CommentAboutClient;
+        }
     }
 }

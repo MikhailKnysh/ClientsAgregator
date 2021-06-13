@@ -57,7 +57,5 @@ namespace ClientsAgregator_BLL.Test.Sources.FeedbackSources
                 }
             };
         }
-
-
     }
 }

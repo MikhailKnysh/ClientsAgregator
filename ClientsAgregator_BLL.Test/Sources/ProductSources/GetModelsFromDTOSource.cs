@@ -26,7 +26,7 @@ namespace ClientsAgregator_BLL.Test.Sources.ProductSourse
                       SubgroupId = 2,
                       SubgroupTitle = "фрукты1"
                   }
-                },
+              },
               new List<ProductsSubgropModel>()
               {
                   new ProductsSubgropModel()

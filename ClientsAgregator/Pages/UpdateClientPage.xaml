@@ -59,7 +59,8 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Line Stroke="Black" StrokeThickness="2" X1="0" Y1="0" X2="1000" Y2="0"  Grid.ColumnSpan="4" VerticalAlignment="Center" Margin="0,50,0,0"  Grid.Row="0"></Line>
+        <Line Stroke="Black" StrokeThickness="2" X1="0" Y1="0" X2="1000" Y2="0"  Grid.ColumnSpan="4" VerticalAlignment="Center" Margin="0,50,0,0"  Grid.Row="0">
+        </Line>
          <Button x:Name="buttonBack" Click="buttonBack_Click" Margin="50,0,0,0" VerticalAlignment="Center" Style="{StaticResource ButtonBack}" Template="{StaticResource ButtonBackTemplate}"/>
 
         <Label Content="Фамилия" Grid.Row="2" Style="{StaticResource StyleForLabelLeft}" />

@@ -41,15 +41,26 @@ namespace ClientsAgregator_BLL.Test.TestClases
             Assert.AreEqual(expected, actual);
         }
 
-        [TestCaseSource(typeof(GetClientDTOFromAddClientModel))]
+        [TestCaseSource(typeof(GetClientDTOFromAddClientModelSource))]
         public void GetUpdateClientsDTOFromAddClientModel_WhenValidTestPassed_ShouldResultClientDTO( AddClientDTO expected, AddClientModel clientModel)
         {
-            _mock.Setup(clientsHelper => clientsHelper.UpdateClientById(expected, 1)).Verifiable();
+            _mock.Setup(clientsHelper => clientsHelper.UpdateClientById(expected, 0)).Verifiable();
 
-            _controller.UpdateClientDTO(clientModel, 1);
+            _controller.UpdateClientDTO(clientModel, 0);
 
             _mock.Verify();
         }
 
-    }
+        [TestCaseSource(typeof(GetClientDTOFromAddClientModelSource))]
+        public  void GetClientDTOFromAddClientModel_WhenValidTestPassed_ShouldResultClientDTO (AddClientDTO expected, AddClientModel clientModel)
+        {
+            _mock.Setup(clientsHelper => clientsHelper.AddClient(expected)).Verifiable();
+
+            _controller.AddClientDTO(clientModel);
+
+            _mock.Verify();
+        }
+
+
+}
 }

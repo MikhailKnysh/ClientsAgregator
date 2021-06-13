@@ -2,6 +2,7 @@
 using ClientsAgregator_BLL.CustomModels;
 using ClientsAgregator_BLL.CustomModels.ProductsModel;
 using ClientsAgregator_BLL.Test.Sources.ClientsSources;
+using ClientsAgregator_BLL.Test.Sources.ProductSources;
 using ClientsAgregator_BLL.Test.Sources.ProductSourse;
 using ClientsAgregator_DAL.CustomModels;
 using ClientsAgregator_DAL.Interface;
@@ -24,6 +25,8 @@ namespace ClientsAgregator_BLL.Test.TestClases
             _controller = new Controller(null, _mock.Object, null, null);
         }
 
+
+
         [TestCaseSource(typeof(GetModelFromDTOSource))]
         public void GetModelFromDTO_WhenValidTestPassed_ShouldReturnProductInfoModel(
             ProductInfoDTO actualProductInfoDTO, ProductInfoModel expected)
@@ -31,6 +34,50 @@ namespace ClientsAgregator_BLL.Test.TestClases
             _mock.Setup(productHelper => productHelper.GetProductInfoById(1)).Returns(actualProductInfoDTO);
 
             ProductInfoModel actual = _controller.GetProductInfoModel(1);
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestCaseSource(typeof(GetGroupsModelFromDTOSource))]
+        public void GetModelGroupFromDTO_WhenValidTestPassed_ShouldReturnGroupInfoModel(
+                    List<GroupDTO>  groupDTOs, List<GroupInfoModel> expected)
+        {
+            _mock.Setup(productHelper => productHelper.GetGroups()).Returns(groupDTOs);
+
+            List<GroupInfoModel>  actual = _controller.GetGroups();
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestCaseSource(typeof(GetSubgroupsModelFromDTOSource))]
+        public void GetModelSubgroupFromDTO_WhenValidTestPassed_ShouldReturnSubgroupInfoModel(
+            List<SubgroupDTO> subgroupDTOs , List<SubgroupInfoModel> expected)
+        {
+            _mock.Setup(productHelper => productHelper.GetSubgroupsInfoByGroupId(1)).Returns(subgroupDTOs);
+
+            List<SubgroupInfoModel> actual = _controller.GetSubgroupsInfoByGroupId(1);
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestCaseSource(typeof(GetMeasureUnitFromDTOSourse))]
+        public void GetModelMeasureUnitFromDTO_WhenValidTestPassed_ShouldReturnMeasureUnitInfoModel(
+                  List<MeasureUnitDTO> measureUnitDTOs, List<MeasureUnitInfoModel> expected)
+        {
+            _mock.Setup(productHelper => productHelper.GetMeasureUnits()).Returns(measureUnitDTOs);
+
+            List<MeasureUnitInfoModel> actual = _controller.GetMeasureUnit();
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestCaseSource(typeof(GetModelsProductInfoFromDTOSourse))]
+        public void GetModelsProductInfoFromDTOSourse_WhenValidTestPassed_ShouldReturnProductInfoModel(
+          List<ProductInfoDTO> actualProductInfoDTO,List<ProductInfoModel> expected)
+        {
+            _mock.Setup(productHelper => productHelper.GetProductsInfo()).Returns(actualProductInfoDTO);
+
+            List<ProductInfoModel> actual = _controller.GetProductInfoModels();
 
             Assert.AreEqual(expected, actual);
         }
@@ -62,13 +109,17 @@ namespace ClientsAgregator_BLL.Test.TestClases
             _mock.Verify();
         }
 
+        [TestCase(1,1)]
+        public void DeleteProduct_WhenValidTestPassed_shouldDeleteProduct( int id, int expectedId)
+        {
 
-        //mock.Setup(adder => (adder.Add(expextedA, expextedB))).Verifiable();
+            _mock.Setup(productHelper => productHelper.DeleteProductById(expectedId)).Verifiable();
+            _mock.Setup(productHelper => productHelper.DeleteProductSubgroupByProductId(expectedId)).Verifiable();
 
-        //calc.SummSqr(a, b);
+            _controller.DeleteProduct(id);
 
-        //mock.Verify();
-
+            _mock.Verify();
+        }
 
 
     }
