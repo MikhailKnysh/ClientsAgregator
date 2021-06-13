@@ -12,6 +12,7 @@
         public string GroupTitle { get; set; }
         public string SubgroupTitle { get; set; }
         public int Rate { get; set; }
+        public string ProductReview { get; set; }
 
         public override bool Equals(object obj)
         {
