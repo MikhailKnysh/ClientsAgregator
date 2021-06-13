@@ -119,7 +119,7 @@ namespace ClientsAgregator.Pages
                     Email = email,
                     BulkStatusId = _bulkStatusModel[bulkStatusIndex].Id,
                     Male = male,
-                    СommentAboutСlient = commentAboutСlient
+                    CommentAboutClient = commentAboutСlient
                 };
 
                 _controller.AddClientDTO(addClientModel);

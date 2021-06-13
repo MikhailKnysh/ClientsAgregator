@@ -49,7 +49,7 @@ namespace ClientsAgregator
 
         private void buttonSaveUptPage_Click(object sender, RoutedEventArgs e)
         {
-
+            int index1 = ComboBoxBulkStatus.SelectedIndex;
             string lastName = TextBoxLastName.Text.Trim();
             string firstName = TextBoxFirstName.Text.Trim();
             string middleName = TextBoxMiddleName.Text.Trim();
@@ -63,14 +63,14 @@ namespace ClientsAgregator
 
             foreach (UIElement item in UpdateClientRoot.Children)
             {
-                LastName = TextBoxLastName.Text,
-                FirstName = TextBoxFirstName.Text,
-                MiddleName = TextBoxMiddleName.Text,
-                Phone = TextBoxPhone.Text,
-                Email = TextBoxEmail.Text,
-                BulkStatusId = _bulkStatusModel[index].Id,
-                Male = ComboBoxMale.Text,
-                СommentAboutСlient = TextBoxCommentAboutClient.Text
+                lastName = TextBoxLastName.Text;
+                firstName = TextBoxFirstName.Text;
+                middleName = TextBoxMiddleName.Text;
+                phone = TextBoxPhone.Text;
+                email = TextBoxEmail.Text;
+             //   bulkStatus = _bulkStatusModel[index1].Id;
+                male = ComboBoxMale.Text;
+                commentAboutСlient = TextBoxCommentAboutClient.Text;
             };
 
             if (!(ValidationData.IsValidStringLenght(lastName, validCharQuantity: 255))
@@ -147,7 +147,7 @@ namespace ClientsAgregator
                     Email = email,
                     BulkStatusId = _bulkStatusModel[index].Id,
                     Male = ComboBoxMale.Text,
-                    СommentAboutСlient = commentAboutСlient
+                    CommentAboutClient = commentAboutСlient
                 };
 
                 _controller.UpdateClientDTO(clientModel, _idClient);

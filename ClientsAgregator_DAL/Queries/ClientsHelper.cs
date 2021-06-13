@@ -78,7 +78,7 @@ namespace ClientsAgregator_DAL.Queries
         {
             string query = "ClientsAgregatorDB.UpdateClientById @Id, @LastName, @FirstName," +
                 " @MiddleName, @Phone, @Email," +
-                " @BulkStatusId, @Male, @СommentAboutСlient";
+                " @BulkStatusId, @Male, @CommentAboutClient";
 
             using (IDbConnection conn = new SqlConnection(Options.connectionString))
             {
