@@ -59,7 +59,7 @@ namespace ClientsAgregator_BLL
 
             try
             {
-                phone = Regex.Replace(phone, @"^\+[0-9]\d{11}$", DomainMapper,
+                phone = Regex.Replace(phone, @"^\+[0-9]\d{11,16}$", DomainMapper,
                                       RegexOptions.None, TimeSpan.FromMilliseconds(200));
 
                 string DomainMapper(Match match)
