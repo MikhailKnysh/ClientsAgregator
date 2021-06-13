@@ -67,8 +67,9 @@ namespace ClientsAgregator_DAL.Queries
             return statuses;
         }
 
-        public void AddOrder(List<Product_OrderDTO> productsOrder, OrderDTO order)
+        public int AddOrder(List<Product_OrderDTO> productsOrder, OrderDTO order)
         {
+            int orderIdResult;
             using (IDbConnection conn = new SqlConnection(Options.connectionString))
             {
                 string query = "ClientsAgregatorDB.AddOrder";
@@ -85,6 +86,7 @@ namespace ClientsAgregator_DAL.Queries
                 );
 
                 int OrderId = result.Single();
+                orderIdResult = OrderId;
 
                 query = "ClientsAgregatorDB.AddProductOrder";
 
@@ -100,8 +102,9 @@ namespace ClientsAgregator_DAL.Queries
                     );
                 }
             }
+            return orderIdResult;
         }
-        public void UpdateOrder (List<Product_OrderDTO> productsOrder, OrderDTO order)
+        public void UpdateOrder (List<Product_OrderDTO> productsOrder, OrderDTO order, List<FeedbackDTO> feedbackDTOs)
         {
             using (IDbConnection conn = new SqlConnection(Options.connectionString))
             {
@@ -137,6 +140,27 @@ namespace ClientsAgregator_DAL.Queries
                         commandType: CommandType.StoredProcedure
                     );
                 }
+                query = "ClientsAgregatorDB.DeleteFeedbacksByOrderId @OrderId";
+                
+                conn.Query<int>(query, new { orderId });
+
+                query = "ClientsAgregatorDB.AddFeedback";
+
+                foreach (FeedbackDTO f in feedbackDTOs)
+                {
+                    conn.Query<Product_OrderDTO>(query, new
+                    {
+                        f.ClientId,
+                        f.ProductId,
+                        f.OrderId,
+                        f.Description,
+                        f.Date,
+                        f.Rate
+                    },
+                        commandType: CommandType.StoredProcedure
+                    );
+                }
+
             }
         }
         public void DeleteOrder(int orderId)
@@ -177,6 +201,29 @@ namespace ClientsAgregator_DAL.Queries
             }
 
             return productsInOrder;
+        }
+
+        public void AddFeedbacks(List<FeedbackDTO> feedbackDTOs)
+        {
+            string query = "ClientsAgregatorDB.AddFeedback";
+
+            using (IDbConnection conn = new SqlConnection(Options.connectionString))
+            {
+                foreach (FeedbackDTO f in feedbackDTOs)
+                {
+                    conn.Query<Product_OrderDTO>(query, new
+                    {
+                        f.ClientId,
+                        f.ProductId,
+                        f.OrderId,
+                        f.Description,
+                        f.Date,
+                        f.Rate
+                    },
+                        commandType: CommandType.StoredProcedure
+                    );
+                }
+            }
         }
     }
 }

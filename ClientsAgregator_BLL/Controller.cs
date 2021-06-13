@@ -67,7 +67,7 @@ namespace ClientsAgregator_BLL
             return statusModels;
         }
 
-        public void AddOrder(NewOrderInfoModel newOrderInfoModel)
+        public void AddOrder(NewOrderInfoModel newOrderInfoModel, List<FeedbackModel> feedbackModels)
         {
             if (newOrderInfoModel.ProductsInOrder.Count > 0)
             {
@@ -94,6 +94,18 @@ namespace ClientsAgregator_BLL
 
                 List<Product_OrderDTO> productsOrder = mapper.Map<List<Product_OrderDTO>>(productInOrderModels);
 
+                config = new MapperConfiguration(cfg => cfg.CreateMap<FeedbackModel, FeedbackDTO>());
+                mapper = new Mapper(config);
+
+                List<FeedbackDTO> feedbackDTOs = mapper.Map<List<FeedbackDTO>>(feedbackModels);
+
+                int orderId = _ordersHelper.AddOrder(productsOrder, order);
+                foreach (FeedbackDTO f in feedbackDTOs)
+                {
+                    f.OrderId = orderId;
+                }
+                _ordersHelper.AddFeedbacks(feedbackDTOs);
+                
                   _ordersHelper.AddOrder(productsOrder, order);
             }
             else
@@ -102,7 +114,7 @@ namespace ClientsAgregator_BLL
             }
         }
 
-        public void UpdateOrder(NewOrderInfoModel newOrderInfoModel, int orderId)
+        public void UpdateOrder(NewOrderInfoModel newOrderInfoModel, int orderId, List<FeedbackModel> feedbackModels)
         {
             if (newOrderInfoModel.ProductsInOrder.Count > 0)
             {
@@ -134,7 +146,12 @@ namespace ClientsAgregator_BLL
                     p.OrderId = orderId;
                 }
 
-                _ordersHelper.UpdateOrder(productsOrder, order);
+                config = new MapperConfiguration(cfg => cfg.CreateMap<FeedbackModel, FeedbackDTO>());
+                mapper = new Mapper(config);
+
+                List<FeedbackDTO> feedbackDTOs = mapper.Map<List<FeedbackDTO>>(feedbackModels);
+
+                _ordersHelper.UpdateOrder(productsOrder, order, feedbackDTOs);
             }
             else
             {
