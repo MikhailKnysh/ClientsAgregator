@@ -24,7 +24,7 @@
                  Template="{StaticResource ButtonAddingTemplate}">
         </Button>
 
-        <DataGrid x:Name="clientsGrid" IsReadOnly="True" AutoGenerateColumns="False"  Margin="15,10,0,10" Grid.Row="1" HorizontalAlignment="Stretch" ColumnHeaderHeight="30" Grid.Column="0" ColumnWidth="*">
+        <DataGrid x:Name="clientsGrid" IsReadOnly="True" AutoGenerateColumns="False"  Margin="15,10,10,10" Grid.Row="1" HorizontalAlignment="Stretch" ColumnHeaderHeight="30" Grid.Column="0" ColumnWidth="*">
 
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Фамилия" Binding="{Binding LastName}" ></DataGridTextColumn>

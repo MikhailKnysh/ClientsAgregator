@@ -45,5 +45,10 @@ namespace ClientsAgregator
         {
             NavigationService.Navigate(new AddingOfProductPage());
         }
+
+        private void ProductsGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

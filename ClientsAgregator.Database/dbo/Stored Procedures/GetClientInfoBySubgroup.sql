@@ -17,3 +17,4 @@ WHERE [ClientsAgregatorDB].[Product_Subgroup].[SubgroupId] = @SubgroupId
 GROUP BY [ClientsAgregatorDB].[Clients].[Id],[ClientsAgregatorDB].[Clients].[LastName], [ClientsAgregatorDB].[Clients].[FirstName],[ClientsAgregatorDB].[Clients].[MiddleName],
 [ClientsAgregatorDB].[Clients].[Phone],[ClientsAgregatorDB].[BulkStatus].[Title],
 [ClientsAgregatorDB].[Product_Order].[ProductId],[ClientsAgregatorDB].[Products].[Title]
+ORDER BY  AVGRate DESC

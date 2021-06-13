@@ -86,7 +86,7 @@
         <TextBox x:Name="TextBoxEmail" Grid.Column="3" Grid.Row="3" Style="{StaticResource StyleForTextBox}"/>
         <Label Content="Комментарий" HorizontalAlignment="Left" Margin="50,0,0,0" FontSize="18" Grid.Row="6" VerticalAlignment="Top" />
 
-        <TextBox x:Name="TextBoxCommentAboutClient"  Grid.Row="6"
+        <TextBox x:Name="TextBoxCommentAboutClient" Grid.Row="6"
                      HorizontalAlignment="center"  Text="" 
                      TextWrapping="Wrap" VerticalAlignment="Top" 
                      Width="500" Height="100" 

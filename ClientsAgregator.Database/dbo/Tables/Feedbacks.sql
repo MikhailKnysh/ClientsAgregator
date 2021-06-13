@@ -3,7 +3,7 @@
     [ClientId]    INT           NOT NULL,
     [ProductId]   INT           NOT NULL,
     [OrderId]   INT           NOT NULL,
-    [Description] VARCHAR (800) NULL,
+    [Description] VARCHAR (MAX) NULL,
     [Date]        VARCHAR (255) NULL,
     [Rate]        INT           NULL,
     CONSTRAINT [PK_FEEDBACKS] PRIMARY KEY CLUSTERED ([Id] ASC),
