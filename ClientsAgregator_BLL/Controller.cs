@@ -100,6 +100,46 @@ namespace ClientsAgregator_BLL
             }
         }
 
+        public void UpdateOrder(NewOrderInfoModel newOrderInfoModel, int orderId)
+        {
+            if (newOrderInfoModel.ProductsInOrder.Count > 0)
+            {
+                var config = new MapperConfiguration(cfg => cfg.CreateMap<NewOrderInfoModel, OrderDTO>());
+                Mapper mapper = new Mapper(config);
+
+                OrderDTO order = mapper.Map<OrderDTO>(newOrderInfoModel);
+                order.Id = orderId;
+
+                List<ProductInOrderModel> productInOrderModels = newOrderInfoModel.ProductsInOrder;
+
+                config = new MapperConfiguration(
+                    cfg => cfg
+                    .CreateMap<ProductInOrderModel, ProductDTO>()
+                    .ForMember(dest => dest.Id, option => option.MapFrom(source => source.ProductId))
+                    .ForMember(dest => dest.Title, option => option.MapFrom(source => source.ProductTitle))
+                    .ForMember(dest => dest.MeasureId, option => option.MapFrom(source => source.MeasureUnitId))
+                    );
+                mapper = new Mapper(config);
+
+                List<ProductDTO> products = mapper.Map<List<ProductDTO>>(productInOrderModels);
+
+                config = new MapperConfiguration(cfg => cfg.CreateMap<ProductInOrderModel, Product_OrderDTO>());
+                mapper = new Mapper(config);
+
+                List<Product_OrderDTO> productsOrder = mapper.Map<List<Product_OrderDTO>>(productInOrderModels);
+                foreach (Product_OrderDTO p in productsOrder)
+                {
+                    p.OrderId = orderId;
+                }
+
+                _ordersHelper.UpdateOrder(productsOrder, order);
+            }
+            else
+            {
+                throw new ArgumentException("Product list is empty!");
+            }
+        }
+
         public void DeleteOrder(int orderId)
         {
             _ordersHelper.DeleteOrder(orderId);

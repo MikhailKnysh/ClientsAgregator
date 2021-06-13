@@ -68,7 +68,8 @@
                     <DataGridTextColumn Header="Ед. измерения" Binding="{Binding MeasureUnitTitle}"/>
                     <DataGridTextColumn Header="Группа" Binding="{Binding GroupTitle}"/>
                     <DataGridTextColumn Header="Подгруппа" Binding="{Binding SubgroupTitle}"/>
-                    <DataGridTemplateColumn Header="Оценка" Width="60">
+                    <DataGridTextColumn Header="Оценка" Binding="{Binding Rate}"/>
+                    <DataGridTemplateColumn Header="Изменить оценку" Width="120">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <ComboBox x:Name="comboBoxRateInGrid" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="14" SelectionChanged="comboBoxRateInGrid_SelectionChanged">
@@ -98,7 +99,7 @@
                 </DataGrid.Columns>
             </DataGrid>
             <Label x:Name="labelOrderRevie" Content="Отзыв" Grid.Row="5" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14"/>
-            <TextBox x:Name="textBoxOrderRevie" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3" Margin="10" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" FontSize="14"/>
+            <TextBox x:Name="textBoxOrderReview" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3" Margin="10" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" FontSize="14"/>
             <Label x:Name="labelTotalPrice" Content="Общая сумма" Grid.Row="5" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14"/>
             <TextBox x:Name="textBoxTotalPrice" Grid.Row="5" Grid.Column="5" Margin="20,0,10,0" VerticalAlignment="Center" IsReadOnly="True" FontSize="14"/>
             <Button x:Name="buttonSave" Content="Сохранить" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" Margin="80,10,10,10" FontSize="14" Click="buttonSave_Click"/>

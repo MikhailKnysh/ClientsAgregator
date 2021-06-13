@@ -68,14 +68,9 @@ namespace ClientsAgregator.Pages
                 comboBoxProduct.Items.Add(product.ProductTitle);
             }
 
-            //foreach (UIElement item in gridProductsInOrder.ch)
-            //{
-
-            //}
-
             gridProductsInOrder.ItemsSource = _productInOrderModels;
 
-            textBoxOrderRevie.Text = _ordersInfoModel.OrderReview;
+            textBoxOrderReview.Text = _ordersInfoModel.OrderReview;
             textBoxTotalPrice.Text = _ordersInfoModel.TotalPrice.ToString();
         }
 
@@ -105,12 +100,17 @@ namespace ClientsAgregator.Pages
             totalPrice += productInOrderModel.Price * productInOrderModel.Quantity;
             textBoxTotalPrice.Text = totalPrice.ToString();
 
-            gridProductsInOrder.Items.Add(productInOrderModel);
-
-            //ContentPresenter contentPresenter = e.Cok
-            //TODO Load rate into comboBoxRateInGrid
+            gridProductsInOrder.ItemsSource = _productInOrderModels;
+            gridProductsInOrder.Items.Refresh();
         }
 
+        private void comboBoxRateInGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string result = ((sender as ComboBox).SelectedItem as ComboBoxItem).Content as string;
+            _productInOrderModels[gridProductsInOrder.SelectedIndex].Rate = Convert.ToInt32(result);
+            gridProductsInOrder.Items.Refresh();
+
+        }
         private void comboBoxProduct_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             string productTitle = comboBoxProduct.SelectedItem.ToString();
@@ -136,14 +136,39 @@ namespace ClientsAgregator.Pages
                 totalPrice -= _productInOrderModels[index].Price * _productInOrderModels[index].Quantity;
                 textBoxTotalPrice.Text = totalPrice.ToString();
 
-                gridProductsInOrder.Items.RemoveAt(index);
                 _productInOrderModels.RemoveAt(index);
+                gridProductsInOrder.ItemsSource = _productInOrderModels;
+                gridProductsInOrder.Items.Refresh();
             }
         }
 
         private void buttonSave_Click(object sender, RoutedEventArgs e)
         {
+            string clientFullName = comboBoxClient.SelectedItem.ToString();
+            
+            int clientId = (from c in _clients
+                        where c.FullName.Equals(clientFullName)
+                        select c.Id)
+                            .FirstOrDefault();
 
+            string statusTitle = comboBoxStatus.SelectedItem.ToString();
+
+            int statusId = (from c in _statuses
+                            where c.Title.Equals(statusTitle)
+                            select c.Id)
+                            .FirstOrDefault();
+
+            NewOrderInfoModel updatedOrderInfoModel = new NewOrderInfoModel()
+            {
+                ClientId = clientId,
+                OrderDate = textBoxDate.Text,
+                StatusesId = statusId,
+                OrderReview = textBoxOrderReview.Text,
+                TotalPrice = totalPrice,
+                ProductsInOrder = _productInOrderModels
+            };
+
+            _controller.UpdateOrder(updatedOrderInfoModel, _ordersInfoModel.Id);
         }
     }
 }
