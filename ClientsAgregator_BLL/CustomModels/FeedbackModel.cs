@@ -12,16 +12,20 @@ namespace ClientsAgregator_BLL.CustomModels
         public string Date { get; set; }
         public int Rate { get; set; }
 
+
+        protected bool Equals(FeedbackModel other)
+        {
+            return Id == other.Id && ClientId == other.ClientId && ProductId == other.ProductId &&
+                   OrderId == other.OrderId && Description == other.Description && Date == other.Date &&
+                   Rate == other.Rate;
+        }
+
         public override bool Equals(object obj)
         {
-            return obj is FeedbackModel model &&
-                   Id == model.Id &&
-                   ClientId == model.ClientId &&
-                   ProductId == model.ProductId &&
-                   Description == model.Description &&
-                   Date == model.Date &&
-                   Rate == model.Rate;
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != this.GetType()) return false;
+            return Equals((FeedbackModel) obj);
         }
-        
     }
 }

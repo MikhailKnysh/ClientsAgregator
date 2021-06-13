@@ -75,7 +75,7 @@
         </DataGrid>
 
         <Label Content="Комментарий : " HorizontalAlignment="Left" Margin="150,0,0,80" FontSize="18" Grid.Row="4" VerticalAlignment="Bottom" />
-        <TextBox x:Name="TextBoxCommentAboutClient" BorderBrush="Black" BorderThickness="1"  Grid.Row="4"
+        <TextBox x:Name="TextBoxCommentAboutClient"  IsReadOnly="True" BorderBrush="Black" BorderThickness="1"  Grid.Row="4"
                      HorizontalAlignment="center"  Text="" 
                      TextWrapping="Wrap" VerticalAlignment="Bottom" 
                      Width="500" Height="80" Margin="140,0,0,40"
