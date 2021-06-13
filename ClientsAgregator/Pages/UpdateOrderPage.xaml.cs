@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Navigation;
 
 namespace ClientsAgregator.Pages
@@ -194,6 +195,12 @@ namespace ClientsAgregator.Pages
         private void buttonEditReview_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+        private void EventSetter_OnHandler(object sender, MouseEventArgs e)
+        {
+            DataGridCell dgc = sender as DataGridCell;
+
+            dgc.ToolTip = _feedbackModels[gridProductsInOrder.SelectedIndex].Description;
         }
     }
 }

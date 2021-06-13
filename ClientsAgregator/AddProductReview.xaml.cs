@@ -21,5 +21,15 @@ namespace ClientsAgregator
         {
             InitializeComponent();
         }
+
+        private void AcceptButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
