@@ -69,7 +69,7 @@ namespace ClientsAgregator_DAL.Queries
 
         public int AddProduct(ProductDTO product)
         {
-            string query = "ClientsAgregatorDB.AddProduct";
+            string query = "ClientsAgregatorDB.AddProduct @Articul, @Title, @Price, @Quantity, @MeasureId";
 
             using (IDbConnection conn = new SqlConnection(Options.connectionString))
             {
@@ -80,7 +80,7 @@ namespace ClientsAgregator_DAL.Queries
                     product.Price,
                     product.Quantity,
                     product.MeasureId
-                }, commandType: CommandType.StoredProcedure);
+                });
 
                 return productId.Single();
             }

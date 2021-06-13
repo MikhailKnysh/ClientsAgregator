@@ -174,7 +174,6 @@ namespace ClientsAgregator_BLL
 
         public void DeleteProduct(int productId)
         {
-            _productsHelper.DeleteProductSubgroupByProductId(productId);
             _productsHelper.DeleteProductById(productId);
         }
 

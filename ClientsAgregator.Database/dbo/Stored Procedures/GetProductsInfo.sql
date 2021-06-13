@@ -18,3 +18,4 @@ LEFT JOIN [ClientsAgregatorDB].[Subgroup_Group]
 ON [ClientsAgregatorDB].[Subgroups].[Id] = [ClientsAgregatorDB].[Subgroup_Group].[SubgroupId]
 LEFT JOIN [ClientsAgregatorDB].[Groups]
 ON [ClientsAgregatorDB].[Groups].[Id] = [ClientsAgregatorDB].[Subgroup_Group].[GroupId]
+WHERE [ClientsAgregatorDB].[Products].[IsDeleted] IS NULL

@@ -7,5 +7,5 @@
 AS
 INSERT [ClientsAgregatorDB].[Products] 
 OUTPUT INSERTED.Id 
-VALUES (@Articul, @Title, @Price, @Quantity, @MeasureId)
+VALUES (@Articul, @Title, @Price, @Quantity, @MeasureId, NULL)
 
