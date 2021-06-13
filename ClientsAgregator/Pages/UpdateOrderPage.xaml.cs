@@ -156,6 +156,14 @@ namespace ClientsAgregator.Pages
             }
         }
 
+        private void buttonAddReview_Click(object sender, RoutedEventArgs e)
+        {
+            AddProductReview addProductReview = new AddProductReview();
+            addProductReview.ShowDialog();
+
+            _feedbackModels[gridProductsInOrder.SelectedIndex].Description = addProductReview.ProductReview;
+        }
+
         private void buttonSave_Click(object sender, RoutedEventArgs e)
         {
             string clientFullName = comboBoxClient.SelectedItem.ToString();
@@ -191,9 +199,9 @@ namespace ClientsAgregator.Pages
             _controller.UpdateOrder(updatedOrderInfoModel, _ordersInfoModel.Id, _feedbackModels);
         }
 
-        private void buttonEditReview_Click(object sender, RoutedEventArgs e)
+        private void gridProductsInOrder_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
         {
-
+            //gridProductsInOrder[gridProductsInOrder.SelectedIndex]
         }
     }
 }

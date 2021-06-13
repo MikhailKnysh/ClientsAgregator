@@ -12,14 +12,24 @@ using System.Windows.Shapes;
 
 namespace ClientsAgregator
 {
-    /// <summary>
-    /// Interaction logic for AddProductReview.xaml
-    /// </summary>
     public partial class AddProductReview : Window
     {
+        public string ProductReview { get; private set; }
+
         public AddProductReview()
         {
             InitializeComponent();
+        }
+
+        private void buttonAccept_Click(object sender, RoutedEventArgs e)
+        {
+            ProductReview = textBoxProductReview.Text;
+            this.Close();
+        }
+
+        private void buttonCancel_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -65,7 +65,12 @@
                 <Button x:Name="buttonAddProductIntoOrder" Content="Добавить" Grid.Row="0" Grid.Column="1" Margin="10" FontSize="14" Click="AddProduct_Click"/>
             </Grid>
 
-            <DataGrid x:Name="gridProductsInOrder" Grid.Row="4" Grid.Column="0" IsReadOnly="True" AutoGenerateColumns="False" Margin="20,10,20,10" Width="950" Grid.ColumnSpan="6" ColumnWidth="70" HorizontalAlignment="Left" ColumnHeaderHeight="30">
+            <DataGrid x:Name="gridProductsInOrder" Grid.Row="4" Grid.Column="0" IsReadOnly="True" AutoGenerateColumns="False" Margin="20,10,20,10" Width="950" Grid.ColumnSpan="6" ColumnWidth="70" HorizontalAlignment="Left" ColumnHeaderHeight="30" MouseEnter="gridProductsInOrder_MouseEnter">
+                <DataGrid.RowDetailsTemplate>
+                    <DataTemplate>
+                        <TextBlock Background="Orange" Text="{Binding Description}" TextWrapping="Wrap" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                    </DataTemplate>
+                </DataGrid.RowDetailsTemplate>
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Артикул" Binding="{Binding Articul}"/>
                     <DataGridTextColumn Header="Товар" Binding="{Binding ProductTitle}"/>
@@ -88,6 +93,7 @@
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
+                    <DataGridTextColumn Header="Отзыв" Binding="{Binding Description}"/>
                     <DataGridTemplateColumn Width="60" Header="">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
@@ -96,7 +102,7 @@
                                         <ColumnDefinition/>
                                         <ColumnDefinition/>
                                     </Grid.ColumnDefinitions>
-                                    <Button x:Name="buttonEditReview" Grid.Column="0" Height="20" Width="20" Background="Green" IsEnabled="True" Click="buttonEditReview_Click"/>
+                                    <Button x:Name="buttonAddReview" Content="T" Grid.Column="0" Height="20" Width="20" Background="Aqua" IsEnabled="True" Click="buttonAddReview_Click"/>
                                     <Button x:Name="buttonRemove" Content="X" Grid.Column="1" Click="buttonRemove_Click" Height="20" Width="20" Background="Red"/>
                                 </Grid>
                             </DataTemplate>
