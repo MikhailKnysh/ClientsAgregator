@@ -14,5 +14,6 @@ namespace ClientsAgregator_DAL.Interface
         public void DeleteOrder(int orderId);
         public OrderDTO GetOrdersInfoById(int orderId);
         public List<ProductInOrderDTO> GetProductsInOrderByOrderId(int orderId);
+        public void UpdateOrder(List<Product_OrderDTO> productsOrder, OrderDTO order);
     }
 }

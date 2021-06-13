@@ -101,7 +101,44 @@ namespace ClientsAgregator_DAL.Queries
                 }
             }
         }
+        public void UpdateOrder (List<Product_OrderDTO> productsOrder, OrderDTO order)
+        {
+            using (IDbConnection conn = new SqlConnection(Options.connectionString))
+            {
+                string query = "ClientsAgregatorDB.UpdateOrderById";
 
+                conn.Query<int>(query, new
+                {
+                    order.Id,
+                    order.ClientId,
+                    order.StatusesId,
+                    order.OrderReview,
+                    order.OrderDate,
+                    order.TotalPrice
+                },
+                    commandType: CommandType.StoredProcedure
+                );
+
+                query = "ClientsAgregatorDB.DeleteProductOrderByOrderId @OrderId";
+
+                int orderId = order.Id;
+                conn.Query<int>(query, new { orderId });
+
+                query = "ClientsAgregatorDB.AddProductOrder";
+
+                foreach (Product_OrderDTO po in productsOrder)
+                {
+                    conn.Query<Product_OrderDTO>(query, new
+                    {
+                        orderId,
+                        po.ProductId,
+                        po.Quantity
+                    },
+                        commandType: CommandType.StoredProcedure
+                    );
+                }
+            }
+        }
         public void DeleteOrder(int orderId)
         {
             using (IDbConnection conn = new SqlConnection(Options.connectionString))
