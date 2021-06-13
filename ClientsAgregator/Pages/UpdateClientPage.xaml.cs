@@ -1,4 +1,4 @@
-﻿using ClientsAgregator_BLL;
+using ClientsAgregator_BLL;
 using ClientsAgregator_BLL.CustomModels;
 using System.Collections.Generic;
 using System.Windows;

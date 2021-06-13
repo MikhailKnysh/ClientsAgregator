@@ -15,7 +15,7 @@ namespace ClientsAgregator_BLL.CustomModels.ProductsModel
         public int ProductId { get; set; }
         public string ProductTitle { get; set; }
         public int SumQuantity { get; set; }
-        public int AVGRate { get; set; }
+        public string AVGRate { get; set; }
 
         public override bool Equals(object obj)
         {
