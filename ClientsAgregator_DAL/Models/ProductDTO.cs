@@ -7,7 +7,7 @@ namespace ClientsAgregator_DAL.Models
         public string Articul { get; set; }
         public string Title { get; set; }
         public double Price { get; set; }
-        public int Quantity { get; set; }
+        public double Quantity { get; set; }
         public int MeasureId { get; set; }
 
         protected bool Equals(ProductDTO other)
