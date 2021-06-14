@@ -20,6 +20,7 @@ namespace ClientsAgregator.Pages
     /// </summary>
     public partial class MainPage : Page
     {
+        const string mainPage = "mainPage"; 
         private Controller _controller;
         List<ProductsSubgropModel> productsSubgropModels;
         List<InterestedClientInfoByProductModel> interestedClientInfoByProductModels;
