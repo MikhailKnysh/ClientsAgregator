@@ -129,7 +129,7 @@ namespace ClientsAgregator.Pages
                 isAdding = false;
             }
 
-            if(ValidationData.IsValidStringLenght(textBoxOrderReview.Text.Trim(), 800))
+            if(!ValidationData.IsValidStringLenght(textBoxOrderReview.Text.Trim(), 800))
             {
                 textBoxOrderReview.ToolTip = "Это поле введено некорректно. Превышено количество введенных символов";
                 textBoxOrderReview.Background = Brushes.Tomato;
@@ -144,7 +144,7 @@ namespace ClientsAgregator.Pages
                     ProductId = _productInfoModel.Id,
                     ProductTitle = _productInfoModel.Title,
                     Price = _productInfoModel.Price,
-                    Quantity = Convert.ToInt32(textBoxQuaunity.Text),
+                    Quantity = Convert.ToDouble(textBoxQuaunity.Text),
                     MeasureUnitId = _productInfoModel.MeasureUnitId,
                     MeasureUnitTitle = _productInfoModel.MeasureUnit,
                     GroupTitle = _productInfoModel.Group,
