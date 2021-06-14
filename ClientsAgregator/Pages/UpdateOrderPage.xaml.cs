@@ -93,12 +93,12 @@ namespace ClientsAgregator.Pages
             string quantity = textBoxQuaunity.Text.Trim();
             string rate = comboBoxRate.Text.Trim();
 
-            //bool isAdding = true;
+            bool isAdding = true;
 
-            //if(rate is null)
-            //{
-            //    rate = "-1";
-            //}
+            if (rate is null)
+            {
+                rate = "-1";
+            }
 
             if (!(ValidationData.IsNumber(quantity))
                || !(ValidationData.IsValidStringLenght(quantity, validCharQuantity: 53))
@@ -109,36 +109,36 @@ namespace ClientsAgregator.Pages
                 isAdding = false;
             }
 
-            //if (!(ValidationData.IsStringNotNull(comboBoxClient.Text.Trim())))
-            //{
-            //    comboBoxClient.ToolTip = "Это поле введено некорректно. Необходимо выбрать один из вариантов в списке";
-            //    comboBoxClient.Background = Brushes.Tomato;
-            //    isAdding = false;
-            //}
+            if (!(ValidationData.IsStringNotNull(comboBoxClient.Text.Trim())))
+            {
+                comboBoxClient.ToolTip = "Это поле введено некорректно. Необходимо выбрать один из вариантов в списке";
+                comboBoxClient.Background = Brushes.Tomato;
+                isAdding = false;
+            }
 
-            //if (!(ValidationData.IsStringNotNull(comboBoxProduct.Text.Trim())))
-            //{
-            //    comboBoxProduct.ToolTip = "Это поле введено некорректно. Необходимо выбрать один из вариантов в списке";
-            //    comboBoxProduct.Background = Brushes.Tomato;
-            //    isAdding = false;
-            //}
+            if (!(ValidationData.IsStringNotNull(comboBoxProduct.Text.Trim())))
+            {
+                comboBoxProduct.ToolTip = "Это поле введено некорректно. Необходимо выбрать один из вариантов в списке";
+                comboBoxProduct.Background = Brushes.Tomato;
+                isAdding = false;
+            }
 
-            //if (!(ValidationData.IsStringNotNull(comboBoxStatus.Text.Trim())))
-            //{
-            //    comboBoxStatus.ToolTip = "Это поле введено некорректно. Необходимо выбрать один из вариантов в списке";
-            //    comboBoxStatus.Background = Brushes.Tomato;
-            //    isAdding = false;
-            //}
+            if (!(ValidationData.IsStringNotNull(comboBoxStatus.Text.Trim())))
+            {
+                comboBoxStatus.ToolTip = "Это поле введено некорректно. Необходимо выбрать один из вариантов в списке";
+                comboBoxStatus.Background = Brushes.Tomato;
+                isAdding = false;
+            }
 
-            if(!ValidationData.IsValidStringLenght(textBoxOrderReview.Text.Trim(), 800))
+            if (!ValidationData.IsValidStringLenght(textBoxOrderReview.Text.Trim(), 800))
             {
                 textBoxOrderReview.ToolTip = "Превышено количество введенных символов";
                 textBoxOrderReview.Background = Brushes.Tomato;
                 isAdding = false;
             }
 
-            //if (isAdding)
-            //{
+            if (isAdding)
+            {
                 ProductInOrderModel productInOrderModel = new ProductInOrderModel()
                 {
                     Articul = _productInfoModel.Articul,
@@ -160,7 +160,15 @@ namespace ClientsAgregator.Pages
                     Rate = -1
                 };
 
-                _productInOrderModels.Add(productInOrderModel);
+                if (_productInOrderModels.Contains(productInOrderModel))
+                {
+                    _productInOrderModels.Add(productInOrderModel); 
+                }
+                else
+                {
+                    MessageBox.Show("Этот товар уже есть в списке!");
+                }
+
                 _feedbackModels.Add(newfeedbackModel);
 
                 totalPrice += productInOrderModel.Price * productInOrderModel.Quantity;
@@ -168,7 +176,7 @@ namespace ClientsAgregator.Pages
 
                 gridProductsInOrder.ItemsSource = _productInOrderModels;
                 gridProductsInOrder.Items.Refresh();
-            //}
+            }
         }
 
         private void comboBoxRateInGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
