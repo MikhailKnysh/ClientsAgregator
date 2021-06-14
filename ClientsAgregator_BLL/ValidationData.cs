@@ -34,7 +34,7 @@ namespace ClientsAgregator_BLL
             }
 
             if (Regex.IsMatch(phone,
-                @"^\+[0-9]{11,16}$", RegexOptions.IgnoreCase))
+                @"^\+[0-9]{11,16}$"))
             {
                 return true;
             }
@@ -69,7 +69,7 @@ namespace ClientsAgregator_BLL
         public static bool IsNumber(string str)
         {
             if (Regex.IsMatch(str,
-               @"^[0-9]{0,53}\.[0-9]{0,10}$", RegexOptions.IgnoreCase))
+               @"^[0-9]{0,53}\.?[0-9]{0,2}$"))
             {
                 return true;
             }
