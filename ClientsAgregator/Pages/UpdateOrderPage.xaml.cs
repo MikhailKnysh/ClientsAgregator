@@ -103,35 +103,35 @@ namespace ClientsAgregator.Pages
             if (!(ValidationData.IsNumber(quantity)
                || !(ValidationData.IsValidStringLenght(quantity, validCharQuantity: 53))))
             {
-                textBoxQuaunity.ToolTip = "Это поле введено некорректно";
+                textBoxQuaunity.ToolTip = "Это поле введено некорректно. Введите цифры в формате ХХХ или ХХХ.ХХ";
                 textBoxQuaunity.Background = Brushes.Tomato;
                 isAdding = false;
             }
 
             if (!(ValidationData.IsStringNotNull(comboBoxClient.Text.Trim())))
             {
-                comboBoxClient.ToolTip = "Это поле введено некорректно";
+                comboBoxClient.ToolTip = "Это поле введено некорректно. Необходимо выбрать один из вариантов в списке";
                 comboBoxClient.Background = Brushes.Tomato;
                 isAdding = false;
             }
 
             if (!(ValidationData.IsStringNotNull(comboBoxProduct.Text.Trim())))
             {
-                comboBoxProduct.ToolTip = "Это поле введено некорректно";
+                comboBoxProduct.ToolTip = "Это поле введено некорректно. Необходимо выбрать один из вариантов в списке";
                 comboBoxProduct.Background = Brushes.Tomato;
                 isAdding = false;
             }
 
             if (!(ValidationData.IsStringNotNull(comboBoxStatus.Text.Trim())))
             {
-                comboBoxStatus.ToolTip = "Это поле введено некорректно";
+                comboBoxStatus.ToolTip = "Это поле введено некорректно. Необходимо выбрать один из вариантов в списке";
                 comboBoxStatus.Background = Brushes.Tomato;
                 isAdding = false;
             }
 
             if(ValidationData.IsValidStringLenght(textBoxOrderReview.Text.Trim(), 800))
             {
-                textBoxOrderReview.ToolTip = "Это поле введено некорректно";
+                textBoxOrderReview.ToolTip = "Это поле введено некорректно. Превышено количество введенных символов";
                 textBoxOrderReview.Background = Brushes.Tomato;
                 isAdding = false;
             }

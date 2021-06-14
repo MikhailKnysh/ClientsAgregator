@@ -100,7 +100,7 @@ namespace ClientsAgregator
 
             if (!(ValidationData.IsValidStringLenght(articul, 255)))
             {
-                ArticulTextBox.ToolTip = "Это поле введено некорректно";
+                ArticulTextBox.ToolTip = "Это поле введено некорректно. Превышено количество символов";
                 ArticulTextBox.Background = Brushes.Tomato;
                 isAdding = false;
             }
@@ -109,7 +109,7 @@ namespace ClientsAgregator
                 || !(ValidationData.IsStringNotNull(title))
                 || (isTitleNotUnique))
             {
-                TitelTextBox.ToolTip = "Это поле введено некорректно или название продукта не уникально";
+                TitelTextBox.ToolTip = "Это поле введено некорректно или название продукта уже существует";
                 TitelTextBox.Background = Brushes.Tomato;
                 isAdding = false;
             }
@@ -117,7 +117,7 @@ namespace ClientsAgregator
             if (!(ValidationData.IsNumber(quantity))
                 || !(ValidationData.IsStringNotNull(quantity)))
             {
-                QuantityTextBox.ToolTip = "Это поле введено некорректно";
+                QuantityTextBox.ToolTip = "Это поле введено некорректно. Введите цифры в формате ХХХ или ХХХ.ХХ";
                 QuantityTextBox.Background = Brushes.Tomato;
                 isAdding = false;
             }
@@ -125,28 +125,28 @@ namespace ClientsAgregator
             if (!(ValidationData.IsNumber(price))
                 || !(ValidationData.IsStringNotNull(price)))
             {
-                PriceTextBox.ToolTip = "Это поле введено некорректно";
+                PriceTextBox.ToolTip = "Это поле введено некорректно. Введите цифры в формате ХХХ или ХХХ.ХХ";
                 PriceTextBox.Background = Brushes.Tomato;
                 isAdding = false;
             }
 
             if (!(ValidationData.IsStringNotNull(SubgroupComboBox.Text.Trim())))
             {
-                SubgroupComboBox.ToolTip = "Это поле введено некорректно";
+                SubgroupComboBox.ToolTip = "Это поле введено некорректно. Необходимо выбрать один из вариантов в списке";
                 SubgroupComboBox.Background = Brushes.Tomato;
                 isAdding = false;
             }
 
             if (!(ValidationData.IsStringNotNull(GroupComboBox.Text.Trim())))
             {
-                GroupComboBox.ToolTip = "Это поле введено некорректно";
+                GroupComboBox.ToolTip = "Это поле введено некорректно. Необходимо выбрать один из вариантов в списке";
                 GroupComboBox.Background = Brushes.Tomato;
                 isAdding = false;
             }
 
             if (!(ValidationData.IsStringNotNull(MeasureUnitComboBox.Text.Trim())))
             {
-                MeasureUnitComboBox.ToolTip = "Это поле введено некорректно";
+                MeasureUnitComboBox.ToolTip = "Это поле введено некорректно. Необходимо выбрать один из вариантов в списке";
                 MeasureUnitComboBox.Background = Brushes.Tomato;
                 isAdding = false;
             }

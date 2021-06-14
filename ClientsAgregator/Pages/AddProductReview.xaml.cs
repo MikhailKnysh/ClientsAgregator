@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClientsAgregator_BLL;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -25,8 +26,17 @@ namespace ClientsAgregator
 
         private void buttonAccept_Click(object sender, RoutedEventArgs e)
         {
-            ProductReview = textBoxProductReview.Text;
-            this.Close();
+
+            if (ValidationData.IsValidStringLenght(ProductReview, validCharQuantity: 255) && ValidationData.IsStringNotNull(ProductReview))
+            {
+                ProductReview = textBoxProductReview.Text.Trim();
+                this.Close();
+            }
+            else
+            {
+                textBoxProductReview.Background = Brushes.Tomato;
+                textBoxProductReview.ToolTip = "Поле не может быть пустым или превышено количество символов";
+            }
         }
 
         private void buttonCancel_Click(object sender, RoutedEventArgs e)

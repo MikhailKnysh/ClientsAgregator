@@ -48,7 +48,7 @@ namespace ClientsAgregator.Pages
             if (!(ValidationData.IsValidStringLenght(lastName, validCharQuantity: 255))
                 || !(ValidationData.IsStringNotNull(lastName)))
             {
-                TextBoxLastName.ToolTip = "Это поле введено некорректно";
+                TextBoxLastName.ToolTip = "Это поле введено некорректно. Поле не заполнено или превышено количество символов";
                 TextBoxLastName.Background = Brushes.Tomato;
                 isAdding = false;
             }
@@ -56,7 +56,7 @@ namespace ClientsAgregator.Pages
             if (!(ValidationData.IsValidStringLenght(firstName, validCharQuantity: 255))
                 || !(ValidationData.IsStringNotNull(firstName)))
             {
-                TextBoxFirstName.ToolTip = "Это поле введено некорректно";
+                TextBoxFirstName.ToolTip = "Это поле введено некорректно. Поле не заполнено или превышено количество символов";
                 TextBoxFirstName.Background = Brushes.Tomato;
                 isAdding = false;
             }
@@ -64,28 +64,28 @@ namespace ClientsAgregator.Pages
             if (!(ValidationData.IsValidStringLenght(middleName, validCharQuantity: 255))
                 || !(ValidationData.IsStringNotNull(middleName)))
             {
-                TextBoxMiddleName.ToolTip = "Это поле введено некорректно";
+                TextBoxMiddleName.ToolTip = "Это поле введено некорректно. Поле не заполнено или превышено количество символов";
                 TextBoxMiddleName.Background = Brushes.Tomato;
                 isAdding = false;
             }
 
             if (!(ValidationData.IsValidStringLenght(commentAboutСlient, validCharQuantity: 800)))
             {
-                TextBoxCommentAboutClient.ToolTip = "Это поле введено некорректно";
+                TextBoxCommentAboutClient.ToolTip = "Это поле введено некорректно. Поле не заполнено или превышено количество символов";
                 TextBoxCommentAboutClient.Background = Brushes.Tomato;
                 isAdding = false;
             }
 
-            if (!(ValidationData.IsValidPhone(phone)) || !(ValidationData.IsValidStringLenght(commentAboutСlient, validCharQuantity: 60)))
+            if (!(ValidationData.IsValidPhone(phone)) || !(ValidationData.IsValidStringLenght(phone, validCharQuantity: 60)))
             {
-                TextBoxPhone.ToolTip = "Это поле введено некорректно. Обязательно введите первым символ + и потом цифры номера";
+                TextBoxPhone.ToolTip = "Это поле введено некорректно. Введите номер в формате +ХХХХХХХХХХХ(допустимое количество цифр в номере от 11 до 16)";
                 TextBoxPhone.Background = Brushes.Tomato;
                 isAdding = false;
             }
 
-            if (!(ValidationData.IsValidEmail(email)) || !(ValidationData.IsValidStringLenght(commentAboutСlient, validCharQuantity: 50)))
+            if (!(ValidationData.IsValidEmail(email)) || !(ValidationData.IsValidStringLenght(email, validCharQuantity: 50)))
             {
-                TextBoxEmail.ToolTip = "Это поле введено некорректно";
+                TextBoxEmail.ToolTip = "Это поле введено некорректно. Введите адрес в формате ААААА@ВВВВ.ССС";
                 TextBoxEmail.Background = Brushes.Tomato;
                 isAdding = false;
             }
@@ -93,7 +93,7 @@ namespace ClientsAgregator.Pages
             if (!(ValidationData.IsStringNotNull(male))
                 || !(ValidationData.IsStringNotNull(male)))
             {
-                ComboBoxMale.ToolTip = "Это поле введено некорректно";
+                ComboBoxMale.ToolTip = "Это поле введено некорректно. Необходимо выбрать один из вариантов в списке";
                 ComboBoxMale.Background = Brushes.Tomato;
                 isAdding = false;
             }
@@ -101,7 +101,7 @@ namespace ClientsAgregator.Pages
             if (!(ValidationData.IsStringNotNull(bulkStatus))
                 || !(ValidationData.IsStringNotNull(bulkStatus)))
             {
-                ComboBoxBulkStatus.ToolTip = "Это поле введено некорректно";
+                ComboBoxBulkStatus.ToolTip = "Это поле введено некорректно. Необходимо выбрать один из вариантов в списке";
                 ComboBoxBulkStatus.Background = Brushes.Tomato;
                 isAdding = false;
             }
