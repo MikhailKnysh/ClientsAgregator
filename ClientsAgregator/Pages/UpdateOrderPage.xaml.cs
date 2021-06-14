@@ -95,7 +95,7 @@ namespace ClientsAgregator.Pages
 
             bool isAdding = true;
 
-            if (rate is null)
+            if (string.IsNullOrEmpty(rate))
             {
                 rate = "-1";
             }
@@ -160,7 +160,18 @@ namespace ClientsAgregator.Pages
                     Rate = -1
                 };
 
-                if (_productInOrderModels.Contains(productInOrderModel))
+                bool isAddedProductInOrder = false;
+
+                foreach (var item in _productInOrderModels)
+                {
+                    if(item.ProductId == productInOrderModel.ProductId)
+                    {
+                        isAddedProductInOrder = true;
+                        break;
+                    }
+                }
+
+                if (!isAddedProductInOrder)
                 {
                     _productInOrderModels.Add(productInOrderModel); 
                 }
