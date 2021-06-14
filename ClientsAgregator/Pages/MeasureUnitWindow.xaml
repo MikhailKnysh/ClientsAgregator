@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ClientsAgregator"
         mc:Ignorable="d"
-        Title="MeasureUnitWindow" Height="200" Width="400" WindowStyle="None" ResizeMode="NoResize" Background="#FFCDCACA">
+        Title="MeasureUnitWindow" Height="200" Width="400" WindowStyle="None" ResizeMode="NoResize" Background="#FFCDCACA" Loaded="Window_Loaded">
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>

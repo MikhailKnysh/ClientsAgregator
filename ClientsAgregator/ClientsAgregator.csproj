@@ -14,6 +14,7 @@
     <None Remove="iconPlus.jpg" />
     <None Remove="iconPlus.png" />
     <None Remove="image\GreenPaint.png" />
+    <None Remove="image\icon.ico" />
     <None Remove="image\iconBack.png" />
     <None Remove="image\iconBack32.png" />
     <None Remove="image\iconClient.png" />
@@ -34,7 +35,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="image\clockDark.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="image\GreenPaint.png" />
+    <Resource Include="image\icon.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="image\iconBack32.png" />
     <Resource Include="image\iconClient.png" />
     <Resource Include="image\iconPlus.png" />

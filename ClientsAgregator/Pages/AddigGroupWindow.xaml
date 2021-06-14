@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ClientsAgregator"
         mc:Ignorable="d"
         Title="AddigGroup" Height="200" Width="400
-        " ResizeMode="NoResize" WindowStyle="None" Background="#FFB8B8B8">
+        " ResizeMode="NoResize" WindowStyle="None" Background="#FFB8B8B8" Loaded="Window_Loaded">
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
