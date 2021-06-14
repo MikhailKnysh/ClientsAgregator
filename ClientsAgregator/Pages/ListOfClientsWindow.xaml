@@ -44,7 +44,7 @@
                                     <ColumnDefinition>
                                     </ColumnDefinition>
                                 </Grid.ColumnDefinitions>
-                                <Button  Name="buttonOpenProfileClientPage" Grid.Column="0" Click="buttonOpenProfileClientPage_Click" Height="20" Width="20" Background="Green">
+                                <Button  Name="buttonOpenProfileClientPage" Grid.Column="0" Click="buttonOpenProfileClientPage_Click" Height="20" Width="20" Background="LimeGreen">
                                     <Image Source="\image/iconClient.png" >
                                     </Image>
                                 </Button>

@@ -36,7 +36,7 @@
                 Template="{StaticResource ButtonBackTemplate}">
         </Button>
 
-        <Button Name="ButtonOpenUpdateClientPage" Click="ButtonOpenUpdateClientPage_Click"  Margin="0,0,100,30" Grid.Row="0" Background="Green"  Width="30px" Height="30px"  VerticalAlignment="Center" HorizontalAlignment="Right">
+        <Button Name="ButtonOpenUpdateClientPage" Click="ButtonOpenUpdateClientPage_Click"  Margin="0,0,100,30" Grid.Row="0" Background="LimeGreen"  Width="30px" Height="30px"  VerticalAlignment="Center" HorizontalAlignment="Right">
             <Image Width="auto" Height="auto" Source="\image/paint.png" IsEnabled="False" ></Image>
         </Button>
 
@@ -65,7 +65,7 @@
                     ColumnHeaderHeight="30" ColumnWidth="*" 
                     Height="250" VerticalAlignment="Top">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Артикуль" MaxWidth="80" Binding="{Binding Articul}" ></DataGridTextColumn>
+                <DataGridTextColumn Header="Артикул" MaxWidth="80" Binding="{Binding Articul}" ></DataGridTextColumn>
                 <DataGridTextColumn Header="Название" Binding="{Binding Title}" ></DataGridTextColumn>
                 <DataGridTextColumn Header="Кол-во" MaxWidth="80" Binding="{Binding SUMQuantity}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Группа" Binding="{Binding GroupName}"></DataGridTextColumn>
