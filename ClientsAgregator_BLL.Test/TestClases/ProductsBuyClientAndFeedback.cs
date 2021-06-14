@@ -20,10 +20,10 @@ namespace ClientsAgregator_BLL.Test.TestClases
 
         }
 
-        public void qqqqq()
-        {
-            _mock.Setup()
-        }
+        //public void qqqqq()
+        //{
+        //    _mock.Setup();
+        //}
 
     }
 }
