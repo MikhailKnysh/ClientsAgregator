@@ -55,6 +55,7 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
+        <Label Content="СПИСОК КЛИЕНТОВ" HorizontalAlignment="Center" Margin="10" VerticalAlignment="Center" FontSize="25" FontWeight="Bold"/>
 
     </Grid>
 </Page>

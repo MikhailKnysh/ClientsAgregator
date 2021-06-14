@@ -18,8 +18,8 @@
         </Grid.ColumnDefinitions>
         <Label Content="Введите новую группу" Grid.Row="0" HorizontalAlignment="Center" Margin="10" VerticalAlignment="Center"/>
         <TextBox x:Name="GroupTextBox" Grid.Row="1"  Margin="10" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center" Width="200"/>
-        <Button x:Name="AcceptButton" Content="OK" IsDefault="True" HorizontalAlignment="Left" Grid.Row="2" Margin="10,0,0,0" VerticalAlignment="Center" Width="100" Click="AcceptButton_Click"/>
-        <Button x:Name="CancelButton" Content="Cancel" IsCancel="True" HorizontalAlignment="Left" Grid.Row="2" Margin="270,0,0,0" VerticalAlignment="Center" Width="100"/>
+        <Button x:Name="AcceptButton" Content="Добавить" IsDefault="True" HorizontalAlignment="Left" Grid.Row="2" Margin="10,0,0,0" VerticalAlignment="Center" Width="100" Click="AcceptButton_Click"/>
+        <Button x:Name="CancelButton" Content="Отменить" IsCancel="True" HorizontalAlignment="Left" Grid.Row="2" Margin="270,0,0,0" VerticalAlignment="Center" Width="100"/>
 
     </Grid>
 </Window>

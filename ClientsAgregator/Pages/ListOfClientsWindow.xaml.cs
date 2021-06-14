@@ -14,6 +14,7 @@ namespace ClientsAgregator
     /// </summary>
     public partial class ListOfClientsWindow : Page
     {
+        const string listOfClientPage = "ListOfClientsWindow";
         private Controller _controller = new Controller();
         private List<ClientModel> _clientModel;
 
@@ -45,7 +46,7 @@ namespace ClientsAgregator
 
         private void buttonOpenProfileClientPage_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new ProfileClientWindow(_clientModel[clientsGrid.SelectedIndex].Id));
+            NavigationService.Navigate(new ProfileClientWindow(_clientModel[clientsGrid.SelectedIndex].Id,listOfClientPage));
         }
     }
 }

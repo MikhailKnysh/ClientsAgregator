@@ -41,6 +41,7 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
+        <Label Content="СПИСОК ЗАКАЗОВ" Grid.Row="0" HorizontalAlignment="Center" Margin="10" VerticalAlignment="Center" FontSize="25" FontWeight="Bold"/>
 
     </Grid>
 </Page>
