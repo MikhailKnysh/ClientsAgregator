@@ -3,7 +3,7 @@
 @Articul VARCHAR(255),
 @Title VARCHAR(255),
 @Price FLOAT,
-@Quantity INT,
+@Quantity FLOAT,
 @MeasureId INT
 AS
 UPDATE [ClientsAgregatorDB].[Products] 

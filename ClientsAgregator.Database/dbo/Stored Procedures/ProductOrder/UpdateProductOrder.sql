@@ -1,7 +1,7 @@
 ﻿CREATE PROCEDURE [ClientsAgregatorDB].[UpdateProductOrder]
 @OrderId INT,
 @ProductId INT,
-@Quantity INT
+@Quantity FLOAT
 AS
 UPDATE [ClientsAgregatorDB].[Product_Order]
 SET
