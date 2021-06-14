@@ -3,7 +3,7 @@
     [Articul]   VARCHAR (255) NULL,
     [Title]     VARCHAR (255) NOT NULL,
     [Price]     FLOAT (53)    NOT NULL,
-    [Quantity]  INT           NOT NULL,
+    [Quantity]  FLOAT (53)    NOT NULL,
     [MeasureId] INT           NOT NULL,
     [IsDeleted] VARCHAR (255) NULL
     CONSTRAINT [PK_PRODUCTS] PRIMARY KEY CLUSTERED ([Id] ASC),
