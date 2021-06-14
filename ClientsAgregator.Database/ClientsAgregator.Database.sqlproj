@@ -9,8 +9,7 @@
     <ProjectGuid>{dda3da8c-6bed-46b2-b224-96963a6d76a4}</ProjectGuid>
     <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
-    <RootPath>
-    </RootPath>
+    <RootPath />
     <RootNamespace>ClientsAgregator.Database</RootNamespace>
     <AssemblyName>ClientsAgregator.Database</AssemblyName>
     <ModelCollation>1049,CI</ModelCollation>
@@ -50,7 +49,6 @@
   </PropertyGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
-    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
     <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
     <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
   </PropertyGroup>
@@ -60,6 +58,21 @@
     <Folder Include="Properties" />
     <Folder Include="dbo\" />
     <Folder Include="dbo\Tables\" />
+    <Folder Include="dbo\Stored Procedures" />
+    <Folder Include="dbo\Stored Procedures\ProductOrder" />
+    <Folder Include="dbo\Stored Procedures\BulkStatus\" />
+    <Folder Include="dbo\Stored Procedures\Groups" />
+    <Folder Include="dbo\Stored Procedures\Subgroup" />
+    <Folder Include="dbo\Stored Procedures\Product" />
+    <Folder Include="dbo\Stored Procedures\Orders" />
+    <Folder Include="dbo\Stored Procedures\Feedbacks" />
+    <Folder Include="dbo\Stored Procedures\MeasureUnit" />
+    <Folder Include="dbo\Stored Procedures\Status" />
+    <Folder Include="dbo\Stored Procedures\Clients" />
+    <Folder Include="dbo\Stored Procedures\Product_Subgroup" />
+    <Folder Include="dbo\Stored Procedures\Subgroup_Group" />
+    <Folder Include="dbo\Security" />
+    <Folder Include="dbo\Security\Schemas" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Clients.sql" />
@@ -74,5 +87,91 @@
     <Build Include="dbo\Tables\Feedbacks.sql" />
     <Build Include="dbo\Tables\MeasureUnits.sql" />
     <Build Include="dbo\Tables\Statuses.sql" />
+    <Build Include="dbo\Stored Procedures\ProductOrder\DeleteProductOrderByCompositId.sql" />
+    <Build Include="dbo\Stored Procedures\ProductOrder\DeleteProductOrderByOrderId.sql" />
+    <Build Include="dbo\Stored Procedures\ProductOrder\DeleteProductOrderByProductId.sql" />
+    <Build Include="dbo\Stored Procedures\ProductOrder\GetProductOrder.sql" />
+    <Build Include="dbo\Stored Procedures\ProductOrder\GetProductOrderByProductId.sql" />
+    <Build Include="dbo\Stored Procedures\ProductOrder\GetProductOrderByOrderId.sql" />
+    <Build Include="dbo\Stored Procedures\ProductOrder\AddProductOrder.sql" />
+    <Build Include="dbo\Stored Procedures\ProductOrder\UpdateProductOrder.sql" />
+    <Build Include="dbo\Stored Procedures\BulkStatus\AddBulkStatus.sql" />
+    <Build Include="dbo\Stored Procedures\BulkStatus\DeleteBulkStatusById.sql" />
+    <Build Include="dbo\Stored Procedures\BulkStatus\GetBulkStatus.sql" />
+    <Build Include="dbo\Stored Procedures\BulkStatus\UpdateBulkStatusById.sql" />
+    <Build Include="dbo\Stored Procedures\Groups\DeleteGroupById.sql" />
+    <Build Include="dbo\Stored Procedures\Groups\AddGroup.sql" />
+    <Build Include="dbo\Stored Procedures\Groups\GetGroupById.sql" />
+    <Build Include="dbo\Stored Procedures\Groups\GetGroups.sql" />
+    <Build Include="dbo\Stored Procedures\Groups\UpdateGroupByID.sql" />
+    <Build Include="dbo\Stored Procedures\Subgroup\AddSubgroup.sql" />
+    <Build Include="dbo\Stored Procedures\Subgroup\DeleteSubgroupById.sql" />
+    <Build Include="dbo\Stored Procedures\Subgroup\GetSubgroupById.sql" />
+    <Build Include="dbo\Stored Procedures\Subgroup\GetSubgroups.sql" />
+    <Build Include="dbo\Stored Procedures\Subgroup\UpdateSubgroupById.sql" />
+    <Build Include="dbo\Stored Procedures\ProductOrder\AddProductOrder.sql" />
+    <Build Include="dbo\Stored Procedures\ProductOrder\DeleteProductOrderByCompositId.sql" />
+    <Build Include="dbo\Stored Procedures\ProductOrder\DeleteProductOrderByOrderId.sql" />
+    <Build Include="dbo\Stored Procedures\ProductOrder\DeleteProductOrderByProductId.sql" />
+    <Build Include="dbo\Stored Procedures\ProductOrder\GetProductOrder.sql" />
+    <Build Include="dbo\Stored Procedures\ProductOrder\GetProductOrder.sql" />
+    <Build Include="dbo\Stored Procedures\ProductOrder\GetProductOrderByProductId.sql" />
+    <Build Include="dbo\Stored Procedures\ProductOrder\UpdateProductOrder.sql" />
+    <Build Include="dbo\Stored Procedures\Product\GetProductById.sql" />
+    <Build Include="dbo\Stored Procedures\Product\GetProducts.sql" />
+    <Build Include="dbo\Stored Procedures\Product\UpdateProductById.sql" />
+    <Build Include="dbo\Stored Procedures\Product\DeleteProductById.sql" />
+    <Build Include="dbo\Stored Procedures\Product\AddProduct.sql" />
+    <Build Include="dbo\Stored Procedures\Orders\AddOrder.sql" />
+    <Build Include="dbo\Stored Procedures\Orders\DeleteOrderById.sql" />
+    <Build Include="dbo\Stored Procedures\Orders\GetOrders.sql" />
+    <Build Include="dbo\Stored Procedures\Orders\GetOrdersById.sql" />
+    <Build Include="dbo\Stored Procedures\Orders\UpdateOrderById.sql" />
+    <Build Include="dbo\Stored Procedures\Feedbacks\AddFeedback.sql" />
+    <Build Include="dbo\Stored Procedures\Feedbacks\DeleteFeedbacksById.sql" />
+    <Build Include="dbo\Stored Procedures\Feedbacks\GetFeedbacks.sql" />
+    <Build Include="dbo\Stored Procedures\Feedbacks\UpdateFeedbackById.sql" />
+    <Build Include="dbo\Stored Procedures\Feedbacks\GetFeedbackById.sql" />
+    <Build Include="dbo\Stored Procedures\MeasureUnit\AddMeasureUnit.sql" />
+    <Build Include="dbo\Stored Procedures\MeasureUnit\DeleteMeasureUnitById.sql" />
+    <Build Include="dbo\Stored Procedures\MeasureUnit\GetMeasureUnit.sql" />
+    <Build Include="dbo\Stored Procedures\MeasureUnit\GetMeasureUnitById.sql" />
+    <Build Include="dbo\Stored Procedures\MeasureUnit\UpdateMeasureUnitById.sql" />
+    <Build Include="dbo\Stored Procedures\Status\AddStatus.sql" />
+    <Build Include="dbo\Stored Procedures\Status\GetStatusById.sql" />
+    <Build Include="dbo\Stored Procedures\Status\UpdateStatusById.sql" />
+    <Build Include="dbo\Stored Procedures\Status\GetStatuses.sql" />
+    <Build Include="dbo\Stored Procedures\Status\DeleteStatusById.sql" />
+    <Build Include="dbo\Stored Procedures\Clients\AddClient.sql" />
+    <Build Include="dbo\Stored Procedures\Clients\DeleteClientById.sql" />
+    <Build Include="dbo\Stored Procedures\Clients\GetClients.sql" />
+    <Build Include="dbo\Stored Procedures\Clients\GetClientById.sql" />
+    <Build Include="dbo\Stored Procedures\Clients\UpdateClientById.sql" />
+    <Build Include="dbo\Stored Procedures\Product\GetProductTitles.sql" />
+    <Build Include="dbo\Stored Procedures\Clients\GetClientsFullName.sql" />
+    <Build Include="dbo\Stored Procedures\Clients\GetFullNameAndContactInfoByClientId.sql" />
+    <Build Include="dbo\Stored Procedures\Orders\GetOrdersByClientId.sql" />
+    <Build Include="dbo\Stored Procedures\Orders\UpdateOrderReviewById.sql" />
+    <Build Include="dbo\Stored Procedures\GetOrderInfo.sql" />
+    <Build Include="dbo\Stored Procedures\GetOrdersInfo.sql" />
+    <Build Include="dbo\Stored Procedures\GetProductsInfo.sql" />
+    <Build Include="dbo\Stored Procedures\GetSubgroupsInfoByOrderId.sql" />
+    <Build Include="dbo\Stored Procedures\Product_Subgroup\AddProduct_Subgroup.sql" />
+    <Build Include="dbo\Stored Procedures\Clients\GetProductsBuyClientById.sql" />
+    <Build Include="dbo\Stored Procedures\GetClientInfoByProduct.sql" />
+    <Build Include="dbo\Stored Procedures\Clients\GetSpendMoneyCountByClientId.sql" />
+    <Build Include="dbo\Stored Procedures\Subgroup_Group\AddSubgroupGroup.sql" />
+    <Build Include="dbo\Stored Procedures\Product_Subgroup\DeleteProductSubgroupByProductId.sql" />
+    <Build Include="dbo\Security\Schemas\ClientsAgregatorDB.sql" />
+    <Build Include="dbo\Stored Procedures\GetProductsInfoById.sql" />
+    <Build Include="dbo\Stored Procedures\GetProductSubgroup.sql" />
+    <Build Include="dbo\Stored Procedures\GetClientInfoBySubgroup.sql" />
+    <Build Include="dbo\Stored Procedures\GetOrdersInfoById.sql" />
+    <Build Include="dbo\Stored Procedures\GetProductsInorderByOrderId.sql" />
+    <Build Include="dbo\Stored Procedures\Feedbacks\DeleteFeedbacksByOrderId.sql" />
+    <Build Include="dbo\Stored Procedures\Feedbacks\GetFeedbacksByOrderId.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="ClientsAgregator.Database.refactorlog" />
   </ItemGroup>
 </Project>

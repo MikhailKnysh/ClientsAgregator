@@ -1,0 +1,83 @@
+﻿<Page x:Class="ClientsAgregator.Pages.AddOrderPage" Loaded="AddOrderPage_Loaded"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ClientsAgregator.Pages"
+      mc:Ignorable="d" 
+        Title="AddOrderPage"  MinHeight="600" MinWidth="1000" Background="LightGray" >
+
+    <Grid Height="550" Width="900" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="0.6*"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition MinWidth="50" Width="0.5*"/>
+            <ColumnDefinition MinWidth="120" Width="1*"/>
+            <ColumnDefinition MinWidth="60" Width="0.5*"/>
+            <ColumnDefinition MinWidth="120" Width="1*"/>
+            <ColumnDefinition MinWidth="50" Width="0.5*"/>
+            <ColumnDefinition MinWidth="120" Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Button Content="Назад" Grid.ColumnSpan="2" Click="buttonBack_Click" Style="{StaticResource ButtonBack}" Template="{StaticResource ButtonBackTemplate}"/>
+        <Line Stroke="Black" StrokeThickness="2" X1="0" Y1="0" X2="900" Y2="0"  Grid.ColumnSpan="6" VerticalAlignment="Center" Margin="0,45,0,0"  Grid.Row="0"></Line>
+
+        <Label x:Name="labelPageTitle" Content="ДОБАВИТЬ ЗАКАЗ" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="6" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="25" FontWeight="Bold"/>
+        <Label x:Name="labelClient" Content="Клиент" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14"/>
+        <ComboBox x:Name="comboBoxClient" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" IsTextSearchEnabled="True" IsEditable="True" FontSize="14"/>
+        <Label x:Name="labelDate" Content="Дата" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14"/>
+        <DatePicker Name="datePicker" Grid.Row="2" Grid.Column="3" VerticalAlignment="Center" IsDropDownOpen="False" FirstDayOfWeek="Monday" SelectedDateFormat="Short">
+            <DatePicker.Resources>
+                <Style TargetType="DatePickerTextBox">
+                    <Setter Property="IsReadOnly" Value="True"/>
+                </Style>
+            </DatePicker.Resources>
+        </DatePicker>
+        <Label x:Name="labelStatus" Content="Статус" Grid.Row="2" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14"/>
+        <ComboBox x:Name="comboBoxStatus" Grid.Row="2" Grid.Column="5" IsTextSearchEnabled="True" IsEditable="True" VerticalAlignment="Center" Margin="0,0,10,0" FontSize="14"/>
+        <Label x:Name="labelProduct" Content="Товар" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14"/>
+        <ComboBox x:Name="comboBoxProduct" Grid.Row="3" Grid.Column="1" IsTextSearchEnabled="True" IsEditable="True" VerticalAlignment="Center" FontSize="14" SelectionChanged="comboBoxProduct_SelectionChanged"/>
+        <Label x:Name="labelQuantity" Content="Количество" Grid.Row="3" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14"/>
+        <TextBox x:Name="textBoxQuaunity" Grid.Row="3" Grid.Column="3" VerticalAlignment="Center" FontSize="14"/>
+        <Label x:Name="labelMeasureUnit" Grid.Row="3" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14"/>
+        <Button x:Name="buttonAddProductIntoOrder" Content="Добавить товар" Grid.Row="3" Grid.Column="5" Margin="0,10,10,10" FontSize="14" Click="AddProduct_Click"/>
+
+        <DataGrid x:Name="gridProductsInOrder" Grid.Row="4" Grid.Column="0" IsReadOnly="True" AutoGenerateColumns="False" Margin="20,10,20,10" Grid.ColumnSpan="6" ColumnWidth="70" HorizontalAlignment="Stretch" ColumnHeaderHeight="30">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Артикул" Binding="{Binding Articul}"/>
+                <DataGridTextColumn Header="Товар" Binding="{Binding ProductTitle}"/>
+                <DataGridTextColumn Header="Стоимость" Binding="{Binding Price}"/>
+                <DataGridTextColumn Header="Количество" Binding="{Binding Quantity}"/>
+                <DataGridTextColumn Header="Ед. измерения" Binding="{Binding MeasureUnitTitle}"/>
+                <DataGridTextColumn Header="Группа" Binding="{Binding GroupTitle}"/>
+                <DataGridTextColumn Header="Подгруппа" Binding="{Binding SubgroupTitle}"/>
+                <DataGridTemplateColumn Width="60" Header="">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Button x:Name="buttonEdit" Grid.Column="0" Height="20" Width="20" Background="Green" IsEnabled="False"/>
+                                <Button x:Name="buttonRemove" Content="X" Grid.Column="1" Click="buttonRemove_Click" Height="20" Width="20" Background="Red"/>
+                            </Grid>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Label x:Name="labelTotalPrice" Content="Общая сумма" Grid.Row="5" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14"/>
+        <TextBox x:Name="textBoxTotalPrice" Grid.Row="5" Grid.Column="5" Margin="20,0,10,0" VerticalAlignment="Center" IsReadOnly="True" FontSize="14"/>
+        <Button x:Name="buttonSave" Content="Сохранить" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" Margin="80,10,10,10" FontSize="14" Click="buttonSave_Click"/>
+        <Button x:Name="buttonCancel" Content="Отменить" Grid.Row="6" Grid.Column="3" Grid.ColumnSpan="2" Margin="80,10,10,10" FontSize="14" Click="buttonBack_Click"/>
+    </Grid>
+
+</Page>

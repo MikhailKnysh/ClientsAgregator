@@ -4,6 +4,31 @@
              xmlns:local="clr-namespace:ClientsAgregator"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <Style x:Key="ButtonBack" TargetType="Button">
+            <Setter Property="Width" Value="100px"></Setter>
+            <Setter Property="Height" Value="30px"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+            <Setter Property="Margin" Value="15,10,0,10"></Setter>
+            <Setter Property="VerticalAlignment" Value="Top"></Setter>
+        </Style>
+
+        <ControlTemplate x:Key="ButtonBackTemplate" TargetType="Button">
+            <Button>
+                <StackPanel Orientation="Horizontal">
+                    <Image Width="25" Height="25" HorizontalAlignment="Left" Margin="0,0,10,0" Source="\image/iconBack32.png" IsEnabled="False" ></Image>
+                    <TextBlock VerticalAlignment="Center" Text="НАЗАД" />
+                </StackPanel>
+            </Button>
+        </ControlTemplate>
+
+        <ControlTemplate x:Key="ButtonAddingTemplate" TargetType="Button">
+            <Button>
+                <StackPanel Orientation="Horizontal">
+                    <Image Width="25" Height="25" HorizontalAlignment="Left" Margin="0,0,5,0" Source="\image/iconPlus.png" IsEnabled="False" ></Image>
+                    <TextBlock VerticalAlignment="Center" Text="ДОБАВИТЬ" />
+                </StackPanel>
+            </Button>
+        </ControlTemplate>
+
     </Application.Resources>
 </Application>

@@ -6,4 +6,46 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="GreenPaint.png" />
+    <None Remove="iconBack.png" />
+    <None Remove="iconBack32.png" />
+    <None Remove="iconClient.png" />
+    <None Remove="iconPlus.jpg" />
+    <None Remove="iconPlus.png" />
+    <None Remove="image\GreenPaint.png" />
+    <None Remove="image\icon.ico" />
+    <None Remove="image\iconBack.png" />
+    <None Remove="image\iconBack32.png" />
+    <None Remove="image\iconClient.png" />
+    <None Remove="image\iconPlus.png" />
+    <None Remove="image\paint.png" />
+    <None Remove="paint.png" />
+    <None Remove="PlusBtn.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="Dapper" Version="2.0.90" />
+    <PackageReference Include="MaterialDesignThemes" Version="4.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ClientsAgregator_BLL\ClientsAgregator_BLL.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="image\clockDark.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="image\GreenPaint.png" />
+    <Resource Include="image\icon.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="image\iconBack32.png" />
+    <Resource Include="image\iconClient.png" />
+    <Resource Include="image\iconPlus.png" />
+    <Resource Include="image\paint.png" />
+  </ItemGroup>
+
 </Project>
