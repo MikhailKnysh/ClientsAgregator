@@ -39,5 +39,12 @@ namespace ClientsAgregator
                 MeasureUnitTextBox.ToolTip = "Это поле введено некорректно";
             }
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.Top = Mouse.GetPosition(null).Y;
+
+            this.Left = Mouse.GetPosition(null).X;
+        }
     }
 }
