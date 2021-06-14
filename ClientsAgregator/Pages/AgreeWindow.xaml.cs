@@ -36,8 +36,9 @@ namespace ClientsAgregator
 
             this.Left = Mouse.GetPosition(null).X ;
         */
-            this.Top = Mouse.GetPosition(null).Y - this.Height;
-            this.Left = Mouse.GetPosition(null).X - this.Width;
+            
+            this.Top = Mouse.GetPosition(null).Y ;
+            this.Left = Mouse.GetPosition(null).X/2;
         }
     }
 }
