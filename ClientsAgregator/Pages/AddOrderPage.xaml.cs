@@ -122,7 +122,6 @@ namespace ClientsAgregator.Pages
                 };
                 _productInOrderModels.Add(productInOrderModel);
                 _feedbackModels.Add(newfeedbackModel);
-                _productInOrderModels.Add(productInOrderModel);
 
                 totalPrice += productInOrderModel.Price * productInOrderModel.Quantity;
                 textBoxTotalPrice.Text = totalPrice.ToString();
@@ -197,7 +196,7 @@ namespace ClientsAgregator.Pages
                 f.ClientId = clientId;
                 f.Date = datePicker.Text;
             }
-            _controller.AddOrder(newOrderInfoModel, _feedbackModels);
+            _controller.AddOrder(newOrderInfoModel);
 
             NavigationService.Navigate(new ListOfOrdersWindow());
         }
