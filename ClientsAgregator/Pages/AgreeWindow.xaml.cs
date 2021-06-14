@@ -29,9 +29,15 @@ namespace ClientsAgregator
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            /*this.HorizontalAlignment = HorizontalAlignment.Center;
+
+            this.VerticalAlignment = VerticalAlignment.Center;
             this.Top = Mouse.GetPosition(null).Y;
 
-            this.Left = Mouse.GetPosition(null).X;
+            this.Left = Mouse.GetPosition(null).X ;
+        */
+            this.Top = Mouse.GetPosition(null).Y - this.Height;
+            this.Left = Mouse.GetPosition(null).X - this.Width;
         }
     }
 }

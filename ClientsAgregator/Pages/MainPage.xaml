@@ -8,9 +8,6 @@
       Title="Найти клиентов" MinHeight="535" MinWidth="1000" Loaded="Page_Loaded">
 
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="80"></RowDefinition>
             <RowDefinition></RowDefinition>
@@ -26,29 +23,20 @@
         <TabControl Grid.Row="1" HorizontalAlignment="Stretch">
             <TabItem Header="По товару" MinWidth="90">
                 <Grid Background="#FFE5E5E5">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="92*"/>
-                        <ColumnDefinition Width="867*"/>
-                    </Grid.ColumnDefinitions>
+                   
                     <DataGrid x:Name="InterestedClientByProductGrid" IsReadOnly="True" AutoGenerateColumns="False" Margin="10" ColumnWidth="*" HorizontalAlignment="Stretch" ColumnHeaderHeight="30" Grid.ColumnSpan="2">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Фамилия" Binding="{Binding LastName}" ></DataGridTextColumn>
+                            <DataGridTextColumn Header="Фамилия"  Binding="{Binding LastName}" ></DataGridTextColumn>
                             <DataGridTextColumn Header="Имя" Binding="{Binding FirstName}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Отчество" Binding="{Binding MiddleName}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Телефон" Binding="{Binding Phone}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Покупок" Binding="{Binding SumQuantity}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Покупок" Width="60" Binding="{Binding SumQuantity}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Статус" Binding="{Binding BulkStatusTitle}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Оценка" Binding="{Binding AVGRate}"></DataGridTextColumn>
-                            <DataGridTemplateColumn Width="60" Header="">
+                            <DataGridTextColumn Header="Оценка" Width="80" Binding="{Binding AVGRate}"></DataGridTextColumn>
+                            <DataGridTemplateColumn Width="40" Header="">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <Grid>
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition>
-                                                </ColumnDefinition>
-                                                <ColumnDefinition>
-                                                </ColumnDefinition>
-                                            </Grid.ColumnDefinitions>
                                             <Button  x:Name="ClientButton" Grid.Column="0" Height="20" Width="20" Background="LimeGreen" Click="ClientByProductButton_Click">
                                                 <Image  Source="../image/iconClient.png"></Image>
                                             </Button>
@@ -63,26 +51,20 @@
             </TabItem>
             <TabItem Header="По подгруппе" MinWidth="120">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="InterestedClientBySubgroupGrid" IsReadOnly="True" AutoGenerateColumns="False" Margin="10" Grid.ColumnSpan="2" ColumnWidth="*" HorizontalAlignment="Stretch" ColumnHeaderHeight="30">
+                    <DataGrid x:Name="InterestedClientBySubgroupGrid" IsReadOnly="True" AutoGenerateColumns="False" Margin="10" ColumnWidth="*" HorizontalAlignment="Stretch" ColumnHeaderHeight="30" Grid.ColumnSpan="2">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Фамилия" Binding="{Binding LastName}" ></DataGridTextColumn>
-                            <DataGridTextColumn Header="Имя" Binding="{Binding FirstName}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Фамилия"  Binding="{Binding LastName}" ></DataGridTextColumn>
+                            <DataGridTextColumn Header="Имя"  Binding="{Binding FirstName}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Отчество" Binding="{Binding MiddleName}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Телефон" Binding="{Binding Phone}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Товар" Binding="{Binding ProductTitle}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Покупок" Binding="{Binding SumQuantity}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Покупок" Width="60" Binding="{Binding SumQuantity}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Статус" Binding="{Binding BulkStatusTitle}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Оценка" Binding="{Binding AVGRate}"></DataGridTextColumn>
-                            <DataGridTemplateColumn Width="60" Header="">
+                            <DataGridTextColumn Header="Оценка" Width="80" Binding="{Binding AVGRate}"></DataGridTextColumn>
+                            <DataGridTemplateColumn Width="40" Header="">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <Grid>
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition>
-                                                </ColumnDefinition>
-                                                <ColumnDefinition>
-                                                </ColumnDefinition>
-                                            </Grid.ColumnDefinitions>
                                             <Button  Name="ClienBySubgroupButton"  Grid.Column="0" Height="20" Width="20" Background="LimeGreen" Click="ClientBySubgroupButton_Click" >
                                                 <Image  Source="../image/iconClient.png"></Image>
                                             </Button>
