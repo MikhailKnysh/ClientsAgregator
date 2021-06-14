@@ -13,5 +13,22 @@
         public string SubgroupTitle { get; set; }
         public int Rate { get; set; }
         public string OrderReview { get; set; }
+
+        protected bool Equals(ProductInOrderDTO other)
+        {
+            return Articul == other.Articul && ProductId == other.ProductId && ProductTitle == other.ProductTitle &&
+                   Price.Equals(other.Price) && Quantity == other.Quantity && MeasureUnitId == other.MeasureUnitId &&
+                   MeasureUnitTitle == other.MeasureUnitTitle && GroupTitle == other.GroupTitle &&
+                   SubgroupTitle == other.SubgroupTitle && Rate == other.Rate && OrderReview == other.OrderReview;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != this.GetType()) return false;
+            return Equals((ProductInOrderDTO) obj);
+        }
+
     }
 }

@@ -66,7 +66,7 @@ namespace ClientsAgregator.Pages
             if (!(ValidationData.IsNumber(quantity)
                 || !(ValidationData.IsValidStringLenght(quantity, validCharQuantity: 53))))
             {
-                textBoxQuaunity.ToolTip = "Это поле введено некорректно. Введите цифры в формате ХХХ или ХХХ.ХХ";
+                textBoxQuaunity.ToolTip = "Это поле введено некорректно. Введите цифры в формате ХХХ или ХХХ,ХХ";
                 textBoxQuaunity.Background = Brushes.Tomato;
                 isAdding = false;
             }

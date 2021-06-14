@@ -9,9 +9,9 @@ using ClientsAgregator_DAL.Queries;
 using ClientsAgregator_DAL.Models;
 using ClientsAgregator_DAL.Interface;
 
-namespace ClientsAgregator_BLL
+namespace ClientsAgregator_BLL 
 {
-    public class Controller
+    public class Controller 
     {
         IClientsHelper _clientsHelper;
         IProductsHelper _productsHelper;

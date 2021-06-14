@@ -11,15 +11,19 @@ namespace ClientsAgregator_BLL.CustomModels.OrderModels
         public double TotalPrice { get; set; }
         public List<ProductInOrderModel> ProductsInOrder { get; set; }
 
+        protected bool Equals(NewOrderInfoModel other)
+        {
+            return ClientId == other.ClientId && OrderDate == other.OrderDate && StatusesId == other.StatusesId &&
+                   OrderReview == other.OrderReview && TotalPrice.Equals(other.TotalPrice) &&
+                   Equals(ProductsInOrder, other.ProductsInOrder);
+        }
+
         public override bool Equals(object obj)
         {
-            return obj is NewOrderInfoModel model &&
-                   ClientId == model.ClientId &&
-                   OrderDate == model.OrderDate &&
-                   StatusesId == model.StatusesId &&
-                   OrderReview == model.OrderReview &&
-                   TotalPrice == model.TotalPrice &&
-                   EqualityComparer<List<ProductInOrderModel>>.Default.Equals(ProductsInOrder, model.ProductsInOrder);
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != this.GetType()) return false;
+            return Equals((NewOrderInfoModel) obj);
         }
     }
 }
