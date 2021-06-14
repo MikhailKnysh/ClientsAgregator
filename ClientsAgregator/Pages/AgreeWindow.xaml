@@ -5,14 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ClientsAgregator"
         mc:Ignorable="d"
-        Title="AgreeWindow" Height="140" Width="150"  WindowStyle="None" WindowStartupLocation="CenterOwner" ResizeMode="NoResize">
-    <Grid>
-        <Grid.Background>
-            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="Black" Offset="1"/>
-                <GradientStop Color="#FFF9F0F0" Offset="0.373"/>
-            </LinearGradientBrush>
-        </Grid.Background>
+        Title="AgreeWindow" Height="140" Width="150"  WindowStyle="None" WindowStartupLocation="CenterOwner" ResizeMode="NoResize" Loaded="Window_Loaded">
+    <Grid Background="#FFCDCACA">
         <Label Content="Вы уверены ?
 " HorizontalAlignment="Center" Margin="10,0,10,10" VerticalAlignment="Center"/>
         <Button x:Name="CancelButton" IsCancel="True" Content="Нет" HorizontalAlignment="Right" Margin="0,0,20,20" VerticalAlignment="Bottom" Width="40"/>

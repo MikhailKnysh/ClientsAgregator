@@ -30,7 +30,7 @@
                 <ColumnDefinition MinWidth="50" Width="0.5*"/>
                 <ColumnDefinition MinWidth="120" Width="1*"/>
             </Grid.ColumnDefinitions>
-            <Label x:Name="labelPageTitle" Content="ИЗМЕНИТЬ ЗАКАЗ №" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="6" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="25" FontWeight="Normal"/>
+            <Label x:Name="labelPageTitle" Content="ИЗМЕНИТЬ ЗАКАЗ №" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="6" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="25" FontWeight="Bold"/>
             <Label x:Name="labelClient" Content="Клиент" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14"/>
             <ComboBox x:Name="comboBoxClient" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" IsTextSearchEnabled="True" IsEditable="True" FontSize="14"/>
             <Label x:Name="labelDate" Content="Дата" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14"/>

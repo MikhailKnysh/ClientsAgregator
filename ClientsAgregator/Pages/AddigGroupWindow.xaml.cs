@@ -1,5 +1,6 @@
 ﻿using ClientsAgregator_BLL;
 using System.Windows;
+using System.Windows.Input;
 using System.Windows.Media;
 
 namespace ClientsAgregator
@@ -30,6 +31,13 @@ namespace ClientsAgregator
                 GroupTextBox.Background = Brushes.Tomato;
                 GroupTextBox.ToolTip = "Поле не может быть пустым или превышено количество символов";
             }
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.Top = Mouse.GetPosition(null).Y;
+
+            this.Left = Mouse.GetPosition(null).X;
         }
     }
 }

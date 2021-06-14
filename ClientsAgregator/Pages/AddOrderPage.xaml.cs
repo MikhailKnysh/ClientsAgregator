@@ -99,7 +99,7 @@ namespace ClientsAgregator.Pages
                     ProductId = productInfoModel.Id,
                     ProductTitle = productInfoModel.Title,
                     Price = productInfoModel.Price,
-                    Quantity = Convert.ToInt32(quantity),
+                    Quantity = Convert.ToDouble(quantity),
                     MeasureUnitId = productInfoModel.MeasureUnitId,
                     MeasureUnitTitle = productInfoModel.MeasureUnit,
                     GroupTitle = productInfoModel.Group,

@@ -1,4 +1,5 @@
-﻿using ClientsAgregator_BLL;
+﻿using ClientsAgregator.Pages;
+using ClientsAgregator_BLL;
 using ClientsAgregator_BLL.CustomModels;
 using ClientsAgregator_DAL.Models;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ namespace ClientsAgregator
     /// </summary>
     public partial class ProfileClientWindow : Page
     {
+        private string _prevPage;
         private Controller _controller = new Controller();
         private ProductsBuyClientAndFeedback _productsBuyClientAndFeedback = new ProductsBuyClientAndFeedback();
 
@@ -19,10 +21,11 @@ namespace ClientsAgregator
         private List<ProductBuyClientModel> _productsBuyClientModels;
         private int _idClient;
 
-        public ProfileClientWindow(int IdClient)
+        public ProfileClientWindow(int IdClient, string prevPage)
         {
             InitializeComponent();
             _idClient = IdClient;
+            _prevPage = prevPage;
         }
 
         private void ProfileClient_Loaded(object sender, System.Windows.RoutedEventArgs e)
@@ -35,7 +38,7 @@ namespace ClientsAgregator
             phoneLabel.Content = _clientModel.Phone;
             bulkstatusLabel.Content = _clientModel.BulkStatusTitle;
             MaleLabel.Content = _clientModel.Male;
-            TextBoxCommentAboutClient.Text = _clientModel.СommentAboutСlient; 
+            TextBoxCommentAboutClient.Text = _clientModel.СommentAboutСlient;
 
             _productsBuyClientModels = _productsBuyClientAndFeedback.GetProductBuyClientAndFeedback(_idClient);
 
@@ -57,13 +60,20 @@ namespace ClientsAgregator
 
         private void ButtonBackListOfclientsPage_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            NavigationService.Navigate(new ListOfClientsWindow());
+            switch (_prevPage)
+            {
+                case "mainPage":
+                    NavigationService.Navigate(new MainPage());
+                    break;
+                case "ListOfClientsWindow":
+                    NavigationService.Navigate(new ListOfClientsWindow());
+                    break;
+            }
         }
 
         private void ButtonOpenUpdateClientPage_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             NavigationService.Navigate(new UpdateClientPage(_idClient));
         }
-
     }
 }

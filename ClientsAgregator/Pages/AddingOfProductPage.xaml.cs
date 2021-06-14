@@ -160,7 +160,7 @@ namespace ClientsAgregator
                 {
                     Articul = articul,
                     Title = title,
-                    Quantity = Convert.ToInt32(quantity),
+                    Quantity = Convert.ToDouble(quantity),
                     Price = Convert.ToDouble(price),
                     MeasureId = measureUnitModel.Id,
                     SubgroupId = subgroupModel.Id
