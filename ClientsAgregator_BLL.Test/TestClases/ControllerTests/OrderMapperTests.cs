@@ -46,7 +46,7 @@ namespace ClientsAgregator_BLL.Test.TestClases
 
              _mock.Setup(orderHelper => orderHelper.AddFeedbacks(feedbackDtos)).Verifiable();
 
-            _controller.AddOrder(newOrderInfo, feedbackModels);
+            _controller.AddOrder(newOrderInfo);
 
             _mock.Verify();
         }
