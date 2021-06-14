@@ -8,7 +8,13 @@ namespace ClientsAgregator_BLL
 
     public class ProductsBuyClientAndFeedback
     {
-        private Controller _controller = new Controller();
+        private IController _controller;
+
+        public ProductsBuyClientAndFeedback(IController controller)
+        {
+            _controller = controller;
+        }
+
         public List<ProductBuyClientModel> GetProductBuyClientAndFeedback(int id)
         {
             List<FeedbackModel> feedbacks = _controller.GetFeedbackModels();
