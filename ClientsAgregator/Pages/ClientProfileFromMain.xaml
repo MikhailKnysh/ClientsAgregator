@@ -36,10 +36,6 @@
                 Template="{StaticResource ButtonBackTemplate}">
         </Button>
 
-        <Button Name="ButtonOpenUpdateClientPage" Click="ButtonOpenUpdateClientPage_Click"  Margin="0,0,100,30" Grid.Row="0" Background="Green"  Width="30px" Height="30px"  VerticalAlignment="Center" HorizontalAlignment="Right">
-            <Image Width="auto" Height="auto" Source="\image/paint.png" IsEnabled="False" ></Image>
-        </Button>
-
         <Label Content=" ПРОФИЛЬ КЛИЕНТА" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="auto" Width="auto" FontSize="25" FontWeight="Bold" Grid.ColumnSpan="4" Grid.Row="0"/>
         <Line Stroke="Black" StrokeThickness="2" X1="0" Y1="0" X2="1000" Y2="0" VerticalAlignment="Center" Margin="0,10,0,0"  Grid.Row="0"></Line>
 
