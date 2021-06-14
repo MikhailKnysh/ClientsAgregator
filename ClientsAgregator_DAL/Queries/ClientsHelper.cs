@@ -27,7 +27,7 @@ namespace ClientsAgregator_DAL.Queries
                     addClientDTO.Email,
                     addClientDTO.BulkStatusId,
                     addClientDTO.Male,
-                    addClientDTO.CommentAboutClient
+                    СommentAboutСlient = addClientDTO.CommentAboutClient
                 });
             }
         }

@@ -67,7 +67,7 @@ namespace ClientsAgregator_BLL
             return statusModels;
         }
 
-        public void AddOrder(NewOrderInfoModel newOrderInfoModel, List<FeedbackModel> feedbackModels)
+        public void AddOrder(NewOrderInfoModel newOrderInfoModel)
         {
             if (newOrderInfoModel.ProductsInOrder.Count > 0)
             {
@@ -97,16 +97,7 @@ namespace ClientsAgregator_BLL
                 config = new MapperConfiguration(cfg => cfg.CreateMap<FeedbackModel, FeedbackDTO>());
                 mapper = new Mapper(config);
 
-                List<FeedbackDTO> feedbackDTOs = mapper.Map<List<FeedbackDTO>>(feedbackModels);
-
-                int orderId = _ordersHelper.AddOrder(productsOrder, order);
-                foreach (FeedbackDTO f in feedbackDTOs)
-                {
-                    f.OrderId = orderId;
-                }
-                _ordersHelper.AddFeedbacks(feedbackDTOs);
-                
-                  _ordersHelper.AddOrder(productsOrder, order);
+                _ordersHelper.AddOrder(productsOrder, order);
             }
             else
             {

@@ -95,7 +95,7 @@ namespace ClientsAgregator.Pages
 
             bool isAdding = true;
 
-            if(rate is null)
+            if (rate is null)
             {
                 rate = "-1";
             }
@@ -130,7 +130,7 @@ namespace ClientsAgregator.Pages
                 isAdding = false;
             }
 
-            if(!ValidationData.IsValidStringLenght(textBoxOrderReview.Text.Trim(), 800))
+            if (!ValidationData.IsValidStringLenght(textBoxOrderReview.Text.Trim(), 800))
             {
                 textBoxOrderReview.ToolTip = "Превышено количество введенных символов";
                 textBoxOrderReview.Background = Brushes.Tomato;
@@ -152,6 +152,7 @@ namespace ClientsAgregator.Pages
                     SubgroupTitle = _productInfoModel.Subgroup,
                     Rate = Convert.ToInt32(rate)
                 };
+
                 FeedbackModel newfeedbackModel = new FeedbackModel()
                 {
                     ProductId = _productInfoModel.Id,
@@ -159,7 +160,16 @@ namespace ClientsAgregator.Pages
                     Rate = -1
                 };
 
-                _productInOrderModels.Add(productInOrderModel);
+                if (_productInOrderModels.Contains(productInOrderModel))
+                {
+                    _productInOrderModels.Add(productInOrderModel); 
+                }
+                else
+                {
+                    MessageBox.Show("Этот товар уже есть в списке!");
+                }
+
+                _feedbackModels.Add(newfeedbackModel);
 
                 totalPrice += productInOrderModel.Price * productInOrderModel.Quantity;
                 textBoxTotalPrice.Text = totalPrice.ToString();

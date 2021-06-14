@@ -102,8 +102,10 @@ namespace ClientsAgregator_DAL.Queries
                     );
                 }
             }
+
             return orderIdResult;
         }
+        
         public void UpdateOrder (List<Product_OrderDTO> productsOrder, OrderDTO order, List<FeedbackDTO> feedbackDTOs)
         {
             using (IDbConnection conn = new SqlConnection(Options.connectionString))
