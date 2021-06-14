@@ -74,13 +74,17 @@ namespace ClientsAgregator.Pages
         {
             int intrestedClientIndex = InterestedClientByProductGrid.SelectedIndex;
             int intrestedClientId = interestedClientInfoByProductModels[intrestedClientIndex].ClientId;
-            NavigationService.Navigate(new ProfileClientWindow(intrestedClientId));
+            //NavigationService.Navigate(new ProfileClientWindow(intrestedClientId));
+            ClientProfileFromMain pcw = new ClientProfileFromMain(intrestedClientId);
+            pcw.ShowDialog();
         }
         private void ClientBySubgroupButton_Click(object sender, RoutedEventArgs e)
         {
             int intrestedClientIndex = InterestedClientBySubgroupGrid.SelectedIndex;
             int intrestedClientId = interestedClientInfoBySubgroupModels[intrestedClientIndex].ClientId;
-            NavigationService.Navigate(new ProfileClientWindow(intrestedClientId));
+            //NavigationService.Navigate(new ProfileClientWindow(intrestedClientId));
+            ClientProfileFromMain pcw = new ClientProfileFromMain(intrestedClientId);
+            pcw.ShowDialog();
         }
     }
 }
