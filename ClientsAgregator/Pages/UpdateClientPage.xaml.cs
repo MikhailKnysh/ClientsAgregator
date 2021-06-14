@@ -154,18 +154,18 @@ namespace ClientsAgregator
 
                 MessageBox.Show("Информация о клиенте изменена");
 
-                NavigationService.Navigate(new ListOfClientsWindow());
+                NavigationService.Navigate(new ProfileClientWindow(_idClient, "ListOfClientsWindow"));
             }
         }
 
         private void buttonBack_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new ListOfClientsWindow());
+            NavigationService.Navigate(new ProfileClientWindow(_idClient, "ListOfClientsWindow"));
         }
 
         private void buttonCancel_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new ListOfClientsWindow());
+            NavigationService.Navigate(new ProfileClientWindow(_idClient, "ListOfClientsWindow"));
         }
     }
 }
