@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ClientsAgregator"
         mc:Ignorable="d"
-        Title="Clients Agregator"  MinHeight="650" MinWidth="1200">
+        Title="Агрегатор клиентов"  MinHeight="650" MinWidth="1200" Icon="/image/icon.ico">
     <Grid ShowGridLines="True">
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
@@ -28,6 +28,7 @@
             <Button x:Name="ListOfClientsPage" Grid.Row="2" Width="100" Height="30" Content="КЛИЕНТЫ" Margin="10" Click="ListOfClientsPage_Click"/>
             <Button x:Name="ListOfProductsPage" Grid.Row="3" Width="100" Height="30" Content="ТОВАРЫ" Margin="10" Click="ListOfProductsPage_Click"/>
             <Button x:Name="ListOfOrdersPage" Grid.Row="4" Width="100" Height="30" Content="ЗАКАЗЫ" Margin="10" Click="ListOfOrdersPage_Click"/>
+            <Image Source="image/clockDark.png" Grid.Row="0" Grid.Column="0"/>
         </Grid>
 
 
