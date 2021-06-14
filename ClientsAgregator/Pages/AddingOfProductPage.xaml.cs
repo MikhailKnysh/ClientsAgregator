@@ -117,7 +117,7 @@ namespace ClientsAgregator
             if (!(ValidationData.IsNumber(quantity))
                 || !(ValidationData.IsStringNotNull(quantity)))
             {
-                QuantityTextBox.ToolTip = "Это поле введено некорректно. Введите цифры в формате ХХХ или ХХХ.ХХ";
+                QuantityTextBox.ToolTip = "Это поле введено некорректно. Введите цифры в формате ХХХ или ХХХ,ХХ";
                 QuantityTextBox.Background = Brushes.Tomato;
                 isAdding = false;
             }
@@ -125,7 +125,7 @@ namespace ClientsAgregator
             if (!(ValidationData.IsNumber(price))
                 || !(ValidationData.IsStringNotNull(price)))
             {
-                PriceTextBox.ToolTip = "Это поле введено некорректно. Введите цифры в формате ХХХ или ХХХ.ХХ";
+                PriceTextBox.ToolTip = "Это поле введено некорректно. Введите цифры в формате ХХХ или ХХХ,ХХ";
                 PriceTextBox.Background = Brushes.Tomato;
                 isAdding = false;
             }

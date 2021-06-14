@@ -15,8 +15,8 @@ namespace ClientsAgregator_BLL
                 return false;
             }
 
-            if(Regex.IsMatch(email,
-                    @"^[^@\s]+@[^@\s]+\.[^@\s]+$", RegexOptions.IgnoreCase))
+            if (Regex.IsMatch(email,
+                    @"^[^@\s\.]+@[^@\s]+\.[^@\s]+$", RegexOptions.IgnoreCase))
             {
                 return true;
             }
@@ -46,11 +46,19 @@ namespace ClientsAgregator_BLL
 
         public static bool IsValidStringLenght(string str, int validCharQuantity)
         {
-            int minLength = 0;
-
-            if (str.Length <= validCharQuantity && str.Length >= minLength)
+            if (validCharQuantity >= 0)
             {
-                return true;
+                if (string.IsNullOrWhiteSpace(str))
+                {
+                    return true;
+                }
+
+                int minLength = 0;
+
+                if (str.Length <= validCharQuantity && str.Length >= minLength)
+                {
+                    return true;
+                }
             }
 
             return false;
@@ -68,8 +76,13 @@ namespace ClientsAgregator_BLL
 
         public static bool IsNumber(string str)
         {
+            if(string.IsNullOrEmpty(str))
+            {
+                return true;
+            }
+
             if (Regex.IsMatch(str,
-               @"^[0-9]{0,53}\.?[0-9]{0,2}$"))
+               @"^[0-9]{0,53}\,?[0-9]{0,2}$"))
             {
                 return true;
             }
@@ -78,7 +91,5 @@ namespace ClientsAgregator_BLL
                 return false;
             }
         }
-
-
     }
 }
