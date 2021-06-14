@@ -24,7 +24,7 @@
         </StackPanel>
 
         <TabControl Grid.Row="1" HorizontalAlignment="Stretch">
-            <TabItem Header="По товару">
+            <TabItem Header="По товару" Margin="10 0 0 0" MinWidth="100">
                 <Grid Background="#FFE5E5E5">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="92*"/>
@@ -59,7 +59,7 @@
                 </Grid>
 
             </TabItem>
-            <TabItem Header="По подгруппе">
+            <TabItem Header="По подгруппе" MinWidth="120">
                 <Grid Background="#FFE5E5E5">
                     <DataGrid x:Name="InterestedClientBySubgroupGrid" IsReadOnly="True" AutoGenerateColumns="False" Margin="10" MinWidth="940" Grid.Row="2" ColumnWidth="*" HorizontalAlignment="Stretch" ColumnHeaderHeight="30">
                         <DataGrid.Columns>
