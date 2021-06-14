@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ClientsAgregator.Pages"
         mc:Ignorable="d"
-        Title="ProfileClientWindow" Loaded="ProfileClient_Loaded" Background="LightGray"  MinHeight="535" MinWidth="1000">
+        Title="ProfileClientWindow" Loaded="ProfileClient_Loaded" Background="LightGray"  Height="650" MinWidth="1000">
 
     <Window.Resources>
         <Style x:Key="StyleForElements" TargetType="Label">
@@ -61,7 +61,7 @@
                     ColumnHeaderHeight="30" ColumnWidth="*" 
                     Height="250" VerticalAlignment="Top">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Артикуль" MaxWidth="80" Binding="{Binding Articul}" ></DataGridTextColumn>
+                <DataGridTextColumn Header="Артикул" MaxWidth="80" Binding="{Binding Articul}" ></DataGridTextColumn>
                 <DataGridTextColumn Header="Название" Binding="{Binding Title}" ></DataGridTextColumn>
                 <DataGridTextColumn Header="Кол-во" MaxWidth="80" Binding="{Binding SUMQuantity}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Группа" Binding="{Binding GroupName}"></DataGridTextColumn>

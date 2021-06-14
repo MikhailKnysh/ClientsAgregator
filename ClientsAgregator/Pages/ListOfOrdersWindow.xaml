@@ -33,7 +33,9 @@
                                     <ColumnDefinition>
                                     </ColumnDefinition>
                                 </Grid.ColumnDefinitions>
-                                <Button Name="buttonEdit" Grid.Column="0" Height="20" Width="20" Background="Green" Click="buttonEdit_Click"/>
+                                <Button Name="buttonEdit" BorderThickness="0" Grid.Column="0" Height="20" Width="20" Click="buttonEdit_Click">
+                                    <Image Source="../image/GreenPaint.png"></Image>
+                                </Button>
                                 <Button Name="buttonRemove" Content="X" Click="buttonRemove_Click" Grid.Column="1" Height="20" Width="20" Background="Red"/>
                             </Grid>
                         </DataTemplate>
