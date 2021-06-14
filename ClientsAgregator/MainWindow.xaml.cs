@@ -32,7 +32,9 @@ namespace ClientsAgregator
         {
             ListOfClientsPage.Background = Brushes.Gray;
             ListOfProductsPage.Background = Brushes.LightGray;
-            ListOfOrdersPage.Background = Brushes.LightGray;            MainPage.Background = Brushes.LightGray;            MainFrame.Navigate(new ListOfClientsWindow());
+            ListOfOrdersPage.Background = Brushes.LightGray;
+            MainPage.Background = Brushes.LightGray;
+            MainFrame.Navigate(new ListOfClientsWindow());
         }
 
         private void ListOfProductsPage_Click(object sender, RoutedEventArgs e)

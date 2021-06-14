@@ -27,7 +27,7 @@ namespace ClientsAgregator
         private void buttonAccept_Click(object sender, RoutedEventArgs e)
         {
 
-            if (ValidationData.IsValidStringLenght(ProductReview, validCharQuantity: 255) && ValidationData.IsStringNotNull(ProductReview))
+            if (ValidationData.IsValidStringLenght(ProductReview, validCharQuantity: 8000))
             {
                 ProductReview = textBoxProductReview.Text.Trim();
                 this.Close();
@@ -35,7 +35,7 @@ namespace ClientsAgregator
             else
             {
                 textBoxProductReview.Background = Brushes.Tomato;
-                textBoxProductReview.ToolTip = "Поле не может быть пустым или превышено количество символов";
+                textBoxProductReview.ToolTip = "Превышено количество символов";
             }
         }
 

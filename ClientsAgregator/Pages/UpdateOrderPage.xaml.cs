@@ -100,8 +100,9 @@ namespace ClientsAgregator.Pages
                 rate = "-1";
             }
 
-            if (!(ValidationData.IsNumber(quantity)
-               || !(ValidationData.IsValidStringLenght(quantity, validCharQuantity: 53))))
+            if (!(ValidationData.IsNumber(quantity))
+               || !(ValidationData.IsValidStringLenght(quantity, validCharQuantity: 53))
+               ||!(ValidationData.IsStringNotNull(quantity)))
             {
                 textBoxQuaunity.ToolTip = "Это поле введено некорректно. Введите цифры в формате ХХХ или ХХХ,ХХ";
                 textBoxQuaunity.Background = Brushes.Tomato;
@@ -131,7 +132,7 @@ namespace ClientsAgregator.Pages
 
             if(!ValidationData.IsValidStringLenght(textBoxOrderReview.Text.Trim(), 800))
             {
-                textBoxOrderReview.ToolTip = "Это поле введено некорректно. Превышено количество введенных символов";
+                textBoxOrderReview.ToolTip = "Превышено количество введенных символов";
                 textBoxOrderReview.Background = Brushes.Tomato;
                 isAdding = false;
             }

@@ -66,27 +66,28 @@ namespace ClientsAgregator.Pages
             if (!(ValidationData.IsNumber(quantity)
                 || !(ValidationData.IsValidStringLenght(quantity, validCharQuantity: 53))))
             {
-                textBoxQuaunity.ToolTip = "Это поле введено некорректно. Введите цифры в формате ХХХ или ХХХ,ХХ";
+                textBoxQuaunity.ToolTip = "Введите цифры в формате ХХХ или ХХХ,ХХ";
                 textBoxQuaunity.Background = Brushes.Tomato;
                 isAdding = false;
             }
+
             if(!(ValidationData.IsStringNotNull(comboBoxClient.Text.Trim())))
             {
-                comboBoxClient.ToolTip = "Это поле введено некорректно. Необходимо выбрать один из вариантов в списке";
+                comboBoxClient.ToolTip = "Необходимо выбрать один из вариантов в списке";
                 comboBoxClient.Background = Brushes.Tomato;
                 isAdding = false;
             }
 
             if (!(ValidationData.IsStringNotNull(comboBoxProduct.Text.Trim())))
             {
-                comboBoxProduct.ToolTip = "Это поле введено некорректно. Необходимо выбрать один из вариантов в списке";
+                comboBoxProduct.ToolTip = "Необходимо выбрать один из вариантов в списке";
                 comboBoxProduct.Background = Brushes.Tomato;
                 isAdding = false;
             }
 
             if (!(ValidationData.IsStringNotNull(comboBoxStatus.Text.Trim())))
             {
-                comboBoxStatus.ToolTip = "Это поле введено некорректно. Необходимо выбрать один из вариантов в списке";
+                comboBoxStatus.ToolTip = "Необходимо выбрать один из вариантов в списке";
                 comboBoxStatus.Background = Brushes.Tomato;
                 isAdding = false;
             }

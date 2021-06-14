@@ -43,6 +43,23 @@ namespace ClientsAgregator_BLL
                 return false;
             }
         }
+        public static bool IsNumber(string str)
+        {
+            if(string.IsNullOrEmpty(str))
+            {
+                return true;
+            }
+
+            if (Regex.IsMatch(str,
+               @"^[0-9]{0,53}\,?[0-9]{0,2}$"))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
         public static bool IsValidStringLenght(string str, int validCharQuantity)
         {
@@ -66,30 +83,13 @@ namespace ClientsAgregator_BLL
 
         public static bool IsStringNotNull(string str)
         {
-            if (!(string.IsNullOrEmpty(str)))
-            {
-                return true;
-            }
-
-            return false;
-        }
-
-        public static bool IsNumber(string str)
-        {
-            if(string.IsNullOrEmpty(str))
-            {
-                return true;
-            }
-
-            if (Regex.IsMatch(str,
-               @"^[0-9]{0,53}\,?[0-9]{0,2}$"))
-            {
-                return true;
-            }
-            else
+            if (string.IsNullOrEmpty(str))
             {
                 return false;
             }
+
+            return true;
         }
+
     }
 }

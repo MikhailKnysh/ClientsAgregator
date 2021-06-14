@@ -21,7 +21,8 @@ namespace ClientsAgregator
 
             string group = GroupTextBox.Text.Trim();
 
-            if (ValidationData.IsValidStringLenght(group, validCharQuantity: 255) && ValidationData.IsStringNotNull(group))
+            if (ValidationData.IsValidStringLenght(group, validCharQuantity: 255)
+                && ValidationData.IsStringNotNull(group))
             {
                 controller.AddGroup(group);
                 this.DialogResult = true;
