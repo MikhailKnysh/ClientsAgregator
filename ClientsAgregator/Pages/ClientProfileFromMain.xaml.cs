@@ -24,7 +24,10 @@ namespace ClientsAgregator.Pages
             InitializeComponent();
             _idClient = IdClient;
         }
+
+        
         private Controller _controller = new Controller();
+
         private ProductsBuyClientAndFeedback _productsBuyClientAndFeedback = new ProductsBuyClientAndFeedback();
 
         private ClientModel _clientModel;

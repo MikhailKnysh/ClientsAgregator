@@ -11,13 +11,18 @@ namespace ClientsAgregator_BLL.CustomModels.ProductsModel
         public int SubgroupId { get; set; }
         public string SubgroupTitle { get; set; }
 
+        protected bool Equals(ProductsSubgropModel other)
+        {
+            return ProductId == other.ProductId && ProductTitle == other.ProductTitle &&
+                   SubgroupId == other.SubgroupId && SubgroupTitle == other.SubgroupTitle;
+        }
+
         public override bool Equals(object obj)
         {
-            return obj is ProductsSubgropModel model &&
-                   ProductId == model.ProductId &&
-                   ProductTitle == model.ProductTitle &&
-                   SubgroupId == model.SubgroupId &&
-                   SubgroupTitle == model.SubgroupTitle;
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != this.GetType()) return false;
+            return Equals((ProductsSubgropModel)obj);
         }
     }
 }

@@ -5,6 +5,7 @@ using System.Linq;
 
 namespace ClientsAgregator_BLL
 {
+
     public class ProductsBuyClientAndFeedback
     {
         private Controller _controller = new Controller();
@@ -19,14 +20,17 @@ namespace ClientsAgregator_BLL
                  
                 for (int j = 0; j < feedbacks.Count; ++j)
                 {
-                    if (productByClients[i].ProductId == feedbacks[j].ProductId)
+                    if (productByClients[i].ProductId == feedbacks[j].ProductId && id == feedbacks[j].ClientId)
                     {
-                        rate.Add(feedbacks[j].Rate);
+                        if (feedbacks[j].Rate > 0)
+                        {
+                            rate.Add(feedbacks[j].Rate);
+                        }
                     }
 
                 }
 
-                productByClients[i].AVGRate = rate.Count != 0 ? Convert.ToString(Queryable.Average(rate.AsQueryable())) : "нет оценки";
+                productByClients[i].AVGRate = rate.Count > 0 ? Convert.ToString(Queryable.Average(rate.AsQueryable())) : "нет оценки";
             }
 
             return productByClients;
