@@ -30,7 +30,7 @@
                 <ColumnDefinition MinWidth="50" Width="0.5*"/>
                 <ColumnDefinition MinWidth="120" Width="1*"/>
             </Grid.ColumnDefinitions>
-            <Label x:Name="labelPageTitle" Content="ИЗМЕНИТЬ ЗАКАЗ №" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="6" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="16" FontWeight="Bold"/>
+            <Label x:Name="labelPageTitle" Content="ИЗМЕНИТЬ ЗАКАЗ №" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="6" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="25" FontWeight="Normal"/>
             <Label x:Name="labelClient" Content="Клиент" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14"/>
             <ComboBox x:Name="comboBoxClient" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" IsTextSearchEnabled="True" IsEditable="True" FontSize="14"/>
             <Label x:Name="labelDate" Content="Дата" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14"/>
@@ -65,25 +65,25 @@
                 <Button x:Name="buttonAddProductIntoOrder" Content="Добавить" Grid.Row="0" Grid.Column="1" Margin="10" FontSize="14" Click="AddProduct_Click"/>
             </Grid>
 
-            <DataGrid x:Name="gridProductsInOrder" Grid.Row="4" Grid.Column="0" IsReadOnly="True" AutoGenerateColumns="False" Margin="20,10,20,10" Width="950" Grid.ColumnSpan="6" ColumnWidth="70" HorizontalAlignment="Left" ColumnHeaderHeight="30">
+            <DataGrid x:Name="gridProductsInOrder" Grid.Row="4" Grid.Column="0" IsReadOnly="True" AutoGenerateColumns="False" Margin="20,10,20,10" Width="860" Grid.ColumnSpan="6" ColumnWidth="*" HorizontalAlignment="Center" ColumnHeaderHeight="30">
                 <DataGrid.RowDetailsTemplate>
                     <DataTemplate>
-                        <TextBlock Background="Bisque" Text="{Binding ProductReview}" TextWrapping="Wrap" VerticalAlignment="Stretch" />
+                        <TextBlock x:Name="textBlockProductReview" Background="Bisque" Text="{Binding ProductReview}" TextWrapping="Wrap" VerticalAlignment="Stretch" Width="840" HorizontalAlignment="Center"/>
                     </DataTemplate>
                 </DataGrid.RowDetailsTemplate>
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Артикул" Binding="{Binding Articul}"/>
-                    <DataGridTextColumn Header="Товар" Binding="{Binding ProductTitle}"/>
+                    <DataGridTextColumn Header="Товар" Binding="{Binding ProductTitle}" MinWidth="120"/>
                     <DataGridTextColumn Header="Стоимость" Binding="{Binding Price}"/>
-                    <DataGridTextColumn Header="Количество" Binding="{Binding Quantity}"/>
-                    <DataGridTextColumn Header="Ед. измерения" Binding="{Binding MeasureUnitTitle}"/>
+                    <DataGridTextColumn Header="Количество" Binding="{Binding Quantity}" MinWidth="90"/>
+                    <DataGridTextColumn Header="Ед. измерения" Binding="{Binding MeasureUnitTitle}" MinWidth="100"/>
                     <DataGridTextColumn Header="Группа" Binding="{Binding GroupTitle}"/>
                     <DataGridTextColumn Header="Подгруппа" Binding="{Binding SubgroupTitle}"/>
-                    <DataGridTextColumn Header="Оценка" Binding="{Binding Rate}"/>
-                    <DataGridTemplateColumn Header="Изменить оценку" Width="120">
+                    <DataGridTextColumn Header="Оценка" Binding="{Binding Rate}" MaxWidth="60"/>
+                    <DataGridTemplateColumn Header="Изменить оценку" MinWidth="120">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <ComboBox x:Name="comboBoxRateInGrid" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="14" SelectionChanged="comboBoxRateInGrid_SelectionChanged">
+                                <ComboBox x:Name="comboBoxRateInGrid" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14" SelectionChanged="comboBoxRateInGrid_SelectionChanged">
                                     <ComboBoxItem>1</ComboBoxItem>
                                     <ComboBoxItem>2</ComboBoxItem>
                                     <ComboBoxItem>3</ComboBoxItem>

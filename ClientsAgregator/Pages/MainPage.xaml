@@ -80,7 +80,7 @@
                                                 <ColumnDefinition>
                                                 </ColumnDefinition>
                                             </Grid.ColumnDefinitions>
-                                            <Button  Name="ClienBySubgroupButton"  Grid.Column="0" Height="20" Width="20" Background="Blue" Click="ClientBySubgroupButton_Click" ></Button>
+                                            <Button  Name="ClienBySubgroupButton"  Grid.Column="0" Height="20" Width="20" Background="Green" Click="ClientBySubgroupButton_Click" ></Button>
                                         </Grid>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>

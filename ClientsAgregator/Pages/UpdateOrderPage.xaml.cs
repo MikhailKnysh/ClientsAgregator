@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using System.Windows.Navigation;
 
 namespace ClientsAgregator.Pages
@@ -40,7 +41,7 @@ namespace ClientsAgregator.Pages
             _feedbackModels = new List<FeedbackModel>();
             foreach (ProductInOrderModel p in _productInOrderModels)
             {
-                _feedbackModels.Add(new FeedbackModel() { ProductId = p.ProductId, OrderId = _ordersInfoModel.Id });
+                _feedbackModels.Add(new FeedbackModel() { ProductId = p.ProductId, OrderId = _ordersInfoModel.Id, Rate = p.Rate, Description = p.ProductReview});
             }
 
             labelPageTitle.Content += _ordersInfoModel.Id.ToString();
@@ -78,7 +79,8 @@ namespace ClientsAgregator.Pages
             gridProductsInOrder.ItemsSource = _productInOrderModels;
 
             textBoxOrderReview.Text = _ordersInfoModel.OrderReview;
-            textBoxTotalPrice.Text = _ordersInfoModel.TotalPrice.ToString();
+            totalPrice = _ordersInfoModel.TotalPrice;
+            textBoxTotalPrice.Text = totalPrice.ToString();
         }
 
         private void buttonBack_Click(object sender, RoutedEventArgs e)
@@ -88,33 +90,82 @@ namespace ClientsAgregator.Pages
 
         private void AddProduct_Click(object sender, RoutedEventArgs e)
         {
-            ProductInOrderModel productInOrderModel = new ProductInOrderModel()
+            string quantity = textBoxQuaunity.Text.Trim();
+            string rate = comboBoxRate.Text.Trim();
+
+            bool isAdding = true;
+
+            if(rate is null)
             {
-                Articul = _productInfoModel.Articul,
-                ProductId = _productInfoModel.Id,
-                ProductTitle = _productInfoModel.Title,
-                Price = _productInfoModel.Price,
-                Quantity = Convert.ToInt32(textBoxQuaunity.Text),
-                MeasureUnitId = _productInfoModel.MeasureUnitId,
-                MeasureUnitTitle = _productInfoModel.MeasureUnit,
-                GroupTitle = _productInfoModel.Group,
-                SubgroupTitle = _productInfoModel.Subgroup,
-                Rate = Convert.ToInt32(comboBoxRate.Text)
-            };
-            FeedbackModel newfeedbackModel = new FeedbackModel()
+                rate = "-1";
+            }
+
+            if (!(ValidationData.IsNumber(quantity)
+               || !(ValidationData.IsValidStringLenght(quantity, validCharQuantity: 53))))
             {
-                ProductId = _productInfoModel.Id,
-                Description = string.Empty,
-                Rate = -1
-            };
+                textBoxQuaunity.ToolTip = "Это поле введено некорректно. Введите цифры в формате ХХХ или ХХХ.ХХ";
+                textBoxQuaunity.Background = Brushes.Tomato;
+                isAdding = false;
+            }
 
-            _productInOrderModels.Add(productInOrderModel);
+            if (!(ValidationData.IsStringNotNull(comboBoxClient.Text.Trim())))
+            {
+                comboBoxClient.ToolTip = "Это поле введено некорректно. Необходимо выбрать один из вариантов в списке";
+                comboBoxClient.Background = Brushes.Tomato;
+                isAdding = false;
+            }
 
-            totalPrice += productInOrderModel.Price * productInOrderModel.Quantity;
-            textBoxTotalPrice.Text = totalPrice.ToString();
+            if (!(ValidationData.IsStringNotNull(comboBoxProduct.Text.Trim())))
+            {
+                comboBoxProduct.ToolTip = "Это поле введено некорректно. Необходимо выбрать один из вариантов в списке";
+                comboBoxProduct.Background = Brushes.Tomato;
+                isAdding = false;
+            }
 
-            gridProductsInOrder.ItemsSource = _productInOrderModels;
-            gridProductsInOrder.Items.Refresh();
+            if (!(ValidationData.IsStringNotNull(comboBoxStatus.Text.Trim())))
+            {
+                comboBoxStatus.ToolTip = "Это поле введено некорректно. Необходимо выбрать один из вариантов в списке";
+                comboBoxStatus.Background = Brushes.Tomato;
+                isAdding = false;
+            }
+
+            if(ValidationData.IsValidStringLenght(textBoxOrderReview.Text.Trim(), 800))
+            {
+                textBoxOrderReview.ToolTip = "Это поле введено некорректно. Превышено количество введенных символов";
+                textBoxOrderReview.Background = Brushes.Tomato;
+                isAdding = false;
+            }
+
+            if (isAdding)
+            {
+                ProductInOrderModel productInOrderModel = new ProductInOrderModel()
+                {
+                    Articul = _productInfoModel.Articul,
+                    ProductId = _productInfoModel.Id,
+                    ProductTitle = _productInfoModel.Title,
+                    Price = _productInfoModel.Price,
+                    Quantity = Convert.ToInt32(textBoxQuaunity.Text),
+                    MeasureUnitId = _productInfoModel.MeasureUnitId,
+                    MeasureUnitTitle = _productInfoModel.MeasureUnit,
+                    GroupTitle = _productInfoModel.Group,
+                    SubgroupTitle = _productInfoModel.Subgroup,
+                    Rate = Convert.ToInt32(rate)
+                };
+                FeedbackModel newfeedbackModel = new FeedbackModel()
+                {
+                    ProductId = _productInfoModel.Id,
+                    Description = string.Empty,
+                    Rate = -1
+                };
+
+                _productInOrderModels.Add(productInOrderModel);
+
+                totalPrice += productInOrderModel.Price * productInOrderModel.Quantity;
+                textBoxTotalPrice.Text = totalPrice.ToString();
+
+                gridProductsInOrder.ItemsSource = _productInOrderModels;
+                gridProductsInOrder.Items.Refresh();
+            }
         }
 
         private void comboBoxRateInGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -122,6 +173,7 @@ namespace ClientsAgregator.Pages
             string result = ((sender as ComboBox).SelectedItem as ComboBoxItem).Content as string;
             _productInOrderModels[gridProductsInOrder.SelectedIndex].Rate = Convert.ToInt32(result);
             _feedbackModels[gridProductsInOrder.SelectedIndex].Rate = Convert.ToInt32(result);
+            
             gridProductsInOrder.Items.Refresh();
 
         }
@@ -158,7 +210,7 @@ namespace ClientsAgregator.Pages
 
         private void buttonAddReview_Click(object sender, RoutedEventArgs e)
         {
-            AddProductReview addProductReview = new AddProductReview();
+            AddProductReview addProductReview = new AddProductReview(_feedbackModels[gridProductsInOrder.SelectedIndex].Description);
             addProductReview.ShowDialog();
 
             _feedbackModels[gridProductsInOrder.SelectedIndex].Description = addProductReview.ProductReview;
@@ -170,10 +222,10 @@ namespace ClientsAgregator.Pages
         private void buttonSave_Click(object sender, RoutedEventArgs e)
         {
             string clientFullName = comboBoxClient.SelectedItem.ToString();
-            
+
             int clientId = (from c in _clients
-                        where c.FullName.Equals(clientFullName)
-                        select c.Id)
+                            where c.FullName.Equals(clientFullName)
+                            select c.Id)
                             .FirstOrDefault();
 
             string statusTitle = comboBoxStatus.SelectedItem.ToString();
@@ -200,7 +252,7 @@ namespace ClientsAgregator.Pages
             }
 
             _controller.UpdateOrder(updatedOrderInfoModel, _ordersInfoModel.Id, _feedbackModels);
-            
+
             NavigationService.Navigate(new ListOfOrdersWindow());
         }
     }

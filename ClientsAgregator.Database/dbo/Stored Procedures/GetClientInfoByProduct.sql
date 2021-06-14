@@ -15,3 +15,4 @@ WHERE [ClientsAgregatorDB].[Product_Order].[ProductId] = @ProductId
 GROUP BY [ClientsAgregatorDB].[Clients].[Id], [Clients].[LastName], [ClientsAgregatorDB].[Clients].[FirstName],[ClientsAgregatorDB].[Clients].[MiddleName],
 [ClientsAgregatorDB].[Clients].[Phone],[ClientsAgregatorDB].[BulkStatus].[Title],
 [ClientsAgregatorDB].[Product_Order].[ProductId]
+ORDER BY  AVGRate DESC

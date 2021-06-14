@@ -52,8 +52,6 @@ namespace ClientsAgregator.Pages
 
         private void CreateButton_Click(object sender, RoutedEventArgs e)
         {
-            if (ValidationData.IsStringNotNull(ProductsSubgroupComboBox.Text.Trim()))           //нужна ли проверка, если кнопка и так не активна пока что-то не выберешь?
-            {
                 InterestedClientBySubgroupGrid.Items.Clear();
                 InterestedClientByProductGrid.Items.Clear();
                 int subgroupId = productsSubgropModels[ProductsSubgroupComboBox.SelectedIndex].SubgroupId;
@@ -70,7 +68,6 @@ namespace ClientsAgregator.Pages
                 {
                     InterestedClientBySubgroupGrid.Items.Add(intrClient);
                 }
-            }
         }
 
         private void ClientByProductButton_Click(object sender, RoutedEventArgs e)

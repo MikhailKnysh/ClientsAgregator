@@ -28,7 +28,7 @@ namespace ClientsAgregator
             else
             {
                 GroupTextBox.Background = Brushes.Tomato;
-                GroupTextBox.ToolTip = "Это поле введено некорректно";
+                GroupTextBox.ToolTip = "Поле не может быть пустым или превышено количество символов";
             }
         }
     }

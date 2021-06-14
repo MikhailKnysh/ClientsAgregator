@@ -28,7 +28,7 @@
         <Button Content="Назад" Grid.ColumnSpan="2" Click="buttonBack_Click" Style="{StaticResource ButtonBack}" Template="{StaticResource ButtonBackTemplate}"/>
         <Line Stroke="Black" StrokeThickness="2" X1="0" Y1="0" X2="900" Y2="0"  Grid.ColumnSpan="6" VerticalAlignment="Center" Margin="0,45,0,0"  Grid.Row="0"></Line>
 
-        <Label x:Name="labelPageTitle" Content="ДОБАВИТЬ ЗАКАЗ" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="6" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="16" FontWeight="Bold"/>
+        <Label x:Name="labelPageTitle" Content="ДОБАВИТЬ ЗАКАЗ" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="6" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="25" FontWeight="Bold"/>
         <Label x:Name="labelClient" Content="Клиент" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14"/>
         <ComboBox x:Name="comboBoxClient" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" IsTextSearchEnabled="True" IsEditable="True" FontSize="14"/>
         <Label x:Name="labelDate" Content="Дата" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14"/>

@@ -11,42 +11,16 @@ namespace ClientsAgregator_BLL
         public static bool IsValidEmail(string email)
         {
             if (string.IsNullOrWhiteSpace(email))
-                return false;
-
-            try
-            {
-                // Normalize the domain
-                email = Regex.Replace(email, @"(@)(.+)$", DomainMapper,
-                                      RegexOptions.None, TimeSpan.FromMilliseconds(200));
-
-                // Examines the domain part of the email and normalizes it.
-                string DomainMapper(Match match)
-                {
-                    // Use IdnMapping class to convert Unicode domain names.
-                    var idn = new IdnMapping();
-
-                    // Pull out and process domain name (throws ArgumentException on invalid)
-                    string domainName = idn.GetAscii(match.Groups[2].Value);
-
-                    return match.Groups[1].Value + domainName;
-                }
-            }
-            catch (RegexMatchTimeoutException e)
-            {
-                return false;
-            }
-            catch (ArgumentException e)
             {
                 return false;
             }
 
-            try
+            if(Regex.IsMatch(email,
+                    @"^[^@\s]+@[^@\s]+\.[^@\s]+$", RegexOptions.IgnoreCase))
             {
-                return Regex.IsMatch(email,
-                    @"^[^@\s]+@[^@\s]+\.[^@\s]+$",
-                    RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(250));
+                return true;
             }
-            catch (RegexMatchTimeoutException)
+            else
             {
                 return false;
             }
@@ -55,38 +29,16 @@ namespace ClientsAgregator_BLL
         public static bool IsValidPhone(string phone)
         {
             if (string.IsNullOrWhiteSpace(phone))
-                return false;
-
-            try
-            {
-                phone = Regex.Replace(phone, @"^\+[0-9]\d{11,16}$", DomainMapper,
-                                      RegexOptions.None, TimeSpan.FromMilliseconds(200));
-
-                string DomainMapper(Match match)
-                {
-                    var idn = new IdnMapping();
-
-                    string domainName = idn.GetAscii(match.Groups[2].Value);
-
-                    return match.Groups[1].Value + domainName;
-                }
-            }
-            catch (RegexMatchTimeoutException e)
-            {
-                return false;
-            }
-            catch (ArgumentException e)
             {
                 return false;
             }
 
-            try
+            if (Regex.IsMatch(phone,
+                @"^\+[0-9]{11,16}$"))
             {
-                return Regex.IsMatch(phone,
-                    @"^\+[0-9]{11,16}$",
-                    RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(250));
+                return true;
             }
-            catch (RegexMatchTimeoutException)
+            else
             {
                 return false;
             }
@@ -96,8 +48,7 @@ namespace ClientsAgregator_BLL
         {
             int minLength = 0;
 
-            if(str.Length <= validCharQuantity && str.Length > minLength
-                     && !(string.IsNullOrWhiteSpace(str)))
+            if (str.Length <= validCharQuantity && str.Length >= minLength)
             {
                 return true;
             }
@@ -107,7 +58,7 @@ namespace ClientsAgregator_BLL
 
         public static bool IsStringNotNull(string str)
         {
-            if(!(string.IsNullOrEmpty(str)))
+            if (!(string.IsNullOrEmpty(str)))
             {
                 return true;
             }
@@ -117,10 +68,15 @@ namespace ClientsAgregator_BLL
 
         public static bool IsNumber(string str)
         {
-            int Num;
-            bool isNum = int.TryParse(str, out Num);
-
-            return isNum;
+            if (Regex.IsMatch(str,
+               @"^[0-9]{0,53}\.?[0-9]{0,2}$"))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
 

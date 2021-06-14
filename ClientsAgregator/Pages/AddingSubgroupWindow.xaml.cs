@@ -39,7 +39,7 @@ namespace ClientsAgregator
             else
             {
                 SubgroupTextBox.Background = Brushes.Tomato;
-                SubgroupTextBox.ToolTip = "Это поле введено некорректно";
+                SubgroupTextBox.ToolTip = "Поле не может быть пустым или превышено количество символов";
             }
         }
 
