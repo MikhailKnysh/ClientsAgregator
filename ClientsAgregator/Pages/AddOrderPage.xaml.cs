@@ -22,6 +22,7 @@ namespace ClientsAgregator.Pages
         private List<FeedbackModel> _feedbackModels;
         private ProductInfoModel productInfoModel;
         private double totalPrice;
+        private bool isAdding;
 
         private Controller _controller;
 
@@ -60,8 +61,9 @@ namespace ClientsAgregator.Pages
         private void AddProduct_Click(object sender, RoutedEventArgs e)
         {
             string quantity = textBoxQuaunity.Text.Trim();
+            string orderDate = datePicker.Text;
 
-            bool isAdding = true;
+            isAdding = true;
 
             if (!(ValidationData.IsNumber(quantity)
                 || !(ValidationData.IsValidStringLenght(quantity, validCharQuantity: 53))))
@@ -71,7 +73,7 @@ namespace ClientsAgregator.Pages
                 isAdding = false;
             }
 
-            if(!(ValidationData.IsStringNotNull(comboBoxClient.Text.Trim())))
+            if (!(ValidationData.IsStringNotNull(comboBoxClient.Text.Trim())))
             {
                 comboBoxClient.ToolTip = "Необходимо выбрать один из вариантов в списке";
                 comboBoxClient.Background = Brushes.Tomato;
@@ -89,6 +91,13 @@ namespace ClientsAgregator.Pages
             {
                 comboBoxStatus.ToolTip = "Необходимо выбрать один из вариантов в списке";
                 comboBoxStatus.Background = Brushes.Tomato;
+                isAdding = false;
+            }
+
+            if (!(ValidationData.IsStringNotNull(orderDate)))
+            {
+                datePicker.ToolTip = "Выберите дату";
+                datePicker.Background = Brushes.Tomato;
                 isAdding = false;
             }
 
@@ -127,6 +136,8 @@ namespace ClientsAgregator.Pages
                 textBoxTotalPrice.Text = totalPrice.ToString();
 
                 gridProductsInOrder.Items.Add(productInOrderModel);
+
+                datePicker.Background = Brushes.Transparent;
             }
         }
 
